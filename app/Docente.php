@@ -5,14 +5,34 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\DocenteResetPasswordNotification;
+
 
 
 class Docente extends Authenticatable
 {
- 
+    use Notifiable;
+
     protected $guard = 'docente';
 
     protected $fillable = ['name', 'email', 'password'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+
+    //Llamar a la notificacion del correo 
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new DocenteResetPasswordNotification($token));
+    }
 
     public function puestos()
     {

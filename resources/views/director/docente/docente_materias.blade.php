@@ -38,7 +38,7 @@
               </select>
             </div>          
             <button type="submit" class="btn btn-success">Agregar puesto</button>            
-            <a href="{{url('/director/docentes/index')}}" class="btn btn-danger">Regresar al panel de docentes</a>
+            <a href="{{url('/director/docente/'.$docente->id.'/view')}}" class="btn btn-danger">Regresar al panel del docente</a>
         </form>        
       </div>
       @if($errors->any())

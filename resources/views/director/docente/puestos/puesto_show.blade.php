@@ -40,12 +40,25 @@
                 @endforeach
               </select>
             </div>
-          <button class="btn btn-primary">Agregar docente</button>
+          <button class="btn btn-success">Agregar docente</button>
           <a href="{{url('director/puestos/index')}}" class="btn btn-danger">Regresar al panel de puestos</a>
         </form>        
       </div>    
       <div class="tab-content tab-space">
-       @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
+        @if (session('eliminado')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
+            <div class="alert alert-danger text-left">
+                <div class="container-fluid">
+                  <div class="alert-icon">
+                    <i class="material-icons">check</i>
+                  </div>
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                  </button>
+                  {{ session('eliminado') }}
+                </div>
+            </div>
+        @endif  
+        @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
             <div class="alert alert-success text-left">
                 <div class="container-fluid">
                   <div class="alert-icon">
@@ -79,7 +92,7 @@
                               <form method="post" action="{{url('/director/puesto/'.$puesto->id.'/docentes/'.$docente->id.'/delete')}}">
                                 {{csrf_field()}}
 
-                                <a href="{{url('director/docente/'.$puesto->id.'/view')}}" rel="tooltip" 
+                                <a href="{{url('director/docente/'.$docente->id.'/view')}}" rel="tooltip" 
                                    title="Visualizar Docente" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" 
                                    target="_blank">
                                     <i class="fa fa-user"></i>

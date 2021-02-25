@@ -295,10 +295,7 @@
 		<h3 class="text-center">Dirección: Calle Emiliano Zapata Sur N, Sexto Barrio Emiliano Zapata, 90140 Panotla, Tlax. <br>
 		 	Teléfono: 246 462 5147
 		 </h3>
-	</div><hr>
-	<header class="cabeza">		
-		<h2>Colegio de Bachilleres del estado de Tlaxcala Cobat Plantel 11</h2>		
-	</header>		
+	</div><hr>		
 	<div class="container">
 		<div class="section">												
 			<h3 class="title text-center">Selecciona SI o NO en las características y cualidades que consideres que tiene o no su hijo (a).</h3>

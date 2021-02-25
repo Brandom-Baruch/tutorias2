@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Docente\Tutorias;
+namespace App\Http\Controllers\Docente\tutorias;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +18,7 @@ class TutoriasController extends Controller
     {        
         $docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia
         $materia_grupo = $docente_materia->grupos()->where('materia_id',$docente_materia->id)->first(); //R entre materia/grupo
-        $grupo_alumno = $materia_grupo->alumnos()->where('grupo_id',$materia_grupo->id)->get(); //Grupo/alumno   
+        $grupo_alumno = $materia_grupo->alumnos()->where('grupo_id',$materia_grupo->id)->get(); //Grupo/alumno          
     	return view('docente.tutorias.docente_tutor')->with(compact('materia_grupo','grupo_alumno'));
     }
 

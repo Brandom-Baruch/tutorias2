@@ -212,7 +212,7 @@
 						</div>                          
 					</div>
 					</div>                                                                                        
-					<button class="btn btn-edit">Registrar docente</button>
+					<button class="btn btn-success">Actualizar datos</button>
 					<a href="{{url('padre_familia')}}" class="btn btn-danger">Cancelar</a> 
 				</div>
 			</form>                  

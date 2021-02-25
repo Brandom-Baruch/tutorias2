@@ -27,6 +27,19 @@
           </div>
         </div>        
       </div>
+      @if (session('status'))
+            <div class="alert alert-success text-left">
+              <div class="container-fluid">
+                <div class="alert-icon">
+                  <i class="material-icons">check</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                Has cambiado tu contraseña exitosamente
+              </div>
+            </div>
+      @endif
       @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
           <div class="alert alert-success text-left">
             <div class="container-fluid">

@@ -55,12 +55,13 @@
                        title="Ver Alumno" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" target="_blank">
                       <i class="fa fa-user"></i>
                     </a>
-                  </div>
+                  </div>                  
                 </div>
               </div>
-             </div>           
+             </div>                  
             @endforeach
           </div>
+            <a href="{{url('/director/alumnos/index')}}" class="btn btn-danger">Regresar</a>
         </div>
      </div>
     </div>

@@ -144,10 +144,9 @@ class DocenteController extends Controller
 
     public function show(Request $request, $id)
     {
-
         $request->user()->autorizarPuestos('Director');
-        $docentes= Docente::find($id);       
-        return view('director.docente.docente_show')->with(compact('docentes'));
+        $docente= Docente::find($id);       
+        return view('director.docente.docente_show')->with(compact('docente'));
     }
     
 }

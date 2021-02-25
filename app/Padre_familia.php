@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\PadreResetPasswordNotification;
 
 class Padre_familia extends Authenticatable
 {
@@ -14,6 +15,11 @@ class Padre_familia extends Authenticatable
     protected $guard = 'padre';
  
     protected $fillable = ['name', 'email', 'password',];    
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PadreResetPasswordNotification($token));
+    }
 
     public function setCurpAttribute($value)
     {

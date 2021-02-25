@@ -25,7 +25,7 @@
                                 <img src="{{url('img/docente_1.jpg')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
                             </div>
                             <div class="name">
-                                <h3 class="title">Información del docente <b class="text-primary">{{$docentes->name}}</b></h3>                
+                                <h3 class="title">Información del docente <b class="text-primary">{{$docente->name}}</b></h3>                
                             </div>
                         </div>
                     </div>          
@@ -86,38 +86,38 @@
                         <div class="form-row">              
                             <div class="form-group col-md-4">
                                 <label class="text-dark" class="text-dark">Nombre(s)</label>
-                                <input type="text" class="form-control" value="{{$docentes->name}}">            
+                                <input type="text" class="form-control" value="{{$docente->name}}">            
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="text-dark">Apellido Paterno</label>
-                                <input type="text" class="form-control" value="{{$docentes->apellidoP}}">            
+                                <input type="text" class="form-control" value="{{$docente->apellidoP}}">            
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="text-dark">Apellido Materno</label>
-                                <input type="text" class="form-control" value="{{$docentes->apellidoM}}">
+                                <input type="text" class="form-control" value="{{$docente->apellidoM}}">
                             </div>          
                             <div class="form-group col-md-4">
                                 <label class="text-dark">Correo electronico</label>
-                                <input type="text" class="form-control" value="{{$docentes->email}}">
+                                <input type="text" class="form-control" value="{{$docente->email}}">
                             </div>                             
                             <div class="form-group col-md-4">
                                 <label class="text-dark">Telefono celular</label>
-                                <input type="tel" class="form-control" value="{{$docentes->telefono_cel}}">
+                                <input type="tel" class="form-control" value="{{$docente->telefono_cel}}">
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="text-dark">Telefono fijo</label>
-                                <input type="tel" class="form-control" value="{{$docentes->telefono_fijo}}">
+                                <input type="tel" class="form-control" value="{{$docente->telefono_fijo}}">
                             </div>                 
                             <div class="form-group col-md-2">
                                 <label class="text-dark">Edad</label>
-                                <input type="number" class="form-control" value="{{$docentes->edad}}">
+                                <input type="number" class="form-control" value="{{$docente->edad}}">
                             </div>                
                         </div>            
-                        <a href="{{url('director/docente/'.$docentes->id.'/edit')}}" class="btn btn-success" target="_blank">Editar información</a>
+                        <a href="{{url('director/docente/'.$docente->id.'/edit')}}" class="btn btn-success" target="_blank">Editar información</a>
                         <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>
                     </div>
                     <div class="tab-pane text-center gallery" id="direccion">                        
-                        @foreach($docentes->domicilios as $domicilio)
+                        @foreach($docente->domicilios as $domicilio)
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Estado</label>
@@ -152,16 +152,16 @@
                                 <input type="number" class="form-control" value="{{$domicilio->cp}}">
                             </div>                    
                         </div>    
-                        @if($docentes->domicilios->count() == 1)
-                        <form method="post" action="{{url('director/docente/'.$docentes->id.'/domicilio/'.$domicilio->id.'/delete')}}" >
+                        @if($docente->domicilios->count() == 1)
+                        <form method="post" action="{{url('director/docente/'.$docente->id.'/domicilio/'.$domicilio->id.'/delete')}}" >
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>              
                             <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>
                         </form>                
                         @endif                                          
                         @endforeach   
-                        @if($docentes->domicilios->count() == 0)
-                        <a href="{{url('director/docente/'.$docentes->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
+                        @if($docente->domicilios->count() == 0)
+                        <a href="{{url('director/docente/'.$docente->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
                         <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>                            
                         @endif
                     </div>
@@ -178,7 +178,7 @@
                                     </tr>
                                 </thead>                                
                                 <tbody>
-                                    @foreach($docentes->materias as $numero => $materia)
+                                    @foreach($docente->materias as $numero => $materia)
                                     <tr>
                                         <td class="text-center">{{($numero+1)}}</td>                                                
                                         <td class="text-center">{{$materia->name}}</td>
@@ -186,7 +186,7 @@
                                         <td class="text-center">{{$materia->clave}}</td>
                                         <td class="td-actions">
                                             <form  method="post" 
-                                                   action="{{url('director/docente/'.$docentes->id.'/materia/'.$materia->id.'/delete')}}">
+                                                   action="{{url('director/docente/'.$docente->id.'/materia/'.$materia->id.'/delete')}}">
                                                    {{csrf_field()}}
                                                 <button type="submit" rel="tooltip" title="Quitar Materia" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm" >
                                                     <i class="material-icons">clear</i>
@@ -198,7 +198,7 @@
                                 </tbody>                                
                             </table>                
                         </div>
-                        <a href="{{url('director/docente/'.$docentes->id.'/materias')}}" class="btn btn-success" target="_blank">Agregar materia</a>
+                        <a href="{{url('director/docente/'.$docente->id.'/materias')}}" class="btn btn-success" target="_blank">Agregar materia</a>
                         <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>
                     </div>
                     <div class="tab-pane text-center gallery" id="puestos">
@@ -213,14 +213,14 @@
                                     </tr>
                                 </thead>                                
                                 <tbody>
-                                    @foreach($docentes->puestos as $puesto)
+                                    @foreach($docente->puestos as $puesto)
                                     <tr>
                                         <td class="text-center">{{$puesto->id}}</td>                                               
                                         <td class="text-center">{{$puesto->puesto}}</td>
                                         <td class="text-center">{{$puesto->descripcion}}</td>                          
                                         <td class="td-actions">                                                     
                                             <form method="post" 
-                                                action="{{url('director/puesto/'.$puesto->id.'/docentes/'.$docentes->id.'/delete')}}">
+                                                action="{{url('director/puesto/'.$puesto->id.'/docentes/'.$docente->id.'/delete')}}">
                                                 {{csrf_field()}}
                                                 <button type="submit" rel="tooltip" title="Quitar Puesto" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
                                                     <i class="material-icons">clear</i>
@@ -232,7 +232,7 @@
                                 </tbody>                                
                             </table>                
                         </div>
-                        <a href="{{url('director/docente/'.$docentes->id.'/puestos')}}" class="btn btn-success" target="_blank">Agregar puesto</a>
+                        <a href="{{url('director/docente/'.$docente->id.'/puestos')}}" class="btn btn-success" target="_blank">Agregar puesto</a>
                         <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>
                     </div>            
                 </div>              

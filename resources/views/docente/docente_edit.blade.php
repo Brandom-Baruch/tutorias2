@@ -146,10 +146,12 @@
                                    name="password_confirmation"
                                    value="secret">                              
                           </div>                          
-                    </div>
-                    <button class="btn btn-success">Registrar docente</button>
-                    <a href="{{url('/director/docentes/index')}}" class="btn btn-danger">Cancelar</a>
-                </div>                          
+                    </div>                    
+                </div>    
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-success">Registrar docente</button>
+                        <a href="{{url('/docente')}}" class="btn btn-danger">Cancelar</a>
+                    </div>                      
              </form>                  
         </div>              
     </div>

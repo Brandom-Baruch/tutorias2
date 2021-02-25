@@ -97,7 +97,7 @@ class PuestoController extends Controller
         $puesto_asignado->docente_id = $request->input('docente_id');
         $puesto_asignado->puesto_id = $puesto->id;
         $puesto_asignado->save();
-        $mensaje = 'Se ha  asignado un puesto exitosamente ';
+        $mensaje = 'Se ha  asignado el puesto para el docente exitosamente';
         return back()->with(compact('mensaje'));
     }
 
@@ -105,7 +105,7 @@ class PuestoController extends Controller
     {        
         $docente = Docente::find($docente_id);
         $docente->puestos()->detach($puesto_id);        
-        $eliminado = 'Se ha eliminado el puesto  exitosamente';
+        $eliminado = 'Se ha quitado el puesto del docente: ' .$docente->name;
         return back()->with(compact('eliminado'));
     }
 }

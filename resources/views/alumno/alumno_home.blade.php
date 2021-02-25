@@ -27,6 +27,19 @@
           </div>
         </div>
       </div>
+      @if (session('status'))
+            <div class="alert alert-success text-left">
+              <div class="container-fluid">
+                <div class="alert-icon">
+                  <i class="material-icons">check</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                Has cambiado tu contraseña exitosamente
+              </div>
+            </div>
+      @endif
       @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
         <div class="alert alert-success text-left">
           <div class="container-fluid">
@@ -179,6 +192,7 @@
         <div class="tab-pane text-center gallery" id="parentezco">
           @if(Auth::user()->padres->isEmpty())
             <h3 class="text-danger">No tiene parentesco con un familiar</h3>
+            <a href="{{url('alumno/'.Auth::user()->nia.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
           @else
           <div class="row">
             <table class="table table-responsive-sm table-responsive-md table-responsive-lg">

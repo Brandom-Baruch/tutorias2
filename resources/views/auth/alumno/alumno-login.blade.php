@@ -60,6 +60,14 @@
                     </span>
                 @endif 
 
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4">
+                        <a class="btn btn-link btn-primary" href="{{ url('alumno/password/reset')}}">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+                </div>
+
               </div>
               <div class="footer text-center">
                 <button  type="submit" class="btn btn-primary btn-link btn-wd btn-lg">Ingresar</button>

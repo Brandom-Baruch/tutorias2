@@ -34,7 +34,7 @@
         </div>          
       @endif
       <div class="row ">
-        @if(!empty(Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && Auth::user()->test->test_habito_estudio->where('descripcion','Finalizo habito de estudio')->where('test_id',Auth::user()->test->id)->first()))
+        @if(!empty(Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && Auth::user()->test->test_habito_estudio))
           <div class="col-12 text-center">
               <form method="post" action="{{url('alumno/finalizar/test')}}">
                 {{csrf_field()}}

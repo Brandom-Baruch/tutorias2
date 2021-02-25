@@ -34,7 +34,12 @@
                             </div>
                         </div>
                     </div>          
-                </div>        
+                </div>
+                @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                @endif        
                 @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
                 <div class="alert alert-success text-left">
                     <div class="container-fluid">                  

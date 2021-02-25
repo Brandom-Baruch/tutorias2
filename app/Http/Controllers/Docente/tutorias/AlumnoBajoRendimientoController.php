@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Docente\Tutorias;
+namespace App\Http\Controllers\Docente\tutorias;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Docente;
 use App\Alumno_Bajo_Rendimiento;
+
 class AlumnoBajoRendimientoController extends Controller
 {
     public function index()

@@ -14,7 +14,7 @@ class DocenteLoginController extends Controller
 
     public function __construct()
 	{
-		$this->middleware('guest:docente',['only' => 'showLoginForm']);
+		$this->middleware('guest:docente');
 	}
 
     public function showLoginForm()

@@ -63,13 +63,15 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
           <div class="row">
               <div class="col-md-6">
                 <div class="table-responsive">
-                    <h3 class="text-left">Entrevista Fresca Alumno</h3>
+                  <div class="col-md-12 text-center">
+                       <h3>Entrevista Fresca Alumno</h3>
+                  </div>
                     <table class="table  table-responsive-sm table-responsive-md table-responsive-lg">
                         <thead>
                           <tr>              
                             <th class="text-center">Nia</th>
                             <th class="text-center">Alumno</th>              
-                            <th class="text-center">Opciones</th>
+                            <th class="text-center">Ver datos</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -78,14 +80,19 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
                                 <td class="text-center">{{$alumno->nia}}</td>
                                 <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>      
                                 <td class="td-actions text-center">
-                                  @if($alumno->entrevista_fresca['descripcion'] == 'Finalizo la entrevista')
-                                  <a href="{{url('docente/entrevista_fresca/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
-                                    <i class="material-icons">check</i>                        
-                                  </a>                                                    
-                                  @elseif($alumno->entrevista_fresca['descripcion'] == 'Inicio la entrevista')                             
-                                   <p>No ha finalizado la entrevista</p>
-                                  @else
-                                  <p class="text-danger">No ha iniciado la entrevista</p>
+                                  @if(empty($alumno->entrevista_fresca))
+                                      <b class="text-danger">
+                                        No ha iniciado entrevista
+                                      </b>
+                                    @elseif($alumno->entrevista_fresca->descripcion == "Finalizo la entrevista")
+                                      <a href="{{url('docente/entrevista_fresca/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" 
+                                        title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
+                                        <i class="material-icons">check</i>                        
+                                      </a>
+                                    @elseif($alumno->entrevista_fresca->descripcion == "Inicio la entrevista")
+                                       <b class="text-warning">
+                                        {{ $alumno->entrevista_fresca->descripcion }} 
+                                       </b>                                      
                                   @endif
                                 </td>
                               </tr>                
@@ -96,14 +103,16 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
               </div>
               <div class="col-md-6">
                 <div class="table-responsive">
-                    <h3 class="text-left">Entrevista Fresca Padres</h3>
-                    <table class="table  table-responsive-sm table-responsive-md table-responsive-lg">
+                    <div class="col-md-12 text-center">
+                      <h3>Entrevista Fresca Padres</h3>
+                    </div>
+                    <table class="table table-responsive">
                         <thead>
                           <tr>              
                             <th class="text-center">Nia</th>
                             <th class="text-center">Alumno</th>              
                             <th class="text-center">Padre</th>
-                            <th class="text-center">Opciones</th>
+                            <th class="text-center">Ver datos</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -116,14 +125,19 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
                                   {{$padre->name}} {{$padre->apellidoP}} {{$padre->apellidoM}}
                                 </td> 
                                 <td class="td-actions text-center">
-                                  @if($padre->entrevista['descripcion'] == 'Finalizo la entrevista')
-                                  <a href="{{url('docente/entrevista_fresca/padre_familia/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
-                                    <i class="material-icons">check</i>                        
-                                  </a>                                                    
-                                  @elseif($padre->entrevista_fresca['descripcion'] == 'Inicio la entrevista')                             
-                                   <p>No ha finalizado la entrevista</p>
-                                  @else
-                                  <p class="text-danger">No ha iniciado la entrevista</p>
+                                  @if(empty($padre->entrevista))
+                                    <b class="text-danger">
+                                      No ha iniciado la entrevista
+                                    </b>
+                                    @elseif($padre->entrevista->descripcion == 'Finalizo la entrevista')
+                                      <a href="{{url('docente/entrevista_fresca/padre_familia/alumno/'.$alumno->nia.'/view')}}" 
+                                        rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
+                                        <i class="material-icons">check</i>                        
+                                      </a>  
+                                    @elseif($padre->entrevista->descripcion == 'Inicio la entrevista')                             
+                                      <b class="text-warning">
+                                          {{ $padre->entrevista->descripcion }}
+                                      </b>                                 
                                   @endif
                                 </td>
                               </tr>                  
@@ -143,26 +157,31 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
               <thead>
                 <tr>              
                   <th class="text-center">Nia</th>
-                  <th class="text-center">Alumno</th>              
-                  <th class="text-center">Estado</th>
-                  <th class="text-center">Opciones</th>
+                  <th class="text-center">Alumno</th>                                
+                  <th class="text-center">Ver datos</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($grupo_alumno as  $alumno)                                
                     <tr>              
                       <td class="text-center">{{$alumno->nia}}</td>
-                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>            
-                      <td class="text-center">{{$alumno->cuestionario_anexo['descripcion']}}</td>                                  
+                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>               
                       <td class="td-actions text-center">
-                        @if($alumno->cuestionario_anexo['descripcion'] == 'Finalizo cuestionario')
-                        <a href="{{url('docente/cuestionario_anexos/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
-                          <i class="material-icons">check</i>                        
-                        </a>                                                    
-                        @elseif($alumno->cuestionario_anexo['descripcion'] == 'Inicio cuestionario')                             
-                         <p>No ha finalizado el cuestionario</p>
-                        @else
-                        <p class="text-danger">No ha iniciado la entrevista</p>
+                        @if(empty($alumno->cuestionario_anexo))
+                          <b class="text-danger">
+                              No ha iniciado el cuestionario
+                          </b>
+
+                          @elseif($alumno->cuestionario_anexo->descripcion == 'Finalizo cuestionario')                             
+                              <a href="{{url('docente/cuestionario_anexos/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" 
+                                title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
+                                <i class="material-icons">check</i>                        
+                              </a> 
+
+                          @elseif($alumno->cuestionario_anexo->descripcion == 'Inicio cuestionario')                             
+                              <b class="text-warning">
+                                {{ $alumno->cuestionario_anexo->descripcion }}
+                              </b>                        
                         @endif
                       </td>
                     </tr>                
@@ -178,30 +197,32 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
               <thead>
                 <tr>              
                   <th class="text-center">Nia</th>
-                  <th class="text-center">Alumno</th>              
-                  <th class="text-center">Estado</th>
-                  <th class="text-center">Opciones</th>
+                  <th class="text-center">Alumno</th>                                
+                  <th class="text-center">Ver datos</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($grupo_alumno as  $alumno)                                
                     <tr>              
                       <td class="text-center">{{$alumno->nia}}</td>
-                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>            
-                      <td class="text-center">{{$alumno->test['descripcion']}}</td>                                     
+                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>                 
                       <td class="td-actions text-center">
-                        @if($alumno->test['descripcion'] == 'Finalizo Test')
-                        <a href="{{url('docente/estilos_aprendizaje/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
-                          <i class="material-icons">check</i>                        
-                        </a>                                                    
-                        @elseif($alumno->test['descripcion'] == 'Inicio Test')                             
-                         <p>No ha finalizado el cuestionario</p>
-                        @else
-                        <p class="text-danger">No ha iniciado la entrevista</p>
+                        @if(empty($alumno->test))
+                          <b class="text-danger">
+                            No ha iniciado el test
+                          </b>
+                          @elseif($alumno->test->descripcion == 'Finalizo Test')
+                          <a href="{{url('docente/estilos_aprendizaje/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
+                            <i class="material-icons">check</i>                        
+                          </a>                                                    
+                          @elseif($alumno->test->descripcion == 'Inicio Test')                             
+                            <b class="text-warning">
+                              {{ $alumno->test->descripcion }}
+                            </b>                          
                         @endif
                       </td>
                     </tr>                
-               @endforeach
+                @endforeach
               </tbody>
             </table> 
           </div>
@@ -213,24 +234,24 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
               <thead>
                 <tr>              
                   <th class="text-center">Nia</th>
-                  <th class="text-center">Alumno</th>              
-                  <th class="text-center">Estado</th>
-                  <th class="text-center">Opciones</th>
+                  <th class="text-center">Alumno</th>                                
+                  <th class="text-center">Ver datos</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($grupo_alumno as  $alumno)                                
                     <tr>              
                       <td class="text-center">{{$alumno->nia}}</td>
-                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>            
-                      <td class="text-center">{{$alumno->atencion_individual['descripcion']}}</td>                                 
+                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>                  
                       <td class="td-actions text-center">
-                        @if($alumno->atencion_individual['descripcion'] == 'Finalizo Test')
-                        <a href="{{url('docente/atencion_individual/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
-                          <i class="material-icons">check</i>                        
-                        </a>                                                    
-                        @else                           
-                         <p>No ha finalizado el cuestionario</p>                       
+                        @if(empty($alumno->atencion_individual))
+                          <b class="text-danger">
+                              No ha iniciado el test 
+                          </b>
+                          @elseif($alumno->atencion_individual->descripcion == 'Finalizo Test')
+                          <a href="{{url('docente/atencion_individual/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
+                            <i class="material-icons">check</i>                        
+                          </a>                                                                            
                         @endif
                       </td>
                     </tr>                
@@ -247,7 +268,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
                 <tr>              
                   <th class="text-center">Nia</th>
                   <th class="text-center">Alumno</th>              
-                  <th class="text-center">Opciones</th>
+                  <th class="text-center">Ver datos</th>
                 </tr>
               </thead>
               <tbody>
@@ -256,12 +277,14 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
                       <td class="text-center">{{$alumno->nia}}</td>
                       <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>
                       <td class="td-actions text-center">
-                        @if($alumno->perfil_academico['alumno_id'] == $alumno->nia)
-                        <a href="{{url('docente/perfil_academico/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
-                          <i class="material-icons">check</i>                        
-                        </a>                                                    
-                        @else                           
-                         <p>No ha finalizado el cuestionario</p>                       
+                        @if(empty($alumno->perfil_academico))
+                          <b class="text-warning">
+                              No ha finalizado cuestionario
+                          </b>
+                        @elseif($alumno->perfil_academico->alumno_id == $alumno->nia)
+                          <a href="{{url('docente/perfil_academico/alumno/'.$alumno->nia.'/view')}}" rel="tooltip" title="Ver resultados" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
+                            <i class="material-icons">check</i>                        
+                          </a>                                                                                                  
                         @endif
                       </td>
                     </tr>                

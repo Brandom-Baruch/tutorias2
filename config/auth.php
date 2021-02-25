@@ -124,17 +124,17 @@ return [
         'alumnos' => [
             'provider' => 'alumnos',
             'table' => 'password_resets',
-            'expire' => 20,
+            'expire' => 15,//min
         ],
         'docentes' => [
             'provider' => 'docentes',
             'table' => 'password_resets',
-            'expire' => 10,
+            'expire' => 15,
         ],       
         'padres' => [
             'provider' => 'padres',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 15,
         ],
     ],
 

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\DB;
-use App\Test;
+use App\Notifications\AlumnoResetPasswordNotification;
 
 class Alumno extends Authenticatable
 {
@@ -16,6 +16,15 @@ class Alumno extends Authenticatable
     protected $guard = 'alumno';
     
     protected $fillable = ['nia','name', 'email', 'password',];
+
+
+    //Llamar a la notificacion del correo 
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new AlumnoResetPasswordNotification($token));
+    }
+
 
 
     //Relacion entre grupo y alumno

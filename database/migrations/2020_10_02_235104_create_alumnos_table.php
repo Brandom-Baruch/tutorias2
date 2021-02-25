@@ -22,7 +22,7 @@ class CreateAlumnosTable extends Migration
             $table->date('fechaN'); //Fecha Nacimiento
             $table->string('genero');//genero
             $table->string('phone');
-            $table->string('email')->unique();
+            $table->string('email',100)->unique();
             $table->string('password');
             //FK Relacion entre el grupo
             $table->integer('grupo_id')->unsigned();

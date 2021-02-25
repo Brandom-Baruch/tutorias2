@@ -4,16 +4,27 @@ use Illuminate\Http\Request;
 Route::get('/', function () {	
 	return view('welcome');
 });
+
 Route::post('/logout', 'Auth\LogoutController@logout')->name('all.logout'); //Cerrar sesión para alumno, docente y padreF
 
-/////////LOGINS
-Route::get('/alumno/login','Auth\Alumno\AlumnoLoginController@showLoginForm')->name('alumno.login');
-Route::post('/alumno/login','Auth\Alumno\AlumnoLoginController@login');
-Route::get('/docente/login','Auth\Docente\DocenteLoginController@showLoginForm')->name('docente.login');
-Route::post('/docente/login','Auth\Docente\DocenteLoginController@login');
-Route::get('/padre/login','Auth\Padre_familia\PadreLoginController@showLoginForm')->name('padre.login');
-Route::post('/padre/login','Auth\Padre_familia\PadreLoginController@login');
-/////////LOGINS
+Route::prefix('alumno')->group(function(){
+	//logins
+	Route::get('/login','Auth\Alumno\AlumnoLoginController@showLoginForm')->name('alumno.login');
+	Route::post('/login','Auth\Alumno\AlumnoLoginController@login');
+	//finLogins
+	//olvidaste contraseña
+	Route::get('/password/reset','Auth\Alumno\AlumnoForgotPasswordController@showLinkRequestForm')
+			   ->name('alumno.password.request');
+
+	Route::post('/password/email','Auth\Alumno\AlumnoForgotPasswordController@sendResetLinkEmail')
+			   ->name('alumno.password.email');
+
+	Route::get('/password/reset/{token}','Auth\Alumno\AlumnoResetPasswordController@showResetForm')
+				->name('alumno.password.reset');
+				
+	Route::post('/password/reset','Auth\Alumno\AlumnoResetPasswordController@reset');
+	//finContraseña
+});
 
 Route::middleware(['auth:alumno'])->prefix('/alumno')->group(function(){
 	Route::get('/', 'Alumno\AlumnoController@index');
@@ -86,16 +97,33 @@ Route::middleware(['auth:alumno'])->prefix('/alumno')->group(function(){
 	//FIN CUESTIONARIO
 });
 
+Route::prefix('padre')->group(function(){
+	Route::get('/login','Auth\Padre_familia\PadreLoginController@showLoginForm')->name('padre.login');
+	Route::post('/login','Auth\Padre_familia\PadreLoginController@login');
+	//olvidaste contraseña
+	Route::get('/password/reset','Auth\Padre_familia\PadreForgotPasswordController@showLinkRequestForm')
+			   ->name('padre.password.request');
+
+	Route::post('/password/email','Auth\Padre_familia\PadreForgotPasswordController@sendResetLinkEmail')
+			   ->name('padre.password.email');
+
+	Route::get('/password/reset/{token}','Auth\Padre_familia\PadreResetPasswordController@showResetForm')
+				->name('padre.password.reset');
+				
+	Route::post('/password/reset','Auth\Padre_familia\PadreResetPasswordController@reset');
+	//finContraseña
+});
+
 Route::middleware(['auth:padre'])->prefix('/padre_familia')->group(function (){
 	Route::get('/', 'Padre_familia\PadreController@index');
 	Route::get('/{id}/edit','Padre_familia\PadreController@edit');
 	Route::post('/{id}/edit','Padre_familia\PadreController@update');
 	Route::get('/{id}/domicilio', 'Domicilio\DomicilioController@padre_create');
 	Route::post('/{id}/domicilio', 'Domicilio\DomicilioController@padre_store');
-	Route::post('/{padre_id}/domicilio/{domicilio_id}/delete', 'Domicilio\DomicilioController@padre_destroy');
+	Route::post('/{id}/domicilio/{domicilio_id}/delete', 'Domicilio\DomicilioController@padre_destroy');
 	Route::get('/{id}/parentezco','Parentezco\ParentezcoController@padre_create');
 	Route::post('/{id}/parentezco','Parentezco\ParentezcoController@padre_store');
-	Route::post('/{padre_id}/parentezco/{alumno_id}/delete','Parentezco\ParentezcoController@padre_destroy');
+	Route::post('/{id}/parentezco/{alumno_id}/delete','Parentezco\ParentezcoController@padre_destroy');
 	Route::get('/entrevista','Padre_familia\Entrevista_fresca\EntrevistaPadreController@index');
 	Route::post('/entrevista','Padre_familia\Entrevista_fresca\EntrevistaPadreController@store');
 	Route::get('/entrevista/{alumno_id}/secciones','Padre_familia\Entrevista_fresca\EntrevistaPadreController@secciones');
@@ -106,6 +134,22 @@ Route::middleware(['auth:padre'])->prefix('/padre_familia')->group(function (){
 	Route::post('/entrevista/{alumno_id}/marca_si_no','Padre_familia\Entrevista_fresca\MarcaSiNoController@store');
 });
 
+Route::prefix('docente')->group(function(){
+	//login
+	Route::get('/login','Auth\Docente\DocenteLoginController@showLoginForm')->name('docente.login');
+	Route::post('/login','Auth\Docente\DocenteLoginController@login');
+	//fin login
+
+	///Olvidaste contraseña
+	Route::get('/password/reset','Auth\Docente\DocenteForgotPasswordController@showLinkRequestForm')
+			   ->name('docente.password.request');
+	Route::post('/password/email','Auth\Docente\DocenteForgotPasswordController@sendResetLinkEmail')
+			   ->name('docente.password.email');
+	Route::get('/password/reset/{token}','Auth\Docente\DocenteResetPasswordController@showResetForm')
+				->name('docente.password.reset');
+	Route::post('/password/reset','Auth\Docente\DocenteResetPasswordController@reset');
+	//Fin
+});
 
 Route::middleware(['auth:docente'])->prefix('/docente')->group(function () {
 	Route::get('/' , 'Docente\DocenteController@index'); // Muestra el panel de control para los docentes en general
@@ -188,7 +232,7 @@ Route::middleware(['auth:docente'])->prefix('/docente')->group(function () {
 });
 
 //CRUD DIRECTOR
-Route::middleware(['auth:docente'])->prefix('director/')->namespace('Director')->group(function () { 
+Route::middleware(['auth:docente'])->prefix('/director')->namespace('Director')->group(function () { 
 	//DOCENTE
 	Route::get('/docentes/index','docente\DocenteController@index');
 	Route::get('/docente/create', 'docente\DocenteController@create');
@@ -289,8 +333,4 @@ Route::middleware(['auth:docente'])->prefix('director/')->namespace('Director')-
 	Route::get('/grupo/{id}/materias', 'grupo\GrupoMateriasController@create');
 	Route::post('/grupo/{id}/materias', 'grupo\GrupoMateriasController@store');	
 	Route::post('/grupo/{grupo_id}/materia/{materia_id}/delete', 'grupo\GrupoMateriasController@materia_destroy');
-
 });
-
-
-	//ENTREVISTA
