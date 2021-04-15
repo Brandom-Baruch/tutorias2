@@ -146,8 +146,7 @@
 			</div><br><br>
 			<table class="tabla1">
 				<thead>
-					<tr>
-						<th>No</th>
+					<tr>						
 						<th>Fecha</th>
 						<th>Alumno</th>
 						<th>Grado y Grupo</th>
@@ -160,10 +159,12 @@
 				</thead>
 				<tbody>
 					@foreach($control as $numero => $control)
-					<tr>	
-						<td>{{ ($numero+1) }}</td>
+					<tr>							
 						<td>{{ $control->fecha }}</td>
-						<td>{{ $control->alumnos[0]->name }}</td>
+						<td>{{ $control->alumnos[0]->name }}<br>
+							{{ $control->alumnos[0]->apellidoP }}<br>
+							{{ $control->alumnos[0]->apellidoM }}
+						</td>
 						<td>{{ $control->alumnos[0]->grupo->grado }} {{ $control->alumnos[0]->grupo->grupo }}</td>
 						<td>{{ $control->atencion_oportuna }}</td>
 						<td>{{ $control->atencion_seguimiento }}</td>

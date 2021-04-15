@@ -42,7 +42,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta1" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta1" value="1"
+									    	@if(old('respuesta1') == "1") checked @endif
+									    > 
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -50,7 +53,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta1" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta1" value="2"
+									    	@if(old('respuesta1') == "2") checked @endif
+									    > 
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -58,7 +64,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta1" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta1" value="3"
+									    	@if(old('respuesta1') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -66,7 +75,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta1" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta1" value="4"
+									    	@if(old('respuesta1') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -74,13 +86,21 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta1" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta1" value="5"
+									    	@if(old('respuesta1') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
-								</td>							
+									</div><br>
+									@if ($errors->has('respuesta1'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta1') }}</strong>
+										</span>
+									@endif	
+								</td>															
 							</tr>
 							<!--R2-->
 							<tr>
@@ -88,7 +108,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta2" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta2" value="1"
+									    	@if(old('respuesta2') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -96,7 +119,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta2" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta2" value="2"
+									    	@if(old('respuesta2') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -104,7 +130,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta2" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta2" value="3"
+									    	@if(old('respuesta2') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -112,7 +141,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta2" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta2" value="4"
+									    	@if(old('respuesta2') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -120,12 +152,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta2" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta2" value="5"
+									    	@if(old('respuesta2') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta2'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta2') }}</strong>
+										</span>
+									@endif	
 								</td>						
 							</tr>
 							<!--R3-->
@@ -134,7 +174,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta3" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta3" value="1"
+									    	@if(old('respuesta3') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -142,7 +185,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta3" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta3" value="2"
+									    	@if(old('respuesta3') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -150,7 +196,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta3" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta3" value="3"
+									    	@if(old('respuesta3') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -158,7 +207,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta3" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta3" value="4"
+									    	@if(old('respuesta3') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -166,12 +218,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta3" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta3" value="5"
+									    	@if(old('respuesta3') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta3'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta3') }}</strong>
+										</span>
+									@endif
 								</td>							
 							</tr>
 							<!--R4-->
@@ -180,7 +240,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta4" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta4" value="1"
+									    	@if(old('respuesta4') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -188,7 +251,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta4" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta4" value="2"
+									    	@if(old('respuesta4') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -196,7 +262,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta4" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta4" value="3"
+									    	@if(old('respuesta4') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -204,7 +273,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta4" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta4" value="4"
+									    	@if(old('respuesta4') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -212,12 +284,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta4" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta4" value="5"
+									    	@if(old('respuesta4') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta4'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta4') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R5-->
@@ -226,7 +306,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta5" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta5" value="1"
+									    	@if(old('respuesta5') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -234,7 +317,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta5" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta5" value="2"
+									    	@if(old('respuesta5') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -242,7 +328,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta5" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta5" value="3"
+									    	@if(old('respuesta5') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -250,7 +339,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta5" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta5" value="4"
+									    	@if(old('respuesta5') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -258,12 +350,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta5" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta5" value="5"
+									    	@if(old('respuesta5') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta5'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta5') }}</strong>
+										</span>
+									@endif		
 								</td>							
 							</tr>
 							<!--R6-->
@@ -272,7 +372,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta6" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta6" value="1"
+									    	@if(old('respuesta6') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -280,7 +383,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta6" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta6" value="2"
+									    	@if(old('respuesta6') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -288,7 +394,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta6" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta6" value="3"
+									    	@if(old('respuesta6') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -296,7 +405,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta6" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta6" value="4"
+									    	@if(old('respuesta6') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -304,12 +416,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta6" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta6" value="5"
+									    	@if(old('respuesta6') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta6'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta6') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R7-->
@@ -318,7 +438,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta7" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta7" value="1"
+									    	@if(old('respuesta7') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -326,7 +449,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta7" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta7" value="2"
+									    	@if(old('respuesta7') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -334,7 +460,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta7" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta7" value="3"
+									    	@if(old('respuesta7') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -342,7 +471,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta7" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta7" value="4"
+									    	@if(old('respuesta7') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -350,12 +482,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta7" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta7" value="5"
+									    	@if(old('respuesta7') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta7'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta7') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R8-->
@@ -365,7 +505,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta8" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta8" value="1"
+									    	@if(old('respuesta8') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -373,7 +516,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta8" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta8" value="2"
+									    	@if(old('respuesta8') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -381,7 +527,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta8" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta8" value="3"
+									    	@if(old('respuesta8') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -389,7 +538,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta8" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta8" value="4"
+									    	@if(old('respuesta8') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -397,12 +549,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta8" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta8" value="5"
+									    	@if(old('respuesta8') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta8'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta8') }}</strong>
+										</span>
+									@endif
 								</td>							
 							</tr>
 							<!--R9-->
@@ -412,7 +572,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta9" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta9" value="1"
+									    	@if(old('respuesta9') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -420,7 +583,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta9" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta9" value="2"
+									    	@if(old('respuesta9') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -428,7 +594,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta9" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta9" value="3"
+									    	@if(old('respuesta9') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -436,7 +605,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta9" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta9" value="4"
+									    	@if(old('respuesta9') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -444,12 +616,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta9" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta9" value="5"
+									    	@if(old('respuesta9') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta9'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta9') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R10-->
@@ -459,7 +639,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta10" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta10" value="1"
+									    	@if(old('respuesta10') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -467,7 +650,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta10" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta10" value="2"
+									    	@if(old('respuesta10') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -475,7 +661,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta10" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta10" value="3"
+									    	@if(old('respuesta10') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -483,7 +672,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta10" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta10" value="4"
+									    	@if(old('respuesta10') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -491,12 +683,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta10" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta10" value="5"
+									    	@if(old('respuesta10') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta10'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta10') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R11-->
@@ -506,7 +706,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta11" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta11" value="1"
+									    	@if(old('respuesta11') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -514,7 +717,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta11" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta11" value="2"
+									    	@if(old('respuesta11') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -522,7 +728,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta11" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta11" value="3"
+									    	@if(old('respuesta11') == "3") checked @endif
+								    	>
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -530,7 +739,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta11" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta11" value="4"
+									    	@if(old('respuesta11') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -538,12 +750,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta11" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta11" value="5"
+									    	@if(old('respuesta11') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta11'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta11') }}</strong>
+										</span>
+									@endif		
 								</td>							
 							</tr>
 							<!--R12-->
@@ -553,7 +773,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta12" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta12" value="1"
+									    	@if(old('respuesta12') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -561,7 +784,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta12" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta12" value="2"
+									    	@if(old('respuesta12') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -569,7 +795,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta12" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta12" value="3"
+									    	@if(old('respuesta12') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -577,7 +806,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta12" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta12" value="4"
+									    	@if(old('respuesta12') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -585,12 +817,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta12" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta12" value="5"
+									    	@if(old('respuesta12') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta12'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta12') }}</strong>
+										</span>
+									@endif		
 								</td>							
 							</tr>
 							<!--R13-->
@@ -600,7 +840,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta13" value="1"> 1
+								    	<input class="form-check-input" type="radio" name="respuesta13" value="1"
+								    		@if(old('respuesta13') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -608,7 +851,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta13" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta13" value="2"
+									    	@if(old('respuesta13') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -616,7 +862,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta13" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta13" value="3"
+									    	@if(old('respuesta13') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -624,7 +873,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta13" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta13" value="4"
+									    	@if(old('respuesta13') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -632,12 +884,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta13" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta13" value="5"
+									    	@if(old('respuesta13') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta13'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta13') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R14-->
@@ -648,7 +908,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta14" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta14" value="1"
+									    	@if(old('respuesta14') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -656,7 +919,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta14" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta14" value="2"
+									    	@if(old('respuesta14') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -664,7 +930,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta14" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta14" value="3"
+									    	@if(old('respuesta14') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -672,7 +941,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta14" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta14" value="4"
+									    	@if(old('respuesta14') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -680,12 +952,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta14" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta14" value="5"
+									    	@if(old('respuesta14') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta14'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta14') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R15-->
@@ -695,7 +975,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta15" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta15" value="1"
+									    	@if(old('respuesta15') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -703,7 +986,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta15" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta15" value="2"
+									    	@if(old('respuesta15') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -711,7 +997,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta15" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta15" value="3"
+									    	@if(old('respuesta15') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -719,7 +1008,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta15" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta15" value="4"
+									    	@if(old('respuesta15') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -727,12 +1019,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta15" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta15" value="5"
+									    	@if(old('respuesta15') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta15'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta15') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R16-->
@@ -743,7 +1043,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta16" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta16" value="1"
+									    	@if(old('respuesta16') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -751,7 +1054,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta16" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta16" value="2"
+									    	@if(old('respuesta16') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -759,7 +1065,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta16" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta16" value="3"
+									    	@if(old('respuesta16') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -767,7 +1076,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta16" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta16" value="4"
+									    	@if(old('respuesta16') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -775,12 +1087,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta16" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta16" value="5"
+									    	@if(old('respuesta16') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta16'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta16') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R17-->
@@ -790,7 +1110,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta17" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta17" value="1"
+									    	@if(old('respuesta17') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -798,7 +1121,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta17" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta17" value="2"
+									    	@if(old('respuesta17') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -806,7 +1132,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta17" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta17" value="3"
+									    	@if(old('respuesta17') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -814,7 +1143,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta17" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta17" value="4"
+									    	@if(old('respuesta17') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -822,12 +1154,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta17" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta17" value="5"
+									    	@if(old('respuesta17') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta17'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta17') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R18-->
@@ -837,7 +1177,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta18" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta18" value="1"
+									    	@if(old('respuesta18') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -845,7 +1188,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta18" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta18" value="2"
+									    	@if(old('respuesta18') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -853,7 +1199,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta18" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta18" value="3"
+									    	@if(old('respuesta18') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -861,7 +1210,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta18" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta18" value="4"
+									    	@if(old('respuesta18') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -869,12 +1221,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta18" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta18" value="5"
+									    	@if(old('respuesta18') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta18'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta18') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R19-->
@@ -884,7 +1244,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta19" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta19" value="1"
+									    	@if(old('respuesta19') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -892,7 +1255,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta19" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta19" value="2"
+									    	@if(old('respuesta19') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -900,7 +1266,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta19" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta19" value="3"
+									    	@if(old('respuesta19') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -908,7 +1277,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta19" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta19" value="4"
+									    	@if(old('respuesta19') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -916,12 +1288,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta19" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta19" value="5"
+									    	@if(old('respuesta19') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta19'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta19') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R20-->
@@ -931,7 +1311,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta20" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta20" value="1"
+									    	@if(old('respuesta20') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -939,7 +1322,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta20" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta20" value="2"
+									    	@if(old('respuesta20') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -947,7 +1333,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta20" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta20" value="3"
+									    	@if(old('respuesta20') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -955,7 +1344,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta20" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta20" value="4"
+									    	@if(old('respuesta20') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -963,12 +1355,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta20" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta20" value="5"
+									    	@if(old('respuesta20') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta20'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta20') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R21-->
@@ -978,7 +1378,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta21" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta21" value="1"
+									    	@if(old('respuesta21') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -986,7 +1389,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta21" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta21" value="2"
+									    	@if(old('respuesta21') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -994,7 +1400,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta21" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta21" value="3"
+									    	@if(old('respuesta21') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1002,7 +1411,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta21" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta21" value="4"
+									    	@if(old('respuesta21') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1010,12 +1422,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta21" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta21" value="5"
+									    	@if(old('respuesta21') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta21'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta21') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R22-->
@@ -1025,7 +1445,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta22" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta22" value="1"
+									    	@if(old('respuesta22') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1033,7 +1456,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta22" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta22" value="2"
+									    	@if(old('respuesta22') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1041,7 +1467,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta22" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta22" value="3"
+									    	@if(old('respuesta22') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1049,7 +1478,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta22" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta22" value="4"
+									    	@if(old('respuesta22') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1057,12 +1489,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta22" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta22" value="5"
+									    	@if(old('respuesta22') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta22'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta22') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R23-->
@@ -1072,7 +1512,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta23" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta23" value="1"
+									    	@if(old('respuesta23') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1080,7 +1523,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta23" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta23" value="2"
+									    	@if(old('respuesta23') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1088,7 +1534,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta23" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta23" value="3"
+									    	@if(old('respuesta23') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1096,7 +1545,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta23" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta23" value="4"
+									    	@if(old('respuesta23') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1104,12 +1556,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta23" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta23" value="5"
+									    	@if(old('respuesta23') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta23'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta23') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R24-->
@@ -1119,7 +1579,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta24" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta24" value="1"
+									    	@if(old('respuesta24') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1127,7 +1590,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta24" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta24" value="2"
+									    	@if(old('respuesta24') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1135,7 +1601,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta24" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta24" value="3"
+									    	@if(old('respuesta24') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1143,7 +1612,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta24" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta24" value="4"
+									    	@if(old('respuesta24') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1151,12 +1623,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta24" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta24" value="5"
+									    	@if(old('respuesta24') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta24'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta24') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R25-->
@@ -1166,7 +1646,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta25" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta25" value="1"
+									    	@if(old('respuesta25') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1174,7 +1657,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta25" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta25" value="2"
+									    	@if(old('respuesta25') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1182,7 +1668,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta25" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta25" value="3"
+									    	@if(old('respuesta25') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1190,7 +1679,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta25" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta25" value="4"
+									    	@if(old('respuesta25') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1198,12 +1690,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta25" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta25" value="5"
+									    	@if(old('respuesta25') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta25'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta25') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R26-->
@@ -1213,7 +1713,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta26" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta26" value="1"
+									    	@if(old('respuesta26') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1221,7 +1724,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta26" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta26" value="2"
+									    	@if(old('respuesta26') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1229,7 +1735,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta26" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta26" value="3"
+									    	@if(old('respuesta26') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1237,7 +1746,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta26" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta26" value="4"
+									    	@if(old('respuesta26') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1245,12 +1757,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta26" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta26" value="5"
+									    	@if(old('respuesta26') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta26'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta26') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R27-->
@@ -1260,7 +1780,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta27" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta27" value="1"
+									    	@if(old('respuesta27') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1268,7 +1791,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta27" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta27" value="2"
+									    	@if(old('respuesta27') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1276,7 +1802,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta27" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta27" value="3"
+									    	@if(old('respuesta27') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1284,7 +1813,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta27" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta27" value="4"
+									    	@if(old('respuesta27') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1292,12 +1824,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta27" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta27" value="5"
+									    	@if(old('respuesta27') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta27'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta27') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R28-->
@@ -1307,7 +1847,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta28" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta28" value="1"
+									    	@if(old('respuesta28') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1315,7 +1858,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta28" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta28" value="2"
+									    	@if(old('respuesta28') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1323,7 +1869,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta28" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta28" value="3"
+									    	@if(old('respuesta28') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1331,7 +1880,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta28" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta28" value="4"
+									    	@if(old('respuesta28') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1339,12 +1891,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta28" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta28" value="5"
+								    		@if(old('respuesta28') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta28'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta28') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R29-->
@@ -1354,7 +1914,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta29" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta29" value="1"
+									    	@if(old('respuesta29') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1362,7 +1925,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta29" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta29" value="2"
+									    	@if(old('respuesta29') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1370,7 +1936,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta29" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta29" value="3"
+									    	@if(old('respuesta29') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1378,7 +1947,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta29" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta29" value="4"
+									    	@if(old('respuesta29') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1386,12 +1958,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta29" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta29" value="5"
+									    	@if(old('respuesta29') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta29'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta29') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R30-->
@@ -1401,7 +1981,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta30" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta30" value="1"
+									    	@if(old('respuesta30') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1409,7 +1992,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta30" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta30" value="2"
+									    	@if(old('respuesta30') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1417,7 +2003,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta30" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta30" value="3"
+									    	@if(old('respuesta30') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1425,7 +2014,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta30" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta30" value="4"
+									    	@if(old('respuesta30') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1433,12 +2025,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta30" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta30" value="5"
+									    	@if(old('respuesta30') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta30'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta30') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R31-->
@@ -1448,7 +2048,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta31" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta31" value="1"
+									    	@if(old('respuesta31') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1456,7 +2059,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta31" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta31" value="2"
+									    	@if(old('respuesta31') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1464,7 +2070,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta31" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta31" value="3"
+									    	@if(old('respuesta31') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1472,7 +2081,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta31" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta31" value="4"
+									    	@if(old('respuesta31') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1480,12 +2092,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta31" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta31" value="5"
+									    	@if(old('respuesta31') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta31'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta31') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R32-->
@@ -1495,7 +2115,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta32" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta32" value="1"
+									    	@if(old('respuesta32') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1503,7 +2126,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta32" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta32" value="2"
+									    	@if(old('respuesta32') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1511,7 +2137,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta32" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta32" value="3"
+									    	@if(old('respuesta32') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1519,7 +2148,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta32" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta32" value="4"
+									    	@if(old('respuesta32') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1527,12 +2159,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta32" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta32" value="5"
+									    	@if(old('respuesta32') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta32'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta32') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R33-->
@@ -1542,7 +2182,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta33" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta33" value="1"
+									    	@if(old('respuesta33') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1550,7 +2193,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta33" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta33" value="2"
+									    	@if(old('respuesta33') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1558,7 +2204,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta33" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta33" value="3"
+									    	@if(old('respuesta33') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1566,7 +2215,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta33" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta33" value="4"
+									    	@if(old('respuesta33') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1574,12 +2226,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta33" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta33" value="5"
+									    	@if(old('respuesta33') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta33'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta33') }}</strong>
+										</span>
+									@endif
 								</td>							
 							</tr>
 							<!--R34-->
@@ -1589,7 +2249,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta34" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta34" value="1"
+									    	@if(old('respuesta34') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1597,7 +2260,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta34" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta34" value="2"
+									    	@if(old('respuesta34') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1605,7 +2271,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta34" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta34" value="3"
+									    	@if(old('respuesta34') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1613,7 +2282,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta34" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta34" value="4"
+									    	@if(old('respuesta34') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1621,12 +2293,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta34" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta34" value="5"
+									    	@if(old('respuesta34') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta34'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta34') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 							<!--R35-->
@@ -1636,7 +2316,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta35" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta35" value="1"
+									    	@if(old('respuesta35') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1644,7 +2327,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta35" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta35" value="2"
+									    	@if(old('respuesta35') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1652,7 +2338,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta35" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta35" value="3"
+									    	@if(old('respuesta35') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1660,7 +2349,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta35" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta35" value="4"
+									    	@if(old('respuesta35') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1668,12 +2360,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta35" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta35" value="5"
+									    	@if(old('respuesta35') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta35'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta35') }}</strong>
+										</span>
+									@endif
 								</td>							
 							</tr>
 							<!--R36-->
@@ -1683,7 +2383,10 @@
 								<td colspan="5" class="text-center">
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta36" value="1"> 1
+									    <input class="form-check-input" type="radio" name="respuesta36" value="1"
+									    	@if(old('respuesta36') == "1") checked @endif
+									    >
+									    1
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1691,7 +2394,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta36" value="2"> 2
+									    <input class="form-check-input" type="radio" name="respuesta36" value="2"
+									    	@if(old('respuesta36') == "2") checked @endif
+									    >
+									    2
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1699,7 +2405,10 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta36" value="3"> 3
+									    <input class="form-check-input" type="radio" name="respuesta36" value="3"
+									    	@if(old('respuesta36') == "3") checked @endif
+									    >
+									    3
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1707,7 +2416,10 @@
 									</div>							
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta36" value="4"> 4
+									    <input class="form-check-input" type="radio" name="respuesta36" value="4"
+									    	@if(old('respuesta36') == "4") checked @endif
+									    >
+									    4
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
@@ -1715,12 +2427,20 @@
 									</div>
 									<div class="form-check form-check-radio form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="respuesta36" value="5"> 5
+									    <input class="form-check-input" type="radio" name="respuesta36" value="5"
+									    	@if(old('respuesta36') == "5") checked @endif
+									    >
+									    5
 									    <span class="circle">
 									        <span class="check"></span>
 									    </span>
 									  </label>
-									</div>	
+									</div><br>
+									@if ($errors->has('respuesta36'))
+										<span class="help-block text-danger">
+											<strong>{{ $errors->first('respuesta36') }}</strong>
+										</span>
+									@endif	
 								</td>							
 							</tr>
 						</tbody>

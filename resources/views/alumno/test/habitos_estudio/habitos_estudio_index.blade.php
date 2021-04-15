@@ -34,34 +34,38 @@
         </div>          
       @endif
       <div class="row "> 
-        @if(!empty(Auth::user()->test->test_habito_estudio->organizacion_tiempo &&  Auth::user()->test->test_habito_estudio->planificacion && Auth::user()->test->test_habito_estudio->estrategias_aprendizaje))
+        @if(Auth::user()->test->test_habito_estudio->organizacion_tiempo &&  Auth::user()->test->test_habito_estudio->planificacion && Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
           <div class="col-12 text-center">
             <form method="post" action="{{url('alumno/test/finalizar/habitos_estudio')}}">
               {{csrf_field()}}
-              <button class="btn btn-success" style="margin-bottom: 1px;">Finalizar Habitos de estudio</button>
-              <a href="{{url('/alumno/test')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
+              <div class="text-center col-12">
+                  <button class="btn btn-success" style="margin-bottom: 1px;">Finalizar Habitos de estudio</button>
+                  <a href="{{url('/alumno/test')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
+              </div>
             </form>            
           </div>
         @else     
         <div style="margin-top: 20px;" class="col-12">                                                    
             <ol start="1">
-              @if(!empty(Auth::user()->test->test_habito_estudio->organizacion_tiempo))                                         
-              <li><button class="btn btn-success btn-sm">Organización de tiempo</button></li>
+              @if(empty(Auth::user()->test->test_habito_estudio->organizacion_tiempo))                                         
+              <li><a href="{{url('alumno/test/habitos_estudio/organizacion_tiempo')}}">Organización de tiempo</a></li>               
               @else
-              <li><a href="{{url('alumno/test/habitos_estudio/organizacion_tiempo')}}">Organización de tiempo</a></li>
+              <li><a disabled="true">Organización de tiempo</a></li>
               @endif
-              @if(!empty(Auth::user()->test->test_habito_estudio->planificacion))
-              <li><button class="btn btn-success btn-sm">Planificación</button></li>
+              @if(empty(Auth::user()->test->test_habito_estudio->planificacion))
+              <li><a href="{{url('alumno/test/habitos_estudio/planificacion')}}">Planificación</a></li>               
               @else              
-              <li><a href="{{url('alumno/test/habitos_estudio/planificacion')}}">Planificación</a></li>
+              <li><a disabled="true">Planificación</a></li>
               @endif
-              @if(!empty(Auth::user()->test->test_habito_estudio->estrategias_aprendizaje))
-              <li><button class="btn btn-success btn-sm">Estrategias de aprendizaje</button></li>
+              @if(empty(Auth::user()->test->test_habito_estudio->estrategias_aprendizaje))
+              <li><a href="{{url('alumno/test/habitos_estudio/estrategia_aprendizaje')}}">Estrategias de aprendizaje</a></li>        
               @else
-              <li><a href="{{url('alumno/test/habitos_estudio/estrategia_aprendizaje')}}">Estrategias de aprendizaje</a></li>
+              <li><a disabled="true">Estrategias de aprendizaje</a></li>
               @endif
             </ol>                            
-            <a href="{{url('/alumno/test')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>          
+            <div class="col-12 text-center">
+              <a href="{{url('/alumno/test')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a> 
+            </div>         
           </div>
         </div>                            
         @endif

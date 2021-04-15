@@ -34,7 +34,7 @@
         </div>          
       @endif
       <div class="row ">
-        @if(!empty(Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && Auth::user()->test->test_habito_estudio))
+        @if(Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && Auth::user()->test->test_habito_estudio->where('descripcion','Finalizo habito de estudio')->where('test_id',auth()->user()->test->id)->first())
           <div class="col-12 text-center">
               <form method="post" action="{{url('alumno/finalizar/test')}}">
                 {{csrf_field()}}
@@ -45,15 +45,15 @@
         @else      
         <div style="margin-top: 20px;" class="col-12">                                                    
             <ol start="1">                                         
-              @if(!empty(Auth::user()->test->conociendo_estilo_aprendizaje))
-              <li><button class="btn btn-success btn-sm">Conociendo los estilos de aprendizaje</button></li>
+              @if(empty(Auth::user()->test->conociendo_estilo_aprendizaje))
+              <li><a href="{{url('alumno/test/conociendo_estilos_aprendizaje')}}">Conociendo los estilos de aprendizaje</a></li>     
               @else
-              <li><a href="{{url('alumno/test/conociendo_estilos_aprendizaje')}}">Conociendo los estilos de aprendizaje</a></li>
+              <li><a disabled="true">Conociendo los estilos de aprendizaje</a></li>
               @endif          
-              @if(!empty(Auth::user()->test->encontrar_estilo_aprendizaje))
-              <li><button class="btn btn-success btn-sm">Encontrar estilo de aprendizaje</button></li>
-              @else
+              @if(empty(Auth::user()->test->encontrar_estilo_aprendizaje))
               <li><a href="{{url('alumno/test/encontrar_estilo_aprendizaje')}}">Encontrar estilo de aprendizaje</a></li>
+              @else
+              <li><a disabled="true">Encontrar estilo de aprendizaje</a></li>
               @endif              
               <li>
                 @if(empty(Auth::user()->test->test_habito_estudio))
@@ -69,7 +69,9 @@
               </li>
               <!--<li><a href="{{url('alumno/test/habitos_estudio')}}">hábitos de estudio</a></li>-->
             </ol>                            
-            <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>          
+            <div class="col-12 text-center">
+                <a href="{{url('/alumno/encuestas')}}" class="btn btn-danger">Regresar</a>
+            </div>
           </div>
         </div>
         @endif                            

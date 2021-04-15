@@ -14,7 +14,91 @@ class ConociendoEstiloAprendizajeController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+
+
+        $rules = [
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+            'respuesta6' => 'required',
+            'respuesta7' => 'required',
+            'respuesta8' => 'required',
+            'respuesta9' => 'required',
+            'respuesta10' => 'required',
+            'respuesta11' => 'required',
+            'respuesta12' => 'required',
+            'respuesta13' => 'required',
+            'respuesta14' => 'required',
+            'respuesta15' => 'required',
+            'respuesta16' => 'required',
+            'respuesta17' => 'required',
+            'respuesta18' => 'required',
+            'respuesta19' => 'required',
+            'respuesta20' => 'required',
+            'respuesta21' => 'required',
+            'respuesta22' => 'required',
+            'respuesta23' => 'required',
+            'respuesta24' => 'required',
+            'respuesta25' => 'required',
+            'respuesta26' => 'required',
+            'respuesta27' => 'required',
+            'respuesta28' => 'required',
+            'respuesta29' => 'required',
+            'respuesta30' => 'required',
+            'respuesta31' => 'required',
+            'respuesta32' => 'required',
+            'respuesta33' => 'required',
+            'respuesta34' => 'required',
+            'respuesta35' => 'required',
+            'respuesta36' => 'required',
+
+        ];
+
+        $message = [
+            'respuesta1.required' => 'Selecciona una opción',
+            'respuesta2.required' => 'Selecciona una opción',
+            'respuesta3.required' => 'Selecciona una opción',
+            'respuesta4.required' => 'Selecciona una opción',
+            'respuesta5.required' => 'Selecciona una opción',
+            'respuesta6.required' => 'Selecciona una opción',
+            'respuesta7.required' => 'Selecciona una opción',
+            'respuesta8.required' => 'Selecciona una opción',
+            'respuesta9.required' => 'Selecciona una opción',
+            'respuesta10.required' => 'Selecciona una opción',
+            'respuesta11.required' => 'Selecciona una opción',
+            'respuesta12.required' => 'Selecciona una opción',
+            'respuesta13.required' => 'Selecciona una opción',
+            'respuesta14.required' => 'Selecciona una opción',
+            'respuesta15.required' => 'Selecciona una opción',
+            'respuesta16.required' => 'Selecciona una opción',
+            'respuesta17.required' => 'Selecciona una opción',
+            'respuesta18.required' => 'Selecciona una opción',
+            'respuesta19.required' => 'Selecciona una opción',
+            'respuesta20.required' => 'Selecciona una opción',
+            'respuesta21.required' => 'Selecciona una opción',
+            'respuesta22.required' => 'Selecciona una opción',
+            'respuesta23.required' => 'Selecciona una opción',
+            'respuesta24.required' => 'Selecciona una opción',
+            'respuesta25.required' => 'Selecciona una opción',
+            'respuesta26.required' => 'Selecciona una opción',
+            'respuesta27.required' => 'Selecciona una opción',
+            'respuesta28.required' => 'Selecciona una opción',
+            'respuesta29.required' => 'Selecciona una opción',
+            'respuesta30.required' => 'Selecciona una opción',
+            'respuesta31.required' => 'Selecciona una opción',
+            'respuesta32.required' => 'Selecciona una opción',
+            'respuesta33.required' => 'Selecciona una opción',
+            'respuesta34.required' => 'Selecciona una opción',
+            'respuesta35.required' => 'Selecciona una opción',
+            'respuesta36.required' => 'Selecciona una opción',
+        ];
+
+        $this->validate($request,$rules,$message);
+        //dd($request->all());
+
     	$conociendo_estilo_aprendizaje = new Conociendo_Estilo_Aprendizaje;
         $conociendo_estilo_aprendizaje->test_id = auth()->user()->test->id;
 		$conociendo_estilo_aprendizaje->respuesta1 = $request->input('respuesta1');

@@ -118,7 +118,7 @@
 							</tr> 
 							<tr>
 								<td class="text-center">4</td>                                                        
-								<td class="text-center">Test para detectar tutorados que requieran atención individual</td>
+								<td class="text-center">Test para detectar tutorados que <br>requieran atención individual</td>
 								<td class="text-center">Soy la descripcion del Test</td>
 								<td class="text-center">Test</td>
 								<td class="text-center">

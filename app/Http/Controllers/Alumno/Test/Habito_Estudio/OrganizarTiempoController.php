@@ -16,6 +16,25 @@ class OrganizarTiempoController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+        ];
+
+        $message = [
+            'respuesta1.required' => 'Debes de seleccionar una opción',
+            'respuesta2.required' => 'Debes de seleccionar una opción',
+            'respuesta3.required' => 'Debes de seleccionar una opción',
+            'respuesta4.required' => 'Debes de seleccionar una opción',
+            'respuesta5.required' => 'Debes de seleccionar una opción',
+        ];
+
+        $this->validate($request,$rules,$message);
+        //dd($request->all());
+
     	$organizacion_tiempo = new Organizacion_Tiempo;
     	$organizacion_tiempo->habito_id = auth()->user()->test->test_habito_estudio->id;            
         $organizacion_tiempo->respuesta1 = $request->input('respuesta1');

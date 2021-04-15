@@ -66,7 +66,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 				</div>	
 				<h2 class="title text-center" style="color: black;">
 					Registrar  alumnos reprobados para la materia <br><b class="text-primary">{{$alumno_bajo_rendimiento->materia_name}}</b>
-				</h2>				
+				</h2>
+				<h4 class="text-danger">No. Alumnos  reprobados: {{ $alumno_bajo_rendimiento->total_alumnos }}</h4>				
 				<form method="post" action="{{url('docente/tutorias/'.$alumno_bajo_rendimiento->id.'/alumnos_reprobados')}}">
 					{{csrf_field()}}
 					<div class="row mb-5">
@@ -90,8 +91,13 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 						</div>
 					</div>				
 					<div class="text-center ">
+						@if($alumno_bajo_rendimiento->total_alumnos == $alumno_bajo_rendimiento->alumnos_reprobados->count())
+						<h3 class="text-success">Has registrado todos los alumnos reprobados</h3>
+						<a  href="{{url('/docente/tutorias/alumnos_bajo_rendimiento')}}" class="btn btn-danger">Cancelar</a>		
+						@else
 						<button class="btn btn-success" type="submit">Registrar</button>
 						<a  href="{{url('/docente/tutorias/alumnos_bajo_rendimiento')}}" class="btn btn-danger">Cancelar</a>	
+						@endif
 					</div>
 				</form>	<br>
 				<table class="table  table-responsive-sm table-responsive-md table-responsive-lg">

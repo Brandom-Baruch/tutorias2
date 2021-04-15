@@ -36,8 +36,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 			        </div>
 			      </div>
 			    @endif 
-				<h3 class="title text-center" style="color: black;">Editar asistencia para el alumno <br>
-																	<b class="text-primary">{{$asistencia->alumno_name}}</b></h3>
+				<h3 class="title text-center" style="color: black;">Editar asistencia para el alumno <b class="text-primary">{{ $asistencia->alumnos[0]->name}}</b></h3>
 				<form method="post" action="{{url('docente/tutorias/'.$asistencia->id.'/asistencia')}}">
 
 					{{csrf_field()}}
@@ -48,13 +47,20 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      <input  type="date" class="form-control mb-3" name="fecha"
 								  value="{{old('fecha',$asistencia->fecha)}}">
 					    </div>
-
+					   							
 					    <div class="col-md-4">
 					      <label class="text-dark">Nombre del Alumno</label>
-					      <input  type="text" class="form-control mb-3" name="alumno_name"
-					      		 value="{{old('alumno_name',$asistencia->alumno_name)}}">
-					    </div>								
-					    
+					      <select class="form-control  mb-3" name="alumno_id">
+					      	@foreach($alumnos as $alumno)
+						        <option value="{{ $alumno->nia }}"
+						        	@if(old('alumno_id',$alumno->nia) == "{$alumno->nia }") selected @endif 
+						        	>
+						        	{{ $alumno->name }} {{ $alumno->apellidoP }} {{ $alumno->apellidoM }}
+						        </option>
+					        @endforeach
+					      </select>
+					    </div>
+					    <!--
 					    <div class="col-md-4">
 					      <label class="text-dark">Grupo</label>
 					      <select class="form-control" name="grupo_id">
@@ -66,13 +72,13 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					        @endforeach
 					      </select>
 					    </div>
-
+						-->
 					    <div class="col-md-2">
 					      	<label class="text-dark">Atención oportuna</label><br>
 					      	<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
 							    <input class="form-check-input" type="radio" name="atencion_oportuna" value="Si"
-							    @if($asistencia->atencion_oportuna == 'Si')
+							    @if(old('atencion_oportuna',$asistencia->atencion_oportuna) == "Si")
 							     checked @endif> Si
 							    <span class="circle">
 							        <span class="check"></span>
@@ -82,7 +88,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 							<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
 							    <input class="form-check-input" type="radio" name="atencion_oportuna" value="No"
-							    @if($asistencia->atencion_oportuna == 'No')
+							    @if(old('atencion_oportuna',$asistencia->atencion_oportuna) == "No")
 							     checked @endif> No
 							    <span class="circle">
 							        <span class="check"></span>
@@ -95,8 +101,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      	<label class="text-dark">Atención de seguimiento</label><br>
 					      	<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
-							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="Si"
-							    @if($asistencia->atencion_seguimiento == 'Si')
+							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="Si"				    
+							    @if("Si" == old('atencion_seguimiento',$asistencia->atencion_seguimiento))
 							     checked @endif
 							    > Si
 							    <span class="circle">
@@ -107,7 +113,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 							<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
 							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="No"
-							    @if($asistencia->atencion_seguimiento == 'No')
+							    @if("No" == old('atencion_seguimiento',$asistencia->atencion_seguimiento))
 							     checked @endif
 							    > No
 							    <span class="circle">

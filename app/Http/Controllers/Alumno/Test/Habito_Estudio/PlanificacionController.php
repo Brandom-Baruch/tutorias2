@@ -17,6 +17,24 @@ class PlanificacionController extends Controller
     {
     	$planificacion = new Planificacion;
 
+        $rules = [
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+        ];
+
+        $message = [
+            'respuesta1.required' => 'Debes de seleccionar una opción',
+            'respuesta2.required' => 'Debes de seleccionar una opción',
+            'respuesta3.required' => 'Debes de seleccionar una opción',
+            'respuesta4.required' => 'Debes de seleccionar una opción',
+            'respuesta5.required' => 'Debes de seleccionar una opción',
+        ];
+
+        $this->validate($request,$rules,$message);
+        //dd($request->all());
     	$planificacion->habito_id = auth()->user()->test->test_habito_estudio->id;        
         $planificacion->respuesta1 = $request->input('respuesta1');
         $planificacion->respuesta2 = $request->input('respuesta2');

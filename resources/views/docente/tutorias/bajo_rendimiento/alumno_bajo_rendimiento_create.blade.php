@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo','Alumno de bajo rendimiento')
+@section('titulo','Registrar No. Alumnos')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -22,7 +22,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="title text-center" style="color: black;">Registrar  alumnos de bajo rendimiento</h2>
+				<h2 class="title text-center" style="color: black;">Registrar No. alumnos de bajo rendimiento</h2>
 				<form method="post" action="{{url('docente/tutorias/alumnos_bajo_rendimiento')}}">
 					{{csrf_field()}}
 					<div class="row mb-5">
@@ -30,7 +30,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      <label class="text-dark">Nombre de la materia</label>
 					      <select class="form-control" name="materia_name">
 					      	@foreach($materias as $materia)
-					        	<option value="{{$materia->name}}">{{$materia->name}} || {{$materia->clave}}</option>
+					        	<option value="{{$materia->name}}"
+					        		@if(old('materia_name') == "{$materia->name}") selected @endif >
+					        		{{$materia->name}} || {{$materia->clave}}
+					        	</option>
 					        @endforeach        
 					      </select>
 					    </div>
@@ -38,25 +41,36 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      <label class="text-dark">Nombre del docente</label>
 					      <select class="form-control" name="docente_name">
 					      	@foreach($docentes as $docente)				      						      		
-					        	<option value="{{$docente->name}} {{$docente->apellidoP}} {{$docente->apellidoM}}">
+					        	<option value="{{$docente->name}} {{$docente->apellidoP}} {{$docente->apellidoM}}"
+					        		@if(old('docente_name') == "{$docente->name} {$docente->apellidoP} {$docente->apellidoM}") selected @endif>
 					        		{{$docente->name}} {{$docente->apellidoP}} {{$docente->apellidoM}}
 					        	</option>        	
 					        @endforeach        
 					      </select>
 					    </div>
 					   	<div class="col-md-4 mt-1">
-					      <label class="text-dark">Total de alumnos</label>
-					      <input type="number" class="form-control" name="total_alumnos">
+					        <label class="text-dark">Total de alumnos</label>
+					        <input type="number" class="form-control" name="total_alumnos" value="{{ old('total_alumnos') }}">
+					      	@if($errors->has('total_alumnos'))
+								<span class="help-block text-danger">
+									{{ $errors->first('total_alumnos') }}
+								</span>
+							@endif
 					    </div>		
 						<div class="col-md-4">
 							<label class="text-dark">Grupo</label>
 							<input class="form-control mt-1" 
 									value="{{$materia_grupo->name}} {{$materia_grupo->semestre}} {{$materia_grupo->grupo}}"
-									name="grupo">
+									name="grupo" readonly>
 						</div>
 						<div class="col-md-4 mt-2">
 							<label class="text-dark">Porcentaje</label>
-							<input type="number" class="form-control" name="porcentaje">
+							<input type="number" class="form-control" name="porcentaje" value="{{ old('porcentaje') }}">
+							@if($errors->has('porcentaje'))
+								<span class="help-block text-danger">
+									{{ $errors->first('porcentaje') }}
+								</span>
+							@endif
 						</div>						
 					</div>				
 					<div class="text-center">

@@ -8,6 +8,7 @@
 @section('opciones_director')    
 
   @include('includes.links_director')
+  <a href="{{url('docente')}}">Panel de control</a>  
 
 @endsection
 

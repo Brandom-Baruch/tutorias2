@@ -66,15 +66,16 @@ class ControlAsistenciaController extends Controller
     public function edit($asistencia_id)
     {
     	$asistencia = Control_Asistencia::find($asistencia_id);
+        $alumnos = Alumno::all();
     	$grupos = Grupo::all();
-    	return view('docente.tutorias.control_asistencia.control_asistencia_edit')->with(compact('asistencia','grupos'));
+    	return view('docente.tutorias.control_asistencia.control_asistencia_edit')->with(compact('asistencia','grupos','alumnos'));
     }
 
     public function update(Request $request, $asistencia_id)
     {
     	$rules = [
     		'fecha' => 'required',
-			'alumno_name' => 'required',
+			'alumno_id' => 'required',
 			'atencion_oportuna' => 'required',
 			'atencion_seguimiento' => 'required',
 			'caso_situacion_atendida' => 'required',
@@ -84,7 +85,7 @@ class ControlAsistenciaController extends Controller
 
     	$messages = [
     		'fecha.required' => 'Debes de agregar una fecha',
-			'alumno_name.required' => 'Debes de agregar el nombre del alumno',
+			'alumno_id.required' => 'Debes de agregar el nombre del alumno',
 			'atencion_oportuna.required' => 'Debes de agregar la atención oportuna',
 			'atencion_seguimiento.required' => 'Debes de agregar la atención de seguimiento',
 			'caso_situacion_atendida.required' => 'Debes de agregar el caso o situación atendida',
@@ -93,19 +94,19 @@ class ControlAsistenciaController extends Controller
     	];
 
     	$this->validate($request,$rules,$messages);
-
+        //dd($request->all());
     	$control_asistencia = Control_Asistencia::find($asistencia_id);
     	$control_asistencia->tutor_id = auth()->user()->id;            
         $control_asistencia->fecha = $request->input('fecha');
-        $control_asistencia->grupo_id = $request->input('grupo_id');
-        $control_asistencia->alumno_name = $request->input('alumno_name');
+        //$control_asistencia->grupo_id = $request->input('grupo_id');
+        $control_asistencia->alumno_nia = $request->input('alumno_id');
         $control_asistencia->atencion_oportuna = $request->input('atencion_oportuna');
         $control_asistencia->atencion_seguimiento = $request->input('atencion_seguimiento');
         $control_asistencia->caso_situacion_atendida = $request->input('caso_situacion_atendida');
         $control_asistencia->solucion = $request->input('solucion');
         $control_asistencia->indicaciones_posteriores = $request->input('indicaciones_posteriores');
         $control_asistencia->save();
-        $mensaje = 'Has actualizado la asistencia de '.$control_asistencia->alumno_name.' existosamente';
+        $mensaje = 'Has actualizado la asistencia de '.$control_asistencia->alumnos[0]->name . $control_asistencia->alumnos[0]->apellidoP . $control_asistencia->alumnos[0]->apellidoM.' existosamente';
         return redirect('/docente/tutorias/asistencia')->with(compact('mensaje'));
     }
 

@@ -7,10 +7,7 @@
 @section('opciones_director')    
 
   @include('includes.links_director')
-  <a href="{{url('docente')}}">Panel de control</a>
-  @if(Auth::user()->puestos()->where('puesto','Tutor')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
-  <a href="{{url('docente/tutorias')}}">Tutorias</a>
-  @endif
+  <a href="{{url('docente')}}">Panel de control</a>  
 
 @endsection
 
@@ -33,7 +30,7 @@
         <h3 class="title">Listado de Padres de familia</h3>
          <form method="get" action="{{url('/director/padre_familia/search')}}" class="form-inline p-5">
             <a href="{{url('/director/padre_familia/create')}}" class="btn btn-primary" style="margin-right:  20px;">
-            Agregar nuevo Padre de familia</a>
+            Registrar nuevo Padre</a>
             <input type="text"  placeholder="¿Qué familiar buscas?" class="form-control text-center " name="search">
             <button type="submit" class="btn btn-primary btn-fab  btn-rect">
                 <i class="material-icons">search</i>

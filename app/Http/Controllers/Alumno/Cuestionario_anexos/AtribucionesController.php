@@ -15,6 +15,27 @@ class AtribucionesController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+            'respuesta6' => 'required',
+            'respuesta7' => 'required',
+        ];
+
+        $message = [
+            'respuesta1.required' => 'Debes seleccionar una respuesta',
+            'respuesta2.required' => 'Debes seleccionar una respuesta',
+            'respuesta3.required' => 'Debes seleccionar una respuesta',
+            'respuesta4.required' => 'Debes seleccionar una respuesta',
+            'respuesta5.required' => 'Debes seleccionar una respuesta',
+            'respuesta6.required' => 'Debes seleccionar una respuesta',
+            'respuesta7.required' => 'Debes seleccionar una respuesta',
+        ];
+
+        $this->validate($request,$rules,$message);
     	//dd($request->all());	
     	$atribucion = new Atribucion;		    
 		$atribucion->cuestionario_id = auth()->user()->cuestionario_anexo->id;

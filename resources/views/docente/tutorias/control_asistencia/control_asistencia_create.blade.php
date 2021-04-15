@@ -52,7 +52,9 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      <label class="text-dark">Nombre del Alumno</label>
 					      <select class="form-control  mb-3" name="alumno_id">
 					      	@foreach($alumnos as $alumno)
-						        <option value="{{ $alumno->nia }}">
+						        <option value="{{ $alumno->nia }}"
+						        	@if(old('alumno_id') == "{$alumno->nia }") selected @endif 
+						        	>
 						        	{{ $alumno->name }} {{ $alumno->apellidoP }} {{ $alumno->apellidoM }}
 						        </option>
 					        @endforeach
@@ -74,7 +76,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      	<label class="text-dark">Atención oportuna</label><br>
 					      	<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
-							    <input class="form-check-input" type="radio" name="atencion_oportuna" value="Si"> Si
+							    <input class="form-check-input" type="radio" name="atencion_oportuna" value="Si"
+							    	@if(old('atencion_oportuna') == "Si") checked @endif 
+							    >
+							    Si
 							    <span class="circle">
 							        <span class="check"></span>
 							    </span>
@@ -82,7 +87,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 							</div>
 							<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
-							    <input class="form-check-input" type="radio" name="atencion_oportuna" value="No"> No
+							    <input class="form-check-input" type="radio" name="atencion_oportuna" value="No"
+							    	@if(old('atencion_oportuna') == "No") checked @endif 
+							    >
+							    No
 							    <span class="circle">
 							        <span class="check"></span>
 							    </span>
@@ -94,7 +102,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      	<label class="text-dark">Atención de seguimiento</label><br>
 					      	<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
-							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="Si"> Si
+							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="Si"
+							    	@if(old('atencion_seguimiento') == "Si") checked @endif
+							    >
+							    Si
 							    <span class="circle">
 							        <span class="check"></span>
 							    </span>
@@ -102,7 +113,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 							</div>
 							<div class="form-check form-check-radio form-check-inline">
 							  <label class="form-check-label" style="color: black;">
-							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="No"> No
+							    <input class="form-check-input" type="radio" name="atencion_seguimiento" value="No"
+							    	@if(old('atencion_seguimiento') == "No") checked @endif
+							    >
+							    No
 							    <span class="circle">
 							        <span class="check"></span>
 							    </span>

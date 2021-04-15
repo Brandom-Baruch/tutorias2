@@ -3,6 +3,13 @@
 @section('titulo','Editar Domicilio')
 @section('body-class','profile-page sidebar-collapse')
 
+@section('opciones_director')    
+
+  @include('includes.links_director')
+  <a href="{{url('docente')}}">Panel de control</a>  
+
+@endsection
+
 @section('content')
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>

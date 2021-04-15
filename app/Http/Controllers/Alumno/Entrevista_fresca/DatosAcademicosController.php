@@ -16,12 +16,21 @@ class DatosAcademicosController extends Controller
      public function store(Request $request)
     {
     	$rules = [
-
-    		'r2' => 'required'
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+    		'r2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'r4' => 'required',
     	];
 
     	$message = [
-    		'r2.required' => 'Debes de escribir un porque'
+            'respuesta1.required' => 'Debes de agregar una respuesta',
+            'respuesta2.required' => 'Debes de agregar una respuesta',
+    		'r2.required' => 'Debes de escribir un porque',
+            'respuesta3.required' => 'Debes de agregar una respuesta',
+            'respuesta4.required' => 'Debes de agregar una respuesta',
+            'r4.required' => 'Debes de escribir un porque',
     	];
 
     	$this->validate($request,$rules,$message);

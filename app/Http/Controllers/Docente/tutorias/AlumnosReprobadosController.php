@@ -13,8 +13,9 @@ class AlumnosReprobadosController extends Controller
     	$docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia
         $materia_grupo = $docente_materia->grupos()->where('materia_id',$docente_materia->id)->first(); //R entre materia/grupo
         $alumnos = $materia_grupo->alumnos()->get();  
-        $alumno_bajo_rendimiento = Alumno_Bajo_Rendimiento::find($rendimiento_id);                
-    	return view('docente.tutorias.bajo_rendimiento.alumnos_reprobados')->with(compact('alumnos','alumno_bajo_rendimiento'));
+        $alumno_bajo_rendimiento = Alumno_Bajo_Rendimiento::find($rendimiento_id);  
+        $alumnos_reprobados = Alumno_Reprobado::all();
+    	return view('docente.tutorias.bajo_rendimiento.alumnos_reprobados')->with(compact('alumnos','alumno_bajo_rendimiento','alumnos_reprobados'));
     }
 
     public function store(Request $request, $rendimiento_id)

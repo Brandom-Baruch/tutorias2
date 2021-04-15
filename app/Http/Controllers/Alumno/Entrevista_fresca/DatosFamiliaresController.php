@@ -17,6 +17,28 @@ class DatosFamiliaresController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'respuesta1' => 'required',        
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',            
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',            
+            'respuesta6' => 'required',
+            'respuesta7' => 'required',
+        ];
+
+        $message = [
+            'respuesta1.required' => 'Debes de agregar una respuesta a la pregunta ¿Con quién vives?',        
+            'respuesta2.required' => 'Debes de agregar una respuesta a la pregunta ¿Cuántos hermanos/as tienes?',
+            'respuesta3.required' => 'Debes de agregar una respuesta a la pregunta ¿Qué lugar ocupas?',            
+            'respuesta4.required' => 'Debes de agregar una respuesta a la pregunta ¿Cómo te llevas con tu familia?',
+            'respuesta5.required' => 
+                                  'Debes de agregar una respuesta a la pregunta ¿Hablas otro idioma o lengua indígena?',            
+            'respuesta6.required' => 
+                                  'Debes de agregar una respuesta a la pregunta ¿Cuánto es el ingreso económico mensual en tu casa?',
+            'respuesta7.required' => 'Debes de agregar una respuesta a la pregunta ¿Tienes hijos?',
+        ];
+            $this->validate($request,$rules,$message);
         //dd($request->all());
         $datos_familiares = new DatosFamiliares;
         $datos_familiares->entrevista_id = auth()->user()->entrevista_fresca->id;

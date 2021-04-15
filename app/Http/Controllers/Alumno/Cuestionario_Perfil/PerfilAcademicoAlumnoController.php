@@ -15,6 +15,50 @@ class PerfilAcademicoAlumnoController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'escuela_procedencia' => 'required',
+            'ubicacion_escuela' => 'required',
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+            'respuesta6' => 'required',
+            'respuesta7' => 'required',
+            'respuesta8' => 'required',
+            'respuesta9' => 'required',
+            'respuesta10' => 'required',
+            'respuesta11' => 'required',
+            'respuesta12' => 'required',
+            'respuesta13' => 'required',
+            'respuesta14' => 'required',
+            'respuesta15' => 'required',
+        ];
+
+        $message = [
+            'escuela_procedencia.required' => 'Debes escribir tu escuela de procedencia',
+            'ubicacion_escuela.required' => 'Debes escribir donde se ubica tu escuela de procedencia ',
+            'respuesta1.required' => 'Debes de seleccionar una opción',
+            'respuesta2.required' => 'Debes de seleccionar una opción',
+            'respuesta3.required' => 'Debes de seleccionar una opción',
+            'respuesta4.required' => 'Debes de seleccionar una opción',
+            'respuesta5.required' => 'Debes de seleccionar una opción',
+            'respuesta6.required' => 'Debes de seleccionar una opción',
+            'respuesta7.required' => 'Debes de seleccionar una opción',
+            'respuesta8.required' => 'Debes de seleccionar una opción',
+            'respuesta9.required' => 'Debes de seleccionar una opción',
+            'respuesta10.required' => 'Debes de seleccionar una opción',
+            'respuesta11.required' => 'Debes de seleccionar una opción',
+            'respuesta12.required' => 'Debes de seleccionar una opción',
+            'respuesta13.required' => 'Debes de seleccionar una opción',
+            'respuesta14.required' => 'Debes de seleccionar una opción',
+            'respuesta15.required' => 'Debes de seleccionar una opción',
+        ];
+
+        $this->validate($request,$rules,$message);
+        //dd($request->all());
+
     	$perfil_academico_alumno = new Perfil_Academico_Alumno;
     	$perfil_academico_alumno->alumno_id = auth()->user()->nia;        
         $perfil_academico_alumno->escuela_procedencia = $request->input('escuela_procedencia');

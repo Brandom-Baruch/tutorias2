@@ -16,8 +16,26 @@ class TiposMentalidadController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+            'r5' => 'required',
+        ];
 
-    	//dd($request->all());
+        $message = [
+            'respuesta1.required' => 'Debes de agregar una opción',
+            'respuesta2.required' => 'Debes de agregar una opción',
+            'respuesta3.required' => 'Debes de agregar una opción',
+            'respuesta4.required' => 'Debes de agregar una opción',
+            'respuesta5.required' => 'Debes de agregar un número en Habilidades',            
+            'r5.required' => 'Debes de agregar un número en Esfuerzo',            
+        ];
+
+        $this->validate($request,$rules,$message);
+        //dd($request->all());
     	$mentalidad = new Tipo_Mentalidad;
     	$mentalidad->cuestionario_id = auth()->user()->cuestionario_anexo->id;
         $mentalidad->respuesta1 = $request->input('respuesta1');

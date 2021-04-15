@@ -44,30 +44,30 @@
             </form>        
             @else
             <ol start="1">
-              @if(!empty(Auth::user()->entrevista_fresca->datoFamiliar))
+              @if(empty(Auth::user()->entrevista_fresca->datoFamiliar))
+              <li><a href="{{url('/alumno/entrevista/datos/familiares')}}">Encuesta sobre Datos Familiares</a></li>
+              @else
               <li><a disabled="true">Encuesta sobre Datos Familiares</a></li>
-              @else
-              <li><a href="{{url('/alumno/entrevista/datos/familiares')}}">Datos Familiares</a></li>
               @endif
-              @if(!empty(Auth::user()->entrevista_fresca->datoAcademico))
+              @if(empty(Auth::user()->entrevista_fresca->datoAcademico))
+              <li><a href="{{url('alumno/entrevista/datos/academicos')}}">Encuesta sobre Datos Academicos</a></li>
+              @else
               <li><a disabled="true">Encuesta sobre Datos Academicos</a></li>
-              @else
-              <li><a href="{{url('alumno/entrevista/datos/academicos')}}">Datos Academicos</a></li>
               @endif
-              @if(!empty(Auth::user()->entrevista_fresca->habitoEstudio))
-              <li><a a disabled="true">Habitos de Estudio</a></li>
+              @if(empty(Auth::user()->entrevista_fresca->habitoEstudio))
+              <li><a href="{{url('alumno/entrevista/habitos/estudio')}}">Habitos de Estudio</a></li>                
               @else
-              <li><a href="{{url('alumno/entrevista/habitos/estudio')}}">Habitos de Estudio</a></li>
+              <li><a disabled="true">Habitos de Estudio</a></li>
               @endif
-              @if(!empty(Auth::user()->entrevista_fresca->otraActividad))
-              <li><a a disabled="true">Otras Actividades</a></li>
+              @if(empty(Auth::user()->entrevista_fresca->otraActividad))
+              <li><a href="{{url('alumno/entrevista/otras/actividades')}}">Otras Actividades</a></li>                
               @else
-              <li><a href="{{url('alumno/entrevista/otras/actividades')}}">Otras Actividades</a></li>
+              <li><a disabled="true">Otras Actividades</a></li>
               @endif
-              @if(!empty(Auth::user()->entrevista_fresca->datosAdicionales))
-              <li><a a disabled="true">Datos Adicionales</a></li>
+              @if(empty(Auth::user()->entrevista_fresca->datosAdicionales))
+              <li><a href="{{url('alumno/entrevista/datos/adicionales')}}">Datos Adicionales</a></li>                
               @else
-              <li><a href="{{url('alumno/entrevista/datos/adicionales')}}">Datos Adicionales</a></li>
+              <li><a disabled="true">Datos Adicionales</a></li>
               @endif                                  
               <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
             </ol>    

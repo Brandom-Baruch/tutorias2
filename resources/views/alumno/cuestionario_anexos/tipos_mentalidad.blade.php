@@ -28,7 +28,8 @@
 						</label><br>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta1" value="De acuerdo">
+								<input class="form-check-input" type="radio" name="respuesta1" value="De acuerdo"
+									@if(old('respuesta1') == "De acuerdo") checked @endif>
 								De acuerdo
 								<span class="circle">
 									<span class="check"></span>
@@ -37,13 +38,19 @@
 						</div>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta1" value="En desacuerdo">
+								<input class="form-check-input" type="radio" name="respuesta1" value="En desacuerdo"
+									@if(old('respuesta1') == "En desacuerdo") checked @endif>
 								En desacuerdo
 								<span class="circle">
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>										
+						</div>
+						@if ($errors->has('respuesta1'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('respuesta1') }}</strong>
+							</span>
+						@endif										
 					</div>
 					<!--R2-->
 					<div class="form-group col-md-6">
@@ -52,7 +59,8 @@
 						</label><br>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta2" value="De acuerdo">
+								<input class="form-check-input" type="radio" name="respuesta2" value="De acuerdo"
+									@if(old('respuesta2') == "De acuerdo") checked @endif>
 								De acuerdo
 								<span class="circle">
 									<span class="check"></span>
@@ -61,13 +69,19 @@
 						</div>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta2" value="En desacuerdo">
+								<input class="form-check-input" type="radio" name="respuesta2" value="En desacuerdo"
+									@if(old('respuesta2') == "En desacuerdo") checked @endif>
 								En desacuerdo
 								<span class="circle">
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>										
+						</div>
+						@if ($errors->has('respuesta2'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('respuesta2') }}</strong>
+							</span>
+						@endif										
 					</div>
 					<!--R3-->
 					<div class="form-group col-md-6">
@@ -76,7 +90,8 @@
 						</label><br>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta3" value="De acuerdo">
+								<input class="form-check-input" type="radio" name="respuesta3" value="De acuerdo"
+									@if(old('respuesta3') == "De acuerdo") checked @endif>
 								De acuerdo
 								<span class="circle">
 									<span class="check"></span>
@@ -85,13 +100,19 @@
 						</div>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta3" value="En desacuerdo">
+								<input class="form-check-input" type="radio" name="respuesta3" value="En desacuerdo"
+									@if(old('respuesta3') == "En desacuerdo") checked @endif>
 								En desacuerdo
 								<span class="circle">
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>										
+						</div>
+						@if ($errors->has('respuesta3'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('respuesta3') }}</strong>
+							</span>
+						@endif										
 					</div>		
 					<!--R4-->
 					<div class="form-group col-md-6">
@@ -100,7 +121,8 @@
 						</label><br>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta4" value="De acuerdo">
+								<input class="form-check-input" type="radio" name="respuesta4" value="De acuerdo"
+									@if(old('respuesta4') == "De acuerdo") checked @endif>
 								De acuerdo
 								<span class="circle">
 									<span class="check"></span>
@@ -109,28 +131,44 @@
 						</div>
 						<div class="form-check">
 							<label class="form-check-label text-dark">
-								<input class="form-check-input" type="radio" name="respuesta4" value="En desacuerdo">
+								<input class="form-check-input" type="radio" name="respuesta4" value="En desacuerdo"
+									@if(old('respuesta4') == "En desacuerdo") checked @endif>
 								En desacuerdo
 								<span class="circle">
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>										
+						</div>
+						@if ($errors->has('respuesta4'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('respuesta4') }}</strong>
+							</span>
+						@endif									
 					</div>	
 					<!--R5-->
 					<div class="text-center col-md-12">
-						<h4>Completa el siguiente enunciado de tal modo que los números en los dos espacios sumen 100%.</h4>
+						<h4>Completa el siguiente enunciado de tal modo que los números en los dos espacios sumen 100%.</h4>		
+						@if ($errors->has('respuesta5'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('respuesta5') }}</strong>
+							</span><br>
+						@endif 						
+						@if ($errors->has('r5'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('r5') }}</strong>
+							</span>
+						@endif					
 					</div>
 					<div class="form-group col-md-12 " style="margin-left: 30%; ">
 						<div class="row">
-							<p style="margin-top:12px;">INTELIGENCIA=</p>
+							<p style="margin-top:12px;">INTELIGENCIA=</p>							
 							<div class="col-1">
-								<input type="number" class="form-control " name="respuesta5">
+								<input type="number" class="form-control " name="respuesta5" value="{{ old('respuesta5') }}">		
 							</div>
 							<p style="margin-top:12px;">% HABILIDADES +</p>
 							<div class="col-1">
-								<input type="number" class="form-control " name="r5">
-							</div>
+								<input type="number" class="form-control " name="r5" value="{{ old('r5') }}">						
+							</div>							
 							<p style="margin-top:12px;">% ESFUERZO.</p>
 						</div>
 					</div>															

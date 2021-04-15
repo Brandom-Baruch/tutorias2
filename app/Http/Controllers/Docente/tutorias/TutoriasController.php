@@ -18,8 +18,17 @@ class TutoriasController extends Controller
     {        
         $docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia
         $materia_grupo = $docente_materia->grupos()->where('materia_id',$docente_materia->id)->first(); //R entre materia/grupo
-        $grupo_alumno = $materia_grupo->alumnos()->where('grupo_id',$materia_grupo->id)->get(); //Grupo/alumno          
-    	return view('docente.tutorias.docente_tutor')->with(compact('materia_grupo','grupo_alumno'));
+        //dd($docente_materia);
+        if($materia_grupo)
+        {
+            $grupo_alumno = $materia_grupo->alumnos()->where('grupo_id',$materia_grupo->id)->get(); //Grupo/alumno          
+            return view('docente.tutorias.docente_tutor')->with(compact('materia_grupo','grupo_alumno'));
+        }   
+        else
+        {
+            return view('docente.tutorias.docente_tutor')->with(compact('materia_grupo'));
+        }
+
     }
 
     public function entrevista_fresca_alumno($alumno_id)

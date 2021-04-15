@@ -6,11 +6,9 @@
 
 @section('opciones_director')    
 
-@include('includes.links_director')
-  <a href="{{url('docente')}}">Panel de control</a>
-  @if(Auth::user()->puestos()->where('puesto','Tutor')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
-    <a href="{{url('docente/tutorias')}}">Tutorias</a>
-  @endif
+  @include('includes.links_director')
+  <a href="{{url('docente')}}">Panel de control</a>  
+
 @endsection
 
 @section('content')

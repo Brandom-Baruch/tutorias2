@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo','Listado de alumnos de bajo rendimiento')
+@section('titulo','Alumnos de bajo rendimiento')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -62,39 +62,43 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
         </div>
         @endif  
         <a href="{{url('/docente/tutorias/alumnos_bajo_rendimiento/create')}}" class="btn btn-primary" style="margin-bottom: 30px;">Agregar reporte</a>
-        <div class="row">          
+        <div class="row">
+        @if($reportes)          
           <table class="table  table-responsive-sm table-responsive-md table-responsive-lg">
-            <thead>
-              <tr>
-                <th class="text-center">#</th>
-                <th>Nombre de la materia</th>
-                <th>Nombre del docente</th>                
-                <th class="text-center">Total de alumnos</th>
-                <th class="text-center">Opciones</th>
-              </tr>
-            </thead>
-            @foreach($reporte as $reporte)  
-            <tbody>
-              <tr>
-                <td class="text-center">{{$reporte->id}}</td>
-                <td>{{$reporte->materia_name}}</td>
-                <td>{{$reporte['docente_name']}}</td>                                
-                <td class="text-center">{{$reporte['total_alumnos']}}</td>
-                <td class="td-actions text-center">
-                    <form method="post" action="{{url('docente/tutorias/alumnos_bajo_rendimiento/'.$reporte->id.'/delete')}}">
-                      {{csrf_field()}}
-                      <a href="{{url('docente/tutorias/'.$reporte->id.'/alumnos_reprobados/create')}}" rel="tooltip" title="Agregar Alumnos Reprobados" class="btn btn-warning btn-fab btn-fab-mini btn-rect btn-sm">
-                      <i class="fa fa-user"></i>
-                      </a>
-                      <button  type="submit" rel="tooltip" title="Eliminar Reporte" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
-                        <i class="fa fa-times"></i>
-                      </button>
-                    </form>                
-                </td>
-              </tr>                 
-            </tbody>
-            @endforeach
-          </table>                       
+              <thead>
+                <tr>
+                  <th class="text-center">#</th>
+                  <th>Nombre de la materia</th>
+                  <th>Nombre del docente</th>                
+                  <th class="text-center">Total de alumnos</th>
+                  <th class="text-center">Opciones</th>
+                </tr>
+              </thead>            
+              @foreach($reportes as $reporte)  
+              <tbody>
+                <tr>
+                  <td class="text-center">{{$reporte->id}}</td>
+                  <td>{{$reporte->materia_name}}</td>
+                  <td>{{$reporte->docente_name}}</td>                                
+                  <td class="text-center">{{$reporte->total_alumnos}}</td>
+                  <td class="td-actions text-center">
+                      <form method="post" action="{{url('docente/tutorias/alumnos_bajo_rendimiento/'.$reporte->id.'/delete')}}">
+                        {{csrf_field()}}
+                        <a href="{{url('docente/tutorias/'.$reporte->id.'/alumnos_reprobados/create')}}" rel="tooltip" title="Agregar Alumnos Reprobados" class="btn btn-warning btn-fab btn-fab-mini btn-rect btn-sm">
+                        <i class="fa fa-user"></i>
+                        </a>
+                        <button  type="submit" rel="tooltip" title="Eliminar Reporte" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </form>                
+                  </td>
+                </tr>                 
+              </tbody>
+              @endforeach                         
+          </table>         
+        @else 
+          <p>Nada</p>
+        @endif
         </div>                                                                            
       </div>                       
     </div>

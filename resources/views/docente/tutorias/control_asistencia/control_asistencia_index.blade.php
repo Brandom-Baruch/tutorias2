@@ -78,7 +78,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
           @foreach($asistencias as $numero => $asistencia)
               <tbody>
                 <tr>
-                  <td>{{$asistencia->alumnos[0]->name}}</td>
+                  <td>{{$asistencia->alumnos[0]->name}}
+                      {{$asistencia->alumnos[0]->apellidoP}}
+                      {{$asistencia->alumnos[0]->apellidoM}}
+                  </td>
                   <!--<td>                   
                   </td>-->                                                                
                   <td class="text-center">{{$asistencia->caso_situacion_atendida}}</td>

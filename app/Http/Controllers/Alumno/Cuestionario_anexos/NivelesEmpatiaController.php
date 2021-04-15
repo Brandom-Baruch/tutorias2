@@ -15,6 +15,32 @@ class NivelesEmpatiaController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+            'respuesta6' => 'required',
+            'respuesta7' => 'required',
+            'respuesta8' => 'required',
+            'respuesta9' => 'required',
+        ];
+
+        $message = [
+            'respuesta1.required' => 'Debes de selecionar una respuesta',
+            'respuesta2.required' => 'Debes de selecionar una respuesta',
+            'respuesta3.required' => 'Debes de selecionar una respuesta',
+            'respuesta4.required' => 'Debes de selecionar una respuesta',
+            'respuesta5.required' => 'Debes de selecionar una respuesta',
+            'respuesta6.required' => 'Debes de selecionar una respuesta',
+            'respuesta7.required' => 'Debes de selecionar una respuesta',
+            'respuesta8.required' => 'Debes de selecionar una respuesta',
+            'respuesta9.required' => 'Debes de selecionar una respuesta',
+        ];
+
+        $this->validate($request,$rules,$message);
+        //dd($request->all());
     	$niveles_empatia = new Nivel_Empatia;    	
 		$niveles_empatia->cuestionario_id = auth()->user()->cuestionario_anexo->id;            
         $niveles_empatia->respuesta1 = $request->input('respuesta1');

@@ -13,9 +13,9 @@ class AlumnoBajoRendimientoController extends Controller
     {
 	 	$docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia
         $materia_grupo = $docente_materia->grupos()->where('materia_id',$docente_materia->id)->first(); //R entre materia/grupo
-        $reporte = auth()->user()->alumnos_bajo_rendimiento;        
+        $reportes = auth()->user()->alumnos_bajo_rendimiento;        
         //$reporte = Alumno_Bajo_Rendimiento::where('grupo',"$materia_grupo->name $materia_grupo->semestre $materia_grupo->grupo")->get();       
-    	return view('docente.tutorias.bajo_rendimiento.alumnos_bajo_rendimiento')->with(compact('materia_grupo','reporte'));
+    	return view('docente.tutorias.bajo_rendimiento.alumnos_bajo_rendimiento')->with(compact('materia_grupo','reportes'));
     }
 
     public function create(Request $request)
@@ -29,6 +29,21 @@ class AlumnoBajoRendimientoController extends Controller
 
     public function store(Request $request)
     {
+
+        $rules = [
+            'total_alumnos' => 'required',
+            'porcentaje' => 'required',
+
+        ];
+
+        $message = [
+            'total_alumnos.required' => 'Debes de agregar el total de alumnos',
+            'porcentaje.required' => 'Debes de agregar el porcentaje',            
+        ];
+
+
+
+        $this->validate($request,$rules,$message);
         $alumnos_bajo_rendimiento = new Alumno_Bajo_Rendimiento;
         $alumnos_bajo_rendimiento->materia_name = $request->input('materia_name');  
         $alumnos_bajo_rendimiento->docente_name = $request->input('docente_name');
@@ -37,7 +52,7 @@ class AlumnoBajoRendimientoController extends Controller
         $alumnos_bajo_rendimiento->grupo = $request->input('grupo');
         $alumnos_bajo_rendimiento->porcentaje = $request->input('porcentaje');
         $alumnos_bajo_rendimiento->save();
-        $mensaje = 'Has ingresado el reporte exitosamente';
+        $mensaje = 'Has registrado el No. de estudiantes de bajo rendimiento';
         return redirect('/docente/tutorias/alumnos_bajo_rendimiento')->with(compact('mensaje'));
     } 
 

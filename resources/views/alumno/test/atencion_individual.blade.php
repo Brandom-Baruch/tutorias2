@@ -324,7 +324,7 @@
 				</table><br>
 				<div class="form-group">
 				    <label class="text-dark">Si lo necesitas, en las siguientes líneas escribe que otra problemática tienes que no se mencione en el listado anterior.</label>
-				    <textarea class="form-control" rows="2" name="respuesta21"></textarea>
+				    <textarea class="form-control" rows="2" name="respuesta21">{{ old('respuesta21') }}</textarea>
 				</div>
 				<div class="text-center">
 					<button class="btn btn-success">Finalizar</button>

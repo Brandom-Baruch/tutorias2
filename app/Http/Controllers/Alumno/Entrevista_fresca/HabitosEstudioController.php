@@ -15,6 +15,45 @@ class HabitosEstudioController extends Controller
 
 	public function store(Request $request)
 	{
+
+		$rules = [
+			'respuesta1' => 'required',
+			'respuesta2' => 'required',
+			'respuesta3' => 'required',
+			'respuesta4' => 'required',
+			'respuesta5' => 'required',			
+			'respuesta6' => 'required',			
+			'respuesta7' => 'required',			
+			'respuesta8' => 'required',			
+			'r9_1' => 'required',
+			'r9_2' => 'required',
+			'r9_3' => 'required',
+			'r9_4' => 'required',
+			'r9_5' => 'required',
+			'r9_6' => 'required',
+			'r9_7' => 'required',
+		];
+
+		$message = [
+			'respuesta1.required' => 'Debes de agregar una respuesta',
+			'respuesta2.required' => 'Debes de agregar una respuesta',
+			'respuesta3.required' => 'Debes de agregar una respuesta',
+			'respuesta4.required' => 'Debes de agregar una respuesta',
+			'respuesta5.required' => 'Debes de agregar una respuesta',			
+			'respuesta6.required' => 'Debes de agregar una respuesta',			
+			'respuesta7.required' => 'Debes de agregar una respuesta',			
+			'respuesta8.required' => 'Debes de agregar una respuesta',			
+			'r9_1.required' => 'Selecciona una opción',
+			'r9_2.required' => 'Selecciona una opción',
+			'r9_3.required' => 'Selecciona una opción',
+			'r9_4.required' => 'Selecciona una opción',
+			'r9_5.required' => 'Selecciona una opción',
+			'r9_6.required' => 'Selecciona una opción',
+			'r9_7.required' => 'Selecciona una opción',
+		];
+		
+		$this->validate($request,$rules,$message);
+
 		$habitos = new HabitosEstudio;
 
 		$habitos->entrevista_id = auth()->user()->entrevista_fresca->id;		
