@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('titulo','Login Alumno')
+
 @section('body-class','login-page sidebar-collapse')
 
 @section('content')
