@@ -107,7 +107,7 @@
 					<div class="col-sm-2">													
 						<div class="form-group{{ $errors->has('grupo_id') ? ' has-error' : '' }}">          
 							<label for="grupo_id">Grupo</label>
-							<select class="form-control " name="grupo_id" >
+							<select class="form-control " name="grupo_id" disabled> 
 								<option value="0">Sin grupo</option>
 								@foreach($grupos as $grupo)
 								<option value="{{$grupo->id}}"                                   
@@ -179,8 +179,10 @@
 				</div>                          
 			</div>
 		</div>                                                                                        		
-		<button class="btn btn-primary">Registrar docente</button>
-		<a href="{{url('/alumno')}}" class="btn btn-danger">Cancelar</a> 
+		<div class="text-center col-md-12">
+			<button class="btn btn-success">Actualizar datos</button>
+			<a href="{{url('/alumno')}}" class="btn btn-danger">Cancelar</a> 
+		</div>
 	</form>                  
 </div>              
 </div>
