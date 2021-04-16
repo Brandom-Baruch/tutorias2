@@ -17,7 +17,7 @@
                         <h4 class="card-title text-center">Por favor coloca tu correo electronico</h4>
                         @if (session('status'))
                             <div class="alert alert-success">
-                                {{ session('status') }}
+                                ¡Hemos enviado su enlace de restablecimiento de contraseña por correo electrónico!
                             </div>
                         @endif
                         <form class="form-horizontal" method="POST" action="{{ route('docente.password.email') }}">

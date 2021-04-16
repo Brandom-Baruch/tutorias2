@@ -25,8 +25,8 @@ class CreateAlumnosTable extends Migration
             $table->string('email',100)->unique();
             $table->string('password');
             //FK Relacion entre el grupo
-            /*$table->integer('grupo_id')->unsigned();
-            $table->foreign('grupo_id')->references('id')->on('grupos'); */
+            $table->integer('grupo_id')->unsigned();
+            $table->foreign('grupo_id')->references('id')->on('grupos'); 
             
             $table->rememberToken();
             $table->timestamps();

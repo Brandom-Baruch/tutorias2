@@ -36,8 +36,8 @@
                     </div>          
                 </div>
                 @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                        <div class="alert alert-success">                            
+                            ¡Tu contraseña ha sido restablecida!
                         </div>
                 @endif        
                 @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
