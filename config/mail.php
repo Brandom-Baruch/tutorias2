@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => 'postmaster@sandboxd0e64d29216245d4abb1e372a47ce3d9.mailgun.org',
+    'username' => 'postmaster@sgtems.ga',
 
-    'password' => '1e79f6c80c3a165fda5fcda34d73fb08-f135b0f1-d2b940b5',
+    'password' => 'd19fe63c81d84615acfec2f6d9b4d3b3-a09d6718-cb5ddbc0',
 
     /*
     |--------------------------------------------------------------------------
