@@ -83,11 +83,6 @@ return [
     | connection. You may also set the "password" value below this one.
     |
     */
-
-    'username' => 'postmaster@sgtems.ga',
-
-    'password' => 'd19fe63c81d84615acfec2f6d9b4d3b3-a09d6718-cb5ddbc0',
-
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path
