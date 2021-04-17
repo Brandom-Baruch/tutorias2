@@ -160,61 +160,61 @@ Route::middleware(['auth:docente'])->prefix('/docente')->group(function () {
 	Route::post('/{docente_id}/domicilio/{domicilio_id}/delete','Domicilio\DomicilioController@docente_destroy');
 	
 	//DOCENTE TUTOR
-	Route::get('/tutorias/encuestas' , 'Docente\Tutorias\TutoriasController@encuestas_index');	
-	Route::get('/tutorias/alumnos_bajo_rendimiento','Docente\Tutorias\AlumnoBajoRendimientoController@index');
-	Route::get('/tutorias/alumnos_bajo_rendimiento/create','Docente\Tutorias\AlumnoBajoRendimientoController@create');	
-	Route::post('/tutorias/alumnos_bajo_rendimiento','Docente\Tutorias\AlumnoBajoRendimientoController@store');
-	Route::post('/tutorias/alumnos_bajo_rendimiento/{rendimiento_id}/delete','Docente\Tutorias\AlumnoBajoRendimientoController@destroy');
-	Route::get('/tutorias/{rendimiento_id}/alumnos_reprobados/create','Docente\Tutorias\AlumnosReprobadosController@create');
-	Route::post('/tutorias/{rendimiento_id}/alumnos_reprobados','Docente\Tutorias\AlumnosReprobadosController@store');
-	Route::post('/tutorias/{alumno_reprobado}/alumnos_reprobados/delete','Docente\Tutorias\AlumnosReprobadosController@destroy');
+	Route::get('/tutorias/encuestas' , 'Docente\tutorias\TutoriasController@encuestas_index');	
+	Route::get('/tutorias/alumnos_bajo_rendimiento','Docente\tutorias\AlumnoBajoRendimientoController@index');
+	Route::get('/tutorias/alumnos_bajo_rendimiento/create','Docente\tutorias\AlumnoBajoRendimientoController@create');	
+	Route::post('/tutorias/alumnos_bajo_rendimiento','Docente\tutorias\AlumnoBajoRendimientoController@store');
+	Route::post('/tutorias/alumnos_bajo_rendimiento/{rendimiento_id}/delete','Docente\tutorias\AlumnoBajoRendimientoController@destroy');
+	Route::get('/tutorias/{rendimiento_id}/alumnos_reprobados/create','Docente\tutorias\AlumnosReprobadosController@create');
+	Route::post('/tutorias/{rendimiento_id}/alumnos_reprobados','Docente\tutorias\AlumnosReprobadosController@store');
+	Route::post('/tutorias/{alumno_reprobado}/alumnos_reprobados/delete','Docente\tutorias\AlumnosReprobadosController@destroy');
 	//FIN TUTOR
 
 	//REPORTE TUTORIAS
-	Route::get('/tutorias/reporte_tutorias','Docente\Tutorias\ReporteTutoriasController@index');
-	Route::get('/tutorias/reporte_tutorias/create','Docente\Tutorias\ReporteTutoriasController@create');
-	Route::post('/tutorias/reporte_tutorias','Docente\Tutorias\ReporteTutoriasController@store');
-	Route::get('/tutorias/{reporte_id}/reporte_tutorias/edit','Docente\Tutorias\ReporteTutoriasController@edit');
-	Route::post('/tutorias/{reporte_id}/reporte_tutorias','Docente\Tutorias\ReporteTutoriasController@update');
-	Route::post('/tutorias/{reporte_id}/reporte_tutorias/delete','Docente\Tutorias\ReporteTutoriasController@destroy');
+	Route::get('/tutorias/reporte_tutorias','Docente\tutorias\ReporteTutoriasController@index');
+	Route::get('/tutorias/reporte_tutorias/create','Docente\tutorias\ReporteTutoriasController@create');
+	Route::post('/tutorias/reporte_tutorias','Docente\tutorias\ReporteTutoriasController@store');
+	Route::get('/tutorias/{reporte_id}/reporte_tutorias/edit','Docente\tutorias\ReporteTutoriasController@edit');
+	Route::post('/tutorias/{reporte_id}/reporte_tutorias','Docente\tutorias\ReporteTutoriasController@update');
+	Route::post('/tutorias/{reporte_id}/reporte_tutorias/delete','Docente\tutorias\ReporteTutoriasController@destroy');
 	//FIN REPORTE TUTORIAS
 
 	//SEGUIMIENTO ALUMNO RIESGO
-	Route::get('/tutorias/seguimientos_alumno_riesgo','Docente\Tutorias\SeguimientoRiesgoController@index');
-	Route::get('/tutorias/seguimientos_alumno_riesgo/create','Docente\Tutorias\SeguimientoRiesgoController@create');
-	Route::post('/tutorias/seguimientos_alumno_riesgo','Docente\Tutorias\SeguimientoRiesgoController@store');
-	Route::get('/tutorias/seguimientos_alumno_riesgo/{seguimiento_id}/edit','Docente\Tutorias\SeguimientoRiesgoController@edit');
-	Route::post('/tutorias/seguimientos_alumno_riesgo/{seguimiento_id}/edit','Docente\Tutorias\SeguimientoRiesgoController@update');
+	Route::get('/tutorias/seguimientos_alumno_riesgo','Docente\tutorias\SeguimientoRiesgoController@index');
+	Route::get('/tutorias/seguimientos_alumno_riesgo/create','Docente\tutorias\SeguimientoRiesgoController@create');
+	Route::post('/tutorias/seguimientos_alumno_riesgo','Docente\tutorias\SeguimientoRiesgoController@store');
+	Route::get('/tutorias/seguimientos_alumno_riesgo/{seguimiento_id}/edit','Docente\tutorias\SeguimientoRiesgoController@edit');
+	Route::post('/tutorias/seguimientos_alumno_riesgo/{seguimiento_id}/edit','Docente\tutorias\SeguimientoRiesgoController@update');
 	Route::post('/tutorias/seguimientos_alumno_riesgo/{seguimiento_id}/delete',
-				'Docente\Tutorias\SeguimientoRiesgoController@destroy');
+				'Docente\tutorias\SeguimientoRiesgoController@destroy');
 	//FIN SEGUIMIENTO ALUMNO RIESGO
 
 	//ASESORIAS
-	Route::get('/tutorias/asistencia','Docente\Tutorias\ControlAsistenciaController@index');
-	Route::get('/tutorias/asistencia/create','Docente\Tutorias\ControlAsistenciaController@create');
-	Route::post('/tutorias/asistencia','Docente\Tutorias\ControlAsistenciaController@store');
-	Route::get('/tutorias/{asistencia_id}/asistencia/edit','Docente\Tutorias\ControlAsistenciaController@edit');
-	Route::post('/tutorias/{asistencia_id}/asistencia','Docente\Tutorias\ControlAsistenciaController@update');
-	Route::post('/tutorias/{asistencia_id}/asistencia/delete','Docente\Tutorias\ControlAsistenciaController@destroy');
+	Route::get('/tutorias/asistencia','Docente\tutorias\ControlAsistenciaController@index');
+	Route::get('/tutorias/asistencia/create','Docente\tutorias\ControlAsistenciaController@create');
+	Route::post('/tutorias/asistencia','Docente\tutorias\ControlAsistenciaController@store');
+	Route::get('/tutorias/{asistencia_id}/asistencia/edit','Docente\tutorias\ControlAsistenciaController@edit');
+	Route::post('/tutorias/{asistencia_id}/asistencia','Docente\tutorias\ControlAsistenciaController@update');
+	Route::post('/tutorias/{asistencia_id}/asistencia/delete','Docente\tutorias\ControlAsistenciaController@destroy');
 	//FIN ASESORIAS
 
 
 	//REPORTE GRUPAL
-	Route::get('/tutorias/reporte_grupal','Docente\Tutorias\ReporteGrupalController@index');
-	Route::get('/tutorias/reporte_grupal/create','Docente\Tutorias\ReporteGrupalController@create');
-	Route::post('/tutorias/reporte_grupal','Docente\Tutorias\ReporteGrupalController@store');
-	Route::get('/tutorias/reporte_grupal/{reporte_id}/edit','Docente\Tutorias\ReporteGrupalController@edit');
-	Route::post('/tutorias/reporte_grupal/{reporte_id}/edit','Docente\Tutorias\ReporteGrupalController@update');
-	Route::post('/tutorias/reporte_grupal/{reporte_id}/delete','Docente\Tutorias\ReporteGrupalController@destroy');
+	Route::get('/tutorias/reporte_grupal','Docente\tutorias\ReporteGrupalController@index');
+	Route::get('/tutorias/reporte_grupal/create','Docente\tutorias\ReporteGrupalController@create');
+	Route::post('/tutorias/reporte_grupal','Docente\tutorias\ReporteGrupalController@store');
+	Route::get('/tutorias/reporte_grupal/{reporte_id}/edit','Docente\tutorias\ReporteGrupalController@edit');
+	Route::post('/tutorias/reporte_grupal/{reporte_id}/edit','Docente\tutorias\ReporteGrupalController@update');
+	Route::post('/tutorias/reporte_grupal/{reporte_id}/delete','Docente\tutorias\ReporteGrupalController@destroy');
 	//Fin reporte grupal
 
 	//Mostrar los datos de las encuestas
-	Route::get('/entrevista_fresca/alumno/{alumno_id}/view','Docente\Tutorias\TutoriasController@entrevista_fresca_alumno');
-	Route::get('/entrevista_fresca/padre_familia/alumno/{alumno_id}/view','Docente\Tutorias\TutoriasController@entrevista_padre');
-	Route::get('/cuestionario_anexos/alumno/{alumno_id}/view','Docente\Tutorias\TutoriasController@anexos_alumno');
-	Route::get('/estilos_aprendizaje/alumno/{alumno_id}/view','Docente\Tutorias\TutoriasController@estilo_aprendizaje_alumno');
-	Route::get('/atencion_individual/alumno/{alumno_id}/view','Docente\Tutorias\TutoriasController@atencion_individual_alumno');
-	Route::get('/perfil_academico/alumno/{alumno_id}/view','Docente\Tutorias\TutoriasController@perfil_academico_alumno');
+	Route::get('/entrevista_fresca/alumno/{alumno_id}/view','Docente\tutorias\TutoriasController@entrevista_fresca_alumno');
+	Route::get('/entrevista_fresca/padre_familia/alumno/{alumno_id}/view','Docente\tutorias\TutoriasController@entrevista_padre');
+	Route::get('/cuestionario_anexos/alumno/{alumno_id}/view','Docente\tutorias\TutoriasController@anexos_alumno');
+	Route::get('/estilos_aprendizaje/alumno/{alumno_id}/view','Docente\tutorias\TutoriasController@estilo_aprendizaje_alumno');
+	Route::get('/atencion_individual/alumno/{alumno_id}/view','Docente\tutorias\TutoriasController@atencion_individual_alumno');
+	Route::get('/perfil_academico/alumno/{alumno_id}/view','Docente\tutorias\TutoriasController@perfil_academico_alumno');
 	//Fin de las encuestas
 	//PDF
 	Route::get('/entrevista_fresca_padre_familia/{alumno_id}','Docente\tutorias_Pdf\PdfController@pdf_padre');
