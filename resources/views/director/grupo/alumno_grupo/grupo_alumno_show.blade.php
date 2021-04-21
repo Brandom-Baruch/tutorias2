@@ -40,9 +40,10 @@
     	              <div class="col-md-6 ml-auto mr-auto">
     	                <img src="{{asset('img/alumno.png')}}"  class="img-raised rounded-circle img-fluid">
     	              </div>
-    	             <h4 class="card-title"><a href="{{url('director/alumno/'.$alumno->nia.'/show')}}">
-                                          {{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}
-                                          </a>
+    	               <h4 class="card-title">
+                      <a href="{{url('director/alumno/'.$alumno->nia.'/show')}}">
+                        {{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}
+                      </a>
                       <br>
                       <small class="card-description text-dark">Nia: {{$alumno->nia}}</small>
                       <br>

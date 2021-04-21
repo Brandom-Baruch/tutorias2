@@ -112,7 +112,7 @@ class GrupoController extends Controller
     public function alumnos_show(Request $request, Grupo $grupo)
     {
         $request->user()->autorizarPuestos('Director'); 
-        $alumnos = $grupo->alumnos()->paginate(5);
+        $alumnos = $grupo->alumnos()->paginate(5);        
         return view('director.grupo.alumno_grupo.grupo_alumno_show')->with(compact('grupo', 'alumnos'));
     }
 

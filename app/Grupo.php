@@ -12,11 +12,12 @@ class Grupo extends Model
     //Un grupo puede tener varios alumnos
 	public function alumnos()
 	{	
-		return $this->hasMany(Alumno::class,'nia');
+		return $this->hasMany(Alumno::class);
 	}
 	
 	public function materias()
     {
-        return $this->belongsToMany(Materia::class,'asignadas','grupo_id')->withTimestamps();
+    	return $this->belongsToMany(Materia::class,'asignadas')->withTimestamps();
+        //return $this->belongsToMany(Materia::class,'asignadas','grupo_id')->withTimestamps();
     }   
 }

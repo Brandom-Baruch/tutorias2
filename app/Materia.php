@@ -21,7 +21,8 @@ class Materia extends Model
 
    public function grupos()
    {
-        return $this->belongsToMany(Grupo::class,'asignadas','materia_id')->withTimestamps();
+        return $this->belongsToMany(Grupo::class,'asignadas')->withTimestamps();
+        //return $this->belongsToMany(Grupo::class,'asignadas','materia_id')->withTimestamps();
    }
 
  
