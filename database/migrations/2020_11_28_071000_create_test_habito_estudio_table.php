@@ -31,6 +31,6 @@ class CreateTestHabitoEstudioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_habito_estudio');
+        Schema::dropIfExists('test_habito_estudio');
     }
 }
