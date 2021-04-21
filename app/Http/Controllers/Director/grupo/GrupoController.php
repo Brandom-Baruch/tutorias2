@@ -113,7 +113,7 @@ class GrupoController extends Controller
     {
         $request->user()->autorizarPuestos('Director'); 
         $alumnos = $grupo->alumnos()->paginate(5);
-        return view('director.grupo.grupo_alumno_show')->with(compact('grupo', 'alumnos'));
+        return view('director.grupo.alumno_grupo.grupo_alumno_show')->with(compact('grupo', 'alumnos'));
     }
 
     public function alumno_destroy($grupo_id, $alumno_id)

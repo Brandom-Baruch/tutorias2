@@ -16,7 +16,7 @@
 @section('content')
 
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 250px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image:url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
@@ -34,7 +34,8 @@
       </div>
       <div class="description text-center">       
         <h3 class="title">Resultados de la busqueda de alumnos</h3>
-        <h4 class="text-dark">Se encontrado {{$alumnos->count()}} resultados para el termino <b>{{$search}}</b></h4>         
+        <h4 class="text-dark">Se encontrado <b>{{$alumnos->count()}}</b> resultados para el termino <b>{{$search}}</b></h4>
+        <a href="{{ url('/director/alumnos/index') }}" class="btn btn-danger">Regresar</a>         
       </div>
      <div class="section text-center">        
         <div class="team">
@@ -48,11 +49,11 @@
                   </div>
                   <h4 class="card-title">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</h4>                         
                   <div class="card-footer justify-content-center">
-                    <a href="{{url('/director/alumno/'.$alumno->nia.'/edit')}}" rel="tooltip" 
+                    <a href="{{url('/director/alumno/'.$alumno->nia.'/edit')}}"  
                        title="Editar Alumno" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" target="_blank" style="margin-right: 10px;">
                       <i class="fa fa-edit"></i>
                     </a>
-                    <a href="{{url('director/alumno/'.$alumno->nia.'/show')}}" rel="tooltip" 
+                    <a href="{{url('director/alumno/'.$alumno->nia.'/show')}}"  
                        title="Ver Alumno" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" target="_blank">
                       <i class="fa fa-user"></i>
                     </a>

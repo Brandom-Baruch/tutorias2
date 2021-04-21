@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="container">             
 
@@ -27,137 +27,146 @@
         <div class="row">            
           <div class="col-sm-4">
             <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-              <label>Nombre(s)</label>
+              <label class="text-dark">Nombre(s)</label>
               <input type="text" class="form-control"  
-              placeholder="Ejemplo: Brandom Baruch" 
-              value="{{ old('name') }}" name="name">
+                     placeholder="Escribe un nombre/s" 
+                     value="{{ old('name') }}" 
+                     name="name"
+              >
             </div>
             @if ($errors->has('name'))
-            <span class="help-block text-danger">
-              <strong>{{ $errors->first('name') }}</strong>
-            </span>
+              <span class="help-block text-danger">
+                <strong>{{ $errors->first('name') }}</strong>
+              </span>
             @endif
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <div class="form-group {{ $errors->has('apellidoP') ? ' has-error' : '' }}">
-              <label>Apellido Paterno</label>
+              <label class="text-dark">Apellido Paterno</label>
               <input type="text" class="form-control"  
-              placeholder="Ejemplo: González" 
-              value="{{ old('apellidoP') }}" 
-              name="apellidoP">                     
+                     placeholder="Escribe un apellido paterno" 
+                     value="{{ old('apellidoP') }}" 
+                     name="apellidoP"
+              >                     
             </div>
             @if ($errors->has('apellidoP'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('apellidoP') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('apellidoP') }}</strong>
+              </span>
             @endif
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-sm-4">
             <div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
-              <label>Apellido Materno</label>
+              <label class="text-dark">Apellido Materno</label>
               <input type="text" class="form-control" 
-              placeholder="Ejemplo: Cervantes" 
-              value="{{ old('apellidoM') }}"
-              name="apellidoM">
+                     placeholder="Escribe un apellido materno" 
+                     value="{{ old('apellidoM') }}"
+                     name="apellidoM"
+              >
             </div>
             @if ($errors->has('apellidoM'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('apellidoM') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('apellidoM') }}</strong>
+              </span>
             @endif
           </div>                      
 
-          <div class="col-sm-2">
+          <div class="col-sm-4">
             <div class="form-group {{ $errors->has('edad') ? ' has-error' : '' }}">
-              <label>Edad</label>
+              <label class="text-dark">Edad</label>
               <input type="number" class="form-control" 
-              placeholder="Ejemplo: 21" 
-              value="{{ old('edad') }}"
-              name="edad">
+                     placeholder="Escribe una edad" 
+                     value="{{ old('edad') }}"
+                     name="edad"
+              >
             </div>
             @if ($errors->has('edad'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('edad') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('edad') }}</strong>
+              </span>
             @endif
           </div>
 
           <div class="col-sm-4 ">
             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-              <label>Correo electronico</label>
+              <label class="text-dark">Correo electronico</label>
               <input type="email" class="form-control" 
-              placeholder="Ejemplo: L16240011@smartin.tecnm.mx" 
-              value="{{ old('email') }}"
-              name="email">
+                     placeholder="Escribe un correo electrónico" 
+                     value="{{ old('email') }}"
+                     name="email">
             </div>
             @if ($errors->has('email'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('email') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('email') }}</strong>
+              </span>
             @endif
           </div>
 
-          <div class="col-sm-2">
+          <div class="col-sm-4">
             <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
-              <label>Telefono fijo</label>
+              <label class="text-dark">Teléfono fijo</label>
               <input type="tel" class="form-control" 
-              placeholder="Ejemplo: 123-123-1234" 
-              value="{{ old('telefono_fijo') }}"
-              name="telefono_fijo">
+                     placeholder="Escrine un teléfono fijo" 
+                     value="{{ old('telefono_fijo') }}"
+                     name="telefono_fijo"
+              >
             </div>
             @if ($errors->has('telefono_fijo'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('telefono_fijo') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('telefono_fijo') }}</strong>
+              </span>
             @endif
           </div>                  
 
-          <div class="col-sm-2">
+          <div class="col-sm-4">
             <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
-              <label>Telefono celular</label>
+              <label class="text-dark">Telefono celular</label>
               <input type="tel" class="form-control" 
-              placeholder="Ejemplo: 123-123-1234"
-              value="{{ old('telefono_cel') }}"
-              name="telefono_cel">
+                     placeholder="Escribe un teléfono celular"
+                     value="{{ old('telefono_cel') }}"
+                     name="telefono_cel">
             </div>
             @if ($errors->has('telefono_cel'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('telefono_cel') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('telefono_cel') }}</strong>
+              </span>
             @endif
           </div>
 
           <div class="col-sm-4">
             <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-              <label>Contraseña</label>
+              <label class="text-dark">Contraseña</label>
               <input type="password" class="form-control" 
-              placeholder="Por defecto es: secret"
-              name="password" value="secret">
+                     placeholder="Escribe una contraseña"
+                     name="password" 
+                     value="secret"
+              >
             </div>
             @if ($errors->has('password'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('password') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('password') }}</strong>
+              </span>
             @endif
           </div>
 
           <div class="col-sm-4">
             <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-              <label>Confirmar contraseña</label>
+              <label class="text-dark">Confirmar contraseña</label>
               <input type="password" class="form-control"  
-              placeholder="Por defecto es: secret" 
-              name="password_confirmation"
-              value="secret">
-              <small  class="form-text text-muted">La contraseña por defecto es 
-                <b class="text-danger">secret</b>
-              </small>
+                     placeholder="Confirmar contraseña" 
+                     name="password_confirmation"
+                     value="secret"
+              >
+              <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>          
             </div>                          
-          </div>
+          </div>         
         </div>          
-        <button class="btn btn-success">Registrar docente</button>
-        <a href="{{url('/director/docentes/index')}}" class="btn btn-danger">Cancelar</a>
+        <div class="col-sm-12 col-md-12 text-center">
+            <button class="btn btn-success">Registrar docente</button>
+            <a href="{{url('/director/docentes/index')}}" class="btn btn-danger">Cancelar</a>
+        </div>
       </form>                  
     </div>              
   </div>

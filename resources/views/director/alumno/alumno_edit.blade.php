@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">             
 
@@ -25,13 +25,15 @@
                 {{ csrf_field() }}
 
                 <div class="row"> 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           
                           <div class="form-group  {{ $errors->has('nia') ? ' has-error' : '' }}">
-                            <label for="number">NIA</label>
-                            <input type="number" class="form-control" id="nia" 
-                              placeholder="Ejemplo: 16240011" 
-                              value="{{ old('nia', $alumno->nia) }}" name="nia">
+                            <label class="text-dark">NIA</label>
+                            <input type="number" class="form-control" 
+                                   placeholder="Ejemplo: 16240011" 
+                                   value="{{ old('nia', $alumno->nia) }}" 
+                                   name="nia"
+                            >
                             <small  
                             class="form-text text-muted text-danger">Cambiar el NIA del alumno  si es necesario 
                             </small>
@@ -48,8 +50,12 @@
                     <div class="col-sm-4">
                           
                           <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Nombre(s)</label>
-                            <input type="text" class="form-control" id="name" placeholder="Ejemplo: Brandom Baruch" value="{{ old('name', $alumno->name) }}" name="name">
+                            <label class="text-dark">Nombre(s)</label>
+                            <input type="text" class="form-control" 
+                                   placeholder="Escribe un nombre/s" 
+                                   value="{{ old('name', $alumno->name) }}" 
+                                   name="name"
+                            >
                           </div>
 
                           @if ($errors->has('name'))
@@ -59,13 +65,14 @@
                           @endif
                     </div>
 
-                   <div class="col-sm-3">
+                   <div class="col-sm-4">
                           
                           <div class="form-group {{ $errors->has('apellidoP') ? ' has-error' : '' }}">
-                            <label for="apellidoP">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="apellidoP" 
-                            placeholder="Ejemplo: González" value="{{ old('apellidoP', $alumno->apellidoP) }}" 
-                            name="apellidoP">                     
+                            <label class="text-dark">Apellido Paterno</label>
+                            <input type="text" class="form-control" 
+                                   placeholder="Escribe un apellido Materno" 
+                                   value="{{ old('apellidoP', $alumno->apellidoP) }}" 
+                                   name="apellidoP">                     
                           </div>
 
                           @if ($errors->has('apellidoP'))
@@ -75,13 +82,15 @@
                           @endif
                     </div>
                     
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                          
                           <div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
-                            <label for="exampleFormControlInput1">Apellido Materno</label>
-                            <input type="text" class="form-control" id="apellidoM" 
-                            placeholder="Ejemplo: Cervantes" value="{{ old('apellidoM', $alumno->apellidoM) }}"
-                            name="apellidoM">
+                            <label class="text-dark">Apellido Materno</label>
+                            <input type="text" class="form-control" 
+                                   placeholder="Escribe un apellido Materno" 
+                                   value="{{ old('apellidoM', $alumno->apellidoM) }}"
+                                   name="apellidoM"
+                            >
                           </div>
 
                           @if ($errors->has('apellidoM'))
@@ -91,13 +100,14 @@
                           @endif
                     </div>                      
 
-                     <div class="col-sm-2">
+                     <div class="col-sm-4">
                          
                           <div class="form-group {{ $errors->has('edad') ? ' has-error' : '' }}">
-                            <label for="edad">Edad</label>
-                            <input type="number" class="form-control" id="edad" 
-                            placeholder="Ejemplo: 21" value="{{ old('edad' , $alumno->edad) }}"
-                            name="edad">
+                            <label class="text-dark">Edad</label>
+                            <input type="number" class="form-control"  
+                                   placeholder="Escribe una edad" 
+                                   value="{{ old('edad' , $alumno->edad) }}"
+                                   name="edad">
                           </div>
 
                           @if ($errors->has('edad'))
@@ -110,11 +120,12 @@
                    <div class="col-sm-4">
                           
                           <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email">Correo electronico</label>
-                            <input type="email" class="form-control" id="email" 
-                            placeholder="Ejemplo: L16240011@smartin.tecnm.mx" 
-                            value="{{ old('email', $alumno->email) }}"
-                            name="email">
+                            <label class="text-dark">Correo electronico</label>
+                            <input type="email" class="form-control" 
+                                   placeholder="Escribe un correo electrónico" 
+                                   value="{{ old('email', $alumno->email) }}"
+                                   name="email"
+                            >
                           </div>
 
                           @if ($errors->has('email'))
@@ -124,13 +135,15 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           
                           <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone">Telefono</label>
-                            <input type="tel" class="form-control" id="phone" 
-                            placeholder="Ejemplo: 123-123-1234" value="{{ old('phone', $alumno->phone) }}"
-                            name="phone">
+                            <label class="text-dark">Teléfono</label>
+                            <input type="tel" class="form-control" 
+                                   placeholder="Escribe un teléfono celular/fijo" 
+                                   value="{{ old('phone', $alumno->phone) }}"
+                                   name="phone"
+                            >
                           </div>
 
                           @if ($errors->has('phone'))
@@ -140,10 +153,10 @@
                           @endif
                     </div>                  
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           
                           <div class="form-group{{ $errors->has('grupo_id') ? ' has-error' : '' }}">          
-                            <label for="grupo_id">Grupo</label>
+                            <label class="text-dark">Grupo</label>
                               <select class="form-control " name="grupo_id" >
                                 <option value="0">Sin grupo</option>
                                 @foreach($grupo as $grupo)
@@ -162,17 +175,17 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           
                           <div class="form-group{{ $errors->has('genero') ? ' has-error' : '' }}">          
-                            <label for="genero">Genero</label>
+                            <label class="text-dark">Genero</label>
                               <select class="form-control " name="genero" >
                                 <option value="H"
-                                @if($alumno->genero == 'H') selected @endif>
+                                @if(old('genero',$alumno->genero) == 'H') selected @endif>
                                   H
                                 </option>
                                 <option value="M"
-                                @if($alumno->genero == 'M')  selected @endif>
+                                @if(old('genero',$alumno->genero) == 'M')  selected @endif>
                                   M
                                 </option>                                                          
                               </select>
@@ -185,13 +198,15 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           
                           <div class="form-group {{ $errors->has('fechaN') ? ' has-error' : '' }}">
-                            <label for="fechaN">fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="fechaN" 
-                            placeholder="Ejemplo: 1998-08-28" value="{{ old('fechaN' , $alumno->fechaN) }}"
-                            name="fechaN">                            
+                            <label class="text-dark">fecha de nacimiento</label>
+                            <input type="date" class="form-control"
+                                   placeholder="Ejemplo: 1998-08-28" 
+                                   value="{{ old('fechaN' , $alumno->fechaN) }}"
+                                   name="fechaN"
+                            >                            
                           </div>
 
                           @if ($errors->has('fechaN'))
@@ -201,13 +216,14 @@
                           @endif
                     </div>
                    
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" 
-                              placeholder="Por defecto es: secret"
-                              name="password" value="secret">
+                            <label class="text-dark">Contraseña</label>
+                            <input type="password" class="form-control"
+                                   placeholder="Contraseña"
+                                   name="password" 
+                            >
                           </div>
 
                           @if ($errors->has('password'))
@@ -217,20 +233,28 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="password-confirm" 
-                              placeholder="Por defecto es: secret" name="password_confirmation"
-                              value="secret">
-                              <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>
+                            <label class="text-dark">Confirmar contraseña</label>
+                            <input type="password" class="form-control"
+                                   placeholder="Confirmar contraseña" 
+                                   name="password_confirmation"                              
+                            >                              
                           </div>                          
+                    </div>
+                    <div class="col-sm-4">
+                      <small  class="form-text  text-dark">
+                            Si no quiere cambiar la contraseña, deje vacio los campos 
+                            <b class="text-danger">Contraseña y Confirmar contraseña</b>.
+                      </small>
                     </div>
 
                 </div>                                                                                        
                  
-                <button class="btn btn-success">Registrar docente</button>
-                <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Cancelar</a> 
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-success">Editar datos</button>
+                    <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Cancelar</a> 
+                </div>
 
              </form>                  
         </div>              

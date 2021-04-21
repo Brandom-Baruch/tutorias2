@@ -67,7 +67,7 @@
         </div>
       @endif
       <div class="row">             
-        <div class="col-md-6 ml-auto mr-auto">
+        <div class="col-md-12 col-sm-12">
           <div class="profile-tabs">
             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
               <li class="nav-item">
@@ -98,45 +98,45 @@
       <div class="tab-content tab-space">
         <div class="tab-pane active text-center gallery" id="datos">
           <div class="form-row">
-            <div class="form-group col-md-2">
-              <label class="text-dark" class="text-dark">Nia</label>
-              <input type="text" class="form-control" value="{{ Auth::user()->nia}}">            
+            <div class="form-group col-md-4">
+              <h4>Nia</h4>
+              <p class="h5">{{Auth::user()->nia}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark" class="text-dark">Nombre(s)</label>
-              <input type="text" class="form-control" value="{{Auth::user()->name}}">            
+            <div class="form-group col-md-4">
+              <h4>Nombre(s)</h4>
+              <p class="h5">{{Auth::user()->name}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark">Apellido Paterno</label>
-              <input type="text" class="form-control" value="{{Auth::user()->apellidoP}}">            
+            <div class="form-group col-md-4">
+              <h4>Apellido Paterno</h4>
+              <p class="h5">{{Auth::user()->apellidoP}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark">Apellido Materno</label>
-              <input type="text" class="form-control" value="{{Auth::user()->apellidoM}}">
+            <div class="form-group col-md-4">
+              <h4>Apellido Materno</h4>
+              <p class="h5">{{Auth::user()->apellidoM}}</p>
             </div>          
             <div class="form-group col-md-4">
-              <label class="text-dark">Correo electronico</label>
-              <input type="text" class="form-control" value="{{Auth::user()->email}}">
+              <h4>Correo electrónico</h4>
+              <p class="h5">{{Auth::user()->email}}</p>
+            </div>            
+            <div class="form-group col-md-4">
+              <h4>Grupo</h4>
+              <p class="h5">{{Auth::user()->grupo->name}}</p>
             </div>
-            <div class="form-group col-md-1">
-              <label class="text-dark">Genero</label>
-              <input type="text" class="form-control" value="{{Auth::user()->genero}}">
+            <div class="form-group col-md-4">
+              <h4>Teléfono celular</h4>
+              <p class="h5">{{Auth::user()->phone}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label class="text-dark">Grupo</label>
-              <input type="text" class="form-control" value="{{Auth::user()->grupo->name}}">
-            </div>
-            <div class="form-group col-md-2">
-              <label class="text-dark">Telefono celular</label>
-              <input type="tel" class="form-control" value="{{Auth::user()->phone}}">
-            </div>
-            <div class="form-group col-md-2">
-              <label class="text-dark">Fecha de nacimiento</label>
-              <input type="tel" class="form-control" value="{{Auth::user()->fechaN}}">
+            <div class="form-group col-md-4">
+              <h4>Fecha de nacimiento</h4>
+              <p class="h5">{{Auth::user()->fechaN}}</p>
             </div>                 
-            <div class="form-group col-md-1">
-              <label class="text-dark">Edad</label>
-              <input type="number" class="form-control" value="{{Auth::user()->edad}}">
+            <div class="form-group col-md-4">
+              <h4>Edad</h4>
+              <p class="h5">{{Auth::user()->edad}}</p>
+            </div>
+            <div class="form-group col-md-4">
+              <h4>Género</h4>
+              <p class="h5">{{Auth::user()->genero}}</p>
             </div>                
           </div>            
           <a href="{{url('alumno/'.Auth::user()->nia.'/edit')}}" class="btn btn-success">Editar información</a>    
@@ -145,37 +145,37 @@
           @foreach(Auth::user()->domicilios as $domicilio)
           <div class="form-row">
             <div class="form-group col-md-4">
-              <label>Estado</label>
-              <input type="text" class="form-control" value="{{$domicilio->estado}}">
+              <h4>Estado</h4>
+              <p class="h5">{{$domicilio->estado}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label>Municipio</label>
-              <input type="text" class="form-control" value="{{$domicilio->municipio}}">
+              <h4>Municipio</h4>
+              <p class="h5">{{$domicilio->municipio}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label>Localidad</label>
-              <input type="text" class="form-control" value="{{$domicilio->localidad}}">
+              <h4>Localidad</h4>
+              <p class="h5">{{$domicilio->localidad}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label>Calle</label>
-              <input type="text" class="form-control" value="{{$domicilio->calle}}">
+            <div class="form-group col-md-4">
+              <h4>Calle</h4>
+              <p class="h5">{{$domicilio->calle}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label>Colonia</label>
-              <input type="text" class="form-control" value="{{$domicilio->colonia}}">
+            <div class="form-group col-md-4">
+              <h4>Colonia</h4>
+              <p class="h5">{{$domicilio->colonia}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label>No Interior</label>
-              <input type="number" class="form-control" value="{{$domicilio->no_interior}}">
+            <div class="form-group col-md-4">
+              <h4>Código Postal</h4>
+              <p class="h5">{{$domicilio->cp}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label>No Exterior</label>
-              <input type="number" class="form-control" value="{{$domicilio->no_exterior}}">
+            <div class="form-group col-md-4">
+              <h4>No. Interior</h4>
+              <p class="h5">{{$domicilio->no_interior}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label>Codigo Postal</label>
-              <input type="number" class="form-control" value="{{$domicilio->cp}}">
-            </div>                    
+            <div class="form-group col-md-4">
+              <h4>No. Exterior</h4>
+              <p class="h5">{{$domicilio->no_exterior}}</p>
+            </div>                                
           </div>    
           @if(Auth::user()->domicilios->count() == 1)
           <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/domicilio/'.$domicilio->id.'/delete')}}" >
@@ -194,8 +194,8 @@
             <h3 class="text-danger">No tiene parentesco con un familiar</h3>
             <a href="{{url('alumno/'.Auth::user()->nia.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
           @else
-          <div class="row">
-            <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+          <div class="table-responsive">
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th class="text-center">#</th>
@@ -230,8 +230,8 @@
           <h3 class="text-center">
             Materias del grupo <b class="text-primary">{{Auth::user()->grupo->name}}</b> grado <b class="text-primary">{{Auth::user()->grupo->grado}}</b> y grupo <b class="text-primary">{{Auth::user()->grupo->grupo}}</b>            
           </h3>
-          <div class="row">
-            <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+          <div class="table-responsive">
+            <table class="table table-striped">
               <thead>
                 <tr>
                   <th class="text-center">#</th>

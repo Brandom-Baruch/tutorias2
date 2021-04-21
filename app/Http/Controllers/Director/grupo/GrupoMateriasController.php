@@ -17,7 +17,7 @@ class GrupoMateriasController extends Controller
         $materias = $grupo->materias()->paginate(10);
         $tutorias = $grupo->materias()->where('name','like','%tutorias%')->first();             
         //dd($tutorias->name);
-        return view('director.grupo.grupo_materia_show')->with(compact('grupo', 'materias','tutorias'));
+        return view('director.grupo.materia_grupo.grupo_materia_show')->with(compact('grupo', 'materias','tutorias'));
     }
 
     public function create(Request $request,$id)    

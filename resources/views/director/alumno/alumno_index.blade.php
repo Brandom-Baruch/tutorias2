@@ -13,21 +13,16 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} ');"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 ml-auto mr-auto">
-          <div class="profile">          
-            <div class="name">
-              <h3 class="title" style="color: white;">Bienvenido Director {{Auth::user()->name}}</h3>
-            </div>
-          </div>
+        <div class="description text-center">
+           <h3 class="title">Listado de Alumnos</h3> 
         </div>
       </div>
-      <div class="description text-center">
-        <h3 class="title">Listado de Alumnos</h3>                                                                                   
+      <div class="description text-center">                                                                                      
         <form method="get" action="{{url('/director/alumno/search')}}" class="form-inline p-5">
           <a href="{{url('/director/alumno/create')}}" class="btn btn-primary" style="margin-right:20px;">Agregar nuevo Alumno</a>
           <input type="text"  placeholder="¿Qué alumno buscas?" class="form-control text-center " name="search">

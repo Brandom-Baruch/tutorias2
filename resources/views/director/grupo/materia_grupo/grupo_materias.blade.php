@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} ');"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
@@ -62,11 +62,9 @@
             </div>
           </div>
         @endif          
-      <a href="{{url('director/grupo/'.$grupo->id.'/materias/show')}}" 
-       class="btn btn-danger" 
-       style="margin-bottom: 10px;">
+      <a href="{{url('director/grupo/'.$grupo->id.'/materias/show')}}" class="btn btn-danger"style="margin-bottom: 10px;">
        Regresar
-     </a>              
+      </a>              
      <div class="row">                  
       <table class="table  table-responsive-sm table-responsive-md table-responsive-lg">
         <thead>

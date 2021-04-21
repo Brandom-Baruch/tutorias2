@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">                    
         <div class="section">            
@@ -22,36 +22,37 @@
                 {{ csrf_field() }}
 
                 <div class="row">            
-                    <div class="col-sm-4">
-                          <div class="form-group {{ $errors->has('puesto') ? ' has-error' : '' }}">
-                            <label>Nombre del puesto</label>
-                            <input type="text" class="form-control"
-                                   placeholder="Ejemplo: Director" 
-                                   value="{{ old('puesto') }}" 
-                                   name="puesto">
-							             @if ($errors->has('puesto'))
-                              <span class="help-block text-danger">
-                                  <strong>{{ $errors->first('puesto') }}</strong>
-                              </span>
-                          	@endif                                   
-                          </div>                          
+                    <div class="col-sm-6">
+                      <div class="form-group {{ $errors->has('puesto') ? ' has-error' : '' }}">
+                        <label class="text-dark">Nombre del puesto</label>
+                        <input type="text" class="form-control"
+                               placeholder="Escribe el nombre del puesto" 
+                               value="{{ old('puesto') }}" 
+                               name="puesto">
+					             @if ($errors->has('puesto'))
+                          <span class="help-block text-danger">
+                              <strong>{{ $errors->first('puesto') }}</strong>
+                          </span>
+                      	@endif                                   
+                      </div>                          
                     </div>
 
-                    <div class="col-sm-8">
+                    <div class="col-sm-6">
                     	<div class="form-group">
-	      				    <label>Descripción del puesto</label>
-	      				    <textarea class="form-control" rows="1" name="descripcion"></textarea>
-	    				         @if ($errors->has('descripcion'))
-	  	                      <span class="help-block text-center text-danger">
-	  	                          <strong>{{ $errors->first('descripcion') }}</strong>
-	  	                      </span>
-	  	                	@endif
-      			    	</div>
+    	      				    <label class="text-dark">Descripción del puesto</label>
+    	      				    <textarea class="form-control" rows="1" name="descripcion"></textarea>
+    	    				         @if ($errors->has('descripcion'))
+    	  	                      <span class="help-block text-center text-danger">
+    	  	                          <strong>{{ $errors->first('descripcion') }}</strong>
+    	  	                      </span>
+    	  	                	@endif
+          			    	</div>
                     </div> 
-                </div>                	                                                                                                                 
-                <button class="btn btn-success">Registrar Puesto</button>
-                <a href="{{url('director/puestos/index')}}" class="btn btn-danger">Cancelar</a> 
-
+                </div>                                                                                                              
+                <div class="text-center col-md-12">
+                    <button class="btn btn-success">Registrar Puesto</button>
+                    <a href="{{url('director/puestos/index')}}" class="btn btn-danger">Cancelar</a> 
+                </div>
              </form>                  
         </div>              
     </div>

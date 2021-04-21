@@ -94,32 +94,32 @@
                     <div class="tab-pane active text-center gallery" id="datos">
                         <div class="form-row">              
                             <div class="form-group col-md-4">
-                                <label class="text-dark" class="text-dark">Nombre(s)</label>
-                                <input type="text" class="form-control" value="{{Auth::user()->name}}">            
+                                <h4>Nombre(s)</h4>
+                                <p class="h5">{{Auth::user()->name}}</p>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="text-dark">Apellido Paterno</label>
-                                <input type="text" class="form-control" value="{{Auth::user()->apellidoP}}">            
+                                <h4>Apellido Paterno</h4>
+                                <p class="h5">{{Auth::user()->apellidoP}}</p>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="text-dark">Apellido Materno</label>
-                                <input type="text" class="form-control" value="{{Auth::user()->apellidoM}}">
+                                <h4>Apellido Materno</h4>
+                                <p class="h5">{{Auth::user()->apellidoM}}</p>
                             </div>          
                             <div class="form-group col-md-4">
-                                <label class="text-dark">Correo electronico</label>
-                                <input type="text" class="form-control" value="{{Auth::user()->email}}">
+                                <h4>Correo electrónico</h4>
+                                <p class="h5">{{Auth::user()->email}}</p>
                             </div>                             
                             <div class="form-group col-md-4">
-                                <label class="text-dark">Telefono celular</label>
-                                <input type="tel" class="form-control" value="{{Auth::user()->telefono_cel}}">
+                                <h4>Teléfono celular</h4>
+                                <p class="h5">{{Auth::user()->telefono_cel}}</p>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="text-dark">Telefono fijo</label>
-                                <input type="tel" class="form-control" value="{{Auth::user()->telefono_fijo}}">
+                                <h4>Teléfono fijo</h4>
+                                <p class="h5">{{Auth::user()->telefono_fijo}}</p>
                             </div>                 
-                            <div class="form-group col-md-2">
-                                <label class="text-dark">Edad</label>
-                                <input type="number" class="form-control" value="{{Auth::user()->edad}}">
+                            <div class="form-group col-md-4">
+                                <h4>Edad</h4>
+                                <p class="h5">{{Auth::user()->edad}}</p>
                             </div>                
                         </div>            
                         <a href="{{url('docente/'.Auth::user()->id.'/edit')}}" class="btn btn-success">Editar información</a>                        
@@ -128,37 +128,37 @@
                         @foreach(Auth::user()->domicilios as $domicilio)
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <label>Estado</label>
-                                <input type="text" class="form-control" value="{{$domicilio->estado}}">
+                                <h4>Estado</h4>
+                                <p class="h5">{{$domicilio->estado}}</p>
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Municipio</label>
-                                <input type="text" class="form-control" value="{{$domicilio->municipio}}">
+                                <h4>Municipio</h4>
+                                <p class="h5">{{$domicilio->municipio}}</p>
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Localidad</label>
-                                <input type="text" class="form-control" value="{{$domicilio->localidad}}">
+                                <h4>Localidad</h4>
+                                <p class="h5">{{$domicilio->localidad}}</p>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label>Calle</label>
-                                <input type="text" class="form-control" value="{{$domicilio->calle}}">
+                            <div class="form-group col-md-4">
+                                <h4>Calle</h4>
+                                <p class="h5">{{$domicilio->calle}}</p>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label>Colonia</label>
-                                <input type="text" class="form-control" value="{{$domicilio->colonia}}">
+                            <div class="form-group col-md-4">
+                                <h4>Colonia</h4>
+                                <p class="h5">{{$domicilio->colonia}}</p>
                             </div>
-                            <div class="form-group col-md-2">
-                                <label>No Interior</label>
-                                <input type="number" class="form-control" value="{{$domicilio->no_interior}}">
+                            <div class="form-group col-md-4">
+                                <h4>Código Postal</h4>
+                                <p class="h5">{{$domicilio->cp}}</p>
+                            </div> 
+                            <div class="form-group col-md-4">
+                                <h4>No. Interior</h4>
+                                <p class="h5">{{$domicilio->no_interior}}</p>
                             </div>
-                            <div class="form-group col-md-2">
-                                <label>No Exterior</label>
-                                <input type="number" class="form-control" value="{{$domicilio->no_exterior}}">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label>Codigo Postal</label>
-                                <input type="number" class="form-control" value="{{$domicilio->cp}}">
-                            </div>                    
+                            <div class="form-group col-md-4">
+                                <h4>No. Exterior</h4>
+                                <p class="h5">{{$domicilio->no_exterior}}</p>
+                            </div>                                               
                         </div>    
                         @if(Auth::user()->domicilios->count() == 1)
                         <form method="post" action="{{url('docente/'.Auth::user()->id.'/domicilio/'.$domicilio->id.'/delete')}}" >
@@ -172,8 +172,8 @@
                         @endif
                     </div>
                     <div class="tab-pane text-center gallery" id="materias">
-                        <div class="row">
-                            <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
@@ -196,8 +196,8 @@
                         </div>                      
                     </div>
                     <div class="tab-pane text-center gallery" id="puestos">
-                        <div class="row">
-                            <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+                        <div class="row table-responsive">
+                            <table class="table table-striped ">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>

@@ -14,7 +14,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 250px;" ></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} '); " ></div>
 <div class="main main-raised">
 <div class="main main-raised">
     <div class="profile-content">
@@ -74,7 +74,12 @@
                   <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
                     <i class="material-icons">person_search</i> Parentezcos
                   </a>
-                </li>                
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#documentos_padre" role="tab" data-toggle="tab">
+                  <i class="material-icons">book</i> Documentos
+                </a>
+              </li>                
               </ul>
             </div>
           </div>
@@ -83,52 +88,52 @@
           <div class="tab-pane active text-center gallery" id="datos">
             <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label class="text-dark" class="text-dark">Nombre(s)</label>
-                  <input type="text" class="form-control" value="{{$padre->name}}" name="name">            
+                  <h4 class ="text-dark">Nombre(s)</h4>
+                  <p class="h5">{{$padre->name}}</p>
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="text-dark">Apellido Paterno</label>
-                  <input type="text" class="form-control" value="{{$padre->apellidoP}}" name="apellidoP">            
+                  <h4 class ="text-dark">Apellido Paterno</h4>
+                  <p class="h5">{{$padre->apellidoP}}</p>
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="text-dark">Apellido Materno</label>
-                  <input type="text" class="form-control" value="{{$padre->apellidoM}}" name="apellidoM">
+                  <h4 class ="text-dark">Apellido Materno</h4>
+                  <p class="h5">{{$padre->apellidoM}}</p>
                 </div>          
                 <div class="form-group col-md-4">
-                  <label class="text-dark">Correo electronico</label>
-                  <input type="text" class="form-control" value="{{$padre->email}}" name="email">
+                  <h4 class ="text-dark">Correo electronico</h4>
+                  <p class="h5">{{$padre->email}}</p>
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="text-dark">profesion</label>
-                  <input type="text" class="form-control" value="{{$padre->profesion}}" name="profesion">
+                  <h4 class ="text-dark">Profesión</h4>
+                  <p class="h5">{{$padre->profesion}}</p>
                 </div>
                 <div class="form-group col-md-4">
-                  <label class="text-dark">Ocupación</label>
-                  <input type="text" class="form-control" value="{{$padre->ocupacion}}" name="ocupacion">
+                  <h4 class ="text-dark">Curp</h4>
+                  <p class="h5">{{ $padre->curp}}</p>
                 </div>
-                <div class="form-group col-md-3">
-                  <label class="text-dark">Telefono fijo</label>
-                  <input type="tel" class="form-control" value="{{ $padre->telefono_fijo}}"name="telefono_fijo">
+                <div class="form-group col-md-4">
+                  <h4 class ="text-dark">Ocupación</h4>
+                  <p class="h5 text-dark">{{$padre->ocupacion}}</p>
                 </div>
-                <div class="form-group col-md-3">
-                  <label class="text-dark">Telefono celular</label>
-                  <input type="tel" class="form-control" value="{{ $padre->telefono_cel}}"name="telefono_cel">
-                </div> 
-                <div class="form-group col-md-3">
-                  <label class="text-dark">Curp</label>
-                  <input type="text" class="form-control" value="{{ $padre->curp}}"name="curp">
+                <div class="form-group col-md-4">
+                  <h4 class ="text-dark">Telefono fijo</h4>
+                  <p class="h5">{{ $padre->telefono_fijo}}</p>
                 </div>
-                <div class="form-group col-md-3">
-                  <label class="text-dark">Escolaridad</label>
-                  <input type="text" class="form-control" value="{{ $padre->escolaridad}}"name="escolaridad">
+                <div class="form-group col-md-4">
+                  <h4 class ="text-dark">Telefono celular</h4>
+                  <p class="h5">{{ $padre->telefono_cel}}</p>
+                </div>                 
+                <div class="form-group col-md-4">
+                  <h4 class ="text-dark">Escolaridad</h4>
+                  <p class="h5">{{ $padre->escolaridad}}</p>
                 </div>
-                <div class="form-group col-md-3">
-                  <label class="text-dark">Estado civil</label>
-                  <input type="text" class="form-control" value="{{ $padre->estado_civil}}"name="estado_civil">
+                <div class="form-group col-md-4">
+                  <h4 class ="text-dark">Estado civil</h4>
+                  <p class="h5">{{$padre->estado_civil}}</p>
                 </div>
-                <div class="form-group col-md-2">
-                  <label class="text-dark">Edad</label>
-                  <input type="number" class="form-control" value="{{ $padre->edad}}"name="edad">
+                <div class="form-group col-md-4">
+                  <h4 class ="text-dark">Edad</h4>
+                  <p class="h5">{{$padre->edad}}</p>
                 </div>                
             </div>            
             <a href="{{url('director/padre_familia/'.$padre->id.'/edit')}}" class="btn btn-success" target="_blank">Editar información</a>
@@ -138,68 +143,65 @@
               @foreach($padre->domicilios as $domicilio)
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                      <label>Estado</label>
-                      <input type="text" class="form-control" placeholder="Ejemplo: Puebla" name="estado" 
-                             value="{{$domicilio->estado}}">
+                      <h4>Estado</h4>
+                      <p class="h5">{{$domicilio->estado}}</p>
                     </div>
                     <div class="form-group col-md-4">
-                      <label>Municipio</label>
-                      <input type="text" class="form-control" placeholder="Ejemplo: Santa Ana Nopalucan" name="municipio"
-                             value="{{$domicilio->municipio}}">
+                      <h4>Municipio</h4>
+                      <p class="h5">{{$domicilio->municipio}}</p>
                     </div>
                     <div class="form-group col-md-4">
-                      <label>Localidad</label>
-                      <input type="text" class="form-control"  placeholder="1234 Main St" name="localidad" 
-                             value="{{$domicilio->localidad}}">
+                      <h4>Localidad</h4>
+                      <p class="h5">{{$domicilio->localidad}}</p>
                     </div>
-                    <div class="form-group col-md-3">
-                      <label>Calle</label>
-                      <input type="text" class="form-control"  placeholder="Apartment, studio, or floor" name="calle"
-                             value="{{$domicilio->calle}}">
+                    <div class="form-group col-md-4">
+                      <h4>Calle</h4>
+                      <p class="h5">{{$domicilio->calle}}</p>
                     </div>
-                    <div class="form-group col-md-3">
-                      <label>Colonia</label>
-                      <input type="text" class="form-control"  placeholder="Apartment, studio, or floor" name="colonia"
-                             value="{{$domicilio->colonia}}">
+                    <div class="form-group col-md-4">
+                      <h4>Colonia</h4>
+                      <p class="h5">{{$domicilio->colonia}}</p>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label>No Interior</label>
-                      <input type="number" class="form-control" placeholder="11"  name="no_interior"
-                             value="{{$domicilio->no_interior}}">
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label>No Exterior</label>
-                      <input type="number" class="form-control" placeholder="11"  name="no_exterior"
-                             value="{{$domicilio->no_exterior}}">
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label>Codigo Postal</label>
-                      <input type="number" class="form-control" placeholder="90135"  name="cp"
-                             value="{{$domicilio->cp}}">
+                    <div class="form-group col-md-4">
+                      <h4>Codigo Postal</h4>
+                      <p class="h5">{{$domicilio->cp}}</p>
                     </div>                    
+                    <div class="form-group col-md-4">
+                      <h4>No. Interior</h4>
+                      <p class="h5">{{$domicilio->no_interior}}</p>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <h4>No. Exterior</h4>
+                      <p class="h5">{{$domicilio->no_exterior}}</p>
+                    </div>                                        
                 </div>    
                 @if($padre->domicilios->count() == 1)
                 <form method="post" action="{{url('director/padre_familia/'.$padre->id.'/domicilio/'.$domicilio->id.'/delete')}}" >
                   {{ csrf_field() }}
-                  <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>              
-                  <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
+                  <div class="col-md-12 col-sm-12">
+                    <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>              
+                    <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
+                  </div>
                 </form>                
                 @endif                                          
               @endforeach   
               @if($padre->domicilios->count() == 0)
-                <a href="{{url('director/padre_familia/'.$padre->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
-                <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                            
+                <div class="col-md-12 col-sm-12">
+                  <h3 class="text-danger">No tiene agregado un domicilio</h3>
+                  <a href="{{url('director/padre_familia/'.$padre->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
+                  <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                            
+                </div>
               @endif
           </div>
-          <div class="tab-pane text-center gallery" id="parentezco">
-            <div class="row">
-              <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+          <div class="tab-pane text-center gallery " id="parentezco">
+            <div class="table-responsive">
+              <table class="table table-striped">
                 <thead>
                     <tr>
                         <th class="text-center">NIA</th>
-                        <th class="text-center">Alumno</th>                                                                          
+                        <th class="text-center">Alumno</th>                                                                         
                         <th class="text-center">Parentezco</th>
-                        <th class="text-center">Opciones</th>                                                                        
+                        <th class="text-center">Opciones</th>                                                                       
                     </tr>
                 </thead>                                
                   <tbody>
@@ -221,7 +223,47 @@
             </div>
             <a href="{{url('director/padre_familia/'.$padre->id.'/alumnos')}}" class="btn btn-success" target="_blank">Agregar familiar</a>
             <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
-          </div>         
+          </div>
+          <div class="tab-pane text-center gallery table-responsive" id="documentos_padre"> 
+            <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>                  
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Archivo</th>                  
+                    <th scope="col">Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($archivos as $key => $archivo)
+                  <tr>
+                    <th scope="row">{{ ($key+1) }}</th>
+                    <td>{{ $archivo->nombre_archivo }}</td>
+                    <td>
+                      <a href="{{ url('director/download/'.$archivo->id.'/documento') }}"
+                        target="_blank" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" 
+                        rel="tooltip" title="Descargar documento"
+                      >
+                        <span class="material-icons">
+                          download
+                        </span>                     
+                      </a>
+                      <a href="{{ url('director/ver/'.$archivo->id.'/documento') }}"
+                        target="_blank" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm"  rel="tooltip" title="Ver documento"
+                      >
+                        <span class="material-icons">
+                          visibility
+                        </span>                      
+                      </a>                    
+                    </td>                  
+                  </tr>
+                  @endforeach                
+                </tbody>
+              </table>
+              <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                           
+            </div>            
+          </div>          
         </div>              
       </div>
     </div>

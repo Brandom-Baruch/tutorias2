@@ -44,8 +44,8 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'phone' => 'required',
             'email' => 'required|max:250',
-            'password' => 'required|string|min:6|confirmed',            
-            'grupo_id' =>  'required',          
+            //7'password' => 'required|string|min:6|confirmed',            
+           // 'grupo_id' =>  'required',          
         ];
 
         $message = [
@@ -62,10 +62,10 @@ class AlumnoController extends Controller
             'phone.required' => 'Debes de colocar el numero telefonico del alumno',
             'email.required' => 'Debes de colocar el correo electronico del alumno',            
             'email.max' => 'Solamente puedes colocar 255 caracteres',
-            'password.required' => 'Debes de colocar una contraseña',
-            'password.min' => 'La contraseña minima debe tener 6 caracteres',
-            'password.confirmed' => 'No coinciden la contraseña, intentalo de nuevo',
-            'grupo_id.required' => 'Debes de asignar un grupo al alumno',
+            //'password.required' => 'Debes de colocar una contraseña',
+            //'password.min' => 'La contraseña minima debe tener 6 caracteres',
+            //'password.confirmed' => 'No coinciden la contraseña, intentalo de nuevo',
+            //'grupo_id.required' => 'Debes de asignar un grupo al alumno',
         ];
 
         //Si ocurre un error en algun campo
@@ -75,7 +75,7 @@ class AlumnoController extends Controller
         //Creamos un objeto de la clase alumno
 
         $alumno = Alumno::find($nia);
-        $alumno->nia = $alumno->nia;
+        //$alumno->nia = $alumno->nia;
         $alumno->name = $request->input('name');
         $alumno->edad = $request->input('edad');
         $alumno->apellidoP = $request->input('apellidoP');     
@@ -84,8 +84,10 @@ class AlumnoController extends Controller
         $alumno->genero = $request->input('genero');
         $alumno->phone = $request->input('phone');
         $alumno->email = $request->input('email');
-        $alumno->password = Hash::make($request->input('password'));
-        $alumno->grupo_id = $request->input('grupo_id');
+        if ($request->password) {
+            $alumno->password = Hash::make($request->input('password'));
+        }
+        //$alumno->grupo_id = $request->input('grupo_id');
         $alumno->remember_token = str_random(100);
         $alumno->save();
 

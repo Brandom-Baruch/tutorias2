@@ -14,7 +14,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 250px;" ></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');" ></div>
 <div class="main main-raised">
   <div class="main main-raised">
     <div class="profile-content">
@@ -86,84 +86,84 @@
         <div class="tab-content tab-space">
           <div class="tab-pane active text-center gallery" id="datos">
             <div class="form-row">
-            	<div class="form-group col-md-2">
-                <label class="text-dark" class="text-dark">Nia</label>
-                <input type="text" class="form-control" value="{{ $alumno->nia}}">            
+            	<div class="form-group col-md-4">
+                <h4>Nia</h4>
+                <p class="h5">{{ $alumno->nia}}</p>
               </div>
-              <div class="form-group col-md-3">
-                <label class="text-dark" class="text-dark">Nombre(s)</label>
-                <input type="text" class="form-control" value="{{ $alumno->name}}">            
+              <div class="form-group col-md-4">
+                <h4>Nombre(s)</h4>
+                <p class="h5">{{ $alumno->name}}</p>
               </div>
-              <div class="form-group col-md-3">
-                <label class="text-dark">Apellido Paterno</label>
-                <input type="text" class="form-control" value="{{ $alumno->apellidoP}}">            
+              <div class="form-group col-md-4">
+                <h4>Apellido Paterno</h4>
+                <p class="h5">{{ $alumno->apellidoP}}</p>
               </div>
-              <div class="form-group col-md-3">
-                <label class="text-dark">Apellido Materno</label>
-                <input type="text" class="form-control" value="{{$alumno->apellidoM}}">
+              <div class="form-group col-md-4">
+                <h4>Apellido Materno</h4>
+                <p class="h5">{{$alumno->apellidoM}}</p>
               </div>          
               <div class="form-group col-md-4">
-                <label class="text-dark">Correo electronico</label>
-                <input type="text" class="form-control" value="{{$alumno->email}}">
+                <h4>Correo electronico</h4>
+                <p class="h5">{{$alumno->email}}</p>
               </div>
-              <div class="form-group col-md-1">
-                <label class="text-dark">Genero</label>
-                <input type="text" class="form-control" value="{{$alumno->genero}}">
+              <div class="form-group col-md-4">
+                <h4>Genero</h4>
+                <p class="h5">{{$alumno->genero}}</p>
               </div>
-              <div class="form-group col-md-2">
-                <label class="text-dark">Grupo</label>
-                <input type="text" class="form-control" value="{{$alumno->grupo->name}}">
+              <div class="form-group col-md-4">
+                <h4>Grupo</h4>
+                <p class="h5">{{$alumno->grupo->name}}</p>
               </div>
-              <div class="form-group col-md-2">
-                <label class="text-dark">Telefono celular</label>
-                <input type="tel" class="form-control" value="{{$alumno->phone}}">
+              <div class="form-group col-md-4">
+                <h4>Telefono celular</h4>
+                <p class="h5">{{$alumno->phone}}</p>
               </div>
-              <div class="form-group col-md-2">
-                <label class="text-dark">Fecha de nacimiento</label>
-                <input type="tel" class="form-control" value="{{$alumno->fechaN}}">
+              <div class="form-group col-md-4">
+                <h4>Fecha de nacimiento</h4>
+                <p class="h5">{{$alumno->fechaN}}</p>
               </div>                 
-              <div class="form-group col-md-1">
-                <label class="text-dark">Edad</label>
-                <input type="number" class="form-control" value="{{$alumno->edad}}">
+              <div class="form-group col-md-4">
+                <h4>Edad</h4>
+                <p class="h5">{{$alumno->edad}}</p>
               </div>                
             </div>            
             <a href="{{url('director/alumno/'.$alumno->nia.'/edit')}}" class="btn btn-success" target="_blank">Editar información</a>
-            <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
+            <a href="{{url('/director/alumnos/index')}}" class="btn btn-danger">Regresar</a>
           </div>
           <div class="tab-pane text-center gallery" id="direccion">                        
             @foreach($alumno->domicilios as $domicilio)
             <div class="form-row">
               <div class="form-group col-md-4">
-                <label>Estado</label>
-                <input type="text" class="form-control" value="{{$domicilio->estado}}">
+                <h4>Estado</h4>
+                <p class="h5">{{$domicilio->estado}}</p>
               </div>
               <div class="form-group col-md-4">
-                <label>Municipio</label>
-                <input type="text" class="form-control" value="{{$domicilio->municipio}}">
+                <h4>Municipio</h4>
+                <p class="h5">{{$domicilio->municipio}}</p>
               </div>
               <div class="form-group col-md-4">
-                <label>Localidad</label>
-                <input type="text" class="form-control" value="{{$domicilio->localidad}}">
+                <h4>Localidad</h4>
+                <p class="h5">{{$domicilio->localidad}}</p>
               </div>
-              <div class="form-group col-md-3">
-                <label>Calle</label>
-                <input type="text" class="form-control" value="{{$domicilio->calle}}">
+              <div class="form-group col-md-4">
+                <h4>Calle</h4>
+                <p class="h5">{{$domicilio->calle}}</p>
               </div>
-              <div class="form-group col-md-3">
-                <label>Colonia</label>
-                <input type="text" class="form-control" value="{{$domicilio->colonia}}">
+              <div class="form-group col-md-4">
+                <h4>Colonia</h4>
+                <p class="h5">{{$domicilio->colonia}}</p>
               </div>
-              <div class="form-group col-md-2">
-                <label>No Interior</label>
-                <input type="number" class="form-control" value="{{$domicilio->no_interior}}">
+              <div class="form-group col-md-4">
+                <h4>No Interior</h4>
+                <p class="h5">{{$domicilio->no_interior}}</p>
               </div>
-              <div class="form-group col-md-2">
-                <label>No Exterior</label>
-                <input type="number" class="form-control" value="{{$domicilio->no_exterior}}">
+              <div class="form-group col-md-4">
+                <h4>No Exterior</h4>
+                <p class="h5">{{$domicilio->no_exterior}}</p>
               </div>
-              <div class="form-group col-md-2">
-                <label>Codigo Postal</label>
-                <input type="number" class="form-control" value="{{$domicilio->cp}}">
+              <div class="form-group col-md-4">
+                <h4>Codigo Postal</h4>
+                <p class="h5">{{$domicilio->cp}}</p>
               </div>                    
             </div>    
             @if($alumno->domicilios->count() == 1)
@@ -175,17 +175,17 @@
             @endif                                          
             @endforeach   
             @if($alumno->domicilios->count() == 0)
-            <h3 class="text-danger">No tiene asignado un domicilio</h3>
-            <a href="{{url('director/alumno/'.$alumno->nia.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
-            <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>                            
+              <h3 class="text-danger">No tiene asignado un domicilio</h3>
+              <a href="{{url('director/alumno/'.$alumno->nia.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
+              <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>                            
             @endif
           </div>
           <div class="tab-pane text-center gallery" id="parentezco">
             @if($alumno->padres->isEmpty())
             <h3 class="text-danger">No tiene parentesco con un familiar</h3>
             @else
-            <div class="row">
-              <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+            <div class="table-responsive">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th class="text-center">#</th>
@@ -225,9 +225,9 @@
             @if($materia->isEmpty())
             <h3 class="text-danger">No tiene materias el grupo</h3>
             @else
-            <h3>Materias del grupo <b>{{$grupo->name}}</b></h3>
-            <div class="row">
-              <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+            <h3>Materias del grupo <b class="text-primary">{{$grupo->name}}</b></h3>
+            <div class="table-responsive">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th class="text-center">#</th>
@@ -249,8 +249,8 @@
               </table>                
             </div>               
             @endif            
-            <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>
             <a href="{{url('director/grupo/'.$grupo->id.'/materias/show')}}" class="btn btn-success">Ver Grupo</a>
+            <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>
           </div>         
         </div>              
       </div>

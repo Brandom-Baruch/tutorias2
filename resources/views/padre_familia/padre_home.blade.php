@@ -28,46 +28,46 @@
         </div>        
       </div>
       @if (session('status'))
-            <div class="alert alert-success text-left">
-              <div class="container-fluid">
-                <div class="alert-icon">
-                  <i class="material-icons">check</i>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                </button>
-                Has cambiado tu contraseña exitosamente
-              </div>
-            </div>
+      <div class="alert alert-success text-left">
+        <div class="container-fluid">
+          <div class="alert-icon">
+            <i class="material-icons">check</i>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+          </button>
+          Has cambiado tu contraseña exitosamente
+        </div>
+      </div>
       @endif
       @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
-          <div class="alert alert-success text-left">
-            <div class="container-fluid">
-              <div class="alert-icon">
-                <i class="material-icons">check</i>
-              </div>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"><i class="material-icons">clear</i></span>
-              </button>
-              {{ session('mensaje') }}
-            </div>
+      <div class="alert alert-success text-left">
+        <div class="container-fluid">
+          <div class="alert-icon">
+            <i class="material-icons">check</i>
           </div>
-        @endif
-        @if (session('eliminado')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
-          <div class="alert alert-danger text-left">
-            <div class="container-fluid">
-              <div class="alert-icon">
-                <i class="material-icons">check</i>
-              </div>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true"><i class="material-icons">clear</i></span>
-              </button>
-              {{ session('eliminado') }}
-            </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+          </button>
+          {{ session('mensaje') }}
+        </div>
+      </div>
+      @endif
+      @if (session('eliminado')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
+      <div class="alert alert-danger text-left">
+        <div class="container-fluid">
+          <div class="alert-icon">
+            <i class="material-icons">check</i>
           </div>
-        @endif
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true"><i class="material-icons">clear</i></span>
+          </button>
+          {{ session('eliminado') }}
+        </div>
+      </div>
+      @endif
       <div class="row">             
-        <div class="col-md-6 ml-auto mr-auto">
+        <div class="col-md-12 col-sm-12 ml-auto mr-auto">
           <div class="profile-tabs">
             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
               <li class="nav-item">
@@ -84,6 +84,11 @@
                 <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
                   <i class="material-icons">person_search</i> Parentezcos
                 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#subir_documentos" role="tab" data-toggle="tab">
+                  <i class="material-icons">book</i> Documentos  a subir
+                </a>
               </li>                             
             </ul>
           </div>
@@ -94,52 +99,52 @@
         <div class="tab-pane active text-center gallery" id="datos">
           <div class="form-row">              
             <div class="form-group col-md-4">
-              <label class="text-dark" class="text-dark">Nombre(s)</label>
-              <input type="text" class="form-control" value="{{Auth::user()->name}}" >            
+              <h4>Nombre(s)</h4>
+              <p class="h5">{{Auth::user()->name}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label class="text-dark">Apellido Paterno</label>
-              <input type="text" class="form-control" value="{{Auth::user()->apellidoP}}" >            
+              <h4>Apellido Paterno</h4>
+              <p class="h5">{{Auth::user()->apellidoP}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label class="text-dark">Apellido Materno</label>
-              <input type="text" class="form-control" value="{{Auth::user()->apellidoM}}" >
+              <h4>Apellido Materno</h4>
+              <p class="h5">{{Auth::user()->apellidoM}}</p>
             </div>          
             <div class="form-group col-md-4">
-              <label class="text-dark">Correo electronico</label>
-              <input type="text" class="form-control" value="{{Auth::user()->email}}" >
+              <h4>Correo electronico</h4>
+              <p class="h5">{{Auth::user()->email}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label class="text-dark">profesion</label>
-              <input type="text" class="form-control" value="{{Auth::user()->profesion}}" >
+              <h4>Profesión</h4>
+              <p class="h5">{{Auth::user()->profesion}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label class="text-dark">Ocupación</label>
-              <input type="text" class="form-control" value="{{Auth::user()->ocupacion}}" >
+              <h4>Ocupación</h4>
+              <p class="h5">{{Auth::user()->ocupacion}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark">Telefono fijo</label>
-              <input type="tel" class="form-control" value="{{ Auth::user()->telefono_fijo}}">
+            <div class="form-group col-md-4">
+              <h4>Telefono fijo</h4>
+              <p class="h5">{{Auth::user()->telefono_fijo}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark">Telefono celular</label>
-              <input type="tel" class="form-control" value="{{ Auth::user()->telefono_cel}}">
+            <div class="form-group col-md-4">
+              <h4>Telefono celular</h4>
+              <p class="h5">{{Auth::user()->telefono_cel}}</p>
             </div> 
-            <div class="form-group col-md-3">
-              <label class="text-dark">Curp</label>
-              <input type="text" class="form-control" value="{{ Auth::user()->curp}}">
+            <div class="form-group col-md-4">
+              <h4>Curp</h4>
+              <p class="h5">{{Auth::user()->curp}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark">Escolaridad</label>
-              <input type="text" class="form-control" value="{{ Auth::user()->escolaridad}}">
+            <div class="form-group col-md-4">
+              <h4>Escolaridad</h4>
+              <p class="h5">{{Auth::user()->escolaridad}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label class="text-dark">Estado civil</label>
-              <input type="text" class="form-control" value="{{ Auth::user()->estado_civil}}">
+            <div class="form-group col-md-4">
+              <h4>Estado civil</h4>
+              <p class="h5">{{Auth::user()->estado_civil}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label class="text-dark">Edad</label>
-              <input type="number" class="form-control" value="{{ Auth::user()->edad}}">
+            <div class="form-group col-md-4">
+              <h4>Edad</h4>
+              <p class="h5">{{Auth::user()->edad}}</p>
             </div>                
           </div>            
           <a href="{{url('padre_familia/'.Auth::user()->id.'/edit')}}" class="btn btn-success">Editar información</a>    
@@ -148,37 +153,37 @@
           @foreach(Auth::user()->domicilios as $domicilio)
           <div class="form-row">
             <div class="form-group col-md-4">
-              <label>Estado</label>
-              <input type="text" class="form-control" value="{{$domicilio->estado}}">
+              <h4>Estado</h4>
+              <p class="h5">{{$domicilio->estado}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label>Municipio</label>
-              <input type="text" class="form-control" value="{{$domicilio->municipio}}">
+              <h4>Municipio</h4>
+              <p class="h5">{{$domicilio->municipio}}</p>
             </div>
             <div class="form-group col-md-4">
-              <label>Localidad</label>
-              <input type="text" class="form-control" value="{{$domicilio->localidad}}">
+              <h4>Localidad</h4>
+              <p class="h5">{{$domicilio->localidad}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label>Calle</label>
-              <input type="text" class="form-control" value="{{$domicilio->calle}}">
+            <div class="form-group col-md-4">
+              <h4>Calle</h4>
+              <p class="h5">{{$domicilio->calle}}</p>
             </div>
-            <div class="form-group col-md-3">
-              <label>Colonia</label>
-              <input type="text" class="form-control" value="{{$domicilio->colonia}}">
+            <div class="form-group col-md-4">
+              <h4>Colonia</h4>
+              <p class="h5">{{$domicilio->colonia}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label>No Interior</label>
-              <input type="number" class="form-control" value="{{$domicilio->no_interior}}">
+            <div class="form-group col-md-4">
+              <h4>Código Postal</h4>
+              <p class="h5">{{$domicilio->cp}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label>No Exterior</label>
-              <input type="number" class="form-control" value="{{$domicilio->no_exterior}}">
+            <div class="form-group col-md-4">
+              <h4>No. Interior</h4>
+              <p class="h5">{{$domicilio->no_interior}}</p>
             </div>
-            <div class="form-group col-md-2">
-              <label>Codigo Postal</label>
-              <input type="number" class="form-control" value="{{$domicilio->cp}}">
-            </div>                    
+            <div class="form-group col-md-4">
+              <h4>No. Exterior</h4>
+              <p class="h5">{{$domicilio->no_exterior}}</p>
+            </div>                                
           </div>    
           @if(Auth::user()->domicilios->count() == 1)
           <form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/domicilio/'.$domicilio->id.'/delete')}}" >
@@ -188,40 +193,109 @@
           @endif                                          
           @endforeach   
           @if(Auth::user()->domicilios->count() == 0)
-          <a href="{{url('padre_familia/'.Auth::user()->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>   
+            <h4 class="text-danger text-center">No has agregado tu domicilio</h4>
+            <a href="{{url('padre_familia/'.Auth::user()->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>   
           @endif
         </div>
         <div class="tab-pane text-center gallery" id="parentezco">
-          <div class="row">
-            <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+          <div class="row">            
+            @if(Auth::user()->alumnos()->count() == 0)
+              <div class="text-center col-md-12">
+                <h4 class="text-danger">No has asignado un parentezo con un alumno</h4>
+                <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+              </div>                           
+            @else
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center">#</th>
+                      <th class="text-center">Nombre</th>                                                                 
+                      <th class="text-center">Parentezco</th>
+                      <th class="text-center">Opciones</th>                                                                        
+                    </tr>
+                  </thead>                                
+                  <tbody>
+                    @foreach(Auth::user()->alumnos as $alumno)
+                      <tr>
+                        <td class="text-center">{{$alumno->nia}}</td>                                                        
+                        <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td> 
+                        <td class="text-center">{{$alumno->pivot->parentezco}}</td>
+                        <td class="td-actions">
+                          <form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/parentezco/'.$alumno->nia.'/delete')}}">  
+                            {{csrf_field()}}                   
+                            <button type="submit" rel="tooltip" title="Quitar familiar" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
+                              <i class="fa fa-times"></i>
+                            </button>                                                      
+                          </form>
+                        </td>
+                      </tr>               
+                    @endforeach
+                  </tbody>                                
+                </table> 
+              </div>              
+            @endif                
+          </div>
+        </div>
+        <div class="tab-pane text-center gallery table-responsive" id="subir_documentos">          
+          <h5 class="text-justify mb-5">
+            En este espacio puedes subir imagenes como: 
+            <b>CURP, Acta de Nacimiento, Comprobante de domicilio, entre otras cosas.</b>
+            Esto tiene con la finalidad de obtener mas información acerca de usted y reducir el uso del papel.<br> 
+            Para subir un archivo debe de nombrarlo primero que tipo de archivo es (CURP, Acta de Nacimiento, etc), después
+            agregar su nombre.  Ejemplo: <b>CURP_Alejandro</b>
+          </h5>
+          <form method="post" action="{{url('/padre_familia/'.Auth::user()->id.'/documento')}}" enctype="multipart/form-data"
+            class="table-responsive">
+            {{ csrf_field() }}                  
+            <input type="file" name="archivo" class="mb-4"  required><br>
+            <button type="submit" class="btn btn-success">Subir archivo</button>                                
+          </form><hr>
+          <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>
+          <div class="table-responsive">
+            <table class="table table-striped">
               <thead>
                 <tr>
-                  <th class="text-center">#</th>
-                  <th class="text-center">Nombre</th>                                                                 
-                  <th class="text-center">Parentezco</th>
-                  <th class="text-center">Opciones</th>                                                                        
+                  <th scope="col">#</th>
+                  <th scope="col">Archivo</th>                  
+                  <th scope="col">Acción</th>
                 </tr>
-              </thead>                                
+              </thead>
               <tbody>
-                @foreach(Auth::user()->alumnos as $alumno)
+                @foreach($archivos as $key => $archivo)
                 <tr>
-                  <td class="text-center">{{$alumno->nia}}</td>                                                        
-                  <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td> 
-                  <td class="text-center">{{$alumno->pivot->parentezco}}</td>
-                  <td class="td-actions">
-                   <form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/parentezco/'.$alumno->nia.'/delete')}}">  
-                    {{csrf_field()}}                   
-                    <button type="submit" rel="tooltip" title="Quitar familiar" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
-                      <i class="fa fa-times"></i>
-                    </button>                                                      
-                  </form>
-                </td>
-              </tr>               
-              @endforeach
-            </tbody>                                
-          </table>                
-        </div>
-        <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+                  <th scope="row">{{ ($key+1) }}</th>
+                  <td>{{ $archivo->nombre_archivo }}</td>
+                  <td>                   
+                    <form method="post" action="{{ url('/padre_familia/documento/'.$archivo->id.'/delete') }}">                
+                      {{ csrf_field() }}  
+                      <!--<a href="{{ url('padre_familia/download/'.$archivo->id.'/documento') }}"
+                        target="_blank" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" 
+                        rel="tooltip" title="Descargar documento"
+                      >
+                        <span class="material-icons">
+                          download
+                        </span>                     
+                      </a>-->
+                      <a href="{{ url('padre_familia/ver/'.$archivo->id.'/documento') }}"
+                        target="_blank" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-md"  rel="tooltip" title="Ver documento"
+                      >
+                        <span class="material-icons">
+                          visibility
+                        </span>                      
+                      </a>
+
+                      <button type="submit" rel="tooltip" title="Eliminar documento" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-md">
+                          <i class="fa fa-times"></i>
+                      </button>
+                    </form>                    
+                  </td>                  
+                </tr>
+                @endforeach                
+              </tbody>
+            </table>                                       
+          </div>                  
+        </div> 
       </div>       
     </div>                            
   </div>

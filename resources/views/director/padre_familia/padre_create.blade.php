@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">             
 
@@ -21,13 +21,13 @@
 
             <h2 class="title text-center" style="color:black;">Registrar nuevo padre de familia</h2>
           
-             <form method="post" action="/director/padre_familia/create">
+             <form method="post" action="{{ url('/director/padre_familia/create') }}">
                 {{ csrf_field() }}
 
                 <div class="row">            
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label>Nombre(s)</label>
+                            <label class="text-dark" class="text-dark">Nombre(s)</label>
                             <input type="text" class="form-control"                        
                                    placeholder="Ejemplo: Brandom Baruch" 
                                    value="{{ old('name') }}" name="name">
@@ -39,9 +39,9 @@
                           @endif
                     </div>
 
-                   <div class="col-sm-3">
+                   <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('apellidoP') ? ' has-error' : '' }}">
-                            <label>Apellido Paterno</label>
+                            <label class="text-dark">Apellido Paterno</label>
                             <input type="text" class="form-control" 
                                    placeholder="Ejemplo: González" 
                                    value="{{ old('apellidoP') }}" 
@@ -54,9 +54,9 @@
                           @endif
                     </div>
                     
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
-                            <label>Apellido Materno</label>
+                            <label class="text-dark">Apellido Materno</label>
                             <input type="text" class="form-control" 
                                    placeholder="Ejemplo: Cervantes" 
                                    value="{{ old('apellidoM') }}"
@@ -69,9 +69,9 @@
                           @endif
                     </div>                      
 
-                     <div class="col-sm-2">
+                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('edad') ? ' has-error' : '' }}">
-                            <label>Edad</label>
+                            <label class="text-dark">Edad</label>
                             <input type="number" class="form-control" 
                                    placeholder="Ejemplo: 21" 
                                    value="{{ old('edad') }}"
@@ -84,9 +84,9 @@
                           @endif
                     </div>
              
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
-                            <label>Telefono fijo</label>
+                            <label class="text-dark">Telefono fijo</label>
                             <input type="tel" class="form-control" 
                                    placeholder="Ejemplo: 123-123-1234" 
                                    value="{{ old('telefono_fijo') }}"
@@ -99,9 +99,9 @@
                           @endif
                     </div>                  
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
-                            <label>Telefono celular</label>
+                            <label class="text-dark">Telefono celular</label>
                             <input type="tel" class="form-control" 
                                    placeholder="Ejemplo: 123-123-1234" 
                                    value="{{ old('telefono_cel') }}"
@@ -114,9 +114,9 @@
                           @endif
                     </div>                 
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('curp') ? ' has-error' : '' }}">
-                            <label>Curp</label>
+                            <label class="text-dark">Curp</label>
                             <input type="text" class="form-control"
                                    placeholder="GOCB980828HTLNRR07" 
                                    value="{{ old('curp') }}" 
@@ -129,9 +129,9 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-2">                          
+                    <div class="col-sm-4">                          
                           <div class="form-group{{ $errors->has('estado_civil') ? ' has-error' : '' }}">          
-                            <label>Estado Civil</label>
+                            <label class="text-dark">Estado Civil</label>
                               <select class="form-control " name="estado_civil" >
                                 <option value="Casado(a)">Casado(a)</option>
                                 <option value="Soltero(a)">Soltero(a)</option>                                
@@ -145,9 +145,9 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-2">                          
+                    <div class="col-sm-4">                          
                           <div class="form-group{{ $errors->has('escolaridad') ? ' has-error' : '' }}">          
-                            <label>Escolaridad</label>
+                            <label class="text-dark">Escolaridad</label>
                               <select class="form-control " name="escolaridad" >
                                 <option value="Primaria">Primaria</option>
                                 <option value="Secundaria">Secundaria</option>
@@ -163,9 +163,9 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
 	                      <div class="form-group {{ $errors->has('ocupacion') ? ' has-error' : '' }}">
-	                        <label>Ocupación</label>
+	                        <label class="text-dark">Ocupación</label>
 	                        <input type="text" class="form-control" 
                                  placeholder="Ejemplo: Artesano"
 	                               value="{{ old('ocupacion') }}"
@@ -178,9 +178,9 @@
 	                      @endif
                     </div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
 	                      <div class="form-group {{ $errors->has('profesion') ? ' has-error' : '' }}">
-	                        <label>Profesión</label>
+	                        <label class="text-dark">Profesión</label>
 	                        <input type="text" class="form-control" 
                                  placeholder="Ejemplo: Cientifico"
 	                               value="{{ old('profesion') }}"
@@ -193,9 +193,9 @@
 	                      @endif
                     </div>
 
-           	      	<div class="col-sm-3">
+           	      	<div class="col-sm-4">
 	                      <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-	                        <label>Correo electronico</label>
+	                        <label class="text-dark">Correo electronico</label>
 	                        <input type="email" class="form-control" 
 	                               placeholder="Ejemplo:baruchoo94@outlook.com" 
                                  value="{{ old('email') }}"
@@ -208,9 +208,9 @@
 	                      @endif
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label>Contraseña</label>
+                            <label class="text-dark">Contraseña</label>
                             <input type="password" class="form-control" 
                                    placeholder="Por defecto es: secret"
                                    name="password" 
@@ -223,9 +223,9 @@
                           @endif
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label>Confirmar contraseña</label>
+                            <label class="text-dark">Confirmar contraseña</label>
                             <input type="password" class="form-control"  
                                    placeholder="Por defecto es: secret" 
                                    name="password_confirmation"
@@ -236,8 +236,10 @@
 
                 </div>                                                                                        
                  
-                <button class="btn btn-success">Registrar docente</button>
-                <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Cancelar</a> 
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-success">Registrar docente</button>
+                    <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Cancelar</a> 
+                </div>
 
              </form>                  
         </div>              

@@ -18,17 +18,24 @@
 			<form method="post" action="{{url('/alumno/'.Auth::user()->nia.'/edit')}}">                            
 				{{ csrf_field() }}
 				<div class="row"> 
-					<div class="col-sm-2">													
+					<div class="col-sm-4">													
 						<div class="form-group ">
-							<label for="number">NIA</label>
-							<input type="number" class="form-control" id="nia"                               
-							value="{{ old('nia', Auth::user()->nia) }}" name="nia" disabled=»disabled»>            
+							<label class="text-dark">NIA</label>
+							<input type="number" class="form-control"                               
+								   value="{{ old('nia', Auth::user()->nia) }}" 
+								   disabled=»disabled»
+								   placeholder="Coloca un NIA" 
+							>            
 						</div>                          
 					</div>
 					<div class="col-sm-4">													
 						<div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-							<label for="name">Nombre(s)</label>
-							<input type="text" class="form-control" id="name" placeholder="Ejemplo: Brandom Baruch" value="{{ old('name', Auth::user()->name) }}" name="name">
+							<label class="text-dark">Nombre(s)</label>
+							<input type="text" class="form-control" 
+								   placeholder="Escribe un nombre/s" 
+								   value="{{ old('name', Auth::user()->name) }}" 
+								   name="name"
+							>
 						</div>
 						@if ($errors->has('name'))
 						<span class="help-block text-danger">
@@ -36,12 +43,14 @@
 						</span>
 						@endif
 					</div>
-					<div class="col-sm-3">													
+					<div class="col-sm-4">													
 						<div class="form-group {{ $errors->has('apellidoP') ? ' has-error' : '' }}">
-							<label for="apellidoP">Apellido Paterno</label>
-							<input type="text" class="form-control" id="apellidoP" 
-							placeholder="Ejemplo: González" value="{{ old('apellidoP', Auth::user()->apellidoP) }}" 
-							name="apellidoP">                     
+							<label class="text-dark">Apellido Paterno</label>
+							<input type="text" class="form-control" 
+							 	   placeholder="Escribe un apellido paterno" 
+							 	   value="{{ old('apellidoP', Auth::user()->apellidoP) }}" 
+								   name="apellidoP"
+							>                     
 						</div>
 						@if ($errors->has('apellidoP'))
 						<span class="help-block text-center text-danger">
@@ -49,13 +58,15 @@
 						</span>
 						@endif
 					</div>										
-					<div class="col-sm-3">
+					<div class="col-sm-4">
 						
 						<div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
-							<label for="exampleFormControlInput1">Apellido Materno</label>
-							<input type="text" class="form-control" id="apellidoM" 
-							placeholder="Ejemplo: Cervantes" value="{{ old('apellidoM', Auth::user()->apellidoM) }}"
-							name="apellidoM">
+							<label class="text-dark">Apellido Materno</label>
+							<input type="text" class="form-control" 
+								   placeholder="Escribe un apellido materno" 
+								   value="{{ old('apellidoM', Auth::user()->apellidoM) }}"
+								   name="apellidoM"
+							>
 						</div>
 
 						@if ($errors->has('apellidoM'))
@@ -64,12 +75,14 @@
 						</span>
 						@endif
 					</div>                      
-					<div class="col-sm-2">												
+					<div class="col-sm-4">												
 						<div class="form-group {{ $errors->has('edad') ? ' has-error' : '' }}">
-							<label for="edad">Edad</label>
-							<input type="number" class="form-control" id="edad" 
-							placeholder="Ejemplo: 21" value="{{ old('edad' , Auth::user()->edad) }}"
-							name="edad">
+							<label class="text-dark">Edad</label>
+							<input type="number" class="form-control" 
+								   placeholder="Escrib una edad" 
+								   value="{{ old('edad' , Auth::user()->edad) }}"
+								   name="edad"
+						>
 						</div>
 						@if ($errors->has('edad'))
 						<span class="help-block text-center text-danger">
@@ -79,11 +92,12 @@
 					</div>
 					<div class="col-sm-4">													
 						<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-							<label for="email">Correo electronico</label>
-							<input type="email" class="form-control" id="email" 
-							placeholder="Ejemplo: L16240011@smartin.tecnm.mx" 
-							value="{{ old('email', Auth::user()->email) }}"
-							name="email">
+							<label class="text-dark">Correo electronico</label>
+							<input type="email" class="form-control"  
+								   placeholder="Escribe un correo electrónico" 
+								   value="{{ old('email', Auth::user()->email) }}"
+								   name="email"
+					   	>
 						</div>
 						@if ($errors->has('email'))
 						<span class="help-block text-center text-danger">
@@ -91,12 +105,14 @@
 						</span>
 						@endif
 					</div>
-					<div class="col-sm-2">													
+					<div class="col-sm-4">													
 						<div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
-							<label for="phone">Telefono</label>
-							<input type="tel" class="form-control" id="phone" 
-							placeholder="Ejemplo: 123-123-1234" value="{{ old('phone', Auth::user()->phone) }}"
-							name="phone">
+							<label class="text-dark">Telefono</label>
+							<input type="tel" class="form-control"  
+								   placeholder="Escribe un teléfono celular/fijo" 
+								   value="{{ old('phone', Auth::user()->phone) }}"
+								   name="phone"
+						>
 						</div>
 						@if ($errors->has('phone'))
 						<span class="help-block text-center text-danger">
@@ -104,10 +120,10 @@
 						</span>
 						@endif
 					</div>                  
-					<div class="col-sm-2">													
+					<div class="col-sm-4">													
 						<div class="form-group{{ $errors->has('grupo_id') ? ' has-error' : '' }}">          
-							<label for="grupo_id">Grupo</label>
-							<select class="form-control " name="grupo_id" disabled> 
+							<label class="text-dark">Grupo</label>
+							<select class="form-control " disabled> 
 								<option value="0">Sin grupo</option>
 								@foreach($grupos as $grupo)
 								<option value="{{$grupo->id}}"                                   
@@ -123,16 +139,16 @@
 						</span>
 						@endif
 					</div>
-					<div class="col-sm-2">													
+					<div class="col-sm-4">													
 						<div class="form-group{{ $errors->has('genero') ? ' has-error' : '' }}">          
-							<label for="genero">Genero</label>
+							<label class="text-dark">Genero</label>
 							<select class="form-control " name="genero" >
 								<option value="H"
-								@if(Auth::user()->genero == 'H') selected @endif>
+								@if(old('genero',Auth::user()->genero) == 'H') selected @endif>
 								H
 							</option>
 							<option value="M"
-							@if(Auth::user()->genero == 'M')  selected @endif>
+							@if(old('genero',Auth::user()->genero) == 'M')  selected @endif>
 							M
 						</option>                                                          
 					</select>
@@ -143,12 +159,14 @@
 				</span>
 				@endif
 			</div>
-			<div class="col-sm-2">													
+			<div class="col-sm-4">													
 				<div class="form-group {{ $errors->has('fechaN') ? ' has-error' : '' }}">
-					<label for="fechaN">fecha de nacimiento</label>
-					<input type="date" class="form-control" id="fechaN" 
-					placeholder="Ejemplo: 1998-08-28" value="{{ old('fechaN' , Auth::user()->fechaN) }}"
-					name="fechaN">                            
+					<label class="text-dark">fecha de nacimiento</label>
+					<input type="date" class="form-control" 
+						   placeholder="Coloca tu fecha de nacimiento" 
+						   value="{{ old('fechaN' , Auth::user()->fechaN) }}"
+						   name="fechaN"
+			    >                            
 				</div>
 				@if ($errors->has('fechaN'))
 				<span class="help-block text-center text-danger">
@@ -156,12 +174,13 @@
 				</span>
 				@endif
 			</div>									 
-			<div class="col-sm-3">													
+			<div class="col-sm-4">													
 				<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-					<label for="password">Contraseña</label>
-					<input type="password" class="form-control" id="password" 
-					placeholder="Por defecto es: secret"
-					name="password" value="secret">
+					<label class="text-dark">Contraseña</label>
+					<input type="password" class="form-control"
+						   placeholder="Contraseña"
+					       name="password"
+				>
 				</div>
 				@if ($errors->has('password'))
 				<span class="help-block text-center text-danger">
@@ -169,16 +188,22 @@
 				</span>
 				@endif
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-					<label for="password">Confirmar contraseña</label>
-					<input type="password" class="form-control" id="password-confirm" 
-					placeholder="Por defecto es: secret" name="password_confirmation"
-					value="secret">
-					<small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>
+					<label class="text-dark">Confirmar contraseña</label>
+					<input type="password" class="form-control"
+						   placeholder="Confirmar contraseña" 
+						   name="password_confirmation"					
+				>					
 				</div>                          
 			</div>
-		</div>                                                                                        		
+			<div class="col-sm-4">
+				<small  class="form-text  text-dark">
+	                Si no quiere cambiar la contraseña, deje vacio los campos 
+	                <b class="text-danger">Contraseña y Confirmar contraseña</b>.
+          		</small>
+			</div>			
+		</div>    		                                                                                    	
 		<div class="text-center col-md-12">
 			<button class="btn btn-success">Actualizar datos</button>
 			<a href="{{url('/alumno')}}" class="btn btn-danger">Cancelar</a> 

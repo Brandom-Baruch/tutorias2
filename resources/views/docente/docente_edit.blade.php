@@ -30,7 +30,7 @@
                 <div class="row">            
                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label>Nombre(s)</label>
+                            <label class="text-dark">Nombre(s)</label>
                             <input type="text" class="form-control" 
                                    placeholder="Ejemplo: Brandom Baruch"
                                    value="{{ old('name', Auth::user()->name) }}" 
@@ -42,9 +42,9 @@
                               </span>
                           @endif
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('apellidoP') ? ' has-error' : '' }}">
-                            <label>Apellido Paterno</label>
+                            <label class="text-dark">Apellido Paterno</label>
                             <input type="text" class="form-control"  
                                    placeholder="Ejemplo: González" 
                                    value="{{ old('apellidoP', Auth::user()->apellidoP) }}" 
@@ -56,9 +56,9 @@
                               </span>
                           @endif
                     </div>                    
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
-                            <label>Apellido Materno</label>
+                            <label class="text-dark">Apellido Materno</label>
                             <input type="text" class="form-control"  
                                    placeholder="Ejemplo: Cervantes" 
                                    value="{{old('apellidoM', Auth::user()->apellidoM)}}"
@@ -70,9 +70,9 @@
                               </span>
                           @endif
                     </div>                      
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('edad') ? ' has-error' : '' }}">
-                            <label>Edad</label>
+                            <label class="text-dark">Edad</label>
                             <input type="number" class="form-control"  
                                    placeholder="Ejemplo: 21" 
                                    value="{{ old('edad', Auth::user()->edad )}}"
@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-sm-4 ">
                           <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label>Correo electronico</label>
+                            <label class="text-dark">Correo electronico</label>
                             <input type="email" class="form-control"  
                                    placeholder="Ejemplo: L16240011@smartin.tecnm.mx" }
                                    value="{{ old('email', Auth::user()->email) }}"
@@ -98,9 +98,9 @@
                               </span>
                           @endif
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
-                            <label>Telefono fijo</label>
+                            <label class="text-dark">Telefono fijo</label>
                             <input type="tel" class="form-control"  
                                    placeholder="Ejemplo: 123-123-1234" 
                                    value="{{ old('telefono_fijo' , Auth::user()->telefono_fijo) }}"
@@ -112,9 +112,9 @@
                               </span>
                           @endif
                     </div>                  
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
-                            <label>Telefono celular</label>
+                            <label class="text-dark">Telefono celular</label>
                             <input type="tel" class="form-control"  
                                    placeholder="Ejemplo: 123-123-1234" 
                                    value="{{ old('telefono_cel' , Auth::user()->telefono_cel) }}"
@@ -128,10 +128,11 @@
                     </div>                   
                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label>Contraseña</label>
+                            <label class="text-dark">Contraseña</label>
                             <input type="password" class="form-control"                                     
-                                   name="password" value="secret">
-                            <small class="text-danger">La contraseña será secret</small>
+                                   name="password"
+                                   placeholder="Contraseña" 
+                            >                            
                           </div>
                           @if ($errors->has('password'))
                               <span class="help-block text-center text-danger">
@@ -141,12 +142,17 @@
                     </div>
                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label>Confirmar contraseña</label>
+                            <label class="text-dark">Confirmar contraseña</label>
                             <input type="password" class="form-control" 
                                    name="password_confirmation"
-                                   value="secret">                              
+                                   placeholder="Confirmar contraseña"                                   
+                            >                              
                           </div>                          
-                    </div>                    
+                    </div> 
+                    <small  class="form-text  text-dark">
+                            Si no quiere cambiar la contraseña, deje vacio los campos 
+                            <b class="text-danger">Contraseña y Confirmar contraseña</b>.
+                    </small>                   
                 </div>    
                     <div class="col-md-12 text-center">
                         <button class="btn btn-success">Registrar docente</button>

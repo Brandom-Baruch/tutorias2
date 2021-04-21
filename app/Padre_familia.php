@@ -41,4 +41,10 @@ class Padre_familia extends Authenticatable
         return $this->belongsTo(Entrevista_Fresca_Padre::class,'id','padre_id');
     }
 
+    public function documentos_padre()
+    {
+        return $this->HasMany(DocumentoPadre::class,'id','padre_id');
+    }
+
+    
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Padre_familia as padre;
+use App\DocumentoPadre;
+use Auth;
 
 class PadreController extends Controller
 {
@@ -17,7 +19,10 @@ class PadreController extends Controller
 
     public function index()
     {
-    	return view('padre_familia.padre_home');
+        //dd(Auth::user()->documentos_padre);
+        $archivos = DocumentoPadre::where('padre_id',Auth::user()->id)->get();
+        //dd($archivos);
+    	return view('padre_familia.padre_home')->with(compact('archivos'));
     }
 
     public function edit()
@@ -33,7 +38,7 @@ class PadreController extends Controller
             'apellidoP' => 'required|min:4',
             'apellidoM' => 'required|min:4',
             'email' => 'required|max:250',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'confirmed',
             'edad' => 'required|numeric|min:18|max:70',
             'curp' => 'required|max:18|string',
             'telefono_fijo' => 'required',
@@ -51,9 +56,9 @@ class PadreController extends Controller
             'apellidoM.min' => 'El apellido parterno debe tener por lo menos 4 letras',
             'email.required' => 'Debes de agregar un correo electronico',            
             'email.max' => 'El correo electronico tiene un maximo de 250 caracteres',
-            'password.required' => 'Debes de colocar una contraseña',
-            'password.string' => 'Puedes colocar signos y numeros',
-            'password.min' => 'Una contraseña por lo minimo debe de tener 6 caracteres',
+            //'password.required' => 'Debes de colocar una contraseña',
+            //'password.string' => 'Puedes colocar signos y numeros',
+            //'password.min' => 'Una contraseña por lo minimo debe de tener 6 caracteres',
             'password.confirmed' => 'Las contraseñas no coinciden',
             'edad.required' => 'Debes de colocar una edad',
             'edad.numeric' => 'Solo se aceptan numeros',
@@ -76,7 +81,9 @@ class PadreController extends Controller
             $padre->apellidoP = $request->input('apellidoP');
             $padre->apellidoM = $request->input('apellidoM');
             $padre->email = $request->input('email');
-            $padre->password = Hash::make($request->input('password'));
+            if ($request->password) {
+                $padre->password = Hash::make($request->input('password'));            
+            }
             $padre->edad = $request->input('edad');
             $padre->curp = $request->input('curp');
             $padre->telefono_fijo = $request->input('telefono_fijo');

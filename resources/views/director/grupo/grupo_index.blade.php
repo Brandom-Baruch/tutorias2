@@ -13,22 +13,15 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} ');"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 ml-auto mr-auto">
-          <div class="profile">          
-            <div class="name">
-              <h3 class="title" style="color: white;">Bienvenido Director {{Auth::user()->name}}</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="description text-center">
-        <h3 class="title">Listado de Grupos</h3>                                                                                    
-      </div>                            
+        <div class="description text-center">
+          <h3 class="title">Listado de Grupos</h3>                                                                                
+        </div> 
+      </div>                                
       <div class="text-center">           
        @if (session('mensaje')) <!--Si existe un de la variable eliminado, mostrara el contenido del de la variable eliminado-->
        <div class="alert alert-success text-left">

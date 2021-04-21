@@ -13,21 +13,14 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} ');"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 ml-auto mr-auto">
-          <div class="profile">          
-            <div class="name">  
-            <h3 class="title" style="color: white;">Bienvenido Director {{Auth::user()->name}}</h3>            
-            </div>
-          </div>
+      <div class="row">     
+        <div class="description text-center">
+              <h3 class="title">Listado de Puestos</h3>
         </div>
-      </div>
-      <div class="description text-center">
-        <h3 class="title">Listado de Puestos</h3>
       </div>        
       <div class="tab-pane  text-center gallery" id="docentes">
        @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             

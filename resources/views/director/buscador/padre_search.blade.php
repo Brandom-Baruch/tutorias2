@@ -15,7 +15,7 @@
 @section('content')
 
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;" ></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');" ></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
@@ -33,7 +33,8 @@
       </div>
       <div class="description text-center">       
         <h3 class="title">Resultados de la busqueda del familiar</h3>
-        <h4 class="text-dark">Se encontrado {{$padres->count()}} resultados para el termino <b>{{$search}}</b></h4>         
+        <h4 class="text-dark">Se encontrado {{$padres->count()}} resultados para el termino <b>{{$search}}</b></h4>
+        <a href="{{ url('/director/padres_familia/index') }}" class="btn btn-danger">Regresar</a>         
       </div>
      <div class="section text-center">        
         <div class="team">
@@ -63,6 +64,7 @@
             @endforeach
           </div>
         </div>
+        <a href="{{ url('/director/padres_familia/index') }}" class="btn btn-danger">Regresar</a>
       </div>
     </div>
   </div>

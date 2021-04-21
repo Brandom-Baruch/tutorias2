@@ -13,7 +13,7 @@
 
 
 @section('content')
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 280px"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
@@ -30,6 +30,7 @@
       </div>                            
       <div class="text-center gallery">                                  
           <a href="{{url('/director/grupo/'.$grupo->id.'/materias/show')}}" class="btn btn-primary">Materias del grupo</a>
+          <a href="{{url('/director/grupos/index')}}" class="btn btn-danger">Regresar</a>
           <div class="team">
     	      <div class="row">
     	       @foreach($alumnos as $alumno)

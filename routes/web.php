@@ -1,4 +1,3 @@
-
 <?php
 use Illuminate\Http\Request;
 Route::get('/', function () {	
@@ -124,6 +123,9 @@ Route::middleware(['auth:padre'])->prefix('/padre_familia')->group(function (){
 	Route::get('/{id}/parentezco','Parentezco\ParentezcoController@padre_create');
 	Route::post('/{id}/parentezco','Parentezco\ParentezcoController@padre_store');
 	Route::post('/{id}/parentezco/{alumno_id}/delete','Parentezco\ParentezcoController@padre_destroy');
+	Route::post('/{id}/documento','Padre_familia\DocumentosPadreController@store');
+	Route::post('/documento/{id}/delete','Padre_familia\DocumentosPadreController@destroy');
+	Route::get('/ver/{id}/documento','Padre_familia\DocumentosPadreController@verDocumento');
 	Route::get('/entrevista','Padre_familia\Entrevista_fresca\EntrevistaPadreController@index');
 	Route::post('/entrevista','Padre_familia\Entrevista_fresca\EntrevistaPadreController@store');
 	Route::get('/entrevista/{alumno_id}/secciones','Padre_familia\Entrevista_fresca\EntrevistaPadreController@secciones');
@@ -283,7 +285,10 @@ Route::middleware(['auth:docente'])->prefix('/director')->namespace('Director')-
 	//Buscar padre de familia
 	Route::get('/padre_familia/search','buscador\SearchController@showPadre');
 	//Mostrar los datos del padre de familia
-	Route::get('/padre_familia/{id}/show','padre_familia\PadreFamiliaController@show');
+	Route::get('/padre_familia/{id}/show','padre_familia\PadreFamiliaController@show');	
+	//Descargar y ver documento
+	Route::get('/download/{id}/documento','padre_familia\PadreFamiliaController@downloadDocumento');
+	Route::get('/ver/{id}/documento','padre_familia\PadreFamiliaController@verDocumento');
 	//Asignar parentezco de alumnos para el padre de familia indicado
 	Route::get('/padre_familia/{id}/alumnos','padre_familia\AsignarAlumnosPadreController@index');
 	Route::post('/padre_familia/{id}/alumnos','padre_familia\AsignarAlumnosPadreController@store');

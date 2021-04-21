@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Director\padre_familia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Padre_familia as padre;
-use App\Alumno\Alumno;
+use App\Alumno;
 use App\Parentezco;
 
 class AsignarAlumnosPadreController extends Controller

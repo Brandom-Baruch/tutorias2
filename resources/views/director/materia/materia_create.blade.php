@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="container">             
     <div class="section">
@@ -23,45 +23,49 @@
         <div class="row">            
           <div class="col-sm-6">
             <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
-              <label>Nombre de la materia</label>
+              <label class="text-dark">Nombre de la materia</label>
               <input type="text" class="form-control"
-              placeholder="Ejemplo: Matematicas" 
-              value="{{ old('name') }}" 
-              name="name">
+                     placeholder="Escribe el nombre de la materia" 
+                     value="{{ old('name') }}" 
+                     name="name"
+              >
             </div>
             @if ($errors->has('name'))
-            <span class="help-block text-danger">
-              <strong>{{ $errors->first('name') }}</strong>
-            </span>
+              <span class="help-block text-danger">
+                <strong>{{ $errors->first('name') }}</strong>
+              </span>
             @endif
           </div>
           <div class="col-sm-6">
             <div class="form-group {{ $errors->has('clave') ? ' has-error' : '' }}">
-              <label>Clave de la materia</label>
+              <label class="text-dark">Clave de la materia</label>
               <input type="text" class="form-control" 
-              placeholder="ACF-0901" 
-              value="{{ old('clave') }}"
-              name="clave" style="text-transform: uppercase;">
+                     placeholder="Escribe la clave de la materia" 
+                     value="{{ old('clave') }}"
+                     name="clave" style="text-transform: uppercase;"
+              >
             </div>
             @if ($errors->has('clave'))
-            <span class="help-block text-center text-danger">
-              <strong>{{ $errors->first('clave') }}</strong>
-            </span>
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('clave') }}</strong>
+              </span>
             @endif
           </div>                                           
         </div>
         <div class="form-group">
-          <label>Descripción de la materia</label>
+          <label class="text-dark">Descripción de la materia</label>
           <textarea class="form-control" rows="1" name="descripcion"></textarea>
           @if ($errors->has('descripcion'))
-          <span class="help-block text-center text-danger">
-           <strong>{{ $errors->first('descripcion') }}</strong>
-         </span>
-         @endif
+            <span class="help-block text-center text-danger">
+             <strong>{{ $errors->first('descripcion') }}</strong>
+            </span>
+          @endif
+        </div>
+       <div class="col-md-12 text-center">
+          <button class="btn btn-success">Registrar Materia</button>
+          <a href="{{url('director/materias/index')}}" class="btn btn-danger">Cancelar</a> 
        </div>
-       <button class="btn btn-success">Registrar Materia</button>
-       <a href="{{url('director/materias/index')}}" class="btn btn-danger">Cancelar</a> 
-     </form>                  
+      </form>                  
    </div>              
  </div>
 </div>

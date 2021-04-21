@@ -12,7 +12,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">             
         <div class="section">
@@ -48,48 +48,74 @@
               {{csrf_field()}}
               <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label>Estado</label>
-                  <input type="text" class="form-control" placeholder="Ejemplo: Puebla" name="estado" 
-                         value="{{old('estado')}}">
+                  <label class ="text-dark">Estado</label>
+                  <input type="text" class="form-control" 
+                         placeholder="Escribe un estado" 
+                         name="estado" 
+                         value="{{old('estado')}}"
+                  >
                 </div>
                 <div class="form-group col-md-4">
-                  <label>Municipio</label>
-                  <input type="text" class="form-control" placeholder="Ejemplo: Santa Ana Nopalucan" name="municipio"
-                         value="{{old('municipio')}}">
+                  <label class ="text-dark">Municipio</label>
+                  <input type="text" class="form-control" 
+                         placeholder="Coloca un municipio" 
+                         name="municipio"
+                         value="{{old('municipio')}}"
+                  >
                 </div>
                 <div class="form-group col-md-4">
-                  <label>Localidad</label>
-                  <input type="text" class="form-control"  placeholder="1234 Main St" name="localidad" 
-                         value="{{old('localidad')}}">
+                  <label class ="text-dark">Localidad</label>
+                  <input type="text" class="form-control"  
+                         placeholder="Coloca una localidad" 
+                         name="localidad" 
+                         value="{{old('localidad')}}"
+                  >
                 </div>
-                <div class="form-group col-md-3">
-                  <label>Calle</label>
-                  <input type="text" class="form-control"  placeholder="Apartment, studio, or floor" name="calle"
-                         value="{{old('calle')}}">
+                <div class="form-group col-md-4">
+                  <label class ="text-dark">Calle</label>
+                  <input type="text" class="form-control"  
+                         placeholder="Coloca una calle" 
+                         name="calle"
+                         value="{{old('calle')}}"
+                  >
                 </div>
-                <div class="form-group col-md-3">
-                  <label>Colonia</label>
-                  <input type="text" class="form-control"  placeholder="Apartment, studio, or floor" name="colonia"
-                         value="{{old('colonia')}}">
+                <div class="form-group col-md-4">
+                  <label class ="text-dark">Colonia</label>
+                  <input type="text" class="form-control"  
+                         placeholder="Coloca una colonia" 
+                         name="colonia"
+                         value="{{old('colonia')}}"
+                  >
                 </div>
-                <div class="form-group col-md-2">
-                  <label>No Interior</label>
-                  <input type="number" class="form-control" placeholder="11"  name="no_interior"
-                         value="{{old('no_interior')}}">
+                <div class="form-group col-md-4">
+                  <label class ="text-dark">No. Interior</label>
+                  <input type="number" class="form-control"
+                         placeholder="Coloca un No. interio"  
+                         name="no_interior"
+                         value="{{old('no_interior')}}"
+                  >
                 </div>
-                <div class="form-group col-md-2">
-                  <label>No Exterior</label>
-                  <input type="number" class="form-control" placeholder="11"  name="no_exterior"
-                         value="{{old('no_exterior')}}">
+                <div class="form-group col-md-4">
+                  <label class ="text-dark">No. Exterior</label>
+                  <input type="number" class="form-control" 
+                         placeholder="Coloca un No. exterior"  
+                         name="no_exterior"
+                         value="{{old('no_exterior')}}"
+                  >
                 </div>
-                <div class="form-group col-md-2">
-                  <label>Codigo Postal</label>
-                  <input type="number" class="form-control" placeholder="90135"  name="cp"
-                         value="{{old('cp')}}">
+                <div class="form-group col-md-4">
+                  <label class ="text-dark">Código Postal</label>
+                  <input type="number" class="form-control" 
+                         placeholder="Coloca un Código postal"  
+                         name="cp"
+                         value="{{old('cp')}}"
+                  >
                 </div>
               </div>              
-              <button type="submit" class="btn btn-success">Agregar Domicilio</button>
-              <a href="{{url('director/domicilios/index')}}" class="btn btn-danger">Cancelar</a>
+              <div class="col-md-12 text-center">
+                  <button type="submit" class="btn btn-success">Agregar Domicilio</button>
+                  <a href="{{url('director/domicilios/index')}}" class="btn btn-danger">Cancelar</a>
+              </div>
             </form>                  
         </div>              
     </div>

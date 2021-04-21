@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Padre_familia as padre;
+use App\DocumentoPadre;
 
 class PadreFamiliaController extends Controller
 {
@@ -114,7 +115,7 @@ class PadreFamiliaController extends Controller
             'apellidoP' => 'required|min:4',
             'apellidoM' => 'required|min:4',
             'email' => 'required|max:250',
-            'password' => 'required|string|min:6|confirmed',
+            //'password' => 'required|string|min:6|confirmed',
             'edad' => 'required|numeric|min:18|max:70',
             'curp' => 'required|max:18|string',
             'telefono_fijo' => 'required',
@@ -132,10 +133,10 @@ class PadreFamiliaController extends Controller
             'apellidoM.min' => 'El apellido parterno debe tener por lo menos 4 letras',
             'email.required' => 'Debes de agregar un correo electronico',            
             'email.max' => 'El correo electronico tiene un maximo de 250 caracteres',
-            'password.required' => 'Debes de colocar una contraseña',
-            'password.string' => 'Puedes colocar signos y numeros',
-            'password.min' => 'Una contraseña por lo minimo debe de tener 6 caracteres',
-            'password.confirmed' => 'Las contraseñas no coinciden',
+            //'password.required' => 'Debes de colocar una contraseña',
+            //'password.string' => 'Puedes colocar signos y numeros',
+            //'password.min' => 'Una contraseña por lo minimo debe de tener 6 caracteres',
+            //'password.confirmed' => 'Las contraseñas no coinciden',
             'edad.required' => 'Debes de colocar una edad',
             'edad.numeric' => 'Solo se aceptan numeros',
             'edad.min' => 'La edad minima es de 18 años',
@@ -158,8 +159,7 @@ class PadreFamiliaController extends Controller
             $padre->name = $request->input('name');            
             $padre->apellidoP = $request->input('apellidoP');
             $padre->apellidoM = $request->input('apellidoM');
-            $padre->email = $request->input('email');
-            $padre->password = Hash::make($request->input('password'));
+            $padre->email = $request->input('email');            
             $padre->edad = $request->input('edad');
             $padre->curp = $request->input('curp');
             $padre->telefono_fijo = $request->input('telefono_fijo');
@@ -168,6 +168,9 @@ class PadreFamiliaController extends Controller
             $padre->ocupacion = $request->input('ocupacion');
             $padre->escolaridad = $request->input('escolaridad');
             $padre->estado_civil = $request->input('estado_civil');            
+            if ($request->password) {                
+                $padre->password = Hash::make($request->input('password'));
+            }
             $padre->remember_token = str_random(100);
             $padre->save();
             $mensaje = 'Se ha actualizado los datos del padre de familia llamado ' .$padre->name;
@@ -186,8 +189,46 @@ class PadreFamiliaController extends Controller
     //Seleccionamos el padre para tener mas detalles
     public function show(Request $request,$id)
     {
-        $request->user()->autorizarPuestos('Director'); 
+        $request->user()->autorizarPuestos('Director');
+        $archivos = DocumentoPadre::where('padre_id',$id)->get();
+        //dd($archivos); 
         $padre = padre::find($id);
-        return view('director.padre_familia.padre_show')->with(compact('padre'));
+        return view('director.padre_familia.padre_show')->with(compact('padre','archivos'));
+    }
+
+
+
+   /* public function downloadFile($src)
+    {       
+
+       if (is_file($src)) {
+           $finfo = finfo_open(FILEINFO_MIME_TYPE);
+           $content_type = finfo_file($finfo,$src);
+           finfo_close($finfo);
+           $file_name = basename($src).PHP_EOL;
+           $size = filesize($src);
+           header("Content-Type: $content_type");
+           header("Content-Disposition: attachment; filename=$file_name");
+           header("Content-Transfer-Encoding: binary");
+           header("Content-Length: $size");
+           readfile($src);
+           return true;
+       }else{
+           return false;
+       }
+    }
+    */
+    public function downloadDocumento($id)
+    {
+        $archivo = DocumentoPadre::find($id);
+        $url  = public_path().'/archivos/padre_familia/'.$archivo->nombre_archivo;
+        return response()->download($url);
+    }
+
+    public function verDocumento($id)
+    {
+        $archivo = DocumentoPadre::find($id);
+        $url  = public_path().'/archivos/padre_familia/'.$archivo->nombre_archivo;
+        return response()->file($url); //Mostrar documento/imagen
     }
 }

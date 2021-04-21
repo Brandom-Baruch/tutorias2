@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 200px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">             
         <div class="section">
@@ -49,33 +49,48 @@
               {{csrf_field()}}
               <div class="form-row">
                 <div class="form-group col-md-4">
-                  <label>Nombre</label>
-                  <input type="text" class="form-control" placeholder="Ejemplo: Los conchas" name="name" 
-                         value="{{old('name', $grupo->name)}}">
+                  <label class="text-dark">Nombre</label>
+                  <input type="text" class="form-control" 
+                         placeholder="Escribe un nombre para el grupo" 
+                         name="name" 
+                         value="{{old('name',$grupo->name)}}"
+                  >
                 </div>
                 <div class="form-group col-md-4">
-                  <label>Grado</label>
-                  <input type="text" class="form-control" placeholder="Ejemplo:1ro" name="grado"
-                         value="{{old('grado', $grupo->grado)}}">
+                  <label class="text-dark">Grado</label>
+                  <input type="text" class="form-control" 
+                         placeholder="Escribe el grado del grupo" 
+                         name="grado"
+                         value="{{old('grado',$grupo->grado)}}"
+                  >
                 </div>
                 <div class="form-group col-md-4">
-                  <label>Grupo</label>
-                  <input type="text" class="form-control"  placeholder="Ejemplo: A" name="grupo" 
-                         value="{{old('grupo', $grupo->grupo)}}">
+                  <label class="text-dark">Grupo</label>
+                  <input type="text" class="form-control"  
+                         placeholder="Ejemplo: A" 
+                         name="grupo" 
+                         value="{{old('grupo',$grupo->grupo)}}">
                 </div>
-                <div class="form-group col-md-3">
-                  <label>Semestre</label>
-                  <input type="text" class="form-control"  placeholder="Ejemplo 3er Semestre" name="semestre"
-                         value="{{old('semestre', $grupo->semestre)}}">
+                <div class="form-group col-md-4">
+                  <label class="text-dark">Semestre</label>
+                  <input type="text" class="form-control" 
+                         placeholder="Escribe el semestre del grupo" 
+                         name="semestre"
+                         value="{{old('semestre',$grupo->semestre)}}"
+                  >
                 </div>
-                <div class="form-group col-md-3">
-                  <label>Año</label>
-                  <input type="text" class="form-control"  placeholder="Ejemplo: 2020" name="year"
-                         value="{{old('year', $grupo->year)}}">
+                <div class="form-group col-md-4">
+                  <label class="text-dark">Año</label>
+                  <input type="text" class="form-control"  
+                         placeholder="Escribe el año del grupo" 
+                         name="year"
+                         value="{{old('year',$grupo->year)}}">
                 </div>                
               </div>              
-              <button type="submit" class="btn btn-success">Agregar Grupo</button>
-              <a href="{{url('director/grupos/index')}}" class="btn btn-danger">Cancelar</a>
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success">Editar Grupo</button>
+                <a href="{{url('director/grupos/index')}}" class="btn btn-danger">Cancelar</a>                
+              </div>
             </form>                  
         </div>              
     </div>
