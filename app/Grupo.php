@@ -11,7 +11,7 @@ class Grupo extends Model
     //Un grupo puede tener varios alumnos
 	public function alumnos()
 	{	
-		return $this->hasMany(Alumno::class);
+		return $this->hasMany(Alumno::class,'nia');
 	}
 	
 	public function materias()
