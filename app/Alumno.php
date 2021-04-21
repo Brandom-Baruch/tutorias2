@@ -31,7 +31,7 @@ class Alumno extends Authenticatable
     //Varios alumnos pueden tener un grupo
     public function grupo()
     {
-        return $this->belongsTo(Grupo::class);
+        return $this->belongsTo(Grupo::class,'id','grupo_id');
     }
 
     public function getGrupoNombreAttribute() //Campo calculado
