@@ -17,6 +17,7 @@ class Docente extends Authenticatable
 
     protected $fillable = ['name', 'email', 'password'];
 
+    protected $table = 'docentes';
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -39,15 +40,7 @@ class Docente extends Authenticatable
         return $this->belongsToMany(Puesto::class,'puesto_asignados')->withTimestamps();
     }
   
-    public function autorizarPuestos($puestos)
-    {
-        if($this->hasAnyPuesto($puestos))
-        {
-            return true;
-        }
-        abort(401, 'No autorizado');        
-    }
-
+   
     public function hasAnyPuesto($puestos)
     {
         if (is_array($puestos)) {// Si el docente tiene varios puestos, creamos un arreglo
@@ -73,6 +66,16 @@ class Docente extends Authenticatable
         }
             return false;
     }
+
+    public function autorizarPuestos($puestos)
+    {
+        if($this->hasAnyPuesto($puestos))
+        {
+            return true;
+        }
+        abort(401, 'No autorizado');        
+    }
+
 
     public function materias()
     {

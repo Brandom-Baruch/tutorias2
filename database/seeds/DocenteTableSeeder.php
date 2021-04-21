@@ -18,11 +18,11 @@ class DocenteTableSeeder extends Seeder
         
 
          Docente::create([            
-            'name' => 'SrPanecillo',
-            'apellidoP' => 'González',
-            'apellidoM' => 'Cervantes',
+            'name' => 'Director',
+            'apellidoP' => ' ',
+            'apellidoM' => ' ',
             'edad' => 22,
-            'email' => 'baruch94@live.com',
+            'email' => 'director@live.com',
             'password' => bcrypt('123123'),            
             'telefono_fijo' => '248-177-0762' ,
             'telefono_cel' => '248-177-0762' ,            
@@ -40,7 +40,7 @@ class DocenteTableSeeder extends Seeder
             'puesto_id' => '1',
         ]); 
 
-    	$docentes = factory(Docente::class, 12)->create();
+    	//$docentes = factory(Docente::class, 12)->create();
         //$puesto = factory(Puesto::class,4)->create();
     
     }

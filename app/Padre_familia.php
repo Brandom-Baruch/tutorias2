@@ -14,7 +14,9 @@ class Padre_familia extends Authenticatable
 
     protected $guard = 'padre';
  
-    protected $fillable = ['name', 'email', 'password',];    
+    protected $fillable = ['name', 'email', 'password',];
+
+    protected $table = 'padre_familias';    
 
     public function sendPasswordResetNotification($token)
     {

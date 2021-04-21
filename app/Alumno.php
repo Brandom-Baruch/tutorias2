@@ -17,6 +17,7 @@ class Alumno extends Authenticatable
     
     protected $fillable = ['nia','name', 'email', 'password',];
 
+    protected $table = 'alumnos';
 
     //Llamar a la notificacion del correo 
 

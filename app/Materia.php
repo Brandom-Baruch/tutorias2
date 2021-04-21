@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materia extends Model
 {
+  protected $table ='materias';
+
    public function setClaveAttribute($clave) 
    {
         $this->attributes['clave'] = strtoupper($clave);
