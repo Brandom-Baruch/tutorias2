@@ -16,7 +16,7 @@
                 {{csrf_field()}}
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="card-header card-header-primary text-center">
-                  <h4 class="card-title">Reestablecer Contraseña del Docente</h4>
+                  <h4 class="card-title">Reestablecer Contraseña del Alumno</h4>
                   <div class="social-line">                 
                   </div>
                 </div>
