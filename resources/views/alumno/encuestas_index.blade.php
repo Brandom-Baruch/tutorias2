@@ -48,7 +48,7 @@
 						<thead>
 							<tr>
 								<th class="text-center">#</th>
-								<th class="text-center">Nombre</th>																
+								<th class="text-center">Nombre</th>						
 								<th class="text-center">Enlace</th>                                                                
 							</tr>
 						</thead>                                

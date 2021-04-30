@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo','Agregar Materia')
+@section('titulo','Agregar materia')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -54,7 +54,8 @@
         </div>
         <div class="form-group">
           <label class="text-dark">Descripción de la materia</label>
-          <textarea class="form-control" rows="1" name="descripcion"></textarea>
+          <textarea class="form-control" rows="1" name="descripcion"
+            placeholder="Coloca una descripción corta">{{ old('descripcion') }}</textarea>
           @if ($errors->has('descripcion'))
             <span class="help-block text-center text-danger">
              <strong>{{ $errors->first('descripcion') }}</strong>

@@ -32,9 +32,11 @@ Route::middleware(['auth:alumno'])->prefix('/alumno')->group(function(){
 	Route::get('/{nia}/parentezco','Parentezco\ParentezcoController@alumno_create');
 	Route::post('/{nia}/parentezco','Parentezco\ParentezcoController@alumno_store');
 	Route::post('/{alumno_id}/parentezco/{padre_id}/delete','Parentezco\ParentezcoController@alumno_destroy');	
-	Route::get('/{nia}/domicilio', 'Domicilio\DomicilioController@alumno_create');//Mostrar la vista
-	Route::post('/{nia}/domicilio', 'Domicilio\DomicilioController@alumno_store');//Agregar el domicilio
-	Route::post('/{nia}/domicilio/{domicilio_id}/delete', 'Domicilio\DomicilioController@alumno_destroy'); //eliminar
+	Route::get('/{nia}/domicilio', 'Domicilio\AlumnoDomicilioController@mostrar_domicilio');//Muestra el listado de domicilio
+	Route::post('/{nia}/domicilio', 'Domicilio\AlumnoDomicilioController@seleccionar_domicilio');//Agregar el domicilio
+	Route::post('/{nia}/domicilio/{domicilio_id}/delete', 'Domicilio\AlumnoDomicilioController@destroy_domicilio'); //eliminar D
+	Route::get('/{nia}/domicilio/registrar','Domicilio\AlumnoDomicilioController@create');//mostramos formulario para D
+	Route::post('/domicilio/registrar','Domicilio\AlumnoDomicilioController@store');//agregamos domicilio
 	
 	//Index de todas las encuestas del alumno
 	Route::get('encuestas','Alumno\EncuestasController@index');
@@ -117,9 +119,11 @@ Route::middleware(['auth:padre'])->prefix('/padre_familia')->group(function (){
 	Route::get('/', 'Padre_familia\PadreController@index');
 	Route::get('/{id}/edit','Padre_familia\PadreController@edit');
 	Route::post('/{id}/edit','Padre_familia\PadreController@update');
-	Route::get('/{id}/domicilio', 'Domicilio\DomicilioController@padre_create');
-	Route::post('/{id}/domicilio', 'Domicilio\DomicilioController@padre_store');
-	Route::post('/{id}/domicilio/{domicilio_id}/delete', 'Domicilio\DomicilioController@padre_destroy');
+	Route::get('/{id}/domicilio', 'Domicilio\PadreDomicilioController@mostrar_domicilio');
+	Route::post('/{id}/domicilio', 'Domicilio\PadreDomicilioController@seleccionar_domicilio');
+	Route::post('/{id}/domicilio/{domicilio_id}/delete', 'Domicilio\PadreDomicilioController@destroy_domicilio');
+	Route::get('/{id}/domicilio/registrar','Domicilio\PadreDomicilioController@create');//mostramos formulario para D
+	Route::post('/domicilio/registrar','Domicilio\PadreDomicilioController@store');//agregamos domicilio
 	Route::get('/{id}/parentezco','Parentezco\ParentezcoController@padre_create');
 	Route::post('/{id}/parentezco','Parentezco\ParentezcoController@padre_store');
 	Route::post('/{id}/parentezco/{alumno_id}/delete','Parentezco\ParentezcoController@padre_destroy');

@@ -13,7 +13,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 300px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
@@ -38,8 +38,8 @@
                 @endforeach
               </select>
             </div>          
-            <button type="submit" class="btn btn-success">Agregar puesto</button>            
-            <a href="{{url('/director/docente/'.$docente->id.'/view')}}" class="btn btn-danger">Regresar al panel del docente</a>
+            <button type="submit" class="btn btn-success">Agregar materia</button>            
+            <a href="{{url('/director/docente/'.$docente->id.'/view')}}" class="btn btn-danger">Regresar</a>
         </form>        
       </div>
       @if($errors->any())

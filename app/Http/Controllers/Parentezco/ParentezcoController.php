@@ -67,7 +67,7 @@ class ParentezcoController extends Controller
 		];
 
 		$message = [
-			'parentezco.required' => 'Debes de escribir el parentezco que tienen',            
+			'parentezco.required' => 'Debes de escribir el parentesco que tienen',            
 		];
 
 		$this->validate($request, $rules , $message);

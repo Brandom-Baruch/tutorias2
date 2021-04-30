@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo','Listado de docentes')
+@section('titulo','Listado de materias')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -18,12 +18,13 @@
 <div class="main main-raised">
   <div class="profile-content">
     <div class="container">
-      <div class="row">
-        <div class="description text-center">
-          <h3 class="title">Listado de Materias</h3>
+      <div class="row">        
+        <div class="col-md-12 text-center">
+            <h3 class="title">Listado de Materias</h3> 
+            <a href="{{url('/director/materia/create')}}" class="btn btn-primary" >Agregar nueva materia</a> 
         </div>
       </div>
-      <div class="tab-pane  text-center gallery" id="docentes">
+      <div class="tab-pane  text-center gallery">             
        @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
             <div class="alert alert-success text-left">
                 <div class="container-fluid">
@@ -49,28 +50,28 @@
                   {{ session('eliminado') }}
                 </div>
             </div>
-        @endif  
-       <a href="{{url('/director/materia/create')}}" class="btn btn-primary" style="margin-bottom: 30px;">Agregar nueva materia</a>
-        <div class="row">         
-         <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
-              <thead>
+        @endif         
+        <div class="row">
+          <div class="table-responsive">        
+              <table class="table table-hover">
+                <thead>
                   <tr>
-                      <th class="text-center">#</th>
-                      <th class="text-center">Nombre</th>
-                      <th class="text-center">Descripción</th>                            
-                      <th class="text-center">Clave</th>
-                      <th class="text-center">Opciones</th>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Clave</th>
+                    <th>Descripción</th>
+                    <th>Opciones</th>
                   </tr>
-              </thead>
-              @foreach($materias as $materia)
-              <tbody>
-                  <tr>
-                      <td class="text-center">{{$materia->id}}</td>
+                </thead>
+                <tbody>
+                  @foreach($materias as $key => $materia)
+                    <tr>                    
+                      <th>{{ ($key+1) }}</th>
                       <td>{{$materia->name}}</td>
-                      <td class="text-left descrip">{{$materia->descripcion}}</td>                                            
                       <td>{{$materia->clave}}</td>
-                      <td class="td-actions text-center opcionesM">
-                        <form method="post" action="{{url('director/materia/'.$materia->id.'/delete')}}">
+                      <td>{{$materia->descripcion}}</td>
+                      <td>                        
+                        <form class="col-md-12" method="post" action="{{url('director/materia/'.$materia->id.'/delete')}}">
                           {{csrf_field()}}
 
                           <a href="{{url('director/materia/'.$materia->id.'/docentes')}}" rel="tooltip" 
@@ -84,12 +85,13 @@
                           <button type="submit" rel="tooltip" title="Eliminar Materia" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
                               <i class="fa fa-times"></i>
                           </button>
-                        </form>
+                        </form>                        
                       </td>
-                  </tr>                 
-              </tbody>
-              @endforeach
-          </table>          
+                    </tr>
+                  @endforeach                  
+                </tbody>
+              </table> 
+          </div>
         </div>                                                                       
         <div class="d-flex">
             <div class="mx-auto">

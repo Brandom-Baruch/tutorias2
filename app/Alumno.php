@@ -26,7 +26,10 @@ class Alumno extends Authenticatable
         $this->notify(new AlumnoResetPasswordNotification($token));
     }
 
-
+    public function getNombreCompletoAttribute()
+    {
+        return "$this->name $this->apellidoP $this->apellidoM"; //Mostramos el nombre completo del alumno
+    }
 
     //Relacion entre grupo y alumno
     //Varios alumnos pueden tener un grupo

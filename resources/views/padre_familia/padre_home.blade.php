@@ -21,8 +21,8 @@
               <img src="{{url('img/padre6.png')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
             </div>       
             <div class="name">
-              <h3 class="title">Hola Padre <b class="text-primary">{{Auth::user()->name}}</b></h3>               
-              <a href="{{url('padre_familia/entrevista')}}" class="btn btn-success">Realizar entrevista fresca</a>
+              <h3 class="title">Hola Padre <b class="text-primary">{{Auth::user()->name}}</b></h3>                             
+              <a href="{{url('padre_familia/entrevista')}}" class="btn btn-success">Realizar entrevista fresca</a>              
             </div>
           </div>
         </div>        
@@ -67,7 +67,7 @@
       </div>
       @endif
       <div class="row">             
-        <div class="col-md-12 col-sm-12 ml-auto mr-auto">
+        <div class="col-md-12 col-sm-12">
           <div class="profile-tabs">
             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
               <li class="nav-item">
@@ -97,7 +97,7 @@
       <br>      
       <div class="tab-content tab-space">
         <div class="tab-pane active text-center gallery" id="datos">
-          <div class="form-row">              
+          <div class="row">              
             <div class="form-group col-md-4">
               <h4>Nombre(s)</h4>
               <p class="h5">{{Auth::user()->name}}</p>
@@ -151,7 +151,7 @@
         </div>
         <div class="tab-pane text-center gallery" id="direccion">                        
           @foreach(Auth::user()->domicilios as $domicilio)
-          <div class="form-row">
+          <div class="row">
             <div class="form-group col-md-4">
               <h4>Estado</h4>
               <p class="h5">{{$domicilio->estado}}</p>
@@ -201,12 +201,14 @@
           <div class="row">            
             @if(Auth::user()->alumnos()->count() == 0)
               <div class="text-center col-md-12">
-                <h4 class="text-danger">No has asignado un parentezo con un alumno</h4>
-                <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+                <h4 class="text-danger">No has asignado un parentesco con un alumno</h4>
+                <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">
+                  Agregar familiar
+                </a>
               </div>                           
-            @else
+            @else              
               <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-hover">
                   <thead>
                     <tr>
                       <th class="text-center">#</th>
@@ -232,7 +234,10 @@
                       </tr>               
                     @endforeach
                   </tbody>                                
-                </table> 
+                </table>
+                <div class="text-center col-md-12">                
+                  <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+                </div> 
               </div>              
             @endif                
           </div>
@@ -253,7 +258,7 @@
           </form><hr>
           <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -268,15 +273,7 @@
                   <td>{{ $archivo->nombre_archivo }}</td>
                   <td>                   
                     <form method="post" action="{{ url('/padre_familia/documento/'.$archivo->id.'/delete') }}">                
-                      {{ csrf_field() }}  
-                      <!--<a href="{{ url('padre_familia/download/'.$archivo->id.'/documento') }}"
-                        target="_blank" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" 
-                        rel="tooltip" title="Descargar documento"
-                      >
-                        <span class="material-icons">
-                          download
-                        </span>                     
-                      </a>-->
+                      {{ csrf_field() }}                        
                       <a href="{{ url('padre_familia/ver/'.$archivo->id.'/documento') }}"
                         target="_blank" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-md"  rel="tooltip" title="Ver documento"
                       >

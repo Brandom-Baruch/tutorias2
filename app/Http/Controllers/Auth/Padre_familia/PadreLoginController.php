@@ -22,11 +22,16 @@ class PadreLoginController extends Controller
     {
     	//validation
     	$rules = [
-    		'email' => 'required|email',
-    		'password' => 'required|min:6',
+    		'email' => 'required',
+    		'password' => 'required',
     	];
 
-    	$this->validate($request,$rules);
+        $message = [
+            'email.required' => 'Debes de colocar tu correo electrónico.',
+            'password.required' => 'Debes de colocar tu contraseña',
+        ];
+
+    	$this->validate($request,$rules,$message);
 
     	//dd($request->all());
 
@@ -34,7 +39,10 @@ class PadreLoginController extends Controller
     	{
     		return redirect('/padre_familia');
     	}else{
-    		return back()->withInput($request->only('email'));
+            $mensaje = 'Correo electrónico o contraseña incorrecta, vuelve a intentarlo.';
+    		return back()
+            ->withInput($request->only('email'))
+            ->with(compact('mensaje'));
     	}
 
     }

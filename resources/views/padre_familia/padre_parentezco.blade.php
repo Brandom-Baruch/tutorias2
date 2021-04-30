@@ -21,25 +21,28 @@
 				<form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}">
 					{{ csrf_field() }}
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<div class="form-group">
-								<label style="color: black;">Selecciona un familiar</label>
+								<label style="color: black;">Selecciona un alumno</label>
 								<select class="form-control selectpicker"  name="alumno_id"  style="color: black;">
 									@foreach($alumnos as $alumno)
-									<option value="{{$alumno->nia}}">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</option>									    
+									<option value="{{$alumno->nia}}"
+										@if(old('alumno_id') == $alumno->nia) selected @endif>
+										{{$alumno->nombre_completo}} 
+									</option>									    
 									@endforeach
 								</select>								
 							</div>   
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-7">
 							<div class="form-group">
-								<label style="color: black;">Escribe el parentezco que tienen </label>
+								<label style="color: black;">Escribe el parentesco que tienes con el alumno </label>
 								<input type="text" class="form-control" placeholder="Ejemplo: Padre" name="parentezco">
 							</div>   
 						</div>
 					</div>       
 					<div class="text-center">
-						<button type="submit" class="btn btn-success">Agregar parentezco</button>            
+						<button type="submit" class="btn btn-success">Agregar parentesco</button>            
 						<a href="{{url('/padre_familia')}}" class="btn btn-danger">Regresar</a>
 					</div>
 				</form>        
@@ -85,35 +88,37 @@
 			</div>
 			@endif
 			<hr style="border-top-color: black;">
-			<div class="row">         
-				<table class="table table-responsive-sm table-responsive-md table-responsive-lg">
-					<thead>
-						<tr>
-							<th class="text-center">#</th>
-							<th class="text-center">Nombre completo</th>
-							<th class="text-center">Parentezco</th>                                                
-							<th class="text-center">Opciones</th>
-						</tr>
-					</thead>                                
-					<tbody>
-						@foreach(Auth::user()->alumnos as $alumno)
-						<tr>                                                        
-							<td class="text-center">{{$alumno->nia}}</td>
-							<td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}} </td>
-							<td class="text-center">{{$alumno->pivot->parentezco}}</td>
-							<td class="td-actions text-center">
-								<form method="post" 
-								action="{{url('padre_familia/'.Auth::user()->id.'/parentezco/'.$alumno->nia.'/delete')}}">
-								{{csrf_field()}}                                                                
-								<button type="submit" rel="tooltip" title="Quitar familiar" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
-									<i class="fa fa-times"></i>
-								</button>
-							</form>
-						</td>
-					</tr>               
-					@endforeach
-					</tbody>                                
-				</table>                                                				
+			<div class="row"> 
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th class="text-center">#</th>
+								<th class="text-center">Nombre completo</th>
+								<th class="text-center">Parentezco</th>                                                
+								<th class="text-center">Opciones</th>
+							</tr>
+						</thead>                                
+						<tbody>
+							@foreach(Auth::user()->alumnos as $alumno)
+							<tr>                                                        
+								<td class="text-center">{{$alumno->nia}}</td>
+								<td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}} </td>
+								<td class="text-center">{{$alumno->pivot->parentezco}}</td>
+								<td class="td-actions text-center">
+									<form method="post" 
+									action="{{url('padre_familia/'.Auth::user()->id.'/parentezco/'.$alumno->nia.'/delete')}}">
+									{{csrf_field()}}                                                                
+									<button type="submit" rel="tooltip" title="Quitar familiar" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
+										<i class="fa fa-times"></i>
+									</button>
+								</form>
+							</td>
+						</tr>               
+						@endforeach
+						</tbody>                                
+					</table>   
+				</div>        				                                             			
 			</div>
 		</div>
 	</div>

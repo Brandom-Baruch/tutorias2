@@ -26,13 +26,14 @@ class MateriaController extends Controller
     {
     	$rules = [
     		'name' => 'required',  
-            'descripcion' => 'required', 
+            'descripcion' => 'required|max:90', 
             'clave' => 'required|unique:materias', 
     	];
 
     	$message = [
     		'name.required' => 'Debes de colocar un nombre para la materia',    		
     		'descripcion.required' => 'Debes de colocar una descripción',
+            'descripcion.max' => 'Solo puedes colocar un max de 90 caracteres',
     		'clave.required' => 'Debes de colocar una clave para la materia',
     		'clave.unique' => 'Esta clave ya esta en uso en una materia',
     	];
@@ -59,13 +60,14 @@ class MateriaController extends Controller
     {
     	$rules = [
     		'name' => 'required',  
-            'descripcion' => 'required', 
+            'descripcion' => 'required|max:90',
             'clave' => 'required', 
     	];
 
     	$message = [
     		'name.required' => 'Debes de colocar un nombre para la materia',    		
     		'descripcion.required' => 'Debes de colocar una descripción',
+            'descripcion.max' => 'Solo puedes colocar un max de 90 caracteres',
     		'clave.required' => 'Debes de colocar una clave para la materia',    		
     	];
 
@@ -75,7 +77,7 @@ class MateriaController extends Controller
     	$materia->descripcion = $request->input('descripcion');
     	$materia->clave = $request->input('clave');
     	$materia->save();
-    	$mensaje = 'Se ha editado la materia ' .$materia->name . 'exitosamente.';
+    	$mensaje = 'Se ha editado la materia ' .$materia->name . ' exitosamente.';
     	return redirect('director/materias/index')->with(compact('mensaje'));
     }
 

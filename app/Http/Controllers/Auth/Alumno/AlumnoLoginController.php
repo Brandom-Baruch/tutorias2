@@ -23,12 +23,16 @@ class AlumnoLoginController extends Controller
     {
     	//Reglas de validacion
     	$rules = [
-    		$this->username() => 'required|string',
-    		'password' => 'required|min:6',
+    		$this->username() => 'required',
+    		'password' => 'required',
     	];       
 
+        $message = [
+            $this->username().'.required' => 'Debes de colocar tu NIA',
+            'password.required' => 'Debes de colocar tu contraseña',                        
+        ];
         //Validamos las reglas
-    	$this->validate($request,$rules);
+    	$this->validate($request,$rules,$message);
 
     	//dd($request->all());
 
@@ -38,8 +42,11 @@ class AlumnoLoginController extends Controller
             //mandarlo a la ruta
     		return redirect('/alumno');
     	}else{
+            $mensaje = 'Nia o contraseña incorrecta, vuelve a interarlo.';
             //Regresar al login solamente con el  nia
-    		return back()->withInput($request->only($this->username()));
+    		return back()
+            ->withInput($request->only($this->username()))
+            ->with(compact('mensaje'));
     	}
 
     }

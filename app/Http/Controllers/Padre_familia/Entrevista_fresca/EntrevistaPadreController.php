@@ -8,12 +8,11 @@ use App\Entrevista_Fresca_Padre;
 use Carbon\Carbon;
 use App\Alumno;
 use App\Padre_familia;
-
+use Auth;
 class EntrevistaPadreController extends Controller
 {
 	public function index()
-	{		  
-        
+	{		          
 		return view('padre_familia.entrevista_fresca.entrevista_index');
 	}
 
@@ -31,6 +30,7 @@ class EntrevistaPadreController extends Controller
     public function secciones($alumno_id)
     {    
     	$alumno = Alumno::find($alumno_id);
+        //dd(Auth::user()->entrevista->marca_si_no);
     	return view('padre_familia.entrevista_fresca.secciones')->with(compact('alumno'));
     }
 
@@ -41,7 +41,7 @@ class EntrevistaPadreController extends Controller
         $entrevista->fecha_aplicacion = Carbon::now();
         $entrevista->descripcion = 'Finalizo la entrevista';
         $entrevista->save();
-        $mensaje = 'Gracias por compartir esta información usted es lo más importante para nosotros ' . $alumno->nia;
-        return redirect('/padre_familia')->with(compact('mensaje'));
+        $mensaje = 'Gracias por compartir esta información usted es lo más importante para nosotros';
+        return redirect('/padre_familia/entrevista')->with(compact('mensaje'));
     }
 }

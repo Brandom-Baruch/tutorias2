@@ -20,13 +20,49 @@ class MarcaSiNoController extends Controller
 	{
 
 		$rules = [
+		 	'respuesta1' => 'required',
+            'respuesta2' => 'required',
+            'respuesta3' => 'required',
+            'respuesta4' => 'required',
+            'respuesta5' => 'required',
+            'respuesta6' => 'required',
+            'respuesta7' => 'required',
+            'respuesta8' => 'required',
+            'respuesta9' => 'required',
+            'respuesta10' => 'required',
+            'respuesta11' => 'required',
+            'respuesta12' => 'required',
+            'respuesta13' => 'required',
+            'respuesta14' => 'required',
+            'respuesta15' => 'required',
+            'respuesta16' => 'required',
+            'respuesta17' => 'required',
+            'respuesta18' => 'required',
 			'respuesta19' => 'required',
-			'respuesta20' => 'required'
+			'respuesta20' => 'required',
 		];
 
 		$message = [
-			'respuesta19.required' => 'Debes de agregar una descripción breve de su hijo',
-			'respuesta20.required' => 'Debes de escribir con que persona se lleva mejor su hijo',
+		 	'respuesta1.required' => 'Selecciona un opción',
+            'respuesta2.required' => 'Selecciona un opción',
+            'respuesta3.required' => 'Selecciona un opción',
+            'respuesta4.required' => 'Selecciona un opción',
+            'respuesta5.required' => 'Selecciona un opción',
+            'respuesta6.required' => 'Selecciona un opción',
+            'respuesta7.required' => 'Selecciona un opción',
+            'respuesta8.required' => 'Selecciona un opción',
+            'respuesta9.required' => 'Selecciona un opción',
+            'respuesta10.required' => 'Selecciona un opción',
+            'respuesta11.required' => 'Selecciona un opción',
+            'respuesta12.required' => 'Selecciona un opción',
+            'respuesta13.required' => 'Selecciona un opción',
+            'respuesta14.required' => 'Selecciona un opción',
+            'respuesta15.required' => 'Selecciona un opción',
+            'respuesta16.required' => 'Selecciona un opción',
+            'respuesta17.required' => 'Selecciona un opción',
+            'respuesta18.required' => 'Selecciona un opción',
+			'respuesta19.required' => 'Agrega una descripción breve de su hijo',
+			'respuesta20.required' => 'Escribe  que persona se lleva mejor su hijo',
 		];
 		
 		$this->validate($request,$rules,$message);
@@ -57,6 +93,6 @@ class MarcaSiNoController extends Controller
 		$marca_si_no->respuesta20 = $request->input('respuesta20');
 		$marca_si_no->save();
 		$mensaje = 'Has realizado la encuesta de "Caracteristicas y Cualidades que tiene o no tu hijo"';
-		return redirect('/padre_familia/entrevista/'.auth()->user()->entrevista->alumno_id.'/secciones')->with(compact('mensaje'));
+		return redirect('/padre_familia/entrevista/'.$alumno_id->nia.'/secciones')->with(compact('mensaje'));
 	}   
 }

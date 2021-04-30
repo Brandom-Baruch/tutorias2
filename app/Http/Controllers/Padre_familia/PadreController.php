@@ -19,7 +19,8 @@ class PadreController extends Controller
 
     public function index()
     {
-        //dd(Auth::user()->documentos_padre);
+        
+        //dd(Auth::user()->alumnos);
         $archivos = DocumentoPadre::where('padre_id',Auth::user()->id)->get();
         //dd($archivos);
     	return view('padre_familia.padre_home')->with(compact('archivos'));

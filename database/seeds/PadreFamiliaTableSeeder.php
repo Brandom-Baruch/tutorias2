@@ -12,6 +12,6 @@ class PadreFamiliaTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Padre_familia::class, 10)->create();
+        factory(Padre_familia::class, 100)->create();
     }
 }

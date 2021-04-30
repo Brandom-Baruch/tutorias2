@@ -54,7 +54,8 @@
                 </div>
                 <div class="form-group">
                   <label class="text-dark">Descripción de la materia</label>
-                  <textarea class="form-control" rows="1" name="descripcion">{{ $materia->descripcion }}</textarea>
+                  <textarea class="form-control" rows="1" name="descripcion"
+                    placeholder="Coloca una descripción corta">{{ $materia->descripcion }}</textarea>
                   @if ($errors->has('descripcion'))
                     <span class="help-block text-center text-danger">
                      <strong>{{ $errors->first('descripcion') }}</strong>

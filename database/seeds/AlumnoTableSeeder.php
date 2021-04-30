@@ -13,9 +13,9 @@ class AlumnoTableSeeder extends Seeder
      */
     public function run()
     {
-    	//factory(Alumno::class, 20)->create();
+    	factory(Alumno::class, 50)->create();
 
-      $grupos = factory(Grupo::class, 5)->create();
+      /*$grupos = factory(Grupo::class, 5)->create();
 
         $grupos->each(function ($grupo)
         {
@@ -25,7 +25,7 @@ class AlumnoTableSeeder extends Seeder
             $materias = factory(App\Materia::class,10)->make();
             $grupo->materias()->saveMany($materias);
         });
-       
+       */
 
 	  /*	factory(Alumno::class, 10)->create()->each(function ($u) {
 	        $u->grupo()->saveMany(factory(Grupo::class,5)->make());

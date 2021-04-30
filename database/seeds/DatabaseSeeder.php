@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         //$this->call(AdminTableSeeder::class);
         //$this->call(AlumnoTableSeeder::class);
-        $this->call(DocenteTableSeeder::class);
+        //$this->call(DocenteTableSeeder::class);
         //$this->call(PadreFamiliaTableSeeder::class);
        // $this->call(MateriasTableSeeder::class);
         //$this->call(ImparteTableSeeder::class);     
@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(ParentezcoTableSeed::class);     
         //$this->call(DomicilioTableSeed::class);
         //$this->call(GrupoTableSeeder::class);
-        //$this->call(PadreFamiliaTableSeeder::class);        
+        $this->call(PadreFamiliaTableSeeder::class);        
     }
 }

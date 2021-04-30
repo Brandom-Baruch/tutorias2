@@ -26,13 +26,14 @@ class PuestoController extends Controller
     {
     	$rules = [
     		'puesto' => 'required|unique:puestos',
-    		'descripcion' => 'required',
+    		'descripcion' => 'required|max:100',
     	];
 
     	$message = [
     		'puesto.required' => 'Debes agregar un nombre para el puesto',
     		'puesto.unique' => 'Este puesto ya ha sido agregada',
-    		'descripcion.required' => 'Debes de agregar una descripción para el puesto'
+    		'descripcion.required' => 'Debes de agregar una descripción para el puesto',
+            'descripcion.max' => 'La descripción tiene un max de 100 caracteres',
     	];
 
     	$this->validate($request,$rules,$message);

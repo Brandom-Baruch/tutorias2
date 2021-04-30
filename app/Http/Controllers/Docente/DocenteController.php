@@ -37,7 +37,7 @@ class DocenteController extends Controller
             'apellidoM' => 'required', 
             'edad' => 'required|numeric|min:18|max:80' , 
             'email' => 'required|email|max:255' , 
-            //'password' => 'required|string|min:6|confirmed' , 
+            'password' => 'confirmed' , 
             'telefono_fijo' => 'required', 
             'telefono_cel' => 'required' ,             
         ];
@@ -53,7 +53,7 @@ class DocenteController extends Controller
             'email.email' => 'Solo se aceptan correos electronicos',            
             //'password.required' => 'Debes de colocar una contraseña',
             //'password.min' => 'La contraseña debe tener por lo menos 6 digitos',
-            'password.confirmed' => 'La contraseña no coinciden',
+            'password.confirmed' => 'La contraseña no coinciden, intentalo de nuevo',
             'telefono_fijo.required' => 'Debes de colocar un telefono fijo',
             'telefono_cel.required' => 'Debes de colocar un telefono celular',
         ];

@@ -39,6 +39,6 @@ class AlumnoForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.padre.email-padre');
+        return view('auth.passwords.alumno.email-alumno');
     }
 }

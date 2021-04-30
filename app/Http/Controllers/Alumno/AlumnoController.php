@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Padre_familia as padres;
 use App\Alumno;
 use App\Grupo;
-use App\Parentezco;
 
 class AlumnoController extends Controller
 {
@@ -44,7 +43,7 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'phone' => 'required',
             'email' => 'required|max:250',
-            //7'password' => 'required|string|min:6|confirmed',            
+            'password' => 'confirmed',            
            // 'grupo_id' =>  'required',          
         ];
 
@@ -64,7 +63,7 @@ class AlumnoController extends Controller
             'email.max' => 'Solamente puedes colocar 255 caracteres',
             //'password.required' => 'Debes de colocar una contraseña',
             //'password.min' => 'La contraseña minima debe tener 6 caracteres',
-            //'password.confirmed' => 'No coinciden la contraseña, intentalo de nuevo',
+            'password.confirmed' => 'No coinciden la contraseña, intentalo de nuevo',
             //'grupo_id.required' => 'Debes de asignar un grupo al alumno',
         ];
 

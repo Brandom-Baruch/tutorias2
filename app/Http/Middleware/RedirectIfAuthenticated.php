@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
                 }
             case 'docente':
                 if (Auth::guard($guard)->check()) {
-                    return redirect('/director');
+                    return redirect('/docente');
                 }    
             case 'padre':
                 if (Auth::guard($guard)->check()) {
