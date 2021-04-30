@@ -34,7 +34,7 @@ class AlumnoForgotPasswordController extends Controller
 
     protected function broker()
     {
-        return Password::broker('padres');
+        return Password::broker('alumnos');
     }
 
     public function showLinkRequestForm()
