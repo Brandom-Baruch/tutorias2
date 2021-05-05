@@ -24,14 +24,12 @@ class CuestionarioAlumnoController extends Controller
         return redirect('/alumno/cuestionario');   
     }
 
-    public function update(Request $request)
+    public function update()
     {
         //dd($cuestionario);
         $cuestionario = Cuestionario_Anexos::where('alumno_id', auth()->user()->nia)->first();
         $cuestionario->fecha_aplicacion = Carbon::now();
         $cuestionario->descripcion = 'Finalizo cuestionario';            
-        $cuestionario->save();  
-        $mensaje = 'Has finalizalo el cuestionario. Gracias por compartir esta información eres lo más importante para nosotros.';
-        return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        $cuestionario->save();          
     }
 }

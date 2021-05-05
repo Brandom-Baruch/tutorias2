@@ -44,7 +44,8 @@
 						@endif					    
 					</div>
 				</div><br>				
-				<table class="table table-bordered">				
+				<div class="table-responsive">
+					<table class="table table-bordered">				
 					 	<thead>
 						    <tr>
 						      <th scope="col" class="text-center">N°</th>
@@ -564,7 +565,8 @@
 								</td>							
 							</tr>
 						</tbody>
-				</table>
+					</table>
+				</div>
 				<h4 class="text-center">Gracias!</h4>
 				<div class="text-center">
 					<button class="btn btn-success">Finalizar</button>

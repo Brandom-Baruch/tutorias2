@@ -44,7 +44,7 @@
 			@endif
 			<div class="row">
 				<div class=" table-responsive ">
-					<table class="table table-striped">
+					<table class="table table-hover">
 						<thead>
 							<tr>
 								<th class="text-center">#</th>
@@ -60,12 +60,14 @@
 									@if(empty(Auth::user()->entrevista_fresca))      
 										<form method="post" action="{{url('alumno/entrevista')}}">
 											{{csrf_field()}}
-											<button type="submit" class="btn btn-primary  btn-sm">Iniciar entrevista</button>     
+											<button type="submit" class="btn btn-primary  btn-sm">Iniciar</button>     
 										</form>              									
 									@elseif(Auth::user()->entrevista_fresca->where('descripcion','Finalizo la entrevista')->where('alumno_id',auth()->user()->nia)->first())
-										<button disabled="true" class="btn btn-success  btn-sm">{{Auth::user()->entrevista_fresca->descripcion}}</button>                   
+										<a disable>{{Auth::user()->entrevista_fresca->descripcion}}</a>                   
 									@elseif(Auth::user()->entrevista_fresca->where('descripcion','Inicio la entrevista')->where('alumno_id',auth()->user()->nia)->first())
-										<a href="{{url('alumno/entrevista')}}" class="btn btn-warning  btn-sm">{{Auth::user()->entrevista_fresca->descripcion}}</a>
+										<a href="{{url('alumno/entrevista')}}" class="btn btn-warning  btn-sm">
+											{{Auth::user()->entrevista_fresca->descripcion}}
+										</a>
 									@endif
 								</td>                     
 							</tr>
@@ -76,12 +78,10 @@
 									@if(empty(Auth::user()->cuestionario_anexo))
 										<form method="post" action="{{url('alumno/cuestionario')}}">
 											{{csrf_field()}}
-											<button type="submit" class="btn btn-primary btn-sm">Iniciar cuestionario</button>    
+											<button type="submit" class="btn btn-primary btn-sm">Iniciar</button>    
 										</form>																					
 									@elseif(Auth::user()->cuestionario_anexo->where('descripcion','Finalizo cuestionario')->where('alumno_id',auth()->user()->nia)->first())
-										<button disabled="true" class="btn btn-success btn-sm">
-											{{Auth::user()->cuestionario_anexo->descripcion}}
-										</button>
+										<a disabled>{{Auth::user()->cuestionario_anexo->descripcion}}</a>
 									@elseif(Auth::user()->cuestionario_anexo->where('descripcion','Inicio cuestionario')->where('alumno_id',auth()->user()->nia)->where('alumno_id',auth()->user()->nia)->first())
 										<a href="{{url('alumno/cuestionario')}}" class="btn btn-warning btn-sm">
 											{{Auth::user()->cuestionario_anexo->descripcion}}
@@ -95,12 +95,12 @@
 								<td class="text-center">
 									@if(empty(Auth::user()->perfil_academico))									
 										<a href="{{url('alumno/cuestionario/perfil_academico')}}" class="btn btn-primary btn-sm">
-											Iniciar Cuestionario									
+											Iniciar									
 										</a>
 									@else
-										<button disabled="true" class="btn btn-success btn-sm">
+										<a disable>
 											Finalizo Test
-										</button>
+										</a>
 									@endif									
 								</td>                     
 							</tr>
@@ -111,13 +111,13 @@
 									@if(empty(Auth::user()->test))
 										<form method="post" action="{{url('alumno/test/create')}}">
 											{{csrf_field()}}
-											<button  type="submit" class="btn btn-primary btn-sm">Iniciar test</button>
+											<button  type="submit" class="btn btn-primary btn-sm">Iniciar</button>
 										</form>																		
-									@elseif(Auth::user()->test->where('descripcion','Finalizo Test')->where('alumno_id',auth()->user()->nia)->first())
-										<button disabled="true" class="btn btn-success btn-sm">
+									@elseif(Auth::user()->test->where('descripcion','Finalizo Test')->first())
+										<a disabled>
 											{{Auth::user()->test->descripcion}}
-										</button>									
-									@elseif(Auth::user()->test->where('descripcion','Inicio Test')->where('alumno_id',auth()->user()->nia)->first())
+										</a>									
+									@elseif(Auth::user()->test->where('descripcion','Inicio Test')->first())
 										<a href="{{url('alumno/test')}}" class="btn btn-warning btn-sm">{{Auth::user()->test->descripcion}}
 										</a>									
 									@endif
@@ -129,12 +129,12 @@
 								<td class="text-center">
 									@if(empty(Auth::user()->atencion_individual))
 										<a href="{{url('alumno/test/atencion_individual')}}" class="btn btn-primary btn-sm">
-											Iniciar Test									
+											Iniciar
 										</a>
 									@else
-										<button disabled="true" class="btn btn-success btn-sm">
+										<a disabled>
 											{{Auth::user()->atencion_individual->descripcion}}
-										</button>
+										</a>
 									@endif
 								</td>                     
 							</tr>                               

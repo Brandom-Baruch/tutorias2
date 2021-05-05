@@ -18,7 +18,7 @@
 			<h4 style="margin-bottom: 20px;" class="text-center">Lee con cuidado las siguientes declaraciones y califícalas, en términos de utilidad, según la siguiente escala:</h4>
 
 			<div class="table-responsive">	
-				<table class="table table-borderless" style="width: 500px; margin: auto; margin-bottom: 20px;">				
+				<table class="table table-borderless">				
 					<tbody>
 						<tr>						
 							<td class="text-center">Nada útil<br>1</td>

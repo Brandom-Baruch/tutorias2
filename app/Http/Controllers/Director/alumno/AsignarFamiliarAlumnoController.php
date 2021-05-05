@@ -15,7 +15,7 @@ class AsignarFamiliarAlumnoController extends Controller
         $request->user()->autorizarPuestos('Director'); 
         $alumno = Alumno::find($nia);
         $padres = padre::orderBy('name')->get();
-        return view('director.alumno.alumno_parentezco')->with(compact('padres','alumno'));
+        return view('director.alumno.alumno_parentesco')->with(compact('padres','alumno'));
     }
 
     public function store(Request $request, $nia)
@@ -25,7 +25,7 @@ class AsignarFamiliarAlumnoController extends Controller
         ];
 
         $message = [
-            'parentezco.required' => 'Debes de escribir el parentezco que tienen',            
+            'parentezco.required' => 'Debes de escribir el parentesco que tienen',            
         ];
 
         $this->validate($request, $rules , $message);

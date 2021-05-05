@@ -8,6 +8,7 @@ use App\Entrevista_Fresca_Padre;
 use App\MarcaX;
 use App\Alumno;
 use App\Padre_familia;
+use Auth;
 
 class MarcaXController extends Controller
 {
@@ -224,7 +225,19 @@ class MarcaXController extends Controller
 		$marca_x->r21_2 = $request->input('r21_2');
 		$marca_x->r21_3 = $request->input('r21_3');
 		$marca_x->save();
-		$mensaje = 'Has realizo la encuesta "Aspectos que tiene tu hijo" exitosamente';
-		return redirect('/padre_familia/entrevista/'.$alumno_id->nia.'/secciones')->with(compact('mensaje'));
+								
+		if (Auth::user()->entrevista->where('alumno_id',$alumno_id->nia)->first()->marca_x && 
+			Auth::user()->entrevista->where('alumno_id',$alumno_id->nia)->first()->marca_si_no) {
+
+			$entrevista_fresca = new EntrevistaPadreController();
+			$entrevista_fresca->update($alumno_id->nia);
+
+			$mensaje = 'Gracias por compartir esta información, usted es lo más importante para nosotros';
+        	return redirect('/padre_familia/entrevista')->with(compact('mensaje'));
+		}
+		else{
+			$mensaje = 'Has realizo la encuesta "Aspectos que tiene tu hijo" exitosamente';
+			return redirect('/padre_familia/entrevista/'.$alumno_id->nia.'/secciones')->with(compact('mensaje'));
+		}		
 	}
 }

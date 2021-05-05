@@ -71,7 +71,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
-                    <i class="material-icons">person_search</i> Parentezcos
+                    <i class="material-icons">person_search</i> Parentescos
                   </a>
                 </li> 
                 <li class="nav-item">
@@ -198,7 +198,7 @@
                   @foreach($alumno->padres as $numero => $padre)
                   <tr>
                     <td class="text-center">{{($numero+1)}}</td>                                                        
-                    <td class="text-center">{{$padre->name}} {{$padre->apellidoP}} {{$padre->apellidoM}}</td> 
+                    <td class="text-center">{{$padre->nombre_completo}}</td> 
                     <td class="text-center">{{$padre->pivot->parentezco}}</td>
                     <td class="td-actions">                                                     
                       <form method="post" action="{{url('director/alumno/'.$alumno->nia.'/familiares/'.$padre->id.'/delete')}}">

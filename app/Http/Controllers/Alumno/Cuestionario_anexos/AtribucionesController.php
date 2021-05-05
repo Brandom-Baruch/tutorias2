@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumno\Cuestionario_anexos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Atribucion;
+use Auth;
 
 class AtribucionesController extends Controller
 {
@@ -47,7 +48,18 @@ class AtribucionesController extends Controller
         $atribucion->respuesta6 = $request->input('respuesta6');
         $atribucion->respuesta7 = $request->input('respuesta7');
         $atribucion->save();
-        $mensaje = 'Has realizado la encuesta "Atribuciones" exitosamente';
-        return redirect('/alumno/cuestionario')->with(compact('mensaje'));
+
+        if (Auth::user()->cuestionario_anexo->atribucion && Auth::user()->cuestionario_anexo->nivel_empatia && 
+            Auth::user()->cuestionario_anexo->tipo_mentalidad)
+        {
+            $cuestionario_anexo = new CuestionarioAlumnoController(); // creamos una instancial del controlador
+            $cuestionario_anexo->update(); // Llamamos al metodo update
+            $mensaje = 'Has finalizalo el cuestionario. Gracias por compartir esta información eres lo más 
+                        importante para nosotros.';
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }else{
+            $mensaje = 'Has realizado la encuesta "Atribuciones" exitosamente';
+            return redirect('/alumno/cuestionario')->with(compact('mensaje'));
+        }            
 	}
 }

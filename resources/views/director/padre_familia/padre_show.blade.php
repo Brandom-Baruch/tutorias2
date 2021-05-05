@@ -72,7 +72,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
-                    <i class="material-icons">person_search</i> Parentezcos
+                    <i class="material-icons">person_search</i> Parentescos
                   </a>
                 </li>
                 <li class="nav-item">
@@ -200,7 +200,7 @@
                     <tr>
                         <th class="text-center">NIA</th>
                         <th class="text-center">Alumno</th>                                                                         
-                        <th class="text-center">Parentezco</th>
+                        <th class="text-center">Parentesco</th>
                         <th class="text-center">Opciones</th>                                                                       
                     </tr>
                 </thead>                                
@@ -208,7 +208,7 @@
                     @foreach($padre->alumnos as $alumno)
                       <tr>                                                        
                           <td class="text-center">{{$alumno->nia}}</td>
-                          <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>
+                          <td class="text-center">{{$alumno->nombre_completo}}</td>
                           <td class="text-center">{{$alumno->pivot->parentezco}}</td>
                           <td class="td-actions">                                                     
                             <a href="{{url('/director/alumno/'.$alumno->nia.'/show')}}" 

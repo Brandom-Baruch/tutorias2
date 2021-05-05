@@ -20,7 +20,7 @@
 			</h4>			
 			<form method="post" action="{{url('alumno/cuestionario/tipo_mentalidad')}}">
 				{{ csrf_field() }}        												
-				<div class="form-row" style="margin: auto;">
+				<div class="row" style="margin: auto;">
 					<!--R1-->
 					<div class="form-group col-md-6">
 						<label style="color: black;">
@@ -147,30 +147,39 @@
 					</div>	
 					<!--R5-->
 					<div class="text-center col-md-12">
-						<h4>Completa el siguiente enunciado de tal modo que los números en los dos espacios sumen 100%.</h4>		
-						@if ($errors->has('respuesta5'))
+						<h4>Completa el siguiente enunciado de tal modo que los números en los dos espacios sumen 100%.</h4>
+						@if (session('mensaje'))
 							<span class="help-block text-danger">
-								<strong>{{ $errors->first('respuesta5') }}</strong>
+								<strong>{{ session('mensaje') }}</strong>
 							</span><br>
-						@endif 						
-						@if ($errors->has('r5'))
-							<span class="help-block text-danger">
-								<strong>{{ $errors->first('r5') }}</strong>
-							</span>
-						@endif					
+						@endif
 					</div>
-					<div class="form-group col-md-12 " style="margin-left: 30%; ">
-						<div class="row">
-							<p style="margin-top:12px;">INTELIGENCIA=</p>							
-							<div class="col-1">
-								<input type="number" class="form-control " name="respuesta5" value="{{ old('respuesta5') }}">		
-							</div>
-							<p style="margin-top:12px;">% HABILIDADES +</p>
-							<div class="col-1">
-								<input type="number" class="form-control " name="r5" value="{{ old('r5') }}">						
-							</div>							
-							<p style="margin-top:12px;">% ESFUERZO.</p>
-						</div>
+					<div class="table-responsive text-center">
+						<table class="table">
+							<tbody>
+								<tr>
+									<th><p class="h5">INTELIGENCIA=</p></th>
+									<th>
+										<input type="number" class="form-control form-check-inline " name="respuesta5" 
+											   value="{{ old('respuesta5') }}"
+										>										
+									</th>
+									<td><p class="h5">%</p></td>
+									<th><p class="h5">HABILIDADES</p></th>
+									<td><p class="h5">+</p></td>
+									<th><input type="number" class="form-control form-check-inline" 
+										name="r5" value="{{ old('r5') }}">
+										@if ($errors->has('r5'))
+											<span class="help-block text-danger">
+												<strong>{{ $errors->first('r5') }}</strong>
+											</span>
+										@endif	
+									</th>
+									<td><p class="h5">%</p></td>
+									<th><p class="h5">ESFUERZO.</p></th>
+								</tr>
+							</tbody>
+						</table>						
 					</div>															
 				</div>																							
 				<div class="text-center">

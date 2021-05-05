@@ -24,13 +24,11 @@ class EntrevistaAlumnoController extends Controller
       return redirect('/alumno/entrevista');
     }
 
-    public function update(Request $request)
+    public function update()
     {
       $entrevista =  Entrevista_Fresca_Alumno::where('alumno_id', auth()->user()->nia)->first();
       $entrevista->fecha_aplicacion = Carbon::now();
       $entrevista->descripcion = 'Finalizo la entrevista';            
-      $entrevista->save();      
-      $mensaje = 'Has finalizado la encuesta "Entrevista fresca". Gracias por compartir esta información eres lo más importante para nosotros.';      
-      return redirect('/alumno/encuestas')->with(compact('mensaje'));
+      $entrevista->save();            
     }
 }

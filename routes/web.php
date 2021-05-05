@@ -29,9 +29,9 @@ Route::middleware(['auth:alumno'])->prefix('/alumno')->group(function(){
 	Route::get('/', 'Alumno\AlumnoController@index');
 	Route::get('/{nia}/edit','Alumno\AlumnoController@edit');
 	Route::post('/{nia}/edit','Alumno\AlumnoController@update');
-	Route::get('/{nia}/parentezco','Parentezco\ParentezcoController@alumno_create');
-	Route::post('/{nia}/parentezco','Parentezco\ParentezcoController@alumno_store');
-	Route::post('/{alumno_id}/parentezco/{padre_id}/delete','Parentezco\ParentezcoController@alumno_destroy');	
+	Route::get('/{nia}/parentesco','Parentesco\AlumnoParentescoController@create');
+	Route::post('/{nia}/parentesco','Parentesco\AlumnoParentescoController@store');
+	Route::post('/{alumno_id}/parentesco/{padre_id}/delete','Parentesco\AlumnoParentescoController@destroy');	
 	Route::get('/{nia}/domicilio', 'Domicilio\AlumnoDomicilioController@mostrar_domicilio');//Muestra el listado de domicilio
 	Route::post('/{nia}/domicilio', 'Domicilio\AlumnoDomicilioController@seleccionar_domicilio');//Agregar el domicilio
 	Route::post('/{nia}/domicilio/{domicilio_id}/delete', 'Domicilio\AlumnoDomicilioController@destroy_domicilio'); //eliminar D
@@ -124,9 +124,9 @@ Route::middleware(['auth:padre'])->prefix('/padre_familia')->group(function (){
 	Route::post('/{id}/domicilio/{domicilio_id}/delete', 'Domicilio\PadreDomicilioController@destroy_domicilio');
 	Route::get('/{id}/domicilio/registrar','Domicilio\PadreDomicilioController@create');//mostramos formulario para D
 	Route::post('/domicilio/registrar','Domicilio\PadreDomicilioController@store');//agregamos domicilio
-	Route::get('/{id}/parentezco','Parentezco\ParentezcoController@padre_create');
-	Route::post('/{id}/parentezco','Parentezco\ParentezcoController@padre_store');
-	Route::post('/{id}/parentezco/{alumno_id}/delete','Parentezco\ParentezcoController@padre_destroy');
+	Route::get('/{id}/parentesco','Parentesco\PadreParentescoController@create');
+	Route::post('/{id}/parentesco','Parentesco\PadreParentescoController@store');
+	Route::post('/{id}/parentesco/{alumno_id}/delete','Parentesco\PadreParentescoController@destroy');
 	Route::post('/{id}/documento','Padre_familia\DocumentosPadreController@store');
 	Route::post('/documento/{id}/delete','Padre_familia\DocumentosPadreController@destroy');
 	Route::get('/ver/{id}/documento','Padre_familia\DocumentosPadreController@verDocumento');
@@ -275,7 +275,7 @@ Route::middleware(['auth:docente'])->prefix('/director')->namespace('Director')-
 	Route::post('/alumno/{nia}/delete','alumno\AlumnoController@destroy');	
 	Route::get('/alumno/search','buscador\SearchController@showAlumno');//Buscar un alumno 	
 	Route::get('/alumno/{alumno}/show','alumno\AlumnoController@show');//Mostrar los datos del alumno	
-	//Asignar parentezco de alumnos para el padre de familia indicado
+	//Asignar parentesco de alumnos para el padre de familia indicado
 	Route::get('/alumno/{nia}/familiares','alumno\AsignarFamiliarAlumnoController@index');
 	Route::post('/alumno/{nia}/familiares','alumno\AsignarFamiliarAlumnoController@store');
 	Route::post('/alumno/{nia}/familiares/{padre_id}/delete','alumno\AsignarFamiliarAlumnoController@destroy');
@@ -293,7 +293,7 @@ Route::middleware(['auth:docente'])->prefix('/director')->namespace('Director')-
 	//Descargar y ver documento
 	Route::get('/download/{id}/documento','padre_familia\PadreFamiliaController@downloadDocumento');
 	Route::get('/ver/{id}/documento','padre_familia\PadreFamiliaController@verDocumento');
-	//Asignar parentezco de alumnos para el padre de familia indicado
+	//Asignar parentesco de alumnos para el padre de familia indicado
 	Route::get('/padre_familia/{id}/alumnos','padre_familia\AsignarAlumnosPadreController@index');
 	Route::post('/padre_familia/{id}/alumnos','padre_familia\AsignarAlumnosPadreController@store');
 	Route::post('/padre_familia/{padre_id}/alumnos/{alumno_id}/delete','padre_familia\AsignarAlumnosPadreController@destroy');

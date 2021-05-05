@@ -16,7 +16,7 @@ class AsignarAlumnosPadreController extends Controller
         $request->user()->autorizarPuestos('Director'); 
         $padre = padre::find($id);
         $alumnos = Alumno::orderBy('name')->get();
-        return view('director.padre_familia.padre_parentezco')->with(compact('padre','alumnos'));
+        return view('director.padre_familia.padre_parentesco')->with(compact('padre','alumnos'));
     }
 
 

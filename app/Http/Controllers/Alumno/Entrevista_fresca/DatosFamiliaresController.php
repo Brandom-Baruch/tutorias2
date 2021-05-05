@@ -10,6 +10,12 @@ use Auth;
 class DatosFamiliaresController extends Controller
 {
     
+     public function __construct()
+    {
+        $this->middleware('auth:alumno');
+    }
+
+
     public function create()
     {
         return view('alumno.entrevista_fresca.datos_familiares');
@@ -28,15 +34,13 @@ class DatosFamiliaresController extends Controller
         ];
 
         $message = [
-            'respuesta1.required' => 'Debes de agregar una respuesta a la pregunta ¿Con quién vives?',        
-            'respuesta2.required' => 'Debes de agregar una respuesta a la pregunta ¿Cuántos hermanos/as tienes?',
-            'respuesta3.required' => 'Debes de agregar una respuesta a la pregunta ¿Qué lugar ocupas?',            
-            'respuesta4.required' => 'Debes de agregar una respuesta a la pregunta ¿Cómo te llevas con tu familia?',
-            'respuesta5.required' => 
-                                  'Debes de agregar una respuesta a la pregunta ¿Hablas otro idioma o lengua indígena?',            
-            'respuesta6.required' => 
-                                  'Debes de agregar una respuesta a la pregunta ¿Cuánto es el ingreso económico mensual en tu casa?',
-            'respuesta7.required' => 'Debes de agregar una respuesta a la pregunta ¿Tienes hijos?',
+            'respuesta1.required' => 'Debes de colocar una respuesta',        
+            'respuesta2.required' => 'Debes de colocar una respuesta',
+            'respuesta3.required' => 'Debes de colocar una respuesta',            
+            'respuesta4.required' => 'Debes de colocar una respuesta',
+            'respuesta5.required' => 'Debes de colocar una respuesta',            
+            'respuesta6.required' => 'Debes de colocar una respuesta',
+            'respuesta7.required' => 'Debes de colocar una respuesta',
         ];
             $this->validate($request,$rules,$message);
         //dd($request->all());
@@ -52,9 +56,19 @@ class DatosFamiliaresController extends Controller
         $datos_familiares->r5 = $request->input('r5');
         $datos_familiares->respuesta6 = $request->input('respuesta6');
         $datos_familiares->respuesta7 = $request->input('respuesta7');                
-        $datos_familiares->save();
-        $mensaje = 'Has finalizado los Datos Familiares';
-        return redirect('/alumno/entrevista')->with(compact('mensaje'));
-    }
-   
+        $datos_familiares->save();        
+        if (Auth::user()->entrevista_fresca->datoFamiliar && Auth::user()->entrevista_fresca->datoAcademico && 
+            Auth::user()->entrevista_fresca->habitoEstudio &&  Auth::user()->entrevista_fresca->otraActividad &&  
+            Auth::user()->entrevista_fresca->datosAdicionales)
+        {
+                $entrevista_fresca = new EntrevistaAlumnoController();
+                $entrevista_fresca->update();
+                $mensaje = 'Has finalizado la encuesta "Entrevista fresca". Gracias por compartir esta información eres lo más importante para nosotros.';      
+                return redirect('/alumno/encuestas')->with(compact('mensaje'));
+                
+        }else{
+            $mensaje = 'Has finalizado los Datos Familiares';
+            return redirect('/alumno/entrevista')->with(compact('mensaje'));
+        }
+    }  
 }

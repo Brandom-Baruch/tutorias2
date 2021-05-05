@@ -33,49 +33,39 @@
         </div>          
       @endif
       <div class="row ">      
-        <div style="margin-top: 20px;">                  
-          @if(!empty(Auth::user()->entrevista_fresca->datoFamiliar && Auth::user()->entrevista_fresca->datoAcademico && 
-            Auth::user()->entrevista_fresca->habitoEstudio &&  Auth::user()->entrevista_fresca->otraActividad &&  
-            Auth::user()->entrevista_fresca->datosAdicionales))
-            <form method="post" action="{{url('alumno/finalizar/entrevista')}}">        
-              {{csrf_field()}}
-              <button  type="submit" class="btn btn-success">Finalizar Encuesta</button>
-              <a href="{{url('/alumno/encuestas')}}" class="btn btn-danger">Regresar</a>
-            </form>        
+        <ol start="1">
+            @if(empty(Auth::user()->entrevista_fresca->datoFamiliar))
+            <li><a href="{{url('/alumno/entrevista/datos/familiares')}}">Encuesta sobre Datos Familiares</a></li>
             @else
-            <ol start="1">
-              @if(empty(Auth::user()->entrevista_fresca->datoFamiliar))
-              <li><a href="{{url('/alumno/entrevista/datos/familiares')}}">Encuesta sobre Datos Familiares</a></li>
-              @else
-              <li><a disabled="true">Encuesta sobre Datos Familiares</a></li>
-              @endif
-              @if(empty(Auth::user()->entrevista_fresca->datoAcademico))
-              <li><a href="{{url('alumno/entrevista/datos/academicos')}}">Encuesta sobre Datos Academicos</a></li>
-              @else
-              <li><a disabled="true">Encuesta sobre Datos Academicos</a></li>
-              @endif
-              @if(empty(Auth::user()->entrevista_fresca->habitoEstudio))
-              <li><a href="{{url('alumno/entrevista/habitos/estudio')}}">Habitos de Estudio</a></li>                
-              @else
-              <li><a disabled="true">Habitos de Estudio</a></li>
-              @endif
-              @if(empty(Auth::user()->entrevista_fresca->otraActividad))
-              <li><a href="{{url('alumno/entrevista/otras/actividades')}}">Otras Actividades</a></li>                
-              @else
-              <li><a disabled="true">Otras Actividades</a></li>
-              @endif
-              @if(empty(Auth::user()->entrevista_fresca->datosAdicionales))
-              <li><a href="{{url('alumno/entrevista/datos/adicionales')}}">Datos Adicionales</a></li>                
-              @else
-              <li><a disabled="true">Datos Adicionales</a></li>
-              @endif                                  
-              <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
-            </ol>    
-            @endif                  
-          </div>
-        </div>                            
-      </div>
+            <li><a disabled="true">Encuesta sobre Datos Familiares</a></li>
+            @endif
+            @if(empty(Auth::user()->entrevista_fresca->datoAcademico))
+            <li><a href="{{url('alumno/entrevista/datos/academicos')}}">Encuesta sobre Datos Academicos</a></li>
+            @else
+            <li><a disabled="true">Encuesta sobre Datos Academicos</a></li>
+            @endif
+            @if(empty(Auth::user()->entrevista_fresca->habitoEstudio))
+            <li><a href="{{url('alumno/entrevista/habitos/estudio')}}">Habitos de Estudio</a></li>                
+            @else
+            <li><a disabled="true">Habitos de Estudio</a></li>
+            @endif
+            @if(empty(Auth::user()->entrevista_fresca->otraActividad))
+            <li><a href="{{url('alumno/entrevista/otras/actividades')}}">Otras Actividades</a></li>                
+            @else
+            <li><a disabled="true">Otras Actividades</a></li>
+            @endif
+            @if(empty(Auth::user()->entrevista_fresca->datosAdicionales))
+            <li><a href="{{url('alumno/entrevista/datos/adicionales')}}">Datos Adicionales</a></li>                
+            @else
+            <li><a disabled="true">Datos Adicionales</a></li>
+            @endif                                              
+          </ol>
+        <div class="col-md-12 text-center">     
+          <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
+        </div>
+      </div>                            
     </div>
   </div>
+</div>
   @include('includes.footer')
   @endsection

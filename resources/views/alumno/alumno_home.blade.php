@@ -28,17 +28,17 @@
         </div>
       </div>
       @if (session('status'))
-            <div class="alert alert-success text-left">
-              <div class="container-fluid">
-                <div class="alert-icon">
-                  <i class="material-icons">check</i>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                </button>
-                Has cambiado tu contraseña exitosamente
-              </div>
+        <div class="alert alert-success text-left">
+          <div class="container-fluid">
+            <div class="alert-icon">
+              <i class="material-icons">check</i>
             </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            Has cambiado tu contraseña exitosamente
+          </div>
+        </div>
       @endif
       @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
         <div class="alert alert-success text-left">
@@ -82,7 +82,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
-                  <i class="material-icons">person_search</i> Parentezcos
+                  <i class="material-icons">person_search</i> Parentescos
                 </a>
               </li> 
               <li class="nav-item">
@@ -143,46 +143,46 @@
         </div>
         <div class="tab-pane text-center gallery" id="direccion">                        
           @foreach(Auth::user()->domicilios as $domicilio)
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <h4>Estado</h4>
-              <p class="h5">{{$domicilio->estado}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>Municipio</h4>
-              <p class="h5">{{$domicilio->municipio}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>Localidad</h4>
-              <p class="h5">{{$domicilio->localidad}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>Calle</h4>
-              <p class="h5">{{$domicilio->calle}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>Colonia</h4>
-              <p class="h5">{{$domicilio->colonia}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>Código Postal</h4>
-              <p class="h5">{{$domicilio->cp}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>No. Interior</h4>
-              <p class="h5">{{$domicilio->no_interior}}</p>
-            </div>
-            <div class="form-group col-md-4">
-              <h4>No. Exterior</h4>
-              <p class="h5">{{$domicilio->no_exterior}}</p>
-            </div>                                
-          </div>    
-          @if(Auth::user()->domicilios->count() == 1)
-          <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/domicilio/'.$domicilio->id.'/delete')}}" >
-            {{ csrf_field() }}
-            <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>                  
-          </form>                
-          @endif                                          
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <h4>Estado</h4>
+                <p class="h5">{{$domicilio->estado}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>Municipio</h4>
+                <p class="h5">{{$domicilio->municipio}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>Localidad</h4>
+                <p class="h5">{{$domicilio->localidad}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>Calle</h4>
+                <p class="h5">{{$domicilio->calle}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>Colonia</h4>
+                <p class="h5">{{$domicilio->colonia}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>Código Postal</h4>
+                <p class="h5">{{$domicilio->cp}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>No. Interior</h4>
+                <p class="h5">{{$domicilio->no_interior}}</p>
+              </div>
+              <div class="form-group col-md-4">
+                <h4>No. Exterior</h4>
+                <p class="h5">{{$domicilio->no_exterior}}</p>
+              </div>                                
+            </div>    
+            @if(Auth::user()->domicilios->count() == 1)
+            <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/domicilio/'.$domicilio->id.'/delete')}}" >
+              {{ csrf_field() }}
+              <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>                  
+            </form>                
+            @endif                                          
           @endforeach   
           @if(Auth::user()->domicilios->count() == 0)
           <h3 class="text-danger">No tiene asignado un domicilio</h3>
@@ -192,26 +192,26 @@
         <div class="tab-pane text-center gallery" id="parentezco">
           @if(Auth::user()->padres->isEmpty())
             <h3 class="text-danger">No tiene parentesco con un familiar</h3>
-            <a href="{{url('alumno/'.Auth::user()->nia.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+            <a href="{{url('alumno/'.Auth::user()->nia.'/parentesco')}}" class="btn btn-success">Agregar familiar</a>
           @else
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th class="text-center">#</th>
                   <th class="text-center">Nombre</th>                                                                 
-                  <th class="text-center">Parentezco</th>
+                  <th class="text-center">Parentesco</th>
                   <th class="text-center">Opciones</th>                                                                        
                 </tr>
               </thead>                                
               <tbody>
-                @foreach(Auth::user()->padres as $padre)
+                @foreach(Auth::user()->padres as $key => $padre)
                 <tr>
-                  <td class="text-center">{{$padre->id}}</td>                                                        
-                  <td class="text-center">{{$padre->name}} {{$padre->apellidoP}} {{$padre->apellidoM}}</td> 
+                  <td class="text-center">{{($key+1)}}</td>                                                        
+                  <td class="text-center">{{$padre->nombre_completo}}</td> 
                   <td class="text-center">{{$padre->pivot->parentezco}}</td>
                   <td class="td-actions">
-                   <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/parentezco/'.$padre->id.'/delete')}}">  
+                   <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/parentesco/'.$padre->id.'/delete')}}">  
                     {{csrf_field()}}                     
                     <button type="submit" rel="tooltip" title="Quitar familiar" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
                       <i class="fa fa-times"></i>
@@ -223,7 +223,7 @@
               </tbody>                                
             </table>                
           </div>          
-          <a href="{{url('alumno/'.Auth::user()->nia.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+          <a href="{{url('alumno/'.Auth::user()->nia.'/parentesco')}}" class="btn btn-success">Agregar familiar</a>
           @endif 
         </div>
         <div class="tab-pane text-center gallery" id="materias">            
@@ -246,7 +246,7 @@
                   <td class="">{{($numero+1)}}</td>                                                        
                   <td class="">{{$materia->name}}</td>
                   <td class="">{{$materia->clave}}</td>
-                  <td class="text-left">{{$materia->descripcion}}</td>                     
+                  <td class="text-center">{{$materia->descripcion}}</td>                     
                 </tr>               
                 @endforeach
               </tbody>                                

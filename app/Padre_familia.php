@@ -48,5 +48,8 @@ class Padre_familia extends Authenticatable
         return $this->HasMany(DocumentoPadre::class,'id','padre_id');
     }
 
-    
+    public function getNombreCompletoAttribute()
+    {
+        return "$this->name $this->apellidoP $this->apellidoM";
+    }
 }

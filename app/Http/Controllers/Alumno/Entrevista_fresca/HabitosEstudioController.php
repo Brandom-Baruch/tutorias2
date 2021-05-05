@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumno\Entrevista_fresca;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\HabitosEstudio;
+use Auth;
 
 class HabitosEstudioController extends Controller
 {
@@ -77,7 +78,17 @@ class HabitosEstudioController extends Controller
 		$habitos->r9_6 = $request->input('r9_6');
 		$habitos->r9_7 = $request->input('r9_7');
 		$habitos->save();
-		$mensaje = 'Has finalizado los Habitos de estudio';
-        return redirect('/alumno/entrevista')->with(compact('mensaje'));
+		if (Auth::user()->entrevista_fresca->datoFamiliar && Auth::user()->entrevista_fresca->datoAcademico && 
+            Auth::user()->entrevista_fresca->habitoEstudio &&  Auth::user()->entrevista_fresca->otraActividad &&  
+            Auth::user()->entrevista_fresca->datosAdicionales)
+        {
+            $entrevista_fresca = new EntrevistaAlumnoController();
+            $entrevista_fresca->update();
+            $mensaje = 'Has finalizado la encuesta "Entrevista fresca". Gracias por compartir esta información eres lo más importante para nosotros.';      
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }else{
+        	$mensaje = 'Has finalizado los Habitos de estudio';
+        	return redirect('/alumno/entrevista')->with(compact('mensaje'));
+        }		
 	}
 }

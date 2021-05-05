@@ -640,11 +640,25 @@
 						<label class="text-dark">Describa brevemente como es su hijo (a)</label>
 						<textarea class="form-control" name="respuesta19" rows="1"
 						placeholder="Descripción corta">{{old('respuesta19')}}</textarea>
+						@if($errors->has('respuesta19'))
+							<span class="help-block text-danger">
+								<strong>
+									{{ $errors->first('respuesta19') }}
+								</strong>
+							</span>
+						@endif
 					</div>
 					<div class="form-group col-md-6">
 						<label class="text-dark">¿Con que persona considera usted que su hijo tiene más confianza?</label>
 						<textarea class="form-control"  name="respuesta20"  rows="1"
 						placeholder="Descripción corta">{{old('respuesta20')}}</textarea>
+						@if($errors->has('respuesta20'))
+							<span class="help-block text-danger">
+								<strong>
+									{{ $errors->first('respuesta20') }}
+								</strong>
+							</span>
+						@endif
 					</div>
 				</div>
 				<div class="text-center">

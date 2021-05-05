@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Alumno\Test\Habito_Estudio;
 
+use App\Http\Controllers\Alumno\Test\TestController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Organizacion_Tiempo;
+use Auth;
 
 class OrganizarTiempoController extends Controller
 {
@@ -43,7 +45,34 @@ class OrganizarTiempoController extends Controller
         $organizacion_tiempo->respuesta4 = $request->input('respuesta4');
         $organizacion_tiempo->respuesta5 = $request->input('respuesta5');
         $organizacion_tiempo->save();
-        $mensaje = 'Has realizado el test "Organización del Tiempo" exitosamente';
-        return redirect('/alumno/test/habitos_estudio')->with(compact('mensaje'));
+
+               
+        if (Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+            Auth::user()->test->test_habito_estudio->planificacion && 
+            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje) {
+            
+            $habitos_estudio = new HabitoEstudioController();
+            $habitos_estudio->update();
+            
+            if (Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && 
+            Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+            Auth::user()->test->test_habito_estudio->planificacion && 
+            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
+            {
+                $test = new TestController();
+                $test->update();
+                $mensaje = 'Has Finalizado el Test de manera exitosa. Muchas gracias';
+                return redirect('/alumno/encuestas')->with(compact('mensaje'));
+            }else     
+            {
+                $mensaje = 'Has finalizado la seccion de "Habitos de estudio" exitosamente';
+                return redirect('/alumno/test')->with(compact('mensaje'));
+            }           
+        }    
+        else
+        {
+            $mensaje = 'Has realizado el test "Organización del Tiempo" exitosamente';
+            return redirect('/alumno/test/habitos_estudio')->with(compact('mensaje'));
+        }             
     }
 }

@@ -14,26 +14,16 @@
 <div class="main main-raised">
 	<div class="container">             
 		<div class="section">
-			<h2 class="title text-center" style="color: black;">Datos Familiares</h2>
-			@if($errors->any())
-		      <div class="alert alert-danger">
-		        <div class="container-fluid">                     
-		          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-		          </button>
-		          <ul>    
-		            @foreach($errors->all() as $error)                        
-		            <li>{{$error}}</li>
-		            @endforeach
-		          </ul>
-		        </div>
-		      </div>
-	      	@endif
+			<h2 class="title text-center" style="color: black;">Datos Familiares</h2>			
 			<form method="post" action="{{url('alumno/entrevista/datos/familiares')}}">
 				{{ csrf_field() }}        												
 				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label style="color: black;"><b>¿Con quién vives?</b></label>
+					<div class="form-group col-md-3 {{ $errors->has('respuesta1') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta1'))
+							<label style="color: red;"><b>¿Con quién vives?</b></label>
+						@else
+							<label style="color: black;"><b>¿Con quién vives?</b></label>
+						@endif
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta1" value="Solo Mamá"
@@ -71,9 +61,18 @@
 								value="{{ old('r1') }}">
 							</div>
 						</div>
+						@if($errors->has('respuesta1'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif
 					</div>
-					<div class="form-group col-md-3">
-						<label style="color: black;"><b>¿Cuántos hermanos/as tienes?</b></label>
+					<div class="form-group col-md-3 {{ $errors->has('respuesta2') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta2'))
+							<label style="color: red;"><b>¿Cuántos hermanos/as tienes?</b></label>
+						@else
+							<label style="color: black;"><b>¿Cuántos hermanos/as tienes?</b></label>
+						@endif						
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta2" value="Soy hijo único" 
@@ -114,9 +113,18 @@
 								</span>
 							</label>
 						</div>
+						@if($errors->has('respuesta2'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif
 					</div>
-					<div class="form-group col-md-3">
-						<label style="color: black;"><b>¿Qué lugar ocupas?</b></label>
+					<div class="form-group col-md-3 {{ $errors->has('respuesta3') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta2'))
+							<label style="color: red;"><b>¿Qué lugar ocupas?</b></label>
+						@else
+							<label style="color: black;"><b>¿Qué lugar ocupas?</b></label>
+						@endif						
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta3" value="Primero" 
@@ -152,9 +160,18 @@
 							<input type="text" class="form-control text-dark" placeholder="¿Cuál?" name="r3"
 								value="{{ old('r3') }}">
 						</div>
+						@if($errors->has('respuesta3'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif
 					</div>	
-					<div class="form-group col-md-3">
-						<label style="color: black;"><b>¿Cómo te llevas con tu familia?</b></label>
+					<div class="form-group col-md-3 {{ $errors->has('respuesta4') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta2'))
+							<label style="color: red;"><b>¿Cómo te llevas con tu familia?</b></label>
+						@else
+							<label style="color: black;"><b>¿Cómo te llevas con tu familia?</b></label>
+						@endif						
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta4" value="Bien"
@@ -174,10 +191,19 @@
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>										
+						</div>
+						@if($errors->has('respuesta4'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif										
 					</div>
-					<div class="form-group col-md-4">
-						<label style="color: black;"><b>¿Hablas otro idioma o lengua indígena?</b></label>
+					<div class="form-group col-md-4 {{ $errors->has('respuesta5') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta2'))
+							<label style="color: red;"><b>¿Hablas otro idioma o lengua indígena?</b></label>
+						@else
+							<label style="color: black;"><b>¿Hablas otro idioma o lengua indígena?</b></label>
+						@endif						
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta5" value="Si"
@@ -202,10 +228,19 @@
 							<label style="color: black;">Otro</label>
 							<input type="text" class="form-control text-dark" placeholder="¿Cuál?" name="r5"
 								value="{{ old('r5') }}">
-						</div>										
+						</div>
+						@if($errors->has('respuesta5'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif										
 					</div>
-					<div class="form-group col-md-4">
-						<label style="color: black;"><b>¿Cuánto es el ingreso económico mensual en tu casa?</b></label>
+					<div class="form-group col-md-4 {{ $errors->has('respuesta6') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta2'))
+							<label style="color: red;"><b>¿Cuánto es el ingreso económico mensual en tu casa?</b></label>
+						@else
+							<label style="color: black;"><b>¿Cuánto es el ingreso económico mensual en tu casa?</b></label>
+						@endif						
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta6" value="2,000"
@@ -245,10 +280,19 @@
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>											
+						</div>
+						@if($errors->has('respuesta6'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif											
 					</div>
-					<div class="form-group col-md-4">
-						<label style="color: black;"><b>¿Tienes hijos?</b></label>
+					<div class="form-group col-md-4 {{ $errors->has('respuesta7') ? ' has-error' : '' }}">
+						@if($errors->has('respuesta2'))
+							<label style="color: red;"><b>¿Tienes hijos?</b></label>
+						@else
+							<label style="color: black;"><b>¿Tienes hijos?</b></label>
+						@endif						
 						<div class="form-check">
 							<label class="form-check-label text-dark">
 								<input class="form-check-input" type="radio" name="respuesta7" value="Si"
@@ -268,7 +312,12 @@
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>																				
+						</div>
+						@if($errors->has('respuesta7'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first() }}</strong>
+							</span>
+						@endif																				
 					</div>							
 				</div>																							
 				<div class="col-md-12 text-center">

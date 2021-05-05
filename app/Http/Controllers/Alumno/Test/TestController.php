@@ -22,8 +22,8 @@ class TestController extends Controller
         $test->descripcion = 'Inicio Test';
         $test->alumno_id = auth()->user()->nia;
         $test->save();
-        $mensaje = 'Por favor realiza las siguientes secciones del test';
-        return redirect('alumno/test')->with(compact('mensaje'));
+        //$mensaje = 'Por favor realiza las siguientes secciones del test';
+        return redirect('alumno/test');//->with(compact('mensaje'));
     }
 
     public function update()
@@ -31,8 +31,6 @@ class TestController extends Controller
         $test = Test::where('alumno_id',auth()->user()->nia)->first();
         $test->fecha_aplicacion = Carbon::now();
         $test->descripcion = 'Finalizo Test';
-        $test->save();
-        $mensaje = 'Has Finalizado el Test de manera exitosa. Muchas gracias';
-        return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        $test->save();        
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumno\Cuestionario_anexos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Tipo_Mentalidad;
+use Auth;
 
 
 class TiposMentalidadController extends Controller
@@ -30,8 +31,8 @@ class TiposMentalidadController extends Controller
             'respuesta2.required' => 'Debes de agregar una opción',
             'respuesta3.required' => 'Debes de agregar una opción',
             'respuesta4.required' => 'Debes de agregar una opción',
-            'respuesta5.required' => 'Debes de agregar un número en Habilidades',            
-            'r5.required' => 'Debes de agregar un número en Esfuerzo',            
+            'respuesta5.required' => 'Debes de agregar un número',            
+            'r5.required' => 'Debes de agregar un número',            
         ];
 
         $this->validate($request,$rules,$message);
@@ -42,14 +43,28 @@ class TiposMentalidadController extends Controller
         $mentalidad->respuesta2 = $request->input('respuesta2');
         $mentalidad->respuesta3 = $request->input('respuesta3');
         $mentalidad->respuesta4 = $request->input('respuesta4');
-        $mentalidad->respuesta5 = $request->input('respuesta5');
-        $mentalidad->r5 = $request->input('r5');
+        if (($request->respuesta5 + $request->r5) == 100)
+        {
+            $mentalidad->respuesta5 = $request->input('respuesta5');
+            $mentalidad->r5 = $request->input('r5');
+        }else{
+            $mensaje = 'La suma total no es 100%. Vuelve a intentarlo';
+            return back()
+            ->withInput($request->only('respuesta1','respuesta2','respuesta3','respuesta4'))->with(compact('mensaje'));
+        }
         $mentalidad->save();
-        $mensaje = 'Has realizado el cuestionario "Tipo de mentalidad" exitosamente';
-        return redirect('/alumno/cuestionario')->with(compact('mensaje'));
 
-
+        if (Auth::user()->cuestionario_anexo->atribucion && Auth::user()->cuestionario_anexo->nivel_empatia && 
+            Auth::user()->cuestionario_anexo->tipo_mentalidad)
+        {
+            $cuestionario_anexo = new CuestionarioAlumnoController(); // creamos una instancial del controlador
+            $cuestionario_anexo->update(); // Llamamos al metodo update
+            $mensaje = 'Has finalizalo el cuestionario. Gracias por compartir esta información eres lo más 
+                        importante para nosotros.';
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }else{
+            $mensaje = 'Has realizado el cuestionario "Tipo de mentalidad" exitosamente';
+            return redirect('/alumno/cuestionario')->with(compact('mensaje'));
+        }        
     }
-
-
 }

@@ -33,50 +33,38 @@
           </div>
         </div>          
       @endif
-      <div class="row ">
-        @if(Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && Auth::user()->test->test_habito_estudio->where('descripcion','Finalizo habito de estudio')->where('test_id',auth()->user()->test->id)->first())
-          <div class="col-12 text-center">
-              <form method="post" action="{{url('alumno/finalizar/test')}}">
+      <div class="row ">  
+        <ol start="1">                                         
+          @if(Auth::user()->test->conociendo_estilo_aprendizaje)
+            <li><a disabled>Conociendo los estilos de aprendizaje</a></li>
+          @else              
+            <li><a href="{{url('alumno/test/conociendo_estilos_aprendizaje')}}">Conociendo los estilos de aprendizaje</a></li>     
+          @endif          
+          @if(Auth::user()->test->encontrar_estilo_aprendizaje)
+            <li><a disabled>Encontrar estilo de aprendizaje</a></li>
+          @else              
+            <li><a href="{{url('alumno/test/encontrar_estilo_aprendizaje')}}">Encontrar estilo de aprendizaje</a></li>
+          @endif              
+          <li>            
+            @if(empty(Auth::user()->test->test_habito_estudio))
+              <form method="post" action="{{url('alumno/test/habitos_estudio')}}">
                 {{csrf_field()}}
-                <button class="btn btn-success" style="margin-bottom: 1px;">Finalizar Test</button>
-                <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
-              </form>
-          </div>          
-        @else      
-        <div style="margin-top: 20px;" class="col-12">                                                    
-            <ol start="1">                                         
-              @if(empty(Auth::user()->test->conociendo_estilo_aprendizaje))
-              <li><a href="{{url('alumno/test/conociendo_estilos_aprendizaje')}}">Conociendo los estilos de aprendizaje</a></li>     
-              @else
-              <li><a disabled="true">Conociendo los estilos de aprendizaje</a></li>
-              @endif          
-              @if(empty(Auth::user()->test->encontrar_estilo_aprendizaje))
-              <li><a href="{{url('alumno/test/encontrar_estilo_aprendizaje')}}">Encontrar estilo de aprendizaje</a></li>
-              @else
-              <li><a disabled="true">Encontrar estilo de aprendizaje</a></li>
-              @endif              
-              <li>
-                @if(empty(Auth::user()->test->test_habito_estudio))
-                  <form method="post" action="{{url('alumno/test/habitos_estudio')}}">
-                    {{csrf_field()}}
-                    <button type="submit" class="btn btn-primary btn-sm">hábitos de estudio</button>
-                  </form>                                                  
-                @elseif(Auth::user()->test->test_habito_estudio->where('descripcion','Inicio habito de estudio')->where('test_id',auth()->user()->test->id)->first())
-                  <a href="{{url('/alumno/test/habitos_estudio')}}" class="btn btn-warning btn-sm">{{Auth::user()->test->test_habito_estudio->descripcion}}</a>
-                @elseif(Auth::user()->test->test_habito_estudio->where('descripcion','Finalizo habito de estudio')->where('test_id',auth()->user()->test->id)->first())
-                  <button class="btn btn-success btn-sm">{{Auth::user()->test->test_habito_estudio->descripcion}}</button>           
-                @endif
-              </li>
-              <!--<li><a href="{{url('alumno/test/habitos_estudio')}}">hábitos de estudio</a></li>-->
-            </ol>                            
-            <div class="col-12 text-center">
-                <a href="{{url('/alumno/encuestas')}}" class="btn btn-danger">Regresar</a>
-            </div>
-          </div>
+                <button type="submit" class="btn btn-primary btn-sm">hábitos de estudio</button>
+              </form>                                                  
+            @elseif(Auth::user()->test->test_habito_estudio->where('descripcion','Inicio habito de estudio')->first())
+              <a href="{{url('/alumno/test/habitos_estudio')}}" class="btn btn-warning btn-sm">{{Auth::user()->test->test_habito_estudio->descripcion}}</a>
+            @elseif(Auth::user()->test->test_habito_estudio->where('descripcion','Finalizo habito de estudio')->first())
+              <button class="btn btn-success btn-sm">{{Auth::user()->test->test_habito_estudio->descripcion}}</button>           
+            @endif
+          </li>
+          <!--<li><a href="{{url('alumno/test/habitos_estudio')}}">hábitos de estudio</a></li>-->
+        </ol>             
+        <div class="col-md-12 text-center"> 
+          <a href="{{url('/alumno/encuestas')}}" class="btn btn-danger">Regresar</a>                                                
         </div>
-        @endif                            
-      </div>
+      </div>                             
     </div>
   </div>
-  @include('includes.footer')
-  @endsection
+</div>
+@include('includes.footer')
+@endsection

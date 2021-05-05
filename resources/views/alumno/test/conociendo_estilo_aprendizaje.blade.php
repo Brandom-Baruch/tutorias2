@@ -18,7 +18,7 @@
 			<h4 style="margin-bottom: 20px;" class="text-justify"><b>Instrucciones:</b> Lee con atención el siguiente cuestionario y marca en las columnas de la derecha el número que corresponda a tu respuesta, de acuerdo con la siguiente escala:</h4>
 
 			<div class="table-responsive">
-				<table class="table table-borderless" style="width: 500px; margin: auto; margin-bottom: 20px;">				
+				<table class="table table-borderless">				
 					<tbody>
 						<tr>						
 							<td class="text-center">NUNCA<br>1</td>

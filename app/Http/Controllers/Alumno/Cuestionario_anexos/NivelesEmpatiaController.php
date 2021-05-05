@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumno\Cuestionario_anexos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Nivel_Empatia;
+use Auth;
 
 class NivelesEmpatiaController extends Controller
 {
@@ -53,7 +54,17 @@ class NivelesEmpatiaController extends Controller
         $niveles_empatia->respuesta8 = $request->input('respuesta8');
         $niveles_empatia->respuesta9 = $request->input('respuesta9');  
         $niveles_empatia->save();
-        $mensaje = 'Has realizado el cuestionario "Niveles de empatía" exitosamente';
-        return redirect('alumno/cuestionario')->with(compact('mensaje'));
+        if (Auth::user()->cuestionario_anexo->atribucion && Auth::user()->cuestionario_anexo->nivel_empatia && 
+            Auth::user()->cuestionario_anexo->tipo_mentalidad)
+        {
+            $cuestionario_anexo = new CuestionarioAlumnoController(); // creamos una instancial del controlador
+            $cuestionario_anexo->update(); // Llamamos al metodo update
+            $mensaje = 'Has finalizalo el cuestionario. Gracias por compartir esta información eres lo más 
+                        importante para nosotros.';
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }else{
+            $mensaje = 'Has realizado el cuestionario "Niveles de empatía" exitosamente';
+            return redirect('alumno/cuestionario')->with(compact('mensaje'));
+        }        
     }
 }

@@ -82,7 +82,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
-                  <i class="material-icons">person_search</i> Parentezcos
+                  <i class="material-icons">person_search</i> Parentescos
                 </a>
               </li>
               <li class="nav-item">
@@ -202,7 +202,7 @@
             @if(Auth::user()->alumnos()->count() == 0)
               <div class="text-center col-md-12">
                 <h4 class="text-danger">No has asignado un parentesco con un alumno</h4>
-                <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">
+                <a href="{{url('padre_familia/'.Auth::user()->id.'/parentesco')}}" class="btn btn-success">
                   Agregar familiar
                 </a>
               </div>                           
@@ -213,18 +213,18 @@
                     <tr>
                       <th class="text-center">#</th>
                       <th class="text-center">Nombre</th>                                                                 
-                      <th class="text-center">Parentezco</th>
+                      <th class="text-center">Parentesco</th>
                       <th class="text-center">Opciones</th>                                                                        
                     </tr>
                   </thead>                                
                   <tbody>
-                    @foreach(Auth::user()->alumnos as $alumno)
+                    @foreach(Auth::user()->alumnos as $key => $alumno)
                       <tr>
-                        <td class="text-center">{{$alumno->nia}}</td>                                                        
-                        <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td> 
+                        <td class="text-center">{{($key+1)}}</td>                                                        
+                        <td class="text-center">{{$alumno->nombre_completo}}</td> 
                         <td class="text-center">{{$alumno->pivot->parentezco}}</td>
                         <td class="td-actions">
-                          <form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/parentezco/'.$alumno->nia.'/delete')}}">  
+                          <form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/parentesco/'.$alumno->nia.'/delete')}}">  
                             {{csrf_field()}}                   
                             <button type="submit" rel="tooltip" title="Quitar familiar" class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
                               <i class="fa fa-times"></i>
@@ -236,7 +236,7 @@
                   </tbody>                                
                 </table>
                 <div class="text-center col-md-12">                
-                  <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success">Agregar familiar</a>
+                  <a href="{{url('padre_familia/'.Auth::user()->id.'/parentesco')}}" class="btn btn-success">Agregar familiar</a>
                 </div> 
               </div>              
             @endif                

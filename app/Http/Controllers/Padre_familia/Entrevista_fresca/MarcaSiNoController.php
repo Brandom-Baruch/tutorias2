@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Alumno;
 use App\MarcaSiNo;
 use App\Entrevista_Fresca_Padre;
+use Auth;
 
 class MarcaSiNoController extends Controller
 {
@@ -92,7 +93,23 @@ class MarcaSiNoController extends Controller
 		$marca_si_no->respuesta19 = $request->input('respuesta19');
 		$marca_si_no->respuesta20 = $request->input('respuesta20');
 		$marca_si_no->save();
-		$mensaje = 'Has realizado la encuesta de "Caracteristicas y Cualidades que tiene o no tu hijo"';
-		return redirect('/padre_familia/entrevista/'.$alumno_id->nia.'/secciones')->with(compact('mensaje'));
+
+								
+		if (Auth::user()->entrevista->where('alumno_id',$alumno_id->nia)->first()->marca_x && 
+			Auth::user()->entrevista->where('alumno_id',$alumno_id->nia)->first()->marca_si_no) 
+		{
+				
+			$entrevista_fresca = new EntrevistaPadreController();
+			$entrevista_fresca->update($alumno_id->nia);
+
+			$mensaje = 'Gracias por compartir esta información, usted es lo más importante para nosotros';
+        	return redirect('/padre_familia/entrevista')->with(compact('mensaje'));
+			
+		}
+		else
+		{
+			$mensaje = 'Has realizado la encuesta de "Caracteristicas y Cualidades que tiene o no tu hijo"';
+			return redirect('/padre_familia/entrevista/'.$alumno_id->nia.'/secciones')->with(compact('mensaje'));
+		}		
 	}   
 }

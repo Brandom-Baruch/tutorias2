@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Alumno\Test\Habito_Estudio;
 
+use App\Http\Controllers\Alumno\Test\TestController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Estrategias_Aprendizaje;
+use Auth;
 
 class EstrategiaAprendizajeController extends Controller
 {
@@ -80,7 +82,35 @@ class EstrategiaAprendizajeController extends Controller
         $estrategias_aprendizaje->respuesta16 = $request->input('respuesta16');
         $estrategias_aprendizaje->respuesta17 = $request->input('respuesta17');
 		$estrategias_aprendizaje->save();
-		$mensaje = 'Has realizado el test de "Estrategias de aprendizaje" exitosamente';
-		return redirect('/alumno/test/habitos_estudio')->with(compact('mensaje'));
+                
+        if (Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+            Auth::user()->test->test_habito_estudio->planificacion && 
+            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje) 
+        {
+            
+            $habitos_estudio = new HabitoEstudioController();
+            $habitos_estudio->update();
+            
+            if (Auth::user()->test->conociendo_estilo_aprendizaje && 
+                Auth::user()->test->encontrar_estilo_aprendizaje && 
+                Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+                Auth::user()->test->test_habito_estudio->planificacion && 
+                Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
+            {
+                $test = new TestController();
+                $test->update();
+                $mensaje = 'Has Finalizado el Test de manera exitosa. Muchas gracias';
+                return redirect('/alumno/encuestas')->with(compact('mensaje'));
+            }else
+            {
+                $mensaje = 'Has finalizado la seccion de "Habitos de estudio" exitosamente';
+                return redirect('/alumno/test')->with(compact('mensaje'));
+            }                                          
+        }                            
+        else
+        {
+            $mensaje = 'Has realizado el test de "Estrategias de aprendizaje" exitosamente';
+            return redirect('/alumno/test/habitos_estudio')->with(compact('mensaje'));
+        }		
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumno\Entrevista_fresca;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DatosAdicionales;
+use Auth;
 
 class DatosAdicionalesController extends Controller
 {
@@ -146,7 +147,17 @@ class DatosAdicionalesController extends Controller
             $datos->r20_17 = $request->input('r20_17');
             $datos->r20_18 = $request->input('r20_18'); 
             $datos->save();
-            $mensaje = 'Has realizado la encuesta "Datos Adicionales"';       
-            return redirect('/alumno/entrevista')->with(compact('mensaje'));
+            if (Auth::user()->entrevista_fresca->datoFamiliar && Auth::user()->entrevista_fresca->datoAcademico && 
+                Auth::user()->entrevista_fresca->habitoEstudio &&  Auth::user()->entrevista_fresca->otraActividad &&  
+                Auth::user()->entrevista_fresca->datosAdicionales) 
+            {     
+                $entrevista_fresca = new EntrevistaAlumnoController();
+                $entrevista_fresca->update();
+                $mensaje = 'Has finalizado la encuesta "Entrevista fresca". Gracias por compartir esta información eres lo más importante para nosotros.';      
+                return redirect('/alumno/encuestas')->with(compact('mensaje'));
+            }else{                  
+                $mensaje = 'Has realizado la encuesta "Datos Adicionales"';       
+                return redirect('/alumno/entrevista')->with(compact('mensaje'));
+            }
     }
 }

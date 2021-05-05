@@ -373,18 +373,18 @@
 									<span class="check"></span>
 								</span>
 							</label>
-						</div>
-						@if ($errors->has('respuesta8'))
-							<span class="help-block text-danger">
-								<strong>{{ $errors->first('respuesta8') }}</strong>
-							</span>
-						@endif																		
+						</div>																								
 						<div class="form-check">
 							<div class="form-check col-md-8">
 								<label style="color: black;">¿Cómo?</label>
 								<input type="text" class="form-control text-dark" name="r8" value="{{ old('r8') }}">
 							</div>
-						</div>											
+						</div>
+						@if ($errors->has('respuesta8'))
+							<span class="help-block text-danger">
+								<strong>{{ $errors->first('respuesta8') }}</strong>
+							</span>
+						@endif											
 					</div>		
 					<h3>Marca el motivo principal que tienes para seguir estudiando</h3>	
 					<table class="table table-responsive-sm table-responsive-md table-responsive-lg">
@@ -397,7 +397,7 @@
 						<tbody>
 							<tr>
 								<td class="text-left">Aprender cada dia mas </td>								
-								<td class="td-actions text-center text-center">
+								<td class="td-actions text-center text-center {{ $errors->has('r9_1') ? ' has-error' : '' }}">
 									<div class="form-group col-md-12">
 										<div class="form-check form-check-inline">
 											<label class="form-check-label text-dark">
@@ -434,7 +434,7 @@
 												<strong>{{ $errors->first('r9_1') }}</strong>
 											</span>
 										@endif
-									</div>
+									</div>									
 								</td>
 							</tr>
 							<tr>
@@ -683,7 +683,7 @@
 										</div><br>
 										@if ($errors->has('r9_7'))
 											<span class="help-block text-danger">
-												<strong>{{ $errors->first('r9_1') }}</strong>
+												<strong>{{ $errors->first('r9_7') }}</strong>
 											</span>
 										@endif
 									</div>

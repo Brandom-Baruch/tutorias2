@@ -47,8 +47,33 @@ class AtencionIndividualController extends Controller
         $atencion_individual->respuesta18 = $request->input('respuesta18');
         $atencion_individual->respuesta19 = $request->input('respuesta19');
         $atencion_individual->respuesta21 = $request->input('respuesta21');
-        $atencion_individual->save();
-        $mensaje = 'Has finalizado el test de "Atención indivualizada" exitosamente';
-        return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        $atencion_individual->save();  
+
+
+        if (Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && 
+            empty(Auth::user()->test->test_habito_estudio))
+        {
+            $test_habito_estudio = new HabitoEstudioController();
+            $test_habito_estudio->inicio_habito_estudio();
+            $mensaje = 'Por favor realiza las siguientes secciones';
+            return redirect('alumno/test/habitos_estudio')->with(compact('mensaje'));
+        }
+
+        if (Auth::user()->test->conociendo_estilo_aprendizaje && 
+            Auth::user()->test->encontrar_estilo_aprendizaje && 
+            Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+            Auth::user()->test->test_habito_estudio->planificacion && 
+            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
+        {
+            $test = new TestController();
+            $test->update();
+            $mensaje = 'Has Finalizado el Test de manera exitosa. Muchas gracias';
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }
+        else
+        {
+            $mensaje = 'Has finalizado el test de "Atención indivualizada" exitosamente';
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }                         
     }
 }

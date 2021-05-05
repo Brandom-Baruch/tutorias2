@@ -34,39 +34,29 @@
         </div>          
       @endif
       <div class="row ">      
-        <div style="margin-top: 20px;" class="col-12">   
-          @if(Auth::user()->cuestionario_anexo->atribucion && Auth::user()->cuestionario_anexo->nivel_empatia && Auth::user()->cuestionario_anexo->tipo_mentalidad)
-          <div class="col-12 text-center">
-            <form  method="post" action="{{url('alumno/finalizar/cuestionario')}}"> 
-              {{csrf_field()}}             
-              <button class="btn btn-success" type="submit">Finalizar cuestionario</button>
-              <a href="{{url('/alumno/encuestas')}}" class="btn btn-danger">Regresar</a>
-            </form>
-          </div>          
-          @else                                          
-            <ol start="1">
-              @if(empty(Auth::user()->cuestionario_anexo->atribucion))
-              <li><a href="{{url('alumno/cuestionario/atribuciones')}}">Atribuciones</a></li>                
-              @else
-              <li><a disabled="true">Atribuciones</a></li>
-              @endif
-              @if(empty(Auth::user()->cuestionario_anexo->nivel_empatia))
-              <li><a href="{{url('alumno/cuestionario/nivel_empatia')}}">Niveles de empatía</a></li>                
-              @else
-              <li><a disabled="true">Niveles de empatía</a></li>
-              @endif
-              @if(empty(Auth::user()->cuestionario_anexo->tipo_mentalidad))
-              <li><a href="{{url('alumno/cuestionario/tipo_mentalidad')}}">Tipo de mentalidad</a></li>                 
-              @else              
-              <li><a disabled="true">Tipo de mentalidad</a></li>                                       
-              @endif
-            </ol>                            
-            <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>
-          @endif              
-          </div>
-        </div>                            
-      </div>
+        <ol start="1">
+          @if(Auth::user()->cuestionario_anexo->atribucion)
+          <li><a disable>Atribuciones</a></li>
+          @else          
+          <li><a href="{{url('alumno/cuestionario/atribuciones')}}">Atribuciones</a></li>                
+          @endif
+          @if(Auth::user()->cuestionario_anexo->nivel_empatia)
+          <li><a disable>Niveles de empatía</a></li>           
+          @else          
+          <li><a href="{{url('alumno/cuestionario/nivel_empatia')}}">Niveles de empatía</a></li>
+          @endif
+          @if(Auth::user()->cuestionario_anexo->tipo_mentalidad)
+          <li><a disable>Tipo de mentalidad</a></li>
+          @else                        
+          <li><a href="{{url('alumno/cuestionario/tipo_mentalidad')}}">Tipo de mentalidad</a></li>                                   
+          @endif
+        </ol>                            
+        <div class="col-12 text-center">                                                                          
+          <a href="{{url('/alumno/encuestas')}}" style="margin-top: 10px;" class="btn btn-danger">Regresar</a>                   
+        </div>
+      </div>                            
     </div>
   </div>
-  @include('includes.footer')
-  @endsection
+</div>
+@include('includes.footer')
+@endsection

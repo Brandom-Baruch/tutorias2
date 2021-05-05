@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titulo','Listado de alumnos')
+@section('titulo','Listado de padres')
 
 @section('body-class','profile-page sidebar-collapse')
 
@@ -20,9 +20,10 @@
       <div class="row">
         <div class="description text-center">
           <h3 class="title">Listado de Padres de familia</h3>
-           <form method="get" action="{{url('/director/padre_familia/search')}}" class="form-inline p-5">
+           <form method="get" action="{{url('/director/padre_familia/search')}}" class="form-inline">
               <a href="{{url('/director/padre_familia/create')}}" class="btn btn-primary" style="margin-right:  20px;">
-              Registrar nuevo Padre</a>
+                Registrar nuevo Padre
+              </a>
               <input type="text"  placeholder="¿Qué familiar buscas?" class="form-control text-center " name="search">
               <button type="submit" class="btn btn-primary btn-fab  btn-rect">
                   <i class="material-icons">search</i>
@@ -56,35 +57,35 @@
             </div>
         </div>
       @endif           
-      <div class="row">           
-          <table class="table table-responsive-sm table-responsive-md table-responsive-lg">
+      <div class=" table-responsive text-center">           
+          <table class="table">
               <thead>
                   <tr>
-                      <th class="text-center">#</th>
-                      <th class="text-center">Nombre</th>
-                      <th class="text-center">Apellido Paterno</th>
-                      <th class="text-center">Apellido Materno</th>
-                      <th class="text-center">Curp</th>
-                      <th class="text-center">Profesión</th>
-                      <th class="text-center">Escolaridad</th>
-                      <th class="text-center">Opciones</th>
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Apellido Paterno</th>
+                      <th>Apellido Materno</th>
+                      <th>Curp</th>
+                      <th>Profesión</th>
+                      <th>Escolaridad</th>
+                      <th>Opciones</th>
                   </tr>
               </thead>
               @foreach($padres as $padre)
               <tbody>                
                   <tr>
-                      <td class="text-center">{{$padre->id}}</td>
-                      <td class="text-center">{{$padre->name}}</td>
-                      <td class="text-center">{{$padre->apellidoP}}</td>
-                      <td class="text-center">{{$padre->apellidoM}}</td>
-                      <td class="text-center">{{$padre->curp}}</td>
-                      <td class="text-center">{{$padre->profesion}}</td>
-                      <td class="text-center">{{$padre->escolaridad}}</td>
-                      <td class="td-actions text-right">
+                      <td>{{$padre->id}}</td>
+                      <td>{{$padre->name}}</td>
+                      <td>{{$padre->apellidoP}}</td>
+                      <td>{{$padre->apellidoM}}</td>
+                      <td>{{$padre->curp}}</td>
+                      <td>{{$padre->profesion}}</td>
+                      <td>{{$padre->escolaridad}}</td>
+                      <td>
                         <form method="post" action="{{url('/director/padre_familia/'.$padre->id.'/delete')}}">
                           {{csrf_field()}}
 
-                          <a href="{{url('director/padre_familia/'.$padre->id.'/alumnos')}}" rel="tooltip" title="Asignar Parentezco" class="btn btn-warning btn-fab btn-fab-mini btn-rect btn-sm">
+                          <a href="{{url('director/padre_familia/'.$padre->id.'/alumnos')}}" rel="tooltip" title="Asignar Parentesco" class="btn btn-warning btn-fab btn-fab-mini btn-rect btn-sm">
                               <i class="material-icons">person_search</i>
                           </a>
 
@@ -104,7 +105,11 @@
               </tbody>
               @endforeach
           </table>
-          {{ $padres->links("pagination::bootstrap-4") }} <!--Paginación-->                         
+          <div class="d-flex">
+            <div class="mx-auto">
+              {{ $padres->links("pagination::bootstrap-4") }} <!--Paginación-->   
+            </div>
+          </div>                      
       </div>                                                                          
     </div>
   </div>

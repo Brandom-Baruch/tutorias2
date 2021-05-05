@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Alumno\Test;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Conociendo_Estilo_Aprendizaje;
+use Auth;
 
 class ConociendoEstiloAprendizajeController extends Controller
 {
@@ -138,7 +139,30 @@ class ConociendoEstiloAprendizajeController extends Controller
         $conociendo_estilo_aprendizaje->respuesta35 = $request->input('respuesta35');
         $conociendo_estilo_aprendizaje->respuesta36 = $request->input('respuesta36');
         $conociendo_estilo_aprendizaje->save();
-        $mensaje = 'Has realizado el test "Conociendo los estilos de aprendizaje de los tutorados" exitosamente';
-        return redirect('/alumno/test')->with(compact('mensaje'));
+        
+        if (Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && 
+            empty(Auth::user()->test->test_habito_estudio))
+        {
+            $test_habito_estudio = new HabitoEstudioController();
+            $test_habito_estudio->inicio_habito_estudio();
+            $mensaje = 'Por favor realiza las siguientes secciones';
+            return redirect('alumno/test/habitos_estudio')->with(compact('mensaje'));
+        }
+
+        if (Auth::user()->test->conociendo_estilo_aprendizaje && 
+            Auth::user()->test->encontrar_estilo_aprendizaje && 
+            Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+            Auth::user()->test->test_habito_estudio->planificacion && 
+            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
+        {
+            $test = new TestController();
+            $test->update();
+            $mensaje = 'Has Finalizado el Test de manera exitosa. Muchas gracias';
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));
+        }else
+        {
+            $mensaje = 'Has realizado el test "Conociendo los estilos de aprendizaje de los tutorados" exitosamente';
+            return redirect('/alumno/test')->with(compact('mensaje'));
+        }        
     }
 }
