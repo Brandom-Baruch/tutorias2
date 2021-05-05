@@ -33,7 +33,7 @@ class DocumentosPadreController extends Controller
     public function destroy(Request $request, $id)
     {
     	$documentoPadre = DocumentoPadre::find($id);
-    	$url = public_path(). '/archivos/padre_familia/'.$documentoPadre->nombre_archivo;	
+    	$url = app_path(). '/archivos/padre_familia/'.$documentoPadre->nombre_archivo;	
     		
     	$deleted = File::delete($url);
 
