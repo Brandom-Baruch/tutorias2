@@ -21,80 +21,79 @@
               <img src="{{url('img/padre6.png')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
             </div>       
             <div class="name">
-              <h3 class="title">Hola Padre <b class="text-primary">{{Auth::user()->name}}</b></h3>                             
+              <h3 class="title">Hola padre <b class="text-primary">{{Auth::user()->name}}</b></h3>                             
               <a href="{{url('padre_familia/entrevista')}}" class="btn btn-success">Realizar entrevista fresca</a>              
             </div>
           </div>
         </div>        
       </div>
       @if (session('status'))
-      <div class="alert alert-success text-left">
-        <div class="container-fluid">
-          <div class="alert-icon">
-            <i class="material-icons">check</i>
+        <div class="alert alert-success text-left">
+          <div class="container-fluid">
+            <div class="alert-icon">
+              <i class="material-icons">check</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            Has cambiado tu contraseña exitosamente
           </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          Has cambiado tu contraseña exitosamente
         </div>
-      </div>
       @endif
       @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
-      <div class="alert alert-success text-left">
-        <div class="container-fluid">
-          <div class="alert-icon">
-            <i class="material-icons">check</i>
+        <div class="alert alert-success text-left">
+          <div class="container-fluid">
+            <div class="alert-icon">
+              <i class="material-icons">check</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            {{ session('mensaje') }}
           </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          {{ session('mensaje') }}
         </div>
-      </div>
       @endif
       @if (session('eliminado')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
-      <div class="alert alert-danger text-left">
-        <div class="container-fluid">
-          <div class="alert-icon">
-            <i class="material-icons">check</i>
+        <div class="alert alert-danger text-left">
+          <div class="container-fluid">
+            <div class="alert-icon">
+              <i class="material-icons">check</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            {{ session('eliminado') }}
           </div>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          {{ session('eliminado') }}
         </div>
-      </div>
       @endif
-      <div class="row">             
-        <div class="col-md-12 col-sm-12">
-          <div class="profile-tabs">
-            <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" href="#datos" role="tab" data-toggle="tab">
-                  <i class="material-icons">person</i> Datos generales
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#direccion" role="tab" data-toggle="tab">
-                  <i class="material-icons">home</i> Domicilio
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
-                  <i class="material-icons">person_search</i> Parentescos
-                </a>
-              </li>
-              <li class="nav-item">
+      <div class="row">
+          <div class="col-md-12 ml-auto mr-auto">
+            <div class="profile-tabs">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#datos" role="tab" data-toggle="tab">
+                    <i class="material-icons">person</i> Datos generales
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#direccion" role="tab" data-toggle="tab">
+                    <i class="material-icons">home</i> Domicilio
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#parentezco" role="tab" data-toggle="tab">
+                    <i class="material-icons">person_search</i> Parentescos
+                  </a>
+                </li>
+                <li class="nav-item">
                 <a class="nav-link" href="#subir_documentos" role="tab" data-toggle="tab">
-                  <i class="material-icons">book</i> Documentos  a subir
+                  <i class="material-icons">book</i> Documentos a subir
                 </a>
-              </li>                             
-            </ul>
+              </li>                
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-      <br>      
+        </div>    
       <div class="tab-content tab-space">
         <div class="tab-pane active text-center gallery" id="datos">
           <div class="row">              

@@ -15,7 +15,7 @@ class DocumentosPadreController extends Controller
     {
     	//guardar el archivo 
     	$file = $request->file('archivo'); // obtiene el archivo que se esta subiendo 
-    	$url = public_path(). '/archivos/padre_familia'; //creamos una carpeta dentro del archivo public
+    	$url = app_path(). '/archivos/padre_familia'; //creamos una carpeta dentro de la carpeta app
     	$fileName =  $file->getClientOriginalName(); //concatenamos el nombre con una serie de numeros y letras
     	$moved=$file->move($url , $fileName); //Se concatena entre el nombre del archivo y el nombre del padre de familia
 
@@ -48,11 +48,11 @@ class DocumentosPadreController extends Controller
 
     public function verDocumento($id)
     {
-        $archivo = DocumentoPadre::find($id);
-        $url = public_path().$archivo->url;
-        if ($url) {
-            return response()->file($url);
+        $archivo = DocumentoPadre::find($id); //Encontramos el documento
+        $url = app_path().'/archivos/padre_familia/'.$archivo->nombre_archivo; //buscamos el documento en la carpeta app
+        if ($url) { //Si encontramos el documento
+            return response()->file($url); //mostramos el documentos
         }
-        return back();
+        return back(); //En caso contrario, solo actualizamos la pagina sin mostrar nada
     }
 }
