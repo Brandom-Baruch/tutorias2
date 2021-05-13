@@ -16,8 +16,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h1 class="title">TECNM Campus San Martín Texmelucan</h1>
-				<h4>El TECNM Campus San Martín Texmelucan ubicado en Camino a Barranca de Pesos S/N San Lucas Atoyatenco San Martín Texmelucan, Puebla se dedica a formar especialistas, por lo que, en su tasa de eficiencia se mide el total de estudiantes egresados/as que integran la cohorte o generación respecto al total de los/las estudiantes que se inscribieron, en la misma generación.</h4>
+				<h1 class="title text-justify">TECNM Campus San Martín Texmelucan</h1>
+				<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</h4>
 				<br>          
 			</div>
 		</div>
@@ -29,7 +29,8 @@
 			<div class="row">
 				<div class="col-md-8 ml-auto mr-auto">
 					<h2 class="title">Acerca del TECNM</h2>
-					<h5 class="description" style="color: black;">El TECNM San Martín Texmelucan imparte 7 carreras universitarias. Entre sus carreras universitarias, puedes estudiar alguna de sus 1 licenciatura y 6 ingenierías. El Instituto Tecnológico Superior de San Martín Texmelucan actualmente no imparte carreras en línea, licenciaturas en línea, ingenierías en línea ni posgrados en línea.</h5>
+					<h5 class="description text-justify" style="color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
 				</div>
 			</div>
 			<div class="features">
@@ -39,8 +40,8 @@
 							<div class="icon icon-info">
 								<i class="material-icons">chat</i>
 							</div>
-							<h5 class="info-title">descripción del programa</h5>
-							<p style= "color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							<h5 class="info-title">Descripción del programa</h5>
+							<p style= "color: black;" class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 							<button type="button" class="btn btn-info">Saber más</button>
 						</div>
@@ -50,8 +51,8 @@
 							<div class="icon icon-success">
 								<i class="material-icons">chrome_reader_mode</i>
 							</div>
-							<h5 class="info-title">Guia para padres de familia</h5>
-							<p style= "color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							<h5 class="info-title">Guía para padres de familia</h5>
+							<p style= "color: black;" class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 							<button type="button" class="btn btn-info">Saber más</button>
 						</div>
@@ -62,7 +63,7 @@
 								<i class="material-icons">warning</i>
 							</div>
 							<h5 class="info-title">Como detectar un posible abandono escolar</h5>
-							<p style= "color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							<p style= "color: black;" class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 							<button type="button" class="btn btn-info">Saber más</button>
 						</div>

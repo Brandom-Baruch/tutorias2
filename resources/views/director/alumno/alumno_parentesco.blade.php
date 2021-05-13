@@ -36,18 +36,27 @@
                   </select>
                 </div>   
               </div>
-               <div class="col-md-6">
-                <div class="form-group">
-                  <label style="color: black;">Escribe el parentesco que tiene familiar</label>
-                  <input type="text" class="form-control" placeholder="Ejemplo: Padre" name="parentezco">
-                  @if($errors->has('parentezco'))
-                    <span class="text-danger">
-                      <strong>
-                         {{ $errors->first('parentezco') }}
-                      </strong>
-                    </span>
-                  @endif
-                </div>   
+              <div class="col-sm-6">
+                <div class="form-group">          
+                  <label class="text-dark">Selecciona un parentesco</label>
+                  <select class="form-control " name="parentezco" >
+                    <option value="Papá">Papá</option>
+                    <option value="Mamá">Mamá</option>
+                    <option value="Tío">Tío</option>
+                    <option value="Tía">Tía</option>
+                    <option value="Abuelo">Abuelo</option>
+                    <option value="Abuela">Abuela</option>
+                    <option value="Hermano">Hermano</option>
+                    <option value="Hermana">Hermana</option>
+                    <option value="Primo">Primo</option>
+                    <option value="Prima">Prima</option>
+                  </select>
+                </div>
+                @if ($errors->has('parentezco'))
+                  <span class="help-block text-center">
+                    <strong>{{ $errors->first('parentezco') }}</strong>
+                  </span>
+                @endif
               </div>
             </div>       
             <div class="col-md-12 text-center">

@@ -14,7 +14,7 @@ class DocenteController extends Controller
 {   
     public function __construct()
     {
-        $this->middleware('auth:docente');
+        $this->middleware('auth:docente'); //El pane de control solo puede entrar el docente
     }
 
     public function index()

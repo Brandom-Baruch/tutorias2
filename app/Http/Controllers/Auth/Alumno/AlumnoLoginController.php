@@ -51,7 +51,7 @@ class AlumnoLoginController extends Controller
 
     }
 
-    public function username()
+    public function username() // Metodo para indicar que atributo sera iniciar sesion
     {
         return 'nia';
     }

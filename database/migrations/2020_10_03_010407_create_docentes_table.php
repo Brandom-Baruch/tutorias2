@@ -19,7 +19,7 @@ class CreateDocentesTable extends Migration
             $table->string('apellidoP');
             $table->string('apellidoM');
             $table->tinyInteger('edad');
-            $table->string('email')->unique();
+            $table->string('email')->unique(); //El correo sera unico para cada usuario
             $table->string('password');            
             $table->string('telefono_fijo');
             $table->string('telefono_cel');            

@@ -22,12 +22,13 @@ class PadreLoginController extends Controller
     {
     	//validation
     	$rules = [
-    		'email' => 'required',
+    		'email' => 'required|email',
     		'password' => 'required',
     	];
 
         $message = [
             'email.required' => 'Debes de colocar tu correo electrónico.',
+            'email.email' => 'Este campo acepta solo correo electrónico',
             'password.required' => 'Debes de colocar tu contraseña',
         ];
 

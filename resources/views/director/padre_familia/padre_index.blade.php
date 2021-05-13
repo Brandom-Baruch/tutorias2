@@ -24,7 +24,7 @@
               <a href="{{url('/director/padre_familia/create')}}" class="btn btn-primary" style="margin-right:  20px;">
                 Registrar nuevo Padre
               </a>
-              <input type="text"  placeholder="¿Qué familiar buscas?" class="form-control text-center " name="search">
+              <input type="text"  placeholder="¿Qué familiar buscas?" class="form-control" name="search">
               <button type="submit" class="btn btn-primary btn-fab  btn-rect">
                   <i class="material-icons">search</i>
               </button>

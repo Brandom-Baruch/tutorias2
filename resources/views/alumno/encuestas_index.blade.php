@@ -112,13 +112,20 @@
 										<form method="post" action="{{url('alumno/test/create')}}">
 											{{csrf_field()}}
 											<button  type="submit" class="btn btn-primary btn-sm">Iniciar</button>
-										</form>																		
-									@elseif(Auth::user()->test->where('descripcion','Finalizo Test')->first())
+										</form>														
+									@elseif(Auth::user()->test->conociendo_estilo_aprendizaje &&
+										Auth::user()->test->encontrar_estilo_aprendizaje &&
+										Auth::user()->test->conociendo_estilo_aprendizaje && 
+							            Auth::user()->test->encontrar_estilo_aprendizaje && 
+							            Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
+							            Auth::user()->test->test_habito_estudio->planificacion && 
+							            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
 										<a disabled>
 											{{Auth::user()->test->descripcion}}
 										</a>									
-									@elseif(Auth::user()->test->where('descripcion','Inicio Test')->first())
-										<a href="{{url('alumno/test')}}" class="btn btn-warning btn-sm">{{Auth::user()->test->descripcion}}
+									@else
+										<a href="{{url('alumno/test')}}" class="btn btn-warning btn-sm">
+											{{Auth::user()->test->descripcion}}
 										</a>									
 									@endif
 								</td>                     

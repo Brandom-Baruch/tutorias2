@@ -19,7 +19,7 @@
         <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/parentesco')}}">
           {{ csrf_field() }}
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="text-dark">Selecciona un familiar</label>
                 <select class="form-control text-dark"  name="padre_id">
@@ -30,18 +30,27 @@
                 </select>
               </div>   
             </div>
-            <div class="col-md-7">
-              <div class="form-group">
-                <label class="text-dark">Escribe el parentesco que tienen </label>
-                <input type="text" class="form-control" placeholder="Escribe un parentesco" name="parentezco">
-                @if($errors->has('parentezco'))
-                  <span class="help-block text-danger">
-                    <strong>
-                        {{ $errors->first('parentezco') }}
-                    </strong>
+            <div class="col-sm-6">
+                <div class="form-group">          
+                  <label class="text-dark">Selecciona un parentesco</label>
+                  <select class="form-control " name="parentezco" >
+                    <option value="Papá">Papá</option>
+                    <option value="Mamá">Mamá</option>
+                    <option value="Tío">Tío</option>
+                    <option value="Tía">Tía</option>
+                    <option value="Abuelo">Abuelo</option>
+                    <option value="Abuela">Abuela</option>
+                    <option value="Hermano">Hermano</option>
+                    <option value="Hermana">Hermana</option>
+                    <option value="Primo">Primo</option>
+                    <option value="Prima">Prima</option>
+                  </select>
+                </div>
+                @if ($errors->has('parentezco'))
+                  <span class="help-block text-center">
+                    <strong>{{ $errors->first('parentezco') }}</strong>
                   </span>
                 @endif
-              </div>   
             </div>
           </div>       
           <div class="text-center">  

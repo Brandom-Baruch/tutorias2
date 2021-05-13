@@ -24,7 +24,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					<div class="profile">   						
 						<div class="name">
 							<h3 class="title">
-								Respuestas de la entrevista fresca del Alumno 
+								Entrevista fresca <br> 
 								<b class="text-primary">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</b>
 							</h3>		
 						</div>

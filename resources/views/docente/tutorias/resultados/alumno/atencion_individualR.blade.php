@@ -24,7 +24,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					<div class="profile">   						
 						<div class="name">
 							<h3 class="title">
-								Respuestas del test de atención individualizada del Alumno 	<br>	 
+								Atención individualizada <br>	 
 								<b class="text-primary">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</b>
 							</h3>		
 						</div>

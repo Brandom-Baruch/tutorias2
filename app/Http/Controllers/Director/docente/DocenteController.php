@@ -95,7 +95,7 @@ class DocenteController extends Controller
             'apellidoM' => 'required', 
             'edad' => 'required|numeric|min:18|max:80' , 
             'email' => 'required|email|max:255' , 
-            'password' => 'min:6|confirmed' , 
+            'password' => 'confirmed' , 
             'telefono_fijo' => 'required', 
             'telefono_cel' => 'required' ,             
         ];
@@ -110,7 +110,7 @@ class DocenteController extends Controller
             'email.required' => 'Debes de colocar un correo electronico',
             'email.email' => 'Solo se aceptan correos electronicos',            
             //'password.required' => 'Debes de colocar una contraseña',
-            'password.min' => 'La contraseña debe tener por lo menos 6 digitos',
+            //'password.min' => 'La contraseña debe tener por lo menos 6 digitos',
             'password.confirmed' => 'La contraseña no coinciden',
             'telefono_fijo.required' => 'Debes de colocar un telefono fijo',
             'telefono_cel.required' => 'Debes de colocar un telefono celular',
@@ -125,11 +125,11 @@ class DocenteController extends Controller
         $docente->email = $request->input('email');
         $docente->telefono_fijo = $request->input('telefono_fijo');
         $docente->telefono_cel = $request->input('telefono_cel');                  
-        if ($request->password) {
-            $docente->password = Hash::make($request->input('password'));
+        if ($request->password) { //Si existe un dato en el input password
+            $docente->password = Hash::make($request->input('password')); //Lo registramos y lo encriptamos
         }        
         //$docente->password = bcrypt($request->input('password'));
-        $docente->remember_token = str_random(100);
+        $docente->remember_token = str_random(100); //Genera un token 
         $docente->save(); //Actualiza los datos
         $mensaje = 'Datos actualizados del docente ' . $docente->name;
         return redirect('/director/docentes/index')->with(compact('mensaje'));
@@ -147,8 +147,8 @@ class DocenteController extends Controller
     public function show(Request $request, $id)
     {
         $request->user()->autorizarPuestos('Director');
-        $docente= Docente::find($id);       
-        return view('director.docente.docente_show')->with(compact('docente'));
+        $docente= Docente::find($id); //Encontramos al docente para ver los datos generales       
+        return view('director.docente.docente_show')->with(compact('docente')); //pasamos la variable a la vista
     }
     
 }

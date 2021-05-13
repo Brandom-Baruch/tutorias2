@@ -40,7 +40,7 @@ class AlumnoController extends Controller
             'genero' => 'required',
             'phone' => 'required',
             'email' => 'required|unique:alumnos|max:250',
-            'password' => 'min:6|confirmed',            
+            'password' => 'confirmed',            
             'grupo_id' =>  'required',          
         ];
 
@@ -64,7 +64,7 @@ class AlumnoController extends Controller
             'email.unique' => 'Este correo ya esta en uso, debes de colocar otro',
             'email.max' => 'Solamente puedes colocar 255 caracteres',
             //'password.required' => 'Debes de colocar una contraseña',
-            'password.min' => 'La contraseña minima debe tener 6 caracteres',
+            //'password.min' => 'La contraseña minima debe tener 6 caracteres',
             'password.confirmed' => 'No coinciden la contraseña, intentalo de nuevo',
             'grupo_id.required' => 'Debes de asignar un grupo al alumno',
         ];

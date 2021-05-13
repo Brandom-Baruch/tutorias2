@@ -24,7 +24,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					<div class="profile">   						
 						<div class="name">
 							<h3 class="title">
-								Respuestas del cuestionario de anexos del Alumno 
+								Cuestionario de anexos <br> 
 								<b class="text-primary">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</b>
 							</h3>		
 						</div>

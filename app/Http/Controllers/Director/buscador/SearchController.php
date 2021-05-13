@@ -31,9 +31,9 @@ class SearchController extends Controller
     {
         $request->user()->autorizarPuestos('Director'); 
         //Guardo el dato en la variable search
-    	$search =  $request->input('search');
+    	$buscar =  $request->input('search');
         //Realiza una consulta con el dato obtenido
-    	$padres = padre::select()->where('name', 'like',"%$search%")->get();
+    	$padres = padre::select()->where('name', 'like',"%$buscar%")->get();        
         //Si solamente existe un resultado
         if ($padres->count() == 1) {
             //Obtener su id y dirigirlo a la ruta seleccionada
@@ -41,6 +41,6 @@ class SearchController extends Controller
             return redirect("director/padre_familia/$id/show");
         }
         //Si existen varios resultados, mostrarlo en la vista "padre_search"
-   		return view('director.buscador.padre_search')->with(compact('padres', 'search'));
+   		return view('director.buscador.padre_search')->with(compact('padres', 'buscar'));
     }
 }
