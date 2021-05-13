@@ -36,7 +36,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 				<a href="{{url('docente/perfil_academico/'.$alumno->nia)}}" class="btn btn-success">
 					Descargar Pdf
 				</a> 
-				<h3 class="title text-center">Test para detectar tutorados que requieran atención indivualizada</h3>
+				<h3 class="title text-center">Test para detectar tutorados que requieran atención individualizada</h3>
 			</div><br>
 			<div class="row">							
 				<div class="col-md-6">
