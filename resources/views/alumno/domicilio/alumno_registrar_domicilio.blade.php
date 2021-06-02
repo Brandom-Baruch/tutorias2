@@ -2,10 +2,9 @@
 
 @section('titulo','Agregar Domicilio')
 @section('body-class','profile-page sidebar-collapse')
-@section('opciones_director')    
+@section('opciones_alumno')    
 
-  @include('includes.links_director')
-  <a href="{{url('docente')}}">Panel de control</a>  
+  <a href="{{url('alumno')}}">Panel de control</a>  
 
 @endsection
 

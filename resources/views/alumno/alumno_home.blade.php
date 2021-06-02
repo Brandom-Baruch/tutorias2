@@ -142,51 +142,55 @@
           <a href="{{url('alumno/'.Auth::user()->nia.'/edit')}}" class="btn btn-success">Editar información</a>    
         </div>
         <div class="tab-pane text-center gallery" id="direccion">                        
-          @foreach(Auth::user()->domicilios as $domicilio)
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <h4>Estado</h4>
-                <p class="h5">{{$domicilio->estado}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>Municipio</h4>
-                <p class="h5">{{$domicilio->municipio}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>Localidad</h4>
-                <p class="h5">{{$domicilio->localidad}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>Calle</h4>
-                <p class="h5">{{$domicilio->calle}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>Colonia</h4>
-                <p class="h5">{{$domicilio->colonia}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>Código Postal</h4>
-                <p class="h5">{{$domicilio->cp}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>No. Interior</h4>
-                <p class="h5">{{$domicilio->no_interior}}</p>
-              </div>
-              <div class="form-group col-md-4">
-                <h4>No. Exterior</h4>
-                <p class="h5">{{$domicilio->no_exterior}}</p>
-              </div>                                
-            </div>    
-            @if(Auth::user()->domicilios->count() == 1)
-            <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/domicilio/'.$domicilio->id.'/delete')}}" >
-              {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>                  
-            </form>                
-            @endif                                          
-          @endforeach   
-          @if(Auth::user()->domicilios->count() == 0)
-          <h3 class="text-danger">No tiene asignado un domicilio</h3>
-          <a href="{{url('alumno/'.Auth::user()->nia.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>   
+          @if(Auth::user()->domicilios)
+            @foreach(Auth::user()->domicilios as $domicilio)
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <h4>Estado</h4>
+                  <p class="h5">{{$domicilio->estado}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>Municipio</h4>
+                  <p class="h5">{{$domicilio->municipio}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>Localidad</h4>
+                  <p class="h5">{{$domicilio->localidad}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>Calle</h4>
+                  <p class="h5">{{$domicilio->calle}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>Colonia</h4>
+                  <p class="h5">{{$domicilio->colonia}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>Código Postal</h4>
+                  <p class="h5">{{$domicilio->cp}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>No. Interior</h4>
+                  <p class="h5">{{$domicilio->no_interior}}</p>
+                </div>
+                <div class="form-group col-md-4">
+                  <h4>No. Exterior</h4>
+                  <p class="h5">{{$domicilio->no_exterior}}</p>
+                </div>                                
+              </div>    
+              @if(Auth::user()->domicilios->count() == 1)
+              <form method="post" action="{{url('alumno/'.Auth::user()->nia.'/domicilio/'.$domicilio->id.'/delete')}}" >
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-primary" >¿El domicilio no es el correcto?</button>                  
+              </form>                
+              @endif                                          
+            @endforeach   
+            @if(Auth::user()->domicilios->count() == 0)
+            <h3 class="text-danger">No tiene asignado un domicilio</h3>
+            <a href="{{url('alumno/'.Auth::user()->nia.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>   
+            @endif
+          @else
+            <h3 class="text-danger">No tiene asignado un domicilio</h3>
           @endif
         </div>
         <div class="tab-pane text-center gallery" id="parentezco">

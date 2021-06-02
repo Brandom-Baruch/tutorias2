@@ -2,13 +2,9 @@
 
 @section('titulo','Agregar Domicilio')
 @section('body-class','profile-page sidebar-collapse')
-@section('opciones_padre')    
-
-  <a href="{{url('/padre_familia')}}">Panel de control</a>  
-
+@section('opciones_director')    
+  <a href="{{url('docente')}}">Panel de control</a>   
 @endsection
-
-
 @section('content')
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
@@ -43,7 +39,7 @@
                   </div>
               </div>
             @endif        
-            <form method="post" action="{{url('padre_familia/domicilio/registrar')}}">
+            <form method="post" action="{{url('docente/'.Auth::user()->id.'/domicilio/registrar')}}">
               {{csrf_field()}}
               <div class="form-row">
                 <div class="form-group col-md-4">

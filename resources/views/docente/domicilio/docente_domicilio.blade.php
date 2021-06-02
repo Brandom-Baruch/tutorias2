@@ -4,6 +4,21 @@
 
 @section('body-class','profile-page sidebar-collapse')
 
+
+@section('opciones_director')
+
+  @if(Auth::user()->puestos->where('puesto','Director')->first())
+      @include('includes.links_director')
+  @endif  
+  @if(Auth::user()->puestos->where('puesto','Tutor')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
+    <a class="dropdown-item" href="{{url('docente/tutorias/encuestas')}}">Panel de encuestas <br>Tutorias</a>
+  @endif
+
+  <a href="{{url('docente')}}">Panel de control</a>  
+@endsection
+
+
+
 @section('content')
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
@@ -11,17 +26,14 @@
   <div class="profile-content">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 ml-auto mr-auto">
-          <div class="profile">          
-            <div class="name">
-              
-            </div>
-          </div>
+        <div class="col-md-12 text-center">
+          <h3 class="title">Escoge tu domicilio</h3>          
+          <a href="{{ url('docente/'.Auth::user()->id.'/domicilio/registrar') }}" class="btn btn-warning" rel="tooltip" title="Registra tu domicilio">
+              ¿No encuentras tu domicilio?
+          </a>
+          <a href="{{url('docente')}}" class="btn btn-danger">Regresar</a>         
         </div>
-      </div>
-      <div class="description text-center">
-        <h3 class="title">Asignar domicilio para el docente <b class="text-primary">{{Auth::user()->name}}</b></h3>
-      </div>        
+      </div>          
       <div class="tab-pane  text-center">
        @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->     
             <div class="alert alert-warning text-left">
@@ -45,8 +57,7 @@
                   {{ session('eliminado') }}
                 </div>
             </div>
-        @endif          
-        <a href="{{url('docente')}}" class="btn btn-danger" style="margin-bottom: 10px;">Regresar</a>
+        @endif                  
         <div class="row">                  
           <table class="table  table-responsive-sm table-responsive-md table-responsive-lg">
               <thead>

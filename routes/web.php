@@ -161,9 +161,11 @@ Route::middleware(['auth:docente'])->prefix('/docente')->group(function () {
 	Route::get('/' , 'Docente\DocenteController@index'); // Muestra el panel de control para los docentes en general
 	Route::get('/{id}/edit' , 'Docente\DocenteController@edit');
 	Route::post('/{id}/edit' , 'Docente\DocenteController@update');
-	Route::get('/{id}/domicilio','Domicilio\DomicilioController@docente_create');//mostrar
-	Route::post('/{id}/domicilio','Domicilio\DomicilioController@docente_store'); // agregar
-	Route::post('/{docente_id}/domicilio/{domicilio_id}/delete','Domicilio\DomicilioController@docente_destroy');
+	Route::get('/{id}/domicilio','Domicilio\DocenteDomicilioController@mostrar_domicilio');//mostrar
+	Route::post('/{id}/domicilio','Domicilio\DocenteDomicilioController@seleccionar_domicilio'); // agregar
+	Route::post('/{docente_id}/domicilio/{domicilio_id}/delete','Domicilio\DocenteDomicilioController@destroy_domicilio');
+	Route::get('/{id}/domicilio/registrar','Domicilio\DocenteDomicilioController@create');//mostrar
+	Route::post('/{id}/domicilio/registrar','Domicilio\DocenteDomicilioController@store'); // agregar
 	
 	//DOCENTE TUTOR
 	Route::get('/tutorias/encuestas' , 'Docente\tutorias\TutoriasController@encuestas_index');	
