@@ -16,10 +16,10 @@ class CreatePuestoAsignadosTable extends Migration
         Schema::create('puesto_asignados', function (Blueprint $table) {
             $table->increments('id');
             //FK
-            $table->bigInteger('docente_id')->unsigned();
+            $table->integer('docente_id')->unsigned();
             $table->foreign('docente_id')->references('id')->on('docentes');
             //FK
-            $table->bigInteger('puesto_id')->unsigned();
+            $table->integer('puesto_id')->unsigned();
             $table->foreign('puesto_id')->references('id')->on('puestos');
             $table->timestamps();
         });

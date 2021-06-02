@@ -16,10 +16,10 @@ class CreateImparteTable extends Migration
         Schema::create('imparte', function (Blueprint $table) {
             $table->increments('id');
              //FK
-            $table->bigInteger('docente_id')->unsigned();
+            $table->integer('docente_id')->unsigned();
             $table->foreign('docente_id')->references('id')->on('docentes');
             //FK
-            $table->bigInteger('materia_id')->unsigned();
+            $table->integer('materia_id')->unsigned();
             $table->foreign('materia_id')->references('id')->on('materias');
             $table->timestamps();
         });
