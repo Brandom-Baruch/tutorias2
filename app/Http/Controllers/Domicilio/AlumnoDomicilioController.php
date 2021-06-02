@@ -27,7 +27,7 @@ class AlumnoDomicilioController extends Controller
     public function seleccionar_domicilio (Request  $request)
     {                   
         $b_domicilio = new B_Domicilio;     
-        $b_domicilio->alumno_id = $request->input('alumno_id');
+        $b_domicilio->alumno_nia = $request->input('alumno_id');
         //dd($b_domicilio->alumno_id);
         $b_domicilio->domicilio_id = $request->input('domicilio_id');
         $b_domicilio->save();

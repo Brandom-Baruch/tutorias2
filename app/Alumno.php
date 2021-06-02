@@ -57,7 +57,7 @@ class Alumno extends Authenticatable
 
     public function domicilios()
     {
-        return $this->belongsToMany(Domicilio::class,'_b__domicilio','alumno_id')->withTimestamps();
+        return $this->belongsToMany(Domicilio::class,'_b__domicilio','alumno_nia','nia')->withTimestamps();
     }
 
     public function entrevista_fresca()
