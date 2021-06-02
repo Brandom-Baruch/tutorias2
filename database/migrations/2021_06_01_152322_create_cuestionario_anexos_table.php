@@ -18,7 +18,7 @@ class CreateCuestionarioAnexosTable extends Migration
             $table->date('fecha_aplicacion')->nullable();
             $table->string('descripcion'); //Inicio, Finalizo
             //FK
-            $table->integer('alumno_id')->unsigned();
+            $table->bigInteger('alumno_id')->unsigned();
             $table->foreign('alumno_id')->references('nia')->on('alumnos');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateMarcaSiNoTable extends Migration
     {
         Schema::create('marca_si_no', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entrevista_id')->unsigned();
+            $table->bigInteger('entrevista_id')->unsigned();
             $table->foreign('entrevista_id')->references('id')->on('entrevista_fresca_padres');
             //Marca Si No
             $table->string('respuesta1',3);

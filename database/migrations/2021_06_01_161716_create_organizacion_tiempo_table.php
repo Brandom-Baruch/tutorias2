@@ -15,7 +15,7 @@ class CreateOrganizacionTiempoTable extends Migration
     {
         Schema::create('organizacion_tiempo', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('habito_id')->unsigned();
+            $table->bigInteger('habito_id')->unsigned();
             $table->foreign('habito_id')->references('id')->on('test_habito_estudio');
             $table->char('respuesta1');
             $table->char('respuesta2');

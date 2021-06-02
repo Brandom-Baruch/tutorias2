@@ -19,7 +19,7 @@ class CreateAtencionIndividualizadaTable extends Migration
             $table->string('grupo');
             $table->string('descripcion');
             $table->date('fecha_aplicacion');
-            $table->integer('alumno_id')->unsigned();
+            $table->bigInteger('alumno_id')->unsigned();
             $table->foreign('alumno_id')->references('nia')->on('alumnos');
             $table->string('respuesta1')->nullable();
             $table->string('respuesta2')->nullable();

@@ -17,10 +17,10 @@ class CreateParentezcosTable extends Migration
             $table->increments('id');
             $table->string('parentezco');
             //FK
-            $table->integer('alumno_id')->unsigned();
+            $table->bigInteger('alumno_id')->unsigned();
             $table->foreign('alumno_id')->references('nia')->on('alumnos');
             //FK
-            $table->integer('padre_id')->unsigned();
+            $table->bigInteger('padre_id')->unsigned();
             $table->foreign('padre_id')->references('id')->on('padre_familias');
             $table->timestamps();
         });

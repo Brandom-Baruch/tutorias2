@@ -15,7 +15,7 @@ class CreateAlumnosReprobadosTable extends Migration
     {
         Schema::create('alumnos_reprobados', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('reporte_id');
+            $table->bigInteger('reporte_id');
             $table->foreign('reporte_id')->references('id')->on('alumnos_bajo_rendimiento');            
             $table->string('alumno_name');
             $table->string('motivo');

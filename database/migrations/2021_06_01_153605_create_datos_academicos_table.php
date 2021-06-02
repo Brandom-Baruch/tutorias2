@@ -15,7 +15,7 @@ class CreateDatosAcademicosTable extends Migration
     {
         Schema::create('datos_academicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entrevista_id')->unsigned();
+            $table->bigInteger('entrevista_id')->unsigned();
             $table->foreign('entrevista_id')->references('id')->on('entrevista_fresca_alumnos');
             $table->string('respuesta1');
             $table->string('respuesta2');

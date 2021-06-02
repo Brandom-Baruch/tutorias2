@@ -18,7 +18,7 @@ class CreateEntrevistaFrescaAlumnosTable extends Migration
             $table->date('fecha_aplicacion')->nullable();
             $table->string('descripcion',30); //Inicio, Finalizo
             //FK
-            $table->integer('alumno_id')->unsigned();
+            $table->bigInteger('alumno_id')->unsigned();
             $table->foreign('alumno_id')->references('nia')->on('alumnos');
             $table->timestamps();
         });

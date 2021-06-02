@@ -15,7 +15,7 @@ class CreatePerfilAcademicoAlumnoTable extends Migration
     {
         Schema::create('perfil_academico_alumno', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('alumno_id')->unsigned();
+            $table->bigInteger('alumno_id')->unsigned();
             $table->foreign('alumno_id')->references('nia')->on('alumnos');
             $table->string('escuela_procedencia');
             $table->string('ubicacion_escuela');

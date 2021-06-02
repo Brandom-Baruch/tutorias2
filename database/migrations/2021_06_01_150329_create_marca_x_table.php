@@ -15,7 +15,7 @@ class CreateMarcaXTable extends Migration
     {
         Schema::create('marca_x', function (Blueprint $table) {
                         $table->increments('id');
-            $table->integer('entrevista_id')->unsigned();
+            $table->bigInteger('entrevista_id')->unsigned();
             $table->foreign('entrevista_id')->references('id')->on('entrevista_fresca_padres');
             $table->string('r1',3);
             $table->string('r1_2',5);

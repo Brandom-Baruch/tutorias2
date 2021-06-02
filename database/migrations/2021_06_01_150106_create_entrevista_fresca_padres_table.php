@@ -18,7 +18,7 @@ class CreateEntrevistaFrescaPadresTable extends Migration
             $table->date('fecha_aplicacion')->nullable();
             $table->string('descripcion',30); //Inicio, Finalizo            
             $table->integer('alumno_id');//Para saber que familiar hace el test
-            $table->integer('padre_id')->unsigned();
+            $table->bigInteger('padre_id')->unsigned();
             $table->foreign('padre_id')->references('id')->on('padre_familias');
             $table->timestamps();
         });

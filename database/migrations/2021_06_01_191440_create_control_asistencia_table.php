@@ -15,9 +15,9 @@ class CreateControlAsistenciaTable extends Migration
     {
         Schema::create('control_asistencia', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tutor_id')->unsigned()->nullable();
+            $table->bigInteger('tutor_id')->unsigned()->nullable();
             $table->foreign('tutor_id')->references('id')->on('docentes');
-            $table->integer('alumno_nia')->unsigned()->nullable();
+            $table->bigInteger('alumno_nia')->unsigned()->nullable();
             $table->foreign('alumno_nia')->references('nia')->on('alumnos');
             //$table->integer('grupo');
             $table->date('fecha');

@@ -18,7 +18,7 @@ class CreateTestHabitoEstudioTable extends Migration
             $table->date('fecha_aplicacion')->nullable();
             $table->string('descripcion');
             //FK
-            $table->integer('test_id')->unsigned();
+            $table->bigInteger('test_id')->unsigned();
             $table->foreign('test_id')->references('id')->on('test');
             $table->timestamps();
         });

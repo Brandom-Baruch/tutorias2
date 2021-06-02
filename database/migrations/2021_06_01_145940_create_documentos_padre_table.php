@@ -17,7 +17,7 @@ class CreateDocumentosPadreTable extends Migration
             $table->increments('id');
             $table->string('nombre_archivo');
             //FK
-            $table->integer('padre_id')->unsigned();
+            $table->bigInteger('padre_id')->unsigned();
             $table->foreign('padre_id')->references('id')->on('padre_familias');
             $table->timestamps();
         });

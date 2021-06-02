@@ -15,7 +15,7 @@ class CreateReporteTutoriasTable extends Migration
     {
         Schema::create('reporte_tutorias', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('tutor_id')->unsigned()->nullable();
+            $table->bigInteger('tutor_id')->unsigned()->nullable();
             $table->foreign('tutor_id')->references('id')->on('docentes');
             ///GRUPO->MATERIA->DOCENTE
             $table->string('ciclo_escolar');

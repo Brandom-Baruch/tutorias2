@@ -15,7 +15,7 @@ class CreateDatosFamiliaresTable extends Migration
     {
         Schema::create('datos_familiares', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entrevista_id')->unsigned(); //Alumno
+            $table->bigInteger('entrevista_id')->unsigned(); //Alumno
             $table->foreign('entrevista_id')->references('id')->on('entrevista_fresca_alumnos');
             $table->string('respuesta1')->nullable();
             $table->string('r1')->nullable();

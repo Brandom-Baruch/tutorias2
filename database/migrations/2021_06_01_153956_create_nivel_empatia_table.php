@@ -15,7 +15,7 @@ class CreateNivelEmpatiaTable extends Migration
     {
         Schema::create('nivel_empatia', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cuestionario_id')->unsigned();
+            $table->bigInteger('cuestionario_id')->unsigned();
             $table->foreign('cuestionario_id')->references('id')->on('cuestionario_anexos');
             $table->string('respuesta1');
             $table->string('respuesta2');
