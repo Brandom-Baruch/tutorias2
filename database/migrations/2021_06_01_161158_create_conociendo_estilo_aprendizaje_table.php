@@ -15,10 +15,8 @@ class CreateConociendoEstiloAprendizajeTable extends Migration
     {
         Schema::create('conociendo_estilo_aprendizaje', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('test_id')->unsigned();
+            $table->integer('test_id')->unsigned(); //test del alumno
             $table->foreign('test_id')->references('id')->on('test');
-
             $table->char('respuesta1');
             $table->char('respuesta2');
             $table->char('respuesta3');

@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Docente\tutorias;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Reporte_Tutorias;
+use Auth;
+//use Illuminate\Support\Facades\DB;
 
 class ReporteTutoriasController extends Controller
 {
     public function index()
     {	
-    	$docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia
+    	$docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia        
         $materia_grupo = $docente_materia->grupos()->where('materia_id',$docente_materia->id)->first(); //R entre materia/grupo
         
         $reportes = auth()->user()->reporte_tutorias;
@@ -21,6 +23,17 @@ class ReporteTutoriasController extends Controller
     public function create()
     {        
         $reporte = auth()->user()->reporte_tutorias;
+        /*$docente = DB::table('docentes')
+                    ->join('puesto_asignados', 'docentes.id' , '=', 'puesto_asignados.docente_id')
+                    ->join('puestos', 'puesto_asignados.puesto_id', '=', 'puestos.id')
+                    ->select('docentes.id')
+                    //->select('docentes.name', 'docentes.apellidoP', 'docentes.apellidoM')
+                    ->where('puestos.puesto','Director')->first();  
+        */
+       /* $director = Docente::find(1);
+        $docente = $director->puestos->where('puesto','Director')->first();
+        dd($docente);
+         */          
     	return view('docente.tutorias.reporte_tutorias.reporte_tutorias_create')->with(compact('reporte'));
     }
 
@@ -70,7 +83,7 @@ class ReporteTutoriasController extends Controller
         $reporte_tutorias->ciclo_escolar = $request->input('ciclo_escolar');
         $reporte_tutorias->fecha = $request->input('fecha');
         $reporte_tutorias->director_name = $request->input('director_name');
-        $reporte_tutorias->tutor_escolar_name = $request->input('tutor_escolar_name');
+        $reporte_tutorias->tutor_escolar_name = Auth::user()->nombre_completo;//$request->input('tutor_escolar_name');
         $reporte_tutorias->orientador_name = $request->input('orientador_name');
         $reporte_tutorias->total_hombres = $request->input('total_hombres');
         $reporte_tutorias->total_mujeres = $request->input('total_mujeres');

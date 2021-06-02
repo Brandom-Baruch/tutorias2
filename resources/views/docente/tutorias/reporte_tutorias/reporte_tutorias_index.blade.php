@@ -7,6 +7,7 @@
 @section('opciones_director')    
 
 @section('opciones_director')
+
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
 Auth::user()->puestos->where('puesto','Tutor')->first())
   @include('includes.links_tutor')

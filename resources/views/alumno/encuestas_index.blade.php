@@ -114,9 +114,7 @@
 											<button  type="submit" class="btn btn-primary btn-sm">Iniciar</button>
 										</form>														
 									@elseif(Auth::user()->test->conociendo_estilo_aprendizaje &&
-										Auth::user()->test->encontrar_estilo_aprendizaje &&
-										Auth::user()->test->conociendo_estilo_aprendizaje && 
-							            Auth::user()->test->encontrar_estilo_aprendizaje && 
+										Auth::user()->test->encontrar_estilo_aprendizaje &&								           
 							            Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
 							            Auth::user()->test->test_habito_estudio->planificacion && 
 							            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)

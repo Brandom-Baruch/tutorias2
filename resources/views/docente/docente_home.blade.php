@@ -9,7 +9,7 @@
   @if(Auth::user()->puestos->where('puesto','Director')->first())
       @include('includes.links_director')
   @endif  
-  @if(Auth::user()->puestos()->where('puesto','Tutor')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
+  @if(Auth::user()->puestos->where('puesto','Tutor')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
     <a class="dropdown-item" href="{{url('docente/tutorias/encuestas')}}">Panel de encuestas <br>Tutorias</a>
   @endif
 
@@ -63,7 +63,7 @@
                 </div>
                 @endif 
                 <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto">
+                    <div class="col-md-12 ml-auto mr-auto">
                         <div class="profile-tabs">
                             <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                                 <li class="nav-item">
@@ -173,7 +173,7 @@
                     </div>
                     <div class="tab-pane text-center gallery" id="materias">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
@@ -196,8 +196,8 @@
                         </div>                      
                     </div>
                     <div class="tab-pane text-center gallery" id="puestos">
-                        <div class="row table-responsive">
-                            <table class="table table-striped ">
+                        <div class="table-responsive">
+                            <table class="table ">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>

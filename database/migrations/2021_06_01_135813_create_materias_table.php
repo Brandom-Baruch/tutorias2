@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlumnosCertificanTable extends Migration
+class CreateMateriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAlumnosCertificanTable extends Migration
      */
     public function up()
     {
-        Schema::create('alumnos_certifican', function (Blueprint $table) {
+        Schema::create('materias', function (Blueprint $table) {
             $table->increments('id');
-            $table->tinyInteger('hombres');
-            $table->tinyInteger('mujeres');
-            $table->integer('reporte_id')->unsigned()->nullable();
-            $table->foreign('reporte_id')->references('id')->on('reporte_tutoria_grupal');
+            $table->string('name',255);
+            $table->string('descripcion',255);
+            $table->string('clave',50);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateAlumnosCertificanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumnos_certifican');
+        Schema::dropIfExists('materias');
     }
 }

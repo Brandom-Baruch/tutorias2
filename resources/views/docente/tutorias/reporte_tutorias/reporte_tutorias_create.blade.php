@@ -5,9 +5,6 @@
 @section('body-class','profile-page sidebar-collapse')
 
 @section('opciones_director')
-@if(Auth::user()->puestos->where('puesto','Director')->first())
-	@include('includes.links_director')
-@endif
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
 Auth::user()->puestos->where('puesto','Tutor')->first())
 	@include('includes.links_tutor')
@@ -49,8 +46,9 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 
 					    <div class="col-md-4">
 					      <label class="text-dark">Nombre del tutor escolar</label>
-					      <input  type="text" class="form-control mb-3" name="tutor_escolar_name"
-					      		  value="{{old('tutor_escolar_name')}}">
+					      <p class="form-control mb-3">{{ Auth::user()->nombre_completo }}</p>
+					      <input  type="hidden"  name="tutor_escolar_name"
+					      		  value="{{ Auth::user()->nombre_completo }}">
 					    </div>
 
 					    <div class="col-md-4">

@@ -111,6 +111,11 @@
                          value="{{old('cp')}}"
                   >
                 </div>
+                <div class="col-md-4">
+                    <span>
+                      Nota: Si no tiene No. Interior/Exterior, coloca un 0
+                    </span>
+                </div>
               </div>              
               <div class="col-md-12 text-center">
                   <button type="submit" class="btn btn-success">Agregar Domicilio</button>

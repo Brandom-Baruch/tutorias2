@@ -119,8 +119,8 @@
               <p class="h5">{{Auth::user()->email}}</p>
             </div>            
             <div class="form-group col-md-4">
-              <h4>Grupo</h4>
-              <p class="h5">{{Auth::user()->grupo->name}}</p>
+              <h4>Grupo</h4>              
+              <p class="h5">{{Auth::user()->grupo_nombre}}</p>            
             </div>
             <div class="form-group col-md-4">
               <h4>Teléfono celular</h4>
@@ -226,7 +226,8 @@
           <a href="{{url('alumno/'.Auth::user()->nia.'/parentesco')}}" class="btn btn-success">Agregar familiar</a>
           @endif 
         </div>
-        <div class="tab-pane text-center gallery" id="materias">            
+        <div class="tab-pane text-center gallery" id="materias"> 
+          @if(Auth::user()->grupo)           
           <h3 class="text-center">
             Materias del grupo <b class="text-primary">{{Auth::user()->grupo->name}}</b> grado <b class="text-primary">{{Auth::user()->grupo->grado}}</b> y grupo <b class="text-primary">{{Auth::user()->grupo->grupo}}</b>            
           </h3>
@@ -243,15 +244,18 @@
               <tbody>
                 @foreach(Auth::user()->grupo->materias as $numero => $materia)
                 <tr>
-                  <td class="">{{($numero+1)}}</td>                                                        
-                  <td class="">{{$materia->name}}</td>
-                  <td class="">{{$materia->clave}}</td>
-                  <td class="text-center">{{$materia->descripcion}}</td>                     
+                  <td>{{($numero+1)}}</td>                                                        
+                  <td>{{$materia->name}}</td>
+                  <td>{{$materia->clave}}</td>
+                  <td class="text-left">{{$materia->descripcion}}</td>                     
                 </tr>               
                 @endforeach
               </tbody>                                
             </table>                
-          </div>                      
+          </div>
+          @else
+            <h3 class="text-danger">Sin grupo asignado</h3>
+          @endif                      
         </div>
       </div>                            
     </div>

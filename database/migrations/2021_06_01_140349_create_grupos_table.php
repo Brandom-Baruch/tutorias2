@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePuestosTable extends Migration
+class CreateGruposTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreatePuestosTable extends Migration
      */
     public function up()
     {
-        Schema::create('puestos', function (Blueprint $table) {
+        Schema::create('grupos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('puesto');
-            $table->string('descripcion');
+            $table->string('name');
+            $table->string('grado',100);
+            $table->char('grupo',2);
+            $table->string('semestre',100);
+            $table->year('year');            
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreatePuestosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('puestos');
+        Schema::dropIfExists('grupos');
     }
 }

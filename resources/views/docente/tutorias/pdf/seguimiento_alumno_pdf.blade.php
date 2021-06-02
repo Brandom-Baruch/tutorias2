@@ -104,7 +104,9 @@
 	<header class="cabeza">
 		<div style="float: left; width: 95%;">
 			<img class="izquierda" src="{{ public_path() . $puebla }}"/>
-			<h2 class="escuela">Colegio de Bachilleres del Estado de Tlaxcala Plantel 11</h2>						
+			<h2 class="escuela">Bachillerato General Profesional Ignacia Islas en San Martín Texmelucan
+				, San Cristobal Tepatlaxco
+			</h2>
 		</div>						
 		<div style="float: right; width: 5%;">
 			<img class="derecha" src="{{ public_path() . $escuela }}"/>
@@ -119,9 +121,8 @@
 						{{ $seguimiento->alumnos[0]->name }} {{ $seguimiento->alumnos[0]->apellidoP}} {{ $seguimiento->alumnos[0]->apellidoM }}
 					</b>
 				</h2>		
-			</div><br><br><br>					
-			<span style="float: right; margin-right: 30px; font-size: 20px;">{{ $seguimiento->fecha }}</span><br><br>				
-
+			</div><br><br><br><br>					
+			<span style="float: right; margin-right: 30px; font-size: 20px;">{{ $seguimiento->fecha }}</span><br><br>
 			<div style="border-style: solid; padding: 5px; width: 100%;">
 				<table style="margin: auto; width: 100%; " cellspacing="10" >
 					<tbody>
@@ -226,8 +227,8 @@
 		</div>
 	</div>
 	<div class="pie">
-		<h3>Dirección: Calle Emiliano Zapata Sur N, Sexto Barrio Emiliano Zapata, 90140 Panotla, Tlax. <br>
-			Teléfono: 246 462 5147
+		<h3>Dirección: San Martín Texmelucan, San Cristobal Tepatlaxco <br>
+		 	Teléfono: 1124085
 		</h3>
 	</div><hr>
 	<div class="container">

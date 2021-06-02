@@ -28,6 +28,11 @@ class Docente extends Authenticatable
     ];
 
 
+
+    public function getNombreCompletoAttribute()
+    {
+        return "$this->name $this->apellidoP $this->apellidoM"; //Mostramos el nombre completo del alumno
+    }
     //Llamar a la notificacion del correo 
 
     public function sendPasswordResetNotification($token)

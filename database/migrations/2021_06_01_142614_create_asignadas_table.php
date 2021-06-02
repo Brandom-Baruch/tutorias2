@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParentezcosTable extends Migration
+class CreateAsignadasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ class CreateParentezcosTable extends Migration
      */
     public function up()
     {
-        Schema::create('parentezcos', function (Blueprint $table) {
+        Schema::create('asignadas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('parentezco');
             //FK
-            $table->integer('alumno_id')->unsigned();
-            $table->foreign('alumno_id')->references('nia')->on('alumnos');
-
+            $table->integer('grupo_id')->unsigned();
+            $table->foreign('grupo_id')->references('id')->on('grupos');
             //FK
-            $table->integer('padre_id')->unsigned();
-            $table->foreign('padre_id')->references('id')->on('padre_familias');
-
+            $table->integer('materia_id')->unsigned();
+            $table->foreign('materia_id')->references('id')->on('materias');        
             $table->timestamps();
         });
     }
@@ -35,6 +32,6 @@ class CreateParentezcosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parentezcos');
+        Schema::dropIfExists('asignadas');
     }
 }

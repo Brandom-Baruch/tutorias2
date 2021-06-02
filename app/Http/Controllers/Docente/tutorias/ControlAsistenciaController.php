@@ -60,7 +60,8 @@ class ControlAsistenciaController extends Controller
         $control_asistencia->indicaciones_posteriores = $request->input('indicaciones_posteriores');
         $control_asistencia->save();
         $mensaje = 'Has registrado una asistencia existosamente';
-        return redirect('/docente/tutorias/asistencia')->with(compact('mensaje'));
+        return back()->with(compact('mensaje'));
+        //return redirect('/docente/tutorias/asistencia')->with(compact('mensaje'));
     }
 
     public function edit($asistencia_id)
@@ -106,7 +107,7 @@ class ControlAsistenciaController extends Controller
         $control_asistencia->solucion = $request->input('solucion');
         $control_asistencia->indicaciones_posteriores = $request->input('indicaciones_posteriores');
         $control_asistencia->save();
-        $mensaje = 'Has actualizado la asistencia de '.$control_asistencia->alumnos[0]->name . $control_asistencia->alumnos[0]->apellidoP . $control_asistencia->alumnos[0]->apellidoM.' existosamente';
+        $mensaje = 'Has actualizado la asistencia de '.$control_asistencia->alumnos[0]->nombre_completo .' existosamente';
         return redirect('/docente/tutorias/asistencia')->with(compact('mensaje'));
     }
 

@@ -22,6 +22,19 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
+				@if (session('mensaje'))
+		         <div class="alert alert-success text-left mt-4">
+		            <div class="container-fluid">
+		              <div class="alert-icon">
+		                <i class="material-icons">check</i>
+		              </div>
+		              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+		              </button>
+		              {{ session('mensaje') }}
+		            </div>
+		          </div>
+		        @endif
 				@if($errors->any())
 			      <div class="alert alert-danger mt-4">
 			        <div class="container-fluid">                     

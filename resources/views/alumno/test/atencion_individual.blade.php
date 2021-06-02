@@ -32,9 +32,14 @@
 					    </select>
 					</div>
 					<div class="col-md-6">
-						<label class="mb-4 text-dark">Grupo</label><br>
-						<span>{{Auth::user()->grupo->name}} {{Auth::user()->grupo->grado}} {{Auth::user()->grupo->grupo}}</span>
-						<input type="hidden" name="grupo" value="{{Auth::user()->grupo->name}} {{Auth::user()->grupo->grado}} {{Auth::user()->grupo->grupo}}">
+						@if(Auth::user()->grupo)
+							<label class="mb-4 text-dark">Grupo</label><br>
+							<span>{{Auth::user()->grupo->name}} {{Auth::user()->grupo->grado}} {{Auth::user()->grupo->grupo}}</span>
+							<input type="hidden" name="grupo" value="{{Auth::user()->grupo->name}} {{Auth::user()->grupo->grado}} {{Auth::user()->grupo->grupo}}">
+						@else
+							<label class="mb-4 text-dark">Grupo</label><br>
+							<span class="text-danger">No tiene un grupo</span>
+						@endif
 					</div>
 				</div>
 				<h4 class="text-center">Por favor marca las situaciones que actualmente se presentan en tu vida cotidiana. Tu honestidad permitirá un mejor trabajo.</h4><br>						

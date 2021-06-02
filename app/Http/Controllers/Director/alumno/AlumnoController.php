@@ -173,9 +173,12 @@ class AlumnoController extends Controller
     public function show(Request $request, $nia)
     {
         $request->user()->autorizarPuestos('Director'); 
-        $alumno = Alumno::find($nia);     
-        $grupo = Grupo::find($alumno->grupo->id);        
-        $materia = $grupo->materias()->get();        
-        return view('director.alumno.alumno_show')->with(compact('alumno','grupo','materia'));                    
+        $alumno = Alumno::find($nia);                 
+        if ($alumno->grupo) {
+            $grupo = Grupo::find($alumno->grupo->id);           
+            $materia = $grupo->materias()->get();   
+            return view('director.alumno.alumno_show')->with(compact('alumno','grupo','materia'));                    
+        }else        
+            return view('director.alumno.alumno_show')->with(compact('alumno'));                    
     }
 }

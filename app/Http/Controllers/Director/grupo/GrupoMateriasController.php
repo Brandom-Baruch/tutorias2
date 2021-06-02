@@ -14,7 +14,7 @@ class GrupoMateriasController extends Controller
     public function show(Request $request, Grupo $grupo)
     {
         $request->user()->autorizarPuestos('Director'); 
-        $materias = $grupo->materias()->paginate(10);
+        $materias = $grupo->materias()->paginate(5);
         $tutorias = $grupo->materias()->where('name','like','%tutorias%')->first();             
         //dd($tutorias->name);
         return view('director.grupo.materia_grupo.grupo_materia_show')->with(compact('grupo', 'materias','tutorias'));

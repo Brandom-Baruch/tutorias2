@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDocumentosPadreTable extends Migration
+class CreatePuestosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateDocumentosPadreTable extends Migration
      */
     public function up()
     {
-        Schema::create('documentos_padre', function (Blueprint $table) {
+        Schema::create('puestos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre_archivo');
-
-            //FK
-            $table->integer('padre_id')->unsigned();
-            $table->foreign('padre_id')->references('id')->on('padre_familias');
-
+            $table->string('puesto',255);
+            $table->string('descripcion',255);
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateDocumentosPadreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documentos_padre');
+        Schema::dropIfExists('puestos');
     }
 }

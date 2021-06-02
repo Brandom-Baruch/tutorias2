@@ -67,11 +67,11 @@
                   @foreach($materias as $key => $materia)
                     <tr>                    
                       <th>{{ ($key+1) }}</th>
-                      <td>{{$materia->name}}</td>
-                      <td>{{$materia->clave}}</td>
-                      <td>{{$materia->descripcion}}</td>
-                      <td>                        
-                        <form class="col-md-12" method="post" action="{{url('director/materia/'.$materia->id.'/delete')}}">
+                      <td style="width: 200px;">{{$materia->name}}</td>
+                      <td style="width: 200px;">{{$materia->clave}}</td>
+                      <td style="width: 700px;">{{$materia->descripcion}}</td>
+                      <td style="width: 200px;">                        
+                        <form method="post" action="{{url('director/materia/'.$materia->id.'/delete')}}">
                           {{csrf_field()}}
 
                           <a href="{{url('director/materia/'.$materia->id.'/docentes')}}" rel="tooltip" 

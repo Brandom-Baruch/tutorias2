@@ -141,37 +141,37 @@
 		<div class="section">			
 			<div class="text-center">   														
 				<h2 style="margin: auto 2px;">
-					Control de asistencias de tutorados
+					Control de asistencias de tutorados del grupo <br> <b class="text-primary">{{ $grupo->nombre_completo }}</b>
 				</h2>		
-			</div><br><br>
+			</div><br>
 			<table class="tabla1">
 				<thead>
 					<tr>						
-						<th>Fecha</th>
+						<th style="width: 80px;">Fecha</th>
 						<th>Alumno</th>
 						<th>Grado y Grupo</th>
-						<th>Atención Oportuna</th>
-						<th>Atención Seguimiento</th>
+						<th>Atención <br> Oportuna</th>
+						<th>Atención <br> Seguimiento</th>
 						<th>Caso o Situación Atendida</th>
 						<th>Solución</th>
-						<th>Indicaciones Posteriores</th>
+						<th>Indicaciones <br> Posteriores</th>
 					</tr>
 				</thead>
 				<tbody>
 					@foreach($control as $numero => $control)
-					<tr>							
-						<td>{{ $control->fecha }}</td>
-						<td>{{ $control->alumnos[0]->name }}<br>
-							{{ $control->alumnos[0]->apellidoP }}<br>
-							{{ $control->alumnos[0]->apellidoM }}
-						</td>
-						<td>{{ $control->alumnos[0]->grupo->grado }} {{ $control->alumnos[0]->grupo->grupo }}</td>
-						<td>{{ $control->atencion_oportuna }}</td>
-						<td>{{ $control->atencion_seguimiento }}</td>
-						<td>{{ $control->caso_situacion_atendida }}</td>
-						<td>{{ $control->solucion }}</td>
-						<td>{{ $control->indicaciones_posteriores }}</td>						
-					</tr>
+					@foreach($control->alumnos as $alumno)
+						<tr>							
+							<td>{{ $control->fecha }}</td>
+							<td>{{ $alumno->nombre_completo }}							
+							</td>
+							<td>{{ $alumno->grupo->grado}} {{ $alumno->grupo->grupo}}</td>
+							<td>{{ $control->atencion_oportuna }}</td>
+							<td>{{ $control->atencion_seguimiento }}</td>
+							<td>{{ $control->caso_situacion_atendida }}</td>
+							<td>{{ $control->solucion }}</td>
+							<td>{{ $control->indicaciones_posteriores }}</td>						
+						</tr>
+					@endforeach
 					@endforeach
 				</tbody>
 			</table>							

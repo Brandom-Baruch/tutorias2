@@ -9,6 +9,7 @@ use App\Docente;
 use App\Alumno;
 use App\Padre_familia;
 use App\MarcaX;
+use Auth;
 
 class DocenteController extends Controller
 {   
@@ -19,6 +20,8 @@ class DocenteController extends Controller
 
     public function index()
     {       	       
+        //$puestos = Auth::user()->puestos;
+        //dd($puestos);
     	return view('docente.docente_home');
     }
 

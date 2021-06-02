@@ -15,14 +15,14 @@ class CreateDomiciliosTable extends Migration
     {
         Schema::create('domicilios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('estado');
-            $table->string('municipio');
-            $table->string('localidad');
-            $table->string('calle');
+            $table->string('estado',50);
+            $table->string('municipio',100);//Santa Ana Nopalucan
+            $table->string('localidad',100);
+            $table->string('calle',100);
             $table->char('cp', 6);
-            $table->string('colonia');
-            $table->char('no_interior',2);
-            $table->char('no_exterior',2);
+            $table->string('colonia',30);
+            $table->char('no_interior',3);
+            $table->char('no_exterior',3);
             $table->timestamps();
         });
     }

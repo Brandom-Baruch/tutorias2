@@ -18,7 +18,7 @@
       <div class="col-md-12 text-center">
         @if(Auth::user()->alumnos->count() == 0)          
           <h4 class="text-danger">No tiene ningun alumno asignado</h4>
-          <a href="{{url('padre_familia/'.Auth::user()->id.'/parentezco')}}" class="btn btn-success"
+          <a href="{{url('padre_familia/'.Auth::user()->id.'/parentesco')}}" class="btn btn-success"
             target="_blank">
             Agregar familiar
           </a>     

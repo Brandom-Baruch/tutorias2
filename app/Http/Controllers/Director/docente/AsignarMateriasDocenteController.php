@@ -21,15 +21,6 @@ class AsignarMateriasDocenteController extends Controller
 
     public function store(Request $request , $id)
     {   
-        /*$rules = [
-            'materia_id' => 'unique:imparte'
-        ];
-
-        $message = [
-            'materia_id.unique' => 'Esta materia ya se agrego',
-        ]; */
-
-        //$this->validate($request, $rules, $message);
 
         $docente = Docente::find($id);
         $imparte = new Imparte;                        

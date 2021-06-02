@@ -5,9 +5,6 @@
 @section('body-class','profile-page sidebar-collapse')
 
 @section('opciones_director')
-@if(Auth::user()->puestos->where('puesto','Director')->first())
-	@include('includes.links_director')
-@endif
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
 Auth::user()->puestos->where('puesto','Tutor')->first())
 	@include('includes.links_tutor')
@@ -24,45 +21,31 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 			<div class="col-12">
 				<div class="col-md-12 mt-5">
 					@if (session('mensaje'))
-				       	<div class="alert alert-success text-left">
-				          <div class="container-fluid">
-				            <div class="alert-icon">
-				              <i class="material-icons">check</i>
-				            </div>
-				            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				              <span aria-hidden="true"><i class="material-icons">clear</i></span>
-				            </button>
-				            {{ session('mensaje') }}
-				          </div>
-				        </div>
-		      		@endif
-		      		@if (session('eliminado'))
-				       	<div class="alert alert-danger text-left">
-				          <div class="container-fluid">
-				            <div class="alert-icon">
-				              <i class="material-icons">check</i>
-				            </div>
-				            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				              <span aria-hidden="true"><i class="material-icons">clear</i></span>
-				            </button>
-				            {{ session('eliminado') }}
-				          </div>
-				        </div>
-		      		@endif
-			      	@if($errors->any())
-						<div class="alert alert-danger">
-							<div class="container-fluid">                     
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true"><i class="material-icons">clear</i></span>
-								</button>
-								<ul>    
-									@foreach($errors->all() as $error)                        
-									<li>{{$error}}</li>
-									@endforeach
-								</ul>
-							</div>
-						</div>
-					@endif		
+		       	<div class="alert alert-success text-left">
+		          <div class="container-fluid">
+		            <div class="alert-icon">
+		              <i class="material-icons">check</i>
+		            </div>
+		            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+		            </button>
+		            {{ session('mensaje') }}
+		          </div>
+		        </div>
+      		@endif
+      		@if (session('eliminado'))
+		       	<div class="alert alert-danger text-left">
+		          <div class="container-fluid">
+		            <div class="alert-icon">
+		              <i class="material-icons">check</i>
+		            </div>
+		            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+		            </button>
+		            {{ session('eliminado') }}
+		          </div>
+		        </div>
+      		@endif	      		
 				</div>	
 				<h2 class="title text-center" style="color: black;">
 					Registrar  alumnos reprobados para la materia <br><b class="text-primary">{{$alumno_bajo_rendimiento->materia_name}}</b>
@@ -75,19 +58,29 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 					      <label class="text-dark">Nombre del Alumno</label>
 					      <select class="form-control" name="alumno_name">
 					      	@foreach($alumnos as $alumno)
-					        	<option value="{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}">
-					        		{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}
+					        	<option value="{{$alumno->nombre_completo}}">
+					        		{{$alumno->nombre_completo}}
 					        	</option>
 					        @endforeach        
 					      </select>
 					    </div>
 					    <div class="col-md-6 mt-2">
 						    <label class="text-dark">Motivo de la reprobación</label>
-						    <textarea class="form-control" rows="3" name="motivo"></textarea>
-						</div>
+						    <textarea class="form-control" rows="3" name="motivo">{{ old('motivo') }}</textarea>
+						    @if($errors->has('motivo'))
+						    	<span class="text-danger">
+						    		<strong>{{ $errors->first('motivo') }}</strong>
+						    	</span>
+						    @endif
+							</div>
 						<div class="col-md-6 mt-2">
 						    <label class="text-dark">Estrategia especifica</label>
-						    <textarea class="form-control" rows="3" name="estrategia_especifica"></textarea>
+						    <textarea class="form-control" rows="3" name="estrategia_especifica">{{ old('estrategia_especifica') }}</textarea>
+						    @if($errors->has('estrategia_especifica'))
+						    	<span class="text-danger">
+						    		<strong>{{ $errors->first('estrategia_especifica') }}</strong>
+						    	</span>
+						    @endif
 						</div>
 					</div>				
 					<div class="text-center ">

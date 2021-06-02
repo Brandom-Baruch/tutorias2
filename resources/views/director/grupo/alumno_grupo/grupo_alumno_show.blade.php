@@ -11,7 +11,6 @@
 
 @endsection
 
-
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
@@ -26,7 +25,7 @@
         </div>
       </div>
       <div class="description text-center">
-        <h3 class="title">Alumnos que pertenecen al grupo <b class="text-primary">{{$grupo->name}}</b></h3>                           
+        <h3 class="title">Alumnos que pertenecen al grupo <b class="text-primary">{{$grupo->name}}</b></h3>                          
       </div>                            
       <div class="text-center gallery">                                  
           <a href="{{url('/director/grupo/'.$grupo->id.'/materias/show')}}" class="btn btn-primary">Materias del grupo</a>
@@ -40,11 +39,8 @@
     	              <div class="col-md-6 ml-auto mr-auto">
     	                <img src="{{asset('img/alumno.png')}}"  class="img-raised rounded-circle img-fluid">
     	              </div>
-    	               <h4 class="card-title">
-                      <a href="{{url('director/alumno/'.$alumno->nia.'/show')}}">
-                        {{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}
-                      </a>
-                      <br>
+  	                <h4 class="card-title">
+                      <small class="h5">{{ $alumno->nombre_completo }}</small> <br>                      
                       <small class="card-description text-dark">Nia: {{$alumno->nia}}</small>
                       <br>
                       <small class="card-description text-dark ">Grupo: {{$grupo->name}}</small>   
@@ -52,7 +48,14 @@
     	              <div class="card-footer justify-content-center">	                	                	
     	              	<div>
             		        <form method="post" action="{{url('/director/grupo/'.$grupo->id.'/alumno/'.$alumno->nia.'/delete')}}">
-                            {{csrf_field()}}                                                 
+                            {{csrf_field()}} 
+
+                          <a  href="{{url('director/alumno/'.$alumno->nia.'/show')}}" rel="tooltip" title=" Ver alumno" 
+                            class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
+                            <span class="material-icons">
+                              remove_red_eye
+                            </span>
+                          </a>                                                
                           <a href="{{url('/director/alumno/'.$alumno->nia.'/edit')}}" rel="tooltip" title="Editar Grupo" 
                           class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm">
                               <i class="fa fa-edit"></i>

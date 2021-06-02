@@ -15,7 +15,7 @@ class CreateDatosAdicionalesTable extends Migration
     {
         Schema::create('datos_adicionales', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entrevista_id')->unsigned();
+            $table->integer('entrevista_id')->unsigned(); //alumnos
             $table->foreign('entrevista_id')->references('id')->on('entrevista_fresca_alumnos');
             $table->string('respuesta1');
             $table->string('r1')->nullable();
@@ -40,7 +40,7 @@ class CreateDatosAdicionalesTable extends Migration
             $table->string('r14')->nullable();
             $table->string('respuesta15');
             $table->string('r15')->nullable();
-            $table->string('respuesta16')->nullable();
+            $table->string('respuesta16');
             $table->string('r16')->nullable();
             $table->string('respuesta17');
             $table->string('r17')->nullable();

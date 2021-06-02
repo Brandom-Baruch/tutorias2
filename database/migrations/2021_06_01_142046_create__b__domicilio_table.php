@@ -27,7 +27,6 @@ class CreateBDomicilioTable extends Migration
             //FK Domilicio
             $table->integer('domicilio_id')->unsigned();
             $table->foreign('domicilio_id')->references('id')->on('domicilios');
-
             $table->timestamps();
         });
     }

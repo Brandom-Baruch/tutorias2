@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGruposTable extends Migration
+class CreateDocumentosPadreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateGruposTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupos', function (Blueprint $table) {
+        Schema::create('documentos_padre', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('grado');
-            $table->char('grupo');
-            $table->string('semestre');
-            $table->year('year');            
+            $table->string('nombre_archivo');
+            //FK
+            $table->integer('padre_id')->unsigned();
+            $table->foreign('padre_id')->references('id')->on('padre_familias');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateGruposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupos');
+        Schema::dropIfExists('documentos_padre');
     }
 }

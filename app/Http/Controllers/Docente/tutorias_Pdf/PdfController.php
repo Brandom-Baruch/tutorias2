@@ -21,7 +21,7 @@ class PdfController extends Controller
 
 	public function __construct()
 	{
-		ini_set('max_execution_time',300);
+		ini_set('max_execution_time',300); //Al generar un pdf, tiene un limite de 300 seg en generar
 	}
 
 
@@ -74,8 +74,10 @@ class PdfController extends Controller
 
 	public function control_asistencias_pdf()
 	{
-		$control = Control_Asistencia::where('tutor_id',auth()->user()->id)->get();
-		$pdf = \PDF::loadView('docente.tutorias.pdf.control_asistencias_pdf',compact('control'))->setPaper('letter','landscape');
+		$control = Control_Asistencia::where('tutor_id',auth()->user()->id)->get();	
+		$docente_materia = auth()->user()->materias()->where('name','like','%Tutorias%')->first(); //Relacion entre docente/materia
+        $grupo = $docente_materia->grupos()->where('materia_id',$docente_materia->id)->first(); //R entre materia/grupo
+		$pdf = \PDF::loadView('docente.tutorias.pdf.control_asistencias_pdf',compact('control','grupo'))->setPaper('letter','landscape');
      	return $pdf->stream('Control_Asistencias.pdf');
 	}
 

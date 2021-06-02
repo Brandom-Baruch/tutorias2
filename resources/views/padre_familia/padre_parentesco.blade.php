@@ -16,7 +16,7 @@
 		<div class="container">		
 			<div class="description">           
 				<div class="p-2">
-					<h3 class="title text-center">Asignar familiar para el  <b class="text-primary">{{Auth::user()->name}}</b></h3>
+					<h3 class="title text-center">Asignar familiar para el padre <b class="text-primary">{{Auth::user()->name}}</b></h3>
 				</div>    
 				<form method="post" action="{{url('padre_familia/'.Auth::user()->id.'/parentesco')}}">
 					{{ csrf_field() }}

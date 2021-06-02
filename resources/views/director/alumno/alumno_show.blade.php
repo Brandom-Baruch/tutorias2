@@ -112,7 +112,7 @@
               </div>
               <div class="form-group col-md-4">
                 <h4>Grupo</h4>
-                <p class="h5">{{$alumno->grupo->name}}</p>
+                <p class="h5">{{$alumno->grupo_nombre}}</p>
               </div>
               <div class="form-group col-md-4">
                 <h4>Telefono celular</h4>
@@ -222,35 +222,36 @@
             <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>
           </div>
           <div class="tab-pane text-center gallery" id="materias">
-            @if($materia->isEmpty())
-            <h3 class="text-danger">No tiene materias el grupo</h3>
+            @if($alumno->grupo)
+              <h3>Materias del grupo <b class="text-primary">{{$grupo->name}}</b></h3>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center">#</th>
+                      <th class="text-center">Nombre</th>                                                                          
+                      <th class="text-center">Clave</th>
+                      <th class="text-center">Descripción</th>                                                                               
+                    </tr>
+                  </thead>                                
+                  <tbody>
+                    @foreach($materia as $materia)
+                    <tr>
+                      <td class="">{{$materia->id}}</td>                                                        
+                      <td class="">{{$materia->name}}</td>
+                      <td class="">{{$materia->clave}}</td>
+                      <td class="text-left">{{$materia->descripcion}}</td>                     
+                    </tr>               
+                    @endforeach
+                  </tbody>                                
+                </table>                
+              </div>
+              <a href="{{url('director/grupo/'.$grupo->id.'/alumnos/show')}}" class="btn btn-success">Ver Grupo</a>
+              <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a> 
             @else
-            <h3>Materias del grupo <b class="text-primary">{{$grupo->name}}</b></h3>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="text-center">#</th>
-                    <th class="text-center">Nombre</th>                                                                          
-                    <th class="text-center">Clave</th>
-                    <th class="text-center">Descripción</th>                                                                               
-                  </tr>
-                </thead>                                
-                <tbody>
-                  @foreach($materia as $materia)
-                  <tr>
-                    <td class="">{{$materia->id}}</td>                                                        
-                    <td class="">{{$materia->name}}</td>
-                    <td class="">{{$materia->clave}}</td>
-                    <td class="text-left">{{$materia->descripcion}}</td>                     
-                  </tr>               
-                  @endforeach
-                </tbody>                                
-              </table>                
-            </div>               
-            @endif            
-            <a href="{{url('director/grupo/'.$grupo->id.'/materias/show')}}" class="btn btn-success">Ver Grupo</a>
-            <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>
+              <h3 class="text-danger">No tiene materias el grupo</h3>
+              <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Regresar</a>                          
+            @endif                        
           </div>         
         </div>              
       </div>

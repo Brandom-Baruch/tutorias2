@@ -15,19 +15,19 @@ class CreateHabitosEstudiosTable extends Migration
     {
         Schema::create('habitos_estudios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entrevista_id')->unsigned();
+            $table->integer('entrevista_id')->unsigned(); //alumno
             $table->foreign('entrevista_id')->references('id')->on('entrevista_fresca_alumnos');
             $table->string('respuesta1');           
             $table->string('respuesta2');
             $table->string('respuesta3');            
             $table->string('respuesta4');
-            $table->string('respuesta5')->nullable();
+            $table->string('respuesta5');
             $table->string('r5')->nullable();
-            $table->string('respuesta6')->nullable();
+            $table->string('respuesta6');
             $table->string('r6')->nullable();
             $table->string('respuesta7'); 
             $table->string('r7')->nullable();
-            $table->string('respuesta8')->nullable();
+            $table->string('respuesta8');
             $table->string('r8')->nullable();            
             $table->string('r9_1');
             $table->string('r9_2');

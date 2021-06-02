@@ -8,7 +8,7 @@ class PuestoAsignado extends Model
 { 
 	protected $table = 'puesto_asignados';
 
-	public function docente()
+	/*public function docente()
 	{
 		return $this->belongsTo(Docente::class,'id','docente_id');
 	}
@@ -16,5 +16,5 @@ class PuestoAsignado extends Model
 	public function puesto()
 	{
 		return $this->belongsTo(Docente::class,'id','puesto_id');
-	}
+	}*/
 }

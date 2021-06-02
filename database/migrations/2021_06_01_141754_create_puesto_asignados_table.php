@@ -21,12 +21,6 @@ class CreatePuestoAsignadosTable extends Migration
             //FK
             $table->integer('puesto_id')->unsigned();
             $table->foreign('puesto_id')->references('id')->on('puestos');
-
-            //FK
-         /*   $table->integer('puesto_asignado_id')->unsigned();
-            $table->foreign('puesto_asignado_id')->references('id')->on('puesto_asignados');*/
-
-            
             $table->timestamps();
         });
     }

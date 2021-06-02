@@ -15,14 +15,14 @@ class CreateDocentesTable extends Migration
     {
         Schema::create('docentes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('apellidoP');
-            $table->string('apellidoM');
-            $table->tinyInteger('edad');
-            $table->string('email')->unique(); //El correo sera unico para cada usuario
-            $table->string('password');            
-            $table->string('telefono_fijo');
-            $table->string('telefono_cel');            
+            $table->string('name')->length(50);
+            $table->string('apellidoP')->length(20);
+            $table->string('apellidoM')->length(20);
+            $table->tinyInteger('edad')->length(3);
+            $table->string('email')->unique()->length(50); //El correo sera unico para cada usuario
+            $table->string('password')->length(60);
+            $table->string('telefono_fijo')->length(20);
+            $table->string('telefono_cel')->length(20);            
             $table->rememberToken();
             $table->timestamps();
         });

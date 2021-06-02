@@ -10,6 +10,12 @@ class Grupo extends Model
 	protected $table = 'grupos';
     //Relacion entre alumno y grupo
     //Un grupo puede tener varios alumnos
+
+	public function getNombreCompletoAttribute()
+	{
+		return "$this->name $this->grado $this->grupo $this->semestre";
+	}
+
 	public function alumnos()
 	{	
 		return $this->hasMany(Alumno::class);

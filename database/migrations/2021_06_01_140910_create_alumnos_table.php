@@ -14,16 +14,16 @@ class CreateAlumnosTable extends Migration
     public function up()
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->integer('nia'); //El nia sera unico
-            $table->string('name');
-            $table->tinyInteger('edad');
-            $table->string('apellidoP'); //ApellidoP
-            $table->string('apellidoM'); //ApellidoM
+            $table->integer('nia')->primary(); //El nia sera unico
+            $table->string('name')->length(50);
+            $table->tinyInteger('edad')->length(3);
+            $table->string('apellidoP')->length(20); //ApellidoP
+            $table->string('apellidoM')->length(20); //ApellidoM
             $table->date('fechaN'); //Fecha Nacimiento
-            $table->string('genero');//genero
-            $table->string('phone');
-            $table->string('email',100)->unique();
-            $table->string('password');
+            $table->char('genero')->length(2);//genero
+            $table->string('phone')->length(20);
+            $table->string('email')->unique()->length(50);
+            $table->string('password')->length(60);
             //FK Relacion entre el grupo
             $table->integer('grupo_id')->unsigned();
             $table->foreign('grupo_id')->references('id')->on('grupos'); 

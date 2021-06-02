@@ -23,7 +23,6 @@ class CreateTipoMentalidadTable extends Migration
             $table->string('respuesta4');
             $table->tinyInteger('respuesta5');
             $table->tinyInteger('r5');
-
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class MateriasTableSeeder extends Seeder
      */
     public function run()
     {
-        $materias = factory(App\Materia::class, 24)->create();
+        $materias = factory(App\Materia::class, 20)->create();
 
        
     }

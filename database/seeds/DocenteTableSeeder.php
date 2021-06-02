@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\PuestoAsignado;
 use App\Puesto;
 use App\Docente;
+use App\Alumno;
 
 
 class DocenteTableSeeder extends Seeder
@@ -17,17 +18,19 @@ class DocenteTableSeeder extends Seeder
     {
         
 
-         Docente::create([            
-            'name' => 'Director',
-            'apellidoP' => ' ',
-            'apellidoM' => ' ',
+         Docente::create([                        
+            'name' => 'Admin',
+            'apellidoP' => 'admin',
+            'apellidoM' => 'admin',
             'edad' => 22,
-            'email' => 'director@live.com',
+            'email' => 'admin@live.com',
             'password' => bcrypt('123123'),            
-            'telefono_fijo' => '248-177-0762' ,
-            'telefono_cel' => '248-177-0762' ,            
+            'telefono_fijo' => ' ' ,
+            'telefono_cel' => ' ' ,            
             'remember_token' => str_random(100),
         ]);  
+
+        
 
         Puesto::create([            
             'puesto' => 'Director',

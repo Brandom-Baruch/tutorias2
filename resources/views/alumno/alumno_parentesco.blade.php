@@ -12,7 +12,7 @@
     <div class="container">
       <div class="row">
         <div class="description text-center">
-          <h3 class="title">Asignar familiar para el  <b class="text-primary">{{Auth::user()->name}}</b></h3> 
+          <h3 class="title">Asignar familiar para el alumno  <b class="text-primary">{{Auth::user()->name}}</b></h3> 
         </div>
       </div>
       <div class="description ">                      

@@ -40,8 +40,8 @@
                 @endforeach
               </select>
             </div>
-          <button class="btn btn-primary">Agregar docente</button>
-          <a href="{{url('director/materias/index')}}" class="btn btn-danger">Regresar al panel de control</a>
+          <button class="btn btn-success">Agregar docente</button>
+          <a href="{{url('director/materias/index')}}" class="btn btn-danger">Regresar</a>
         </form>        
       </div>    
       <div class="tab-content tab-space">

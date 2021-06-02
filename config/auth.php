@@ -36,7 +36,7 @@ return [
     */
 
     'guards' => [
-        /*'web' => [
+        'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -44,7 +44,7 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-        ],*/
+        ],
         'alumno' => [
             'driver' => 'session',
             'provider' => 'alumnos',
@@ -77,10 +77,10 @@ return [
     */
 
     'providers' => [
-        /*'users' => [
+        'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
-        ],*/       
+        ],       
         'alumnos' => [
             'driver' => 'eloquent',
             'model' => App\Alumno::class,
@@ -116,11 +116,11 @@ return [
     */
 
     'passwords' => [
-        /*'users' => [
+        'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
-        ],*/      
+        ],      
         'alumnos' => [
             'provider' => 'alumnos',
             'table' => 'password_resets',
