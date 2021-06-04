@@ -15,8 +15,8 @@ class DocumentosPadreController extends Controller
     {
     	//guardar el archivo 
     	$file = $request->file('archivo'); // obtiene el archivo que se esta subiendo 
-    	$url = public_path(). '/archivos/padre_familia'; //creamos una carpeta dentro de la carpeta app
-    	$fileName =  $file->getClientOriginalName(); //concatenamos el nombre con una serie de numeros y letras
+    	$url = app_path(). '/documentos/padre_familia'; //creamos una carpeta dentro de la carpeta app
+    	$fileName =  uniqid() . $file->getClientOriginalName(); //concatenamos el nombre con una serie de numeros y letras
     	$moved=$file->move($url , $fileName); //Se concatena entre el nombre del archivo y el nombre del padre de familia
 
         if($moved) // Si hay un archivo en la variable moved
@@ -33,7 +33,7 @@ class DocumentosPadreController extends Controller
     public function destroy(Request $request, $id)
     {
     	$documentoPadre = DocumentoPadre::find($id);
-    	$url = public_path(). '/archivos/padre_familia/'.$documentoPadre->nombre_archivo;	
+    	$url = app_path(). '/documentos/padre_familia/'.$documentoPadre->nombre_archivo;	
     		
     	$deleted = File::delete($url);
 
@@ -49,7 +49,7 @@ class DocumentosPadreController extends Controller
     public function verDocumento($id)
     {
         $archivo = DocumentoPadre::find($id); //Encontramos el documento
-        $url = public_path().'/archivos/padre_familia/'.$archivo->nombre_archivo; //buscamos el documento en la carpeta app
+        $url = app_path().'/documentos/padre_familia/'.$archivo->nombre_archivo; //buscamos el documento en la carpeta app
         if ($url) { //Si encontramos el documento
             return response()->file($url); //mostramos el documentos
         }

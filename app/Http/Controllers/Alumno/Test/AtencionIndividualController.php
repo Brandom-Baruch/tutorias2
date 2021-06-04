@@ -8,13 +8,13 @@ use App\Materia;
 use App\Grupo;
 use Carbon\Carbon;
 use App\Atencion_Individualizada;
-
+use Auth;
 
 class AtencionIndividualController extends Controller
 {
     public function create()
     {	    	    	    	
-    	$materias = Materia::where('name','like','%Tutorias%')->get();    	
+    	$materias = Materia::where('name','like','%Tutorias%')->get();                
     	return view('alumno.test.atencion_individual')->with(compact('materias'));
     }
 

@@ -124,7 +124,7 @@
 		}
 	</style>
 	<?php $puebla = '/img/logo_puebla.png'; ?>	
-	<?php $escuela = '/img/alumno.png'; ?>	
+	<?php $escuela = '/img/logo_bachiller.jpeg'; ?>	
 </head>
 <body>
 	<header class="cabeza">
@@ -135,7 +135,7 @@
 			</h2>						
 		</div>						
 		<div style="float: right; width: 5%;">
-			<img class="derecha" src="{{ public_path() . $escuela }}"/>
+			<img class="derecha" src="{{ public_path() . $escuela }}"/ style="height: 80px;">
 		</div>
 	</header>		
 	<div class="container">
@@ -289,9 +289,9 @@
 		</div>
 	</div>
 	<div class="pie">
-		<h3>Dirección: San Martín Texmelucan, San Cristobal Tepatlaxco <br>
+		<h3>Francisco Villa No. 1 Colonia el Barrio en San Cristobal Tepatlaxco, C.P. 74120<br>
 		 	Teléfono: 1124085
-		 </h3>	
+		</h3>	
 	</div>
 </body>
 </html>

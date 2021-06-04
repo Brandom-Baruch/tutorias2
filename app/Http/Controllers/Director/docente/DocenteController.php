@@ -53,8 +53,8 @@ class DocenteController extends Controller
     		'password.required' => 'Debes de colocar una contraseña',
     		'password.min' => 'La contraseña debe tener por lo menos 6 digitos',
     		'password.confirmed' => 'La contraseña no coinciden',
-    		'telefono_fijo.required' => 'Debes de colocar un telefono fijo',
-    		'telefono_cel.required' => 'Debes de colocar un telefono celular',
+    		'telefono_fijo.required' => 'Debes de colocar un teléfono fijo',
+    		'telefono_cel.required' => 'Debes de colocar un teléfono celular',
     	];
     	
     	$this->validate($request,$rules,$messages); //Ejecutamos las reglas de validacion
@@ -112,8 +112,8 @@ class DocenteController extends Controller
             //'password.required' => 'Debes de colocar una contraseña',
             //'password.min' => 'La contraseña debe tener por lo menos 6 digitos',
             'password.confirmed' => 'La contraseña no coinciden',
-            'telefono_fijo.required' => 'Debes de colocar un telefono fijo',
-            'telefono_cel.required' => 'Debes de colocar un telefono celular',
+            'telefono_fijo.required' => 'Debes de colocar un teléfono fijo',
+            'telefono_cel.required' => 'Debes de colocar un teléfono celular',
         ];
 
         $this->validate($request,$rules,$messages);

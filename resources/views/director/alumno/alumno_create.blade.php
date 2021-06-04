@@ -121,23 +121,7 @@
               </span>
             @endif
           </div>
-
-          <div class="col-sm-4">
-            <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
-              <label class="text-dark">Teléfono</label>
-              <input type="tel" class="form-control"
-                     placeholder="Escribe un teléfono celular/fijo" 
-                     value="{{ old('phone') }}"
-                     name="phone"
-              >
-            </div>
-
-            @if ($errors->has('phone'))
-              <span class="help-block text-center text-danger">
-                <strong>{{ $errors->first('phone') }}</strong>
-              </span>
-            @endif
-          </div>                  
+                  
 
           <div class="col-sm-4">
             <div class="form-group{{ $errors->has('grupo_id') ? ' has-error' : '' }}">          
@@ -186,9 +170,28 @@
             @if ($errors->has('fechaN'))
               <span class="help-block text-center text-danger">
                 <strong>{{ $errors->first('fechaN') }}</strong>
-              </span>
+              </span><br>
             @endif
           </div>
+
+          <div class="col-sm-4">
+            <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
+              <label class="text-dark">Teléfono</label>
+              <input type="tel" class="form-control"
+                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"                                   
+                     placeholder="Escribe un teléfono celular/fijo"                      
+                     value="{{ old('phone') }}"
+                     name="phone"
+              >
+            </div>
+
+            @if ($errors->has('phone'))
+              <span class="help-block text-center text-danger">
+                <strong>{{ $errors->first('phone') }}</strong>
+              </span><br>
+            @endif
+            <small>Formato para teléfono celular/fijo : <b class="text-danger">123-123-1234</b></small>
+          </div>        
 
           <div class="col-sm-4">
             <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
@@ -214,7 +217,7 @@
                      placeholder="Confirmar contraseña" 
                      name="password_confirmation"
                      value="secret">
-              <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>
+              <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>           
             </div>                          
           </div>
         </div>                                                                                        

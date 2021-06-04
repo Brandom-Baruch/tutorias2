@@ -29,7 +29,7 @@
                           <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                             <label class="text-dark" class="text-dark">Nombre(s)</label>
                             <input type="text" class="form-control"                        
-                                   placeholder="Ejemplo: Brandom Baruch" 
+                                   placeholder="Coloca el nombre" 
                                    value="{{ old('name') }}" name="name">
                           </div>
                           @if ($errors->has('name'))
@@ -43,7 +43,7 @@
                           <div class="form-group {{ $errors->has('apellidoP') ? ' has-error' : '' }}">
                             <label class="text-dark">Apellido Paterno</label>
                             <input type="text" class="form-control" 
-                                   placeholder="Ejemplo: González" 
+                                   placeholder="Coloca el apellido paterno" 
                                    value="{{ old('apellidoP') }}" 
                                    name="apellidoP">                     
                           </div>
@@ -58,7 +58,7 @@
                           <div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
                             <label class="text-dark">Apellido Materno</label>
                             <input type="text" class="form-control" 
-                                   placeholder="Ejemplo: Cervantes" 
+                                   placeholder="Coloca el apellido materno" 
                                    value="{{ old('apellidoM') }}"
                                    name="apellidoM">
                           </div>
@@ -86,9 +86,10 @@
              
                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
-                            <label class="text-dark">Telefono fijo</label>
-                            <input type="tel" class="form-control" 
-                                   placeholder="Ejemplo: 123-123-1234" 
+                            <label class="text-dark">Teléfono fijo</label>
+                            <input type="tel" class="form-control"
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                                   placeholder="Formato: 123-123-1234" 
                                    value="{{ old('telefono_fijo') }}"
                                    name="telefono_fijo">
                           </div>
@@ -101,9 +102,10 @@
 
                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
-                            <label class="text-dark">Telefono celular</label>
+                            <label class="text-dark">Teléfono celular</label>
                             <input type="tel" class="form-control" 
-                                   placeholder="Ejemplo: 123-123-1234" 
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   placeholder="Formato: 123-123-1234" 
                                    value="{{ old('telefono_cel') }}"
                                    name="telefono_cel">
                           </div>
@@ -118,7 +120,7 @@
                           <div class="form-group {{ $errors->has('curp') ? ' has-error' : '' }}">
                             <label class="text-dark">Curp</label>
                             <input type="text" class="form-control"
-                                   placeholder="GOCB980828HTLNRR07" 
+                                   placeholder="Coloca la curp" 
                                    value="{{ old('curp') }}" 
                                    name="curp" style="text-transform: uppercase;">
                           </div>
@@ -197,7 +199,7 @@
 	                      <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
 	                        <label class="text-dark">Correo electronico</label>
 	                        <input type="email" class="form-control" 
-	                               placeholder="Ejemplo:baruchoo94@outlook.com" 
+	                               placeholder="Coloca el correo electrónico" 
                                  value="{{ old('email') }}"
 	                               name="email">
 	                      </div>
@@ -232,6 +234,11 @@
                                    value="secret">
                               <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>
                           </div>                          
+                    </div>
+
+                    <div class="col-sm-4">
+                        <p>Formato para teléfono fijo y celular : <b class="text-danger">123-123-1234</b></p>
+                        <p>Si solamente tiene un numero telefónico, colócalo en las dos opciones</p>
                     </div>
 
                 </div>                                                                                        

@@ -84,7 +84,8 @@
                         <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
                           <label class="text-dark">Teléfono fijo</label>
                           <input type="tel" class="form-control" 
-                                 placeholder="Escribe un número de teléfono fijo" 
+                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                 placeholder="Formato: 123-123-1234" 
                                  value="{{ old('telefono_fijo' , Auth::user()->telefono_fijo) }}"
                                  name="telefono_fijo">
                         </div>
@@ -99,7 +100,8 @@
                         <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
                           <label class="text-dark">Teléfono celular</label>
                           <input type="tel" class="form-control" 
-                                 placeholder="Escribe un número de teléfono celular" 
+                                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                 placeholder="Formato: 123-123-1234" 
                                  value="{{ old('telefono_cel', Auth::user()->telefono_cel) }}"
                                  name="telefono_cel">
                         </div>
@@ -226,7 +228,7 @@
                         @endif
                   </div>
 
-                  <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
                           <label class="text-dark">Confirmar contraseña</label>
                           <input type="password" class="form-control" 
@@ -234,13 +236,17 @@
                                  name="password_confirmation"
                           >                          
                         </div>                          
-                  </div>
-                  <div class="col-sm-4">
-                      <small  class="form-text  text-dark">
-                        Si no quiere cambiar la contraseña, deje vacio los campos 
-                        <b class="text-danger">Contraseña y Confirmar contraseña</b>.
-                      </small>
-                  </div>                  
+                    </div>
+                    <div class="col-sm-4">
+                        <small  class="form-text  text-dark">
+                            Si no quiere cambiar la contraseña, deje vacio los campos 
+                            <b class="text-danger">Contraseña y Confirmar contraseña</b>.
+                        </small>
+                    </div>
+                    <div class="col-sm-4">
+                        <small>Formato para teléfono fijo y celular : <b class="text-danger">123-123-1234</b></small><br>
+                        <small>Si solamente tiene un numero telefónico, colócalo en las dos opciones</small>
+                    </div>                  
               	</div>
 				<div class="col-md-12 text-center">
 					<button class="btn btn-success">Actualizar datos</button>

@@ -122,16 +122,18 @@
 		}
 	</style>
 	<?php $puebla = '/img/logo_puebla.png'; ?>	
-	<?php $escuela = '/img/alumno.png'; ?>	
+	<?php $escuela = '/img/logo_bachiller.jpeg'; ?>	
 </head>
 <body>
 	<header class="cabeza">
 		<div style="float: left; width: 95%;">
 			<img class="izquierda" src="{{ public_path() . $puebla }}"/>
-			<h2 class="escuela">Colegio de Bachilleres del Estado de Tlaxcala Plantel 11</h2>						
+			<h2 class="escuela">Bachillerato General Profesional Ignacia Islas en San Martín
+			 	Texmelucan , San Cristobal Tepatlaxco
+			</h2>					
 		</div>						
 		<div style="float: right; width: 5%;">
-			<img class="derecha" src="{{ public_path() . $escuela }}"/>
+			<img class="derecha" src="{{ public_path() . $escuela }}"/ style="height: 80px;">
 		</div>
 	</header>		
 	<div class="container">
@@ -193,8 +195,8 @@
 		</div>
 	</div>
 	<div class="pie">
-		<h3>Dirección: Calle Emiliano Zapata Sur N, Sexto Barrio Emiliano Zapata, 90140 Panotla, Tlax. <br>
-			Teléfono: 246 462 5147
+		<h3>Francisco Villa No. 1 Colonia el Barrio en San Cristobal Tepatlaxco, C.P. 74120<br>
+		 	Teléfono: 1124085
 		</h3>
 	</div>
 </body>

@@ -108,7 +108,8 @@
             <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
               <label class="text-dark">Teléfono fijo</label>
               <input type="tel" class="form-control" 
-                     placeholder="Escrine un teléfono fijo" 
+                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                     placeholder="Formato: 123-123-1234" 
                      value="{{ old('telefono_fijo') }}"
                      name="telefono_fijo"
               >
@@ -124,15 +125,18 @@
             <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
               <label class="text-dark">Telefono celular</label>
               <input type="tel" class="form-control" 
-                     placeholder="Escribe un teléfono celular"
+                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                     placeholder="Formato: 123-123-1234"
                      value="{{ old('telefono_cel') }}"
                      name="telefono_cel">
             </div>
             @if ($errors->has('telefono_cel'))
               <span class="help-block text-center text-danger">
                 <strong>{{ $errors->first('telefono_cel') }}</strong>
-              </span>
-            @endif
+              </span><br>
+            @endif  
+              <small>Formato para teléfono fijo y celular : <b class="text-danger">123-123-1234</b></small> <br>      
+              <small>Si solamente tiene un numero telefónico, colócalo en las dos opciones</small>  
           </div>
 
           <div class="col-sm-4">
@@ -159,9 +163,9 @@
                      name="password_confirmation"
                      value="secret"
               >
-              <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>          
+              <small  class="form-text text-muted">La contraseña por defecto es <b class="text-danger">secret</b></small>              
             </div>                          
-          </div>         
+          </div>                 
         </div>          
         <div class="col-sm-12 col-md-12 text-center">
             <button class="btn btn-success">Registrar docente</button>

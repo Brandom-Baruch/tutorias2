@@ -221,14 +221,14 @@ class PadreFamiliaController extends Controller
     public function downloadDocumento($id)
     {
         $archivo = DocumentoPadre::find($id);
-        $url  = app_path().'/archivos/padre_familia/'.$archivo->nombre_archivo;
+        $url  = app_path().'/documentos/padre_familia/'.$archivo->nombre_archivo;
         return response()->download($url);
     }
 
     public function verDocumento($id)
     {
         $archivo = DocumentoPadre::find($id);
-        $url  = app_path().'/archivos/padre_familia/'.$archivo->nombre_archivo;
+        $url  = app_path().'/documentos/padre_familia/'.$archivo->nombre_archivo;
         return response()->file($url); //Mostrar documento/imagen
     }
 }

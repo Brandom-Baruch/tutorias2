@@ -19,7 +19,7 @@
 
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/galaxia.jpg')}} '); height: 190px;"></div>
+<div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">             
         <div class="section">
@@ -102,7 +102,8 @@
                           <div class="form-group {{ $errors->has('telefono_fijo') ? ' has-error' : '' }}">
                             <label class="text-dark">Telefono fijo</label>
                             <input type="tel" class="form-control"  
-                                   placeholder="Ejemplo: 123-123-1234" 
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   placeholder="Formato: 123-123-1234" 
                                    value="{{ old('telefono_fijo' , Auth::user()->telefono_fijo) }}"
                                    name="telefono_fijo">
                           </div>
@@ -116,15 +117,18 @@
                           <div class="form-group {{ $errors->has('telefono_cel') ? ' has-error' : '' }}">
                             <label class="text-dark">Telefono celular</label>
                             <input type="tel" class="form-control"  
-                                   placeholder="Ejemplo: 123-123-1234" 
+                                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   placeholder="Formato: 123-123-1234"
                                    value="{{ old('telefono_cel' , Auth::user()->telefono_cel) }}"
                                    name="telefono_cel">
                           </div>
                           @if ($errors->has('telefono_cel'))
                               <span class="help-block text-center text-danger">
                                   <strong>{{ $errors->first('telefono_cel') }}</strong>
-                              </span>
+                              </span><br>
                           @endif
+                          <small>Formato para teléfono fijo y celular : <b class="text-danger">123-123-1234</b></small> <br>      
+                          <small>Si solamente tiene un numero telefónico, colócalo en las dos opciones</small>
                     </div>                   
                     <div class="col-sm-4">
                           <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
@@ -146,13 +150,13 @@
                             <input type="password" class="form-control" 
                                    name="password_confirmation"
                                    placeholder="Confirmar contraseña"                                   
-                            >                              
+                            >
+                            <small  class="form-text  text-dark">
+                              Si no quiere cambiar la contraseña, deje vacio los campos 
+                              <b class="text-danger">Contraseña y Confirmar contraseña</b>.
+                            </small>                               
                           </div>                          
-                    </div> 
-                    <small  class="form-text  text-dark">
-                            Si no quiere cambiar la contraseña, deje vacio los campos 
-                            <b class="text-danger">Contraseña y Confirmar contraseña</b>.
-                    </small>                   
+                    </div>                                       
                 </div>    
                     <div class="col-md-12 text-center">
                         <button class="btn btn-success">Registrar docente</button>

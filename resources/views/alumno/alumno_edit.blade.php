@@ -104,22 +104,7 @@
 							<strong>{{ $errors->first('email') }}</strong>
 						</span>
 						@endif
-					</div>
-					<div class="col-sm-4">													
-						<div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
-							<label class="text-dark">Telefono</label>
-							<input type="tel" class="form-control"  
-								   placeholder="Escribe un teléfono celular/fijo" 
-								   value="{{ old('phone', Auth::user()->phone) }}"
-								   name="phone"
-						>
-						</div>
-						@if ($errors->has('phone'))
-						<span class="help-block text-center text-danger">
-							<strong>{{ $errors->first('phone') }}</strong>
-						</span>
-						@endif
-					</div>                  
+					</div>					                 
 					<div class="col-sm-4">													
 						<div class="form-group{{ $errors->has('grupo_id') ? ' has-error' : '' }}">          
 							<label class="text-dark">Grupo</label>
@@ -173,7 +158,24 @@
 					<strong>{{ $errors->first('fechaN') }}</strong>
 				</span>
 				@endif
-			</div>									 
+			</div>
+			<div class="col-sm-4">													
+						<div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
+							<label class="text-dark">Telefono</label>
+							<input type="tel" class="form-control"  
+								   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+								   placeholder="Escribe un teléfono celular/fijo" 
+								   value="{{ old('phone', Auth::user()->phone) }}"
+								   name="phone"
+						>
+						</div>
+						@if ($errors->has('phone'))
+						<span class="help-block text-center text-danger">
+							<strong>{{ $errors->first('phone') }}</strong>
+						</span><br>
+						@endif
+						<small>Formato para teléfono celular/fijo : <b class="text-danger">123-123-1234</b></small>
+					</div> 									 
 			<div class="col-sm-4">													
 				<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 					<label class="text-dark">Contraseña</label>
@@ -194,14 +196,12 @@
 					<input type="password" class="form-control"
 						   placeholder="Confirmar contraseña" 
 						   name="password_confirmation"					
-				>					
+					>	
+					<small  class="form-text  text-dark">
+		                Si no quiere cambiar la contraseña, deje vacio los campos 
+		                <b class="text-danger">Contraseña y Confirmar contraseña</b>.
+	          		</small>				
 				</div>                          
-			</div>
-			<div class="col-sm-4">
-				<small  class="form-text  text-dark">
-	                Si no quiere cambiar la contraseña, deje vacio los campos 
-	                <b class="text-danger">Contraseña y Confirmar contraseña</b>.
-          		</small>
 			</div>			
 		</div>    		                                                                                    	
 		<div class="text-center col-md-12">
