@@ -4,18 +4,16 @@
 
 @section('body-class','profile-page sidebar-collapse')
 
-@section('opciones_director')    
+
 
 @section('opciones_director')
-@if(Auth::user()->puestos->where('puesto','Director')->first())
-@include('includes.links_director')
-@endif
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
 Auth::user()->puestos->where('puesto','Tutor')->first())
 	@include('includes.links_tutor')
 @endif
 <a  class="dropdown-item" href="{{url('docente')}}">Panel de control</a>
 @endsection
+
 @section('content')
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>

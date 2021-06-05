@@ -9,6 +9,10 @@ use Carbon\Carbon;
 
 class EntrevistaAlumnoController extends Controller
 {
+
+  public $inicio = 0;
+  public $final = 0;
+
     public function index()
     {                        
         return view('alumno.entrevista_fresca.entrevista_index'); 
@@ -18,6 +22,7 @@ class EntrevistaAlumnoController extends Controller
     {		
       $entrevista = new Entrevista_Fresca_Alumno;
       $entrevista->fecha_aplicacion = null;
+      $inicio->Carbon::now();
       $entrevista->descripcion = 'Inicio la entrevista';
       $entrevista->alumno_id = auth()->user()->nia;
       $entrevista->save();            
@@ -28,6 +33,7 @@ class EntrevistaAlumnoController extends Controller
     {
       $entrevista =  Entrevista_Fresca_Alumno::where('alumno_id', auth()->user()->nia)->first();
       $entrevista->fecha_aplicacion = Carbon::now();
+      $final = Carbon::now();
       $entrevista->descripcion = 'Finalizo la entrevista';            
       $entrevista->save();            
     }

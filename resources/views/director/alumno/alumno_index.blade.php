@@ -29,7 +29,7 @@
           </form>
         </div>        
       </div>                                                
-       @if (session('mensaje'))
+        @if (session('mensaje'))
             <div class="alert alert-success text-left">
                 <div class="container-fluid">
                   <div class="alert-icon">

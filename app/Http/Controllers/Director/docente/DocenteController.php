@@ -74,8 +74,8 @@ class DocenteController extends Controller
         $docente->remember_token = str_random(100);
         $docente->save();
 
-        $mensaje = 'Se ha agregado un nuevo docente, llamado: ' . $docente->name;
-        return redirect('/director/docentes/index')->with(compact('mensaje'));
+        $mensaje = 'Se ha agregado un nuevo docente llamado: ' . $docente->name . '¿Quieres registrar otro docente? ';
+        return back()->with(compact('mensaje'));
     	//$table->rememberToken();
     }
 

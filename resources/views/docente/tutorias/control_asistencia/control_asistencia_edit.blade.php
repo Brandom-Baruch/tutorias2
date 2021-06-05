@@ -5,9 +5,6 @@
 @section('body-class','profile-page sidebar-collapse')
 
 @section('opciones_director')
-@if(Auth::user()->puestos->where('puesto','Director')->first())
-	@include('includes.links_director')
-@endif
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
 Auth::user()->puestos->where('puesto','Tutor')->first())
 	@include('includes.links_tutor')

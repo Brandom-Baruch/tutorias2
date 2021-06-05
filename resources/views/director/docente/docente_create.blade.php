@@ -16,11 +16,21 @@
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
   <div class="container">             
-
     <div class="section">
-
-      <h2 class="title text-center" style="color:black;">Registrar nuevo Docente</h2>
-
+      <h2 class="title text-center" style="color:black;">Registrar nuevo Docente</h2><br>
+      @if (session('mensaje'))
+        <div class="alert alert-success text-left">
+          <div class="container-fluid">
+            <div class="alert-icon">
+              <i class="material-icons">check</i>
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true"><i class="material-icons">clear</i></span>
+            </button>
+            {{ session('mensaje') }}
+          </div>
+        </div>
+      @endif
       <form method="post" action="/director/docente">
         {{ csrf_field() }}
 

@@ -25,7 +25,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 						<div class="name">
 							<h3 class="title">
 								Perfil Academico <br>
-								<b class="text-primary">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</b>
+								<b class="text-primary">{{$alumno->nombre_completo}}</b><br>
+								<p>El alumno termino la encuesta en:  {{ $min_total }} minuto(s)</p>
 							</h3>		
 						</div>
 					</div>

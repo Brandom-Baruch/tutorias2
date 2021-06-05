@@ -23,8 +23,8 @@
         </div>
       </div>            
       <div class="tab-pane text-center">
-       @if (session('mensaje'))
-       <div class="alert alert-success text-left">
+      @if (session('mensaje'))
+        <div class="alert alert-success text-left">
           <div class="container-fluid">
             <div class="alert-icon">
               <i class="material-icons">check</i>

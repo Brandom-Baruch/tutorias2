@@ -94,8 +94,8 @@ class PadreFamiliaController extends Controller
             $padre->estado_civil = $request->input('estado_civil');
 			$padre->remember_token = str_random(100);
 			$padre->save();
-			$mensaje = 'Se ha agregado un nuevo padre de familia llamado ' .$padre->name;
-			return redirect('director/padres_familia/index')->with(compact('mensaje'));
+			$mensaje = 'Se ha agregado un nuevo padre de familia llamado ' .$padre->name. '¿Quieres registrar otro padre? ';
+			return back()->with(compact('mensaje'));
     }	
 
     //Buscamos el padre para editar

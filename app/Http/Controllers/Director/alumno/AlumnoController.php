@@ -89,8 +89,8 @@ class AlumnoController extends Controller
         $alumno->remember_token = str_random(100);
         $alumno->save();
 
-        $mensaje = 'Se ha agregado el alumno ' .$alumno->name . ' exitosamente.';
-        return redirect('director/alumnos/index')->with(compact('mensaje'));        
+        $mensaje = 'Se ha agregado el alumno ' .$alumno->name . ' exitosamente. ¿Quieres registrar otro alumno? ';
+        return back()->with(compact('mensaje'));        
     }
 
     public function edit(Request $request,$nia)

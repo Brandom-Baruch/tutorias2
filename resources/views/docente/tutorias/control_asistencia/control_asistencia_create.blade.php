@@ -5,9 +5,6 @@
 @section('body-class','profile-page sidebar-collapse')
 
 @section('opciones_director')
-@if(Auth::user()->puestos->where('puesto','Director')->first())
-	@include('includes.links_director')
-@endif
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
 Auth::user()->puestos->where('puesto','Tutor')->first())
 	@include('includes.links_tutor')
@@ -49,7 +46,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first())
 			        </div>
 			      </div>
 			    @endif 
-				<h2 class="title text-center" style="color: black;">Registrar Control de Asistencia</h2>
+				<h2 class="title text-center" style="color: black;">Registrar  Asistencia</h2>
 				<form method="post" action="{{url('docente/tutorias/asistencia')}}">
 
 					{{csrf_field()}}
