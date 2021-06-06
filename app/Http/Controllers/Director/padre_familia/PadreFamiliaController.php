@@ -15,7 +15,7 @@ class PadreFamiliaController extends Controller
     public function index(Request $request)
     {   
         $request->user()->autorizarPuestos('Director'); //Llamamos la funcion para saber si el docente es Director
-        $padres = padre::paginate(10);
+        $padres = padre::orderBy('name')->paginate(10);
         return view('director.padre_familia.padre_index')->with(compact('padres'));
     }
 

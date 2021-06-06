@@ -16,7 +16,7 @@ class DocenteController extends Controller
     public function index(Request $request)
     {                   
         $request->user()->autorizarPuestos('Director'); 
-        $docentes = Docente::paginate(10);
+        $docentes = Docente::orderBy('name')->paginate(10);
         return view('director.docente.docente_index')->with(compact('docentes'));        
     }
 
