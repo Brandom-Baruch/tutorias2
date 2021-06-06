@@ -9,10 +9,9 @@
   @if(Auth::user()->puestos->where('puesto','Director')->first())
       @include('includes.links_director')
   @endif  
-  @if(Auth::user()->puestos->where('puesto','Tutor')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
+  @if(Auth::user()->puestos->where('puesto','Tutor Escolar')->first() && Auth::user()->materias()->where('name','like','Tutorias%')->first())
     <a class="dropdown-item" href="{{url('docente/tutorias/encuestas')}}">Panel de encuestas <br>Tutorias</a>
   @endif
-
   <a href="{{url('docente')}}">Panel de control</a>  
 @endsection
 

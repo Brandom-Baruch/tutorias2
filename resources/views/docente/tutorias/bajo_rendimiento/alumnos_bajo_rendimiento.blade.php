@@ -5,8 +5,8 @@
 @section('body-class','profile-page sidebar-collapse')
 
 @section('opciones_director')
-@if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
-Auth::user()->puestos->where('puesto','Tutor')->first())
+@if(Auth::user()->materias()->where('name','like','%tutorias%')->first() && 
+Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
   @include('includes.links_tutor')
 @endif
 <a  class="dropdown-item" href="{{url('docente')}}">Panel de control</a>
