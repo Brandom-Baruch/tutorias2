@@ -236,7 +236,7 @@
         </div>                                                                                        
 
         <div class="text-center col-md-12">
-          <button class="btn btn-success">Registrar docente</button>
+          <button class="btn btn-success">Registrar alumno</button>
           <a href="{{url('director/alumnos/index')}}" class="btn btn-danger">Cancelar</a>   
         </div>
       </form>                  

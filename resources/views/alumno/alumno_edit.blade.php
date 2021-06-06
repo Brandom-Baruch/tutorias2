@@ -205,7 +205,7 @@
 			</div>			
 		</div>    		                                                                                    	
 		<div class="text-center col-md-12">
-			<button class="btn btn-success">Actualizar datos</button>
+			<button class="btn btn-success">Editar datos</button>
 			<a href="{{url('/alumno')}}" class="btn btn-danger">Cancelar</a> 
 		</div>
 	</form>                  

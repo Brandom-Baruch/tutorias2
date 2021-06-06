@@ -249,7 +249,7 @@
                     </div>                  
               	</div>
 				<div class="col-md-12 text-center">
-					<button class="btn btn-success">Actualizar datos</button>
+					<button class="btn btn-success">Editar datos</button>
 					<a href="{{url('padre_familia')}}" class="btn btn-danger">Cancelar</a> 
 				</div>
 			</form>                  

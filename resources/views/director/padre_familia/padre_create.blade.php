@@ -251,7 +251,7 @@
                 </div>
             </div>                                                                                                  
             <div class="col-md-12 text-center">
-                <button class="btn btn-success">Registrar docente</button>
+                <button class="btn btn-success">Registrar padre</button>
                 <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Cancelar</a> 
             </div>
           </form>                  
