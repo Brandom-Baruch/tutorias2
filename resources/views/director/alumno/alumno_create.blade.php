@@ -86,7 +86,7 @@
 
           <div class="col-sm-4">
             <div class="form-group {{ $errors->has('apellidoM') ? ' has-error' : '' }}">
-              <label >Apellido Materno</label>
+              <label lass="text-dark">Apellido Materno</label>
               <input type="text" class="form-control"
                      placeholder="Escribe un apellido materno" 
                      value="{{ old('apellidoM') }}"
