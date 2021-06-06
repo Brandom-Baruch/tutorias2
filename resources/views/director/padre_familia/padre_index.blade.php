@@ -71,10 +71,10 @@
                       <th>Opciones</th>
                   </tr>
               </thead>
-              @foreach($padres as $padre)
+              @foreach($padres as $key => $padre)
               <tbody>                
                   <tr>
-                      <td>{{$padre->id}}</td>
+                      <td>{{($key+1)}}</td>
                       <td>{{$padre->name}}</td>
                       <td>{{$padre->apellidoP}}</td>
                       <td>{{$padre->apellidoM}}</td>

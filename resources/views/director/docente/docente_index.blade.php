@@ -62,10 +62,10 @@
               <th class="text-center">Opciones</th>
             </tr>
           </thead>
-          @foreach($docentes as  $docente)
+          @foreach($docentes as  $key => $docente)
           <tbody>
             <tr>
-              <td class="text-center">{{$docente->id}}</td>
+              <td class="text-center">{{($key+1)}}</td>
               <td>{{$docente->name}}</td>
               <td>{{$docente->apellidoP}}</td>
               <td>{{$docente->apellidoM}}</td>                  
