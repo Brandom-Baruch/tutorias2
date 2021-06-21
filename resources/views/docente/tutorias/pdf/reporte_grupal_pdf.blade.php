@@ -122,7 +122,7 @@
 		}
 	</style>
 	<?php $puebla = '/img/logo_puebla.png'; ?>	
-	<?php $escuela = '/img/logo_bachiller.jpeg'; ?>	
+	<?php $escuela = '/img/logo_bachiller.png'; ?>	
 </head>
 <body>
 	<header class="cabeza">
