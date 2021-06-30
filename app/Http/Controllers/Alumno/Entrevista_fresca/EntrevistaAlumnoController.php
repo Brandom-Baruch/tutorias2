@@ -21,8 +21,7 @@ class EntrevistaAlumnoController extends Controller
     public function store()
     {		
       $entrevista = new Entrevista_Fresca_Alumno;
-      $entrevista->fecha_aplicacion = null;
-      $inicio->Carbon::now();
+      $entrevista->fecha_aplicacion = null;      
       $entrevista->descripcion = 'Inicio la entrevista';
       $entrevista->alumno_id = auth()->user()->nia;
       $entrevista->save();            
@@ -32,8 +31,7 @@ class EntrevistaAlumnoController extends Controller
     public function update()
     {
       $entrevista =  Entrevista_Fresca_Alumno::where('alumno_id', auth()->user()->nia)->first();
-      $entrevista->fecha_aplicacion = Carbon::now();
-      $final = Carbon::now();
+      $entrevista->fecha_aplicacion = Carbon::now();      
       $entrevista->descripcion = 'Finalizo la entrevista';            
       $entrevista->save();            
     }

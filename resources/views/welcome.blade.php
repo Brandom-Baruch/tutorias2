@@ -26,8 +26,8 @@
 	<div class="container">
 		<div class="section text-center">
 			<div class="row">
-				<div class="col-md-8 ml-auto mr-auto">
-					<h2 class="title">Acerca del TECNM</h2>
+				<div class="col-md-9 ml-auto mr-auto">
+					<h2 class="title">Acerca del Bachillerato "Profra. Ignacia Islas"</h2>
 					<h5 class="description text-justify" style="color: black;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodoconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h5>
 				</div>
