@@ -26,7 +26,7 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
 							<h3 class="title">
 								Atención individualizada <br>	 
 								<b class="text-primary">{{$alumno->nombre_completo}}</b><br>
-								<p>El alumno termino la encuesta en:  {{ $min_total }} minuto(s)</p>
+								<p>El alumno termino la encuesta en:  {{ $min_total }}</p>
 							</h3>		
 						</div>
 					</div>

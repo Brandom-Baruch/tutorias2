@@ -205,7 +205,7 @@
                   <th class="text-center">#</th>
                   <th class="text-center">Nombre</th>                                                                 
                   <th class="text-center">Parentesco</th>
-                  <th class="text-center">Opciones</th>                                                                        
+                  <th class="text-center">Opciones</th>                                                                    
                 </tr>
               </thead>                                
               <tbody>
@@ -233,7 +233,7 @@
         <div class="tab-pane text-center gallery" id="materias"> 
           @if(Auth::user()->grupo)           
           <h3 class="text-center">
-            Materias del grupo <b class="text-primary">{{Auth::user()->grupo->name}}</b> grado <b class="text-primary">{{Auth::user()->grupo->grado}}</b> y grupo <b class="text-primary">{{Auth::user()->grupo->grupo}}</b>            
+            Materias del grupo <b class="text-primary">{{Auth::user()->grupo->name}}</b> grado <b class="text-primary">{{Auth::user()->grupo->grado}}</b> y grupo <b class="text-primary">{{Auth::user()->grupo->grupo}}</b>          
           </h3>
           <div class="table-responsive">
             <table class="table table-hover">

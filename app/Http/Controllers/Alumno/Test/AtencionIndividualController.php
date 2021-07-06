@@ -12,21 +12,19 @@ use Auth;
 
 class AtencionIndividualController extends Controller
 {
+
     public function create()
-    {	    	    	    	
-    	$materias = Materia::where('name','like','%Tutorias%')->get();                
-    	return view('alumno.test.atencion_individual')->with(compact('materias'));
+    {	    	  
+        $materias = Materia::where('name','like','%Tutorias%')->get();                
+        return view('alumno.test.atencion_individual')->with(compact('materias'));
     }
 
-    public function store(Request $request)
+    public function update(Request $request)
     {
-    	$atencion_individual = new Atencion_Individualizada;
-
-        $atencion_individual->descripcion = 'Finalizo Test';
-        $atencion_individual->fecha_aplicacion = Carbon::now();
-        $atencion_individual->alumno_id = auth()->user()->nia;
-		$atencion_individual->grupo = $request->input('grupo');                
+    	$atencion_individual = Atencion_Individualizada::where('alumno_id',auth()->user()->nia)->first();
+        $atencion_individual->descripcion = 'Finalizo Test';                       
     	$atencion_individual->nombre_docente = $request->input('docente_name');
+        $atencion_individual->grupo = $request->input('grupo');          
         $atencion_individual->respuesta1 = $request->input('respuesta1');
         $atencion_individual->respuesta2 = $request->input('respuesta2');
         $atencion_individual->respuesta3 = $request->input('respuesta3');
@@ -46,34 +44,56 @@ class AtencionIndividualController extends Controller
         $atencion_individual->respuesta17 = $request->input('respuesta17');
         $atencion_individual->respuesta18 = $request->input('respuesta18');
         $atencion_individual->respuesta19 = $request->input('respuesta19');
-        $atencion_individual->respuesta21 = $request->input('respuesta21');
-        $atencion_individual->save();  
+        $atencion_individual->respuesta20 = $request->input('respuesta20');
+        $atencion_individual->respuesta21 = $request->input('respuesta21');  
+        $cantidad = count($request->all());  
+              
 
+        if ($cantidad >= 14) {
 
-        if (Auth::user()->test->conociendo_estilo_aprendizaje && Auth::user()->test->encontrar_estilo_aprendizaje && 
-            empty(Auth::user()->test->test_habito_estudio))
-        {
-            $test_habito_estudio = new HabitoEstudioController();
-            $test_habito_estudio->inicio_habito_estudio();
-            $mensaje = 'Por favor realiza las siguientes secciones';
-            return redirect('alumno/test/habitos_estudio')->with(compact('mensaje'));
-        }
-
-        if (Auth::user()->test->conociendo_estilo_aprendizaje && 
-            Auth::user()->test->encontrar_estilo_aprendizaje && 
-            Auth::user()->test->test_habito_estudio->organizacion_tiempo && 
-            Auth::user()->test->test_habito_estudio->planificacion && 
-            Auth::user()->test->test_habito_estudio->estrategias_aprendizaje)
-        {
-            $test = new TestController();
-            $test->update();
-            $mensaje = 'Has Finalizado el Test de manera exitosa. Muchas gracias';
-            return redirect('/alumno/encuestas')->with(compact('mensaje'));
-        }
-        else
-        {
+            $atencion_individual->save();           
             $mensaje = 'Has finalizado el test de "Atención indivualizada" exitosamente';
-            return redirect('/alumno/encuestas')->with(compact('mensaje'));
-        }                         
+            return redirect('/alumno/encuestas')->with(compact('mensaje'));            
+        }else{
+            $mensaje = "Debes de colocar por lo menos 10 incisos";
+            return back()
+            ->withInput($request->only(
+                'respuesta1',
+                'respuesta2',
+                'respuesta3',
+                'respuesta4',
+                'respuesta5',
+                'respuesta6',
+                'respuesta7',
+                'respuesta8',
+                'respuesta9',
+                'respuesta10',
+                'respuesta11',
+                'respuesta12',
+                'respuesta13',
+                'respuesta14',
+                'respuesta15',
+                'respuesta16',
+                'respuesta17',
+                'respuesta18',
+                'respuesta19',
+                'respuesta20',
+                'respuesta21'
+                ))
+            ->with(compact('mensaje'));
+        }                      
+    }
+
+    public function iniciar(){
+
+        $atencion_individual = new Atencion_Individualizada;
+        $atencion_individual->descripcion = 'Inicio Test';
+        $atencion_individual->fecha_aplicacion = Carbon::now();
+        $atencion_individual->alumno_id = auth()->user()->nia;
+        $atencion_individual->grupo = " ";                
+        $atencion_individual->nombre_docente = " ";
+        $atencion_individual->created_at = Carbon::now();
+        $atencion_individual->save();
+        return redirect('alumno/test/atencion_individual');
     }
 }

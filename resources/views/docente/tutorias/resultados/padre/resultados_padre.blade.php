@@ -23,7 +23,9 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
 				<div class="col-md-6 ml-auto mr-auto">
 					<div class="profile">   						
 						<div class="name">
-							<h3 class="title">Respuestas del Padre <b class="text-primary">{{$entrevista->padres[0]->name}} {{$entrevista->padres[0]->apellidoP}}</b></h3>
+							<h3 class="title">Respuestas del Padre <b class="text-primary">{{$entrevista->padres[0]->nombre_completo}}</b>
+							</h3>
+							<h4>El padre de familia termino la encuesta en:  <b>{{ $min_total }}</b></h4>
 						</div>
 					</div>
 				</div>

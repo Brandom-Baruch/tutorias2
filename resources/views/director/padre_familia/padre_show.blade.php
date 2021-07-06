@@ -4,20 +4,16 @@
 
 @section('body-class','profile-page sidebar-collapse')
 
-
 @section('opciones_director')    
-
   @include('includes.links_director')
   <a href="{{url('docente')}}">Panel de control</a>  
-
 @endsection
 
 @section('content')
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} '); " ></div>
 <div class="main main-raised">
-  <div class="profile-content">
-    <div class="container">
+  <div class="container">
       <div class="row">
         <div class="col-md-6 ml-auto mr-auto">
           <div class="profile">
@@ -25,7 +21,7 @@
               <img src="{{url('img/padre6.png')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
             </div>
             <div class="name">
-              <h3 class="title">Información del padre de familia <b class="text-primary">{{$padre->name}}</b></h3>                
+              <h3 class="title">Información del Padre  <b class="text-primary">{{$padre->name}}</b></h3>                
             </div>
           </div>
         </div>          
@@ -136,7 +132,9 @@
                 <p class="h5">{{$padre->edad}}</p>
               </div>                
           </div>            
-          <a href="{{url('director/padre_familia/'.$padre->id.'/edit')}}" class="btn btn-success" target="_blank">Editar información</a>
+          <a href="{{url('director/padre_familia/'.$padre->id.'/edit')}}" class="btn btn-success">
+            Editar información
+          </a>
           <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
         </div>
         <div class="tab-pane text-center gallery" id="direccion">                        
@@ -189,19 +187,26 @@
               <div class="col-md-12 col-sm-12">
                 <h3 class="text-danger">No tiene agregado un domicilio</h3>
                 <a href="{{url('director/padre_familia/'.$padre->id.'/domicilio')}}" class="btn btn-success">Agregar Domicilio</a>
-                <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                            
+                <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                     
               </div>
             @endif
         </div>
         <div class="tab-pane text-center gallery " id="parentezco">
+          @if($padre->alumnos->isEmpty())
+            <h3 class="text-danger">No tiene ningún parentesco con un alumno</h3>
+            <a href="{{url('director/padre_familia/'.$padre->id.'/alumnos')}}" class="btn btn-success">
+              Agregar familiar
+            </a>
+            <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
+          @else
           <div class="table-responsive">
             <table class="table table-hover">
               <thead>
                   <tr>
                       <th class="text-center">NIA</th>
-                      <th class="text-center">Alumno</th>                                                                         
+                      <th class="text-center">Alumno</th>                                                                   
                       <th class="text-center">Parentesco</th>
-                      <th class="text-center">Opciones</th>                                                                       
+                      <th class="text-center">Opciones</th>                                                                
                   </tr>
               </thead>                                
                 <tbody>
@@ -210,63 +215,78 @@
                         <td class="text-center">{{$alumno->nia}}</td>
                         <td class="text-center">{{$alumno->nombre_completo}}</td>
                         <td class="text-center">{{$alumno->pivot->parentezco}}</td>
-                        <td class="td-actions">                                                     
-                          <a href="{{url('/director/alumno/'.$alumno->nia.'/show')}}" 
-                              rel="tooltip" title="Ver Alumno" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" target="_blank">
-                              <i class="material-icons">person</i>
-                          </a>                                                      
+                        <td class="td-actions">                                                                             
+                          <form method="post" 
+                            action="{{url('director/alumno/'.$alumno->nia.'/familiares/'.$padre->id.'/delete')}}">
+                            {{csrf_field()}}
+                            <a href="{{url('/director/alumno/'.$alumno->nia.'/show')}}" 
+                                rel="tooltip" title="Ver Alumno" 
+                                class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
+                                <i class="material-icons">person</i>
+                            </a>                                                   
+                            <button rel="tooltip" title="Quitar Familiar" 
+                                    class="btn btn-danger btn-fab btn-fab-mini btn-rect btn-sm">
+                              <i class="material-icons">clear</i>
+                            </button>
+                          </form>                                                     
                         </td>
                     </tr>               
                   @endforeach
                 </tbody>                                
             </table>                
           </div>
-          <a href="{{url('director/padre_familia/'.$padre->id.'/alumnos')}}" class="btn btn-success" target="_blank">Agregar familiar</a>
+          <a href="{{url('director/padre_familia/'.$padre->id.'/alumnos')}}" class="btn btn-success">
+            Agregar familiar
+          </a>
           <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>
+          @endif
         </div>
         <div class="tab-pane text-center gallery table-responsive" id="documentos_padre"> 
-          <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>                  
-          <div class="table-responsive">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Archivo</th>                  
-                  <th scope="col">Acción</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($archivos as $key => $archivo)
-                <tr>
-                  <th scope="row">{{ ($key+1) }}</th>
-                  <td>{{ $archivo->nombre_archivo }}</td>
-                  <td>
-                    <a href="{{ url('director/download/'.$archivo->id.'/documento') }}"
-                      target="_blank" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" 
-                      rel="tooltip" title="Descargar documento"
-                    >
-                      <span class="material-icons">
-                        download
-                      </span>                     
-                    </a>
-                    <a href="{{ url('director/ver/'.$archivo->id.'/documento') }}"
-                      target="_blank" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm"  rel="tooltip" title="Ver documento"
-                    >
-                      <span class="material-icons">
-                        visibility
-                      </span>                      
-                    </a>                    
-                  </td>                  
-                </tr>
-                @endforeach                
-              </tbody>
-            </table>
-            <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                           
-          </div>            
+          @if($padre->documentos_padre->isEmpty())
+            <h3 class="text-danger">No tiene ningún documento</h3>
+          @else
+            <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>                  
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Archivo</th>                  
+                    <th scope="col">Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($archivos as $key => $archivo)
+                  <tr>
+                    <th scope="row">{{ ($key+1) }}</th>
+                    <td>{{ $archivo->nombre_archivo }}</td>
+                    <td>
+                      <a href="{{ url('director/download/'.$archivo->id.'/documento') }}"
+                        class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" 
+                        rel="tooltip" title="Descargar documento"
+                      >
+                        <span class="material-icons">
+                          download
+                        </span>                     
+                      </a>
+                      <a href="{{ url('director/ver/'.$archivo->id.'/documento') }}"
+                        class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" 
+                        rel="tooltip" title="Ver documento">
+                        <span class="material-icons">
+                          visibility
+                        </span>                      
+                      </a>                    
+                    </td>                  
+                  </tr>
+                  @endforeach                
+                </tbody>
+              </table>
+              <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                          
+            </div>
+          @endif            
         </div>          
       </div>              
     </div>
-  </div>
 </div>
 @include('includes.footer')
 @endsection

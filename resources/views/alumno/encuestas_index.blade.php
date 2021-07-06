@@ -13,36 +13,26 @@
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
 	<div class="profile-content">
-		<div class="container">
+		<div class="container">         	                                           			
 			<div class="row">
-				<div class="col-md-6 ml-auto mr-auto">
-					<div class="profile">   
-						<div class="avatar">
-							<img src="{{url('img/alumno.png')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-						</div>       
-						<div class="name">
-							<h3 class="title">Hola Alumno <b class="text-primary">{{Auth::user()->name}}</b></h3>               
-						</div>
-					</div>
-				</div>
-			</div>          	                                           
-			<h3 class="text-center">
-				Encuestas que debes de realizar            
-			</h3>
-			@if (session('mensaje'))
-			<div class="alert alert-success text-left">
-				<div class="container-fluid">
-					<div class="alert-icon">
-						<i class="material-icons">check</i>
-					</div>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true"><i class="material-icons">clear</i></span>
-					</button>
-					{{ session('mensaje') }}
-				</div>
-			</div>          
-			@endif
-			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-center">
+						Encuestas que debes de realizar            
+					</h3>
+					@if (session('mensaje'))
+						<div class="alert alert-success text-left">
+							<div class="container-fluid">
+								<div class="alert-icon">
+									<i class="material-icons">check</i>
+								</div>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true"><i class="material-icons">clear</i></span>
+								</button>
+								{{ session('mensaje') }}
+							</div>
+						</div>          
+					@endif
+				</div>								
 				<div class=" table-responsive ">
 					<table class="table table-hover">
 						<thead>
@@ -93,13 +83,20 @@
 								<td class="text-center">3</td>                                                        
 								<td class="text-center">Cuestionario "No Abandono"</td>								
 								<td class="text-center">
-									@if(empty(Auth::user()->perfil_academico))									
-										<a href="{{url('alumno/cuestionario/perfil_academico')}}" class="btn btn-primary btn-sm">
-											Iniciar									
+									@if(empty(Auth::user()->perfil_academico))
+										<form method="post" 
+											  action="{{ url('alumno/cuestionario/perfil_academico/iniciar') }}">
+											{{ csrf_field() }}
+											<button class="btn btn-primary btn-sm">Iniciar</button>
+										</form>																			
+									@elseif(Auth::user()->perfil_academico->escuela_procedencia == " ")
+										<a class="btn btn-warning btn-sm" 
+											href="{{ url('/alumno/cuestionario/perfil_academico') }}">
+											Reanudar
 										</a>
-									@else
+									@elseif(Auth::user()->perfil_academico->escuela_procedencia)
 										<a disable>
-											Finalizo Test
+											Finalizo Cuestionario
 										</a>
 									@endif									
 								</td>                     
@@ -132,19 +129,26 @@
 								<td class="text-center">5</td>                                                        
 								<td class="text-center">Test para detectar tutorados que requieran atención individual</td>		
 								<td class="text-center">
-									@if(empty(Auth::user()->atencion_individual))
-										<a href="{{url('alumno/test/atencion_individual')}}" class="btn btn-primary btn-sm">
-											Iniciar
-										</a>
-									@else
+									@if(empty(Auth::user()->atencion_individual))										
+										<form method="post" action="{{ url('/alumno/test/atencion_individual/iniciar') }}">
+											{{ csrf_field() }}											
+											<button type="submit" class="btn btn-primary btn-sm">Iniciar</button>
+										</form>																		
+									@elseif(Auth::user()->atencion_individual->where('descripcion' , 'Finalizo Test')
+											->first())
 										<a disabled>
 											{{Auth::user()->atencion_individual->descripcion}}
+										</a>
+									@elseif(Auth::user()->atencion_individual->where('descripcion' , 'Inicio Test')
+											->first())
+										<a href="{{url('alumno/test/atencion_individual')}}" class="btn btn-warning btn-sm">
+											Reanudar
 										</a>
 									@endif
 								</td>                     
 							</tr>                               
 						</tbody>                                
-					</table>                                            					
+					</table>    					
 				</div>
 			</div>
 		</div>                            

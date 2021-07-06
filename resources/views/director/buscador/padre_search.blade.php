@@ -50,11 +50,10 @@
                   <div class="card-footer justify-content-center">
                     <a href="{{url('director/padre_familia/'.$padre->id.'/edit')}}"
                        rel="tooltip" title="Editar Familiar" 
-                       class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" target="_blank" style="margin-right: 10px;">
+                       class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" style="margin-right: 10px;">
                        <i class="fa fa-edit"></i>                      
                     </a>
-                    <a href="{{url('director/padre_familia/'.$padre->id.'/show')}}" rel="tooltip" title="Ver Familiar" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" 
-                       target="_blank">
+                    <a href="{{url('director/padre_familia/'.$padre->id.'/show')}}" rel="tooltip" title="Ver Familiar" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
                       <i class="fa fa-user"></i>
                     </a>
                   </div>

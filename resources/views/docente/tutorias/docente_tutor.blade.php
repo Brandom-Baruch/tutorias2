@@ -7,7 +7,7 @@
 @section('opciones_director')
 
 @if(Auth::user()->materias()->where('name','like','%tutorias%')->get() && 
-Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
+Auth::user()->puestos->where('puesto','Tutor Escolar')->first() && $materia_grupo)
 @include('includes.links_tutor')
 @endif
 <a  class="dropdown-item" href="{{url('docente')}}">Panel de control</a>
@@ -20,7 +20,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
     <div class="container">          
       <div class="row">
         <div class="col-12 col-md-12  col-sm-12 ml-auto mr-auto">
-    @if(empty($materia_grupo))
+        @if(empty($materia_grupo))
           <div class="profile-tabs">              
             <div class="col-md-12 text-center">
               <h3>
@@ -28,7 +28,7 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
               </h3>
               <a href="{{ url('/docente') }}" class="btn btn-danger btn-lg">Regresar al panel de control</a>
             </div>
-    @else
+        @else
             <div class="profile-tabs">              
               <div class="col-md-12 text-center">
                 <h3>
@@ -86,8 +86,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
                   <tbody>
                     @foreach($grupo_alumno as  $alumno)                                
                     <tr>              
-                      <td class="text-center">{{$alumno->nia}}</td>
-                      <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>      
+                      <td>{{$alumno->nia}}</td>
+                      <td>{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>      
                       <td class="td-actions text-center">
                         @if(empty($alumno->entrevista_fresca))
                         <b class="text-danger">
@@ -118,10 +118,10 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
                 <table class="table table-responsive">
                   <thead>
                     <tr>              
-                      <th class="text-center">Nia</th>
-                      <th class="text-center">Alumno</th>              
-                      <th class="text-center">Padre</th>
-                      <th class="text-center">Ver datos</th>
+                      <th>Nia</th>
+                      <th>Alumno</th>              
+                      <th>Padre</th>
+                      <th>Ver datos</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -173,8 +173,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
             <tbody>
               @foreach($grupo_alumno as  $alumno)                                
               <tr>              
-                <td class="text-center">{{$alumno->nia}}</td>
-                <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>               
+                <td>{{$alumno->nia}}</td>
+                <td>{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>               
                 <td class="td-actions text-center">
                   @if(empty($alumno->cuestionario_anexo))
                   <b class="text-danger">
@@ -213,8 +213,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
             <tbody>
               @foreach($grupo_alumno as  $alumno)                                
               <tr>              
-                <td class="text-center">{{$alumno->nia}}</td>
-                <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>                 
+                <td>{{$alumno->nia}}</td>
+                <td>{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>                 
                 <td class="td-actions text-center">
                   @if(empty($alumno->test))
                   <b class="text-danger">
@@ -250,8 +250,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
             <tbody>
               @foreach($grupo_alumno as  $alumno)                                
               <tr>              
-                <td class="text-center">{{$alumno->nia}}</td>
-                <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>                  
+                <td>{{$alumno->nia}}</td>
+                <td>{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>                  
                 <td class="td-actions text-center">
                   @if(empty($alumno->atencion_individual))
                   <b class="text-danger">
@@ -283,8 +283,8 @@ Auth::user()->puestos->where('puesto','Tutor')->first() && $materia_grupo)
             <tbody>
               @foreach($grupo_alumno as  $alumno)                                
               <tr>              
-                <td class="text-center">{{$alumno->nia}}</td>
-                <td class="text-center">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>
+                <td>{{$alumno->nia}}</td>
+                <td>{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</td>
                 <td class="td-actions text-center">
                   @if(empty($alumno->perfil_academico))
                   <b class="text-warning">

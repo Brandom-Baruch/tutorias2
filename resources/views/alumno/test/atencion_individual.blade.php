@@ -15,18 +15,35 @@
 	<div class="container">             
 		<div class="section">		   
 			<h3 class="title text-center">
-				Test para detectar tutorados que requieran atención indivualizada
+				Test para detectar tutorados que requieran atención indivualizada								
 			</h3>
+			<div class="row">
+				<div class="col-md-12">
+					@if (session('mensaje'))
+						<div class="alert alert-danger text-left">
+							<div class="container-fluid">
+								<div class="alert-icon">
+									<i class="material-icons">check</i>
+								</div>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true"><i class="material-icons">clear</i></span>
+								</button>
+								{{ session('mensaje') }}
+							</div>
+						</div>          
+					@endif
+				</div>
+			</div>			
 			<form method="post" action="{{url('alumno/test/atencion_individual')}}">		
-				{{csrf_field()}}		
-				<div class="row">
+				{{csrf_field()}}								
+				<div class="row">					
 					<div class="col-md-6">
 						<label class="text-dark">Nombre del Tutor</label>
 					    <select class="form-control" name="docente_name">
 					    	@foreach($materias as $materias)
 					    		@foreach($materias->docentes as $docente)
-					        	<option value="{{$docente->name}} {{$docente->apellidoP}} {{$docente->apellidoM}}">
-					        		{{$docente->name}} {{$docente->apellidoP}} {{$docente->apellidoM}}</option>				        
+					        	<option value="{{$docente->nombre_completo}}">
+					        		{{$docente->nombre_completo}}</option>				        
 					        	@endforeach	
 					        @endforeach
 					    </select>
@@ -58,7 +75,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta1" value="Si">							
+									<input class="form-check-input" type="checkbox" name="respuesta1" value="Si"
+										@if(old('respuesta1') == "Si") checked="" @endif>							
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -71,7 +89,7 @@
 						<td><div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
 									<input class="form-check-input" type="checkbox" name="respuesta2" 
-									value="Si">							
+										value="Si" @if(old('respuesta2') == "Si") checked="" @endif>						
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -84,7 +102,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta3" value="Si">		
+									<input class="form-check-input" type="checkbox" name="respuesta3" value="Si"
+										@if(old('respuesta3') == "Si") checked="" @endif>		
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -97,7 +116,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta4" value="Si">				
+									<input class="form-check-input" type="checkbox" name="respuesta4" value="Si"
+										@if(old('respuesta4') == "Si") checked="" @endif>				
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -110,7 +130,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta5" value="Si">					
+									<input class="form-check-input" type="checkbox" name="respuesta5" value="Si"
+										@if(old('respuesta5') == "Si") checked="" @endif>					
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -124,7 +145,7 @@
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
 									<input class="form-check-input" type="checkbox" name="respuesta6" 
-									value="Si">							
+									value="Si" @if(old('respuesta6') == "Si") checked="" @endif>							
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -137,7 +158,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta7" value="Si">			
+									<input class="form-check-input" type="checkbox" name="respuesta7" value="Si"
+										@if(old('respuesta7') == "Si") checked="" @endif>			
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -153,7 +175,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta8" value="Si">				
+									<input class="form-check-input" type="checkbox" name="respuesta8" value="Si"
+										@if(old('respuesta8') == "Si") checked="" @endif>				
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -166,7 +189,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta9" value="Si">				
+									<input class="form-check-input" type="checkbox" name="respuesta9" value="Si"
+									 	@if(old('respuesta9') == "Si") checked="" @endif>				
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -178,7 +202,8 @@
 						<td>Te faltan técnicas de estudio</td>
 						<td><div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta10" value="Si">			
+									<input class="form-check-input" type="checkbox" name="respuesta10" value="Si"
+										@if(old('respuesta10') == "Si") checked="" @endif>			
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -191,7 +216,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta11" value="Si">				
+									<input class="form-check-input" type="checkbox" name="respuesta11" value="Si"
+										@if(old('respuesta11') == "Si") checked="" @endif>				
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -207,7 +233,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta12" value="Si">				
+									<input class="form-check-input" type="checkbox" name="respuesta12" value="Si"
+										@if(old('respuesta12') == "Si") checked="" @endif>				
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -220,7 +247,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta13" value="Si">				
+									<input class="form-check-input" type="checkbox" name="respuesta13" value="Si"
+										@if(old('respuesta13') == "Si") checked="" @endif>				
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -233,7 +261,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta14" value="Si">			
+									<input class="form-check-input" type="checkbox" name="respuesta14" value="Si"
+										@if(old('respuesta14') == "Si") checked="" @endif>			
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -246,7 +275,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta15" value="Si">			
+									<input class="form-check-input" type="checkbox" name="respuesta15" value="Si"
+										@if(old('respuesta15') == "Si") checked="" @endif>			
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -260,7 +290,7 @@
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
 									<input class="form-check-input" type="checkbox" name="respuesta16" 
-									value="Si">							
+									value="Si" @if(old('respuesta16') == "Si") checked="" @endif>							
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -274,7 +304,7 @@
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
 									<input class="form-check-input" type="checkbox" name="respuesta17" 
-									value="Si">							
+									value="Si" @if(old('respuesta17') == "Si") checked="" @endif>							
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -291,7 +321,7 @@
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
 									<input class="form-check-input" type="checkbox" name="respuesta18" 
-									value="Si">							
+									value="Si"  @if(old('respuesta18') == "Si") checked="" @endif>							
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -304,7 +334,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta19" value="Si">			
+									<input class="form-check-input" type="checkbox" name="respuesta19" value="Si"
+										@if(old('respuesta19') == "Si") checked="" @endif>			
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>
@@ -317,7 +348,8 @@
 						<td>
 							<div class="form-check text-center" style="margin-top:-10px; ">
 								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" name="respuesta20" value="Si">			
+									<input class="form-check-input" type="checkbox" name="respuesta20" value="Si"
+										@if(old('respuesta20') == "Si") checked="" @endif>			
 									<span class="form-check-sign">
 										<span class="check"></span>
 									</span>

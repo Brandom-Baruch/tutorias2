@@ -16,7 +16,7 @@
 	<div class="container">             
 		<div class="section">		   
 			<h3 class="title text-center">
-				Cuestionario sobre el perfil academico
+				Cuestionario sobre el perfil academico				
 			</h3>
 			<form method="post" action="{{url('alumno/cuestionario/perfil_academico')}}">		
 				{{csrf_field()}}		

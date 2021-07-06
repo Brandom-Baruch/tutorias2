@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Alumno\Cuestionario_Perfil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Perfil_Academico_Alumno;
+use Carbon\Carbon;
 
 class PerfilAcademicoAlumnoController extends Controller
 {
+
+
     public function create()
     {
     	return view('alumno.cuestionario_perfil_academico.perfil_academico_alumno');
@@ -59,7 +62,7 @@ class PerfilAcademicoAlumnoController extends Controller
         $this->validate($request,$rules,$message);
         //dd($request->all());
 
-    	$perfil_academico_alumno = new Perfil_Academico_Alumno;
+    	$perfil_academico_alumno = Perfil_Academico_Alumno::where('alumno_id',auth()->user()->nia)->first();
     	$perfil_academico_alumno->alumno_id = auth()->user()->nia;        
         $perfil_academico_alumno->escuela_procedencia = $request->input('escuela_procedencia');
         $perfil_academico_alumno->ubicacion_escuela = $request->input('ubicacion_escuela');
@@ -82,4 +85,29 @@ class PerfilAcademicoAlumnoController extends Controller
         $mensaje = 'Has finalizado el cuestionario "Cuestionario sobre el perfil academico" exitosamente. Gracias!';
         return redirect('/alumno/encuestas')->with(compact('mensaje'));
     }
+
+    public function iniciar(){
+        $perfil_academico_alumno = new Perfil_Academico_Alumno;
+        $perfil_academico_alumno->alumno_id = auth()->user()->nia;        
+        $perfil_academico_alumno->escuela_procedencia =  " ";
+        $perfil_academico_alumno->ubicacion_escuela = " ";
+        $perfil_academico_alumno->respuesta1 = " ";
+        $perfil_academico_alumno->respuesta2 = " ";
+        $perfil_academico_alumno->respuesta3 = " ";
+        $perfil_academico_alumno->respuesta4 = " ";
+        $perfil_academico_alumno->respuesta5 = " ";
+        $perfil_academico_alumno->respuesta6 = " ";
+        $perfil_academico_alumno->respuesta7 = " ";
+        $perfil_academico_alumno->respuesta8 = " ";
+        $perfil_academico_alumno->respuesta9 = " ";
+        $perfil_academico_alumno->respuesta10 = " ";
+        $perfil_academico_alumno->respuesta11 = " ";
+        $perfil_academico_alumno->respuesta12 = " ";
+        $perfil_academico_alumno->respuesta13 = " ";
+        $perfil_academico_alumno->respuesta14 = " ";
+        $perfil_academico_alumno->respuesta15 = " ";
+        $perfil_academico_alumno->save();
+        return redirect('/alumno/cuestionario/perfil_academico');
+    }
+
 }

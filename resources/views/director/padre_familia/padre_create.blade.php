@@ -17,7 +17,7 @@
 <div class="main main-raised">
     <div class="container">             
         <div class="section">
-          <h2 class="title text-center" style="color:black;">Registrar nuevo padre de familia</h2><br>
+          <h2 class="title text-center" style="color:black;">Registrar nuevo Padre de familia</h2><br>
           @if (session('mensaje'))
             <div class="alert alert-success text-left">
               <div class="container-fluid">

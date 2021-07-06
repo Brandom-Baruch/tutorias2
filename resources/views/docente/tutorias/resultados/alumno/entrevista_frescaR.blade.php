@@ -26,7 +26,7 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
 							<h3 class="title">
 								Entrevista fresca <br> 
 								<b class="text-primary">{{$alumno->nombre_completo}}</b><br>
-								<p>El alumno termino la encuesta en:  {{ $min_total }} minuto(s)</p>							
+								<p>El alumno termino la encuesta en:  {{ $min_total }}</p>							
 							</h3>		
 						</div>
 					</div>
@@ -439,11 +439,12 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
 							<b>¿Horario?</b>
 							<p>{{$entrevista->datosAdicionales->r3_2}}</p>
 						</div>	
-					</div>			
+					</div>								
+				</div>
+				<div class="row">
 					<div class="col-md-12">
 						<h5 class="title text-center text-primary">Marca SI o NO en las características y cualidades que consideres que tienes o no como persona</h5>
-					</div>
-					<div class="table-responsive">
+						<div class="table-responsive">
 						<table class="table">					
 							<tbody>
 								<tr>
@@ -502,7 +503,8 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
 								</tr>
 							</tbody>
 						</table>
-					</div>			
+					</div>	
+					</div>							
 					<div class="text-center col-md-12">
 						<a href="{{url('docente/tutorias/encuestas')}}" class="btn btn-danger">Regresar</a> 
 						<a href="{{url('docente/entrevista_fresca_alumno/'.$entrevista->alumno_id)}}" class="btn btn-success">Descargar Pdf</a>
@@ -510,5 +512,7 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
 				</div>              
 			</div>
 		</div>
-		@include('includes.footer')
-		@endsection
+	</div>
+</div>
+@include('includes.footer')
+@endsection

@@ -21,7 +21,7 @@
               <img src="{{url('img/padre6.png')}}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
             </div>       
             <div class="name">
-              <h3 class="title">Hola padre <b class="text-primary">{{Auth::user()->name}}</b></h3>                             
+              <h3 class="title">Hola Padre <b class="text-primary">{{Auth::user()->name}}</b></h3>                             
               <a href="{{url('padre_familia/entrevista')}}" class="btn btn-success">Realizar entrevista fresca</a>              
             </div>
           </div>

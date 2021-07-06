@@ -88,11 +88,14 @@ Route::middleware(['auth:alumno'])->prefix('/alumno')->group(function(){
 	//FIN DE HABITOS DE ESTUDIO
 	Route::post('/finalizar/test','Alumno\Test\TestController@update');
 	//FIN TEST
-	//INCIAR TEST ATENCION INDIVIDUAL 
+	//INICIAR TEST ATENCION INDIVIDUAL 	
+	Route::post('/test/atencion_individual/iniciar','Alumno\Test\AtencionIndividualController@iniciar');
 	Route::get('/test/atencion_individual','Alumno\Test\AtencionIndividualController@create');
-	Route::post('/test/atencion_individual','Alumno\Test\AtencionIndividualController@store');
+	Route::post('/test/atencion_individual','Alumno\Test\AtencionIndividualController@update');	
 	//FIN TEST
 	//INICIO CUESTIONARIO
+	Route::post('/cuestionario/perfil_academico/iniciar',
+				'Alumno\Cuestionario_Perfil\PerfilAcademicoAlumnoController@iniciar');
 	Route::get('/cuestionario/perfil_academico','Alumno\Cuestionario_Perfil\PerfilAcademicoAlumnoController@create');
 	Route::post('/cuestionario/perfil_academico','Alumno\Cuestionario_Perfil\PerfilAcademicoAlumnoController@store');
 	//FIN CUESTIONARIO

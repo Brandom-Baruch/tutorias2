@@ -15,15 +15,11 @@
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
-  <div class="profile-content">
-    <div class="container">
-      <div class="row">
-        <div class="description text-center">
-          <h3 class="title">Listado de Docentes</h3>
-        </div>
-      </div>            
-      <div class="tab-pane text-center">
-      @if (session('mensaje'))
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3 class="title">Listado de Docentes</h3>
+        @if (session('mensaje'))
         <div class="alert alert-success text-left">
           <div class="container-fluid">
             <div class="alert-icon">
@@ -49,9 +45,11 @@
         </div>
       </div>
       @endif  
-      <a href="{{url('/director/docente/create')}}" class="btn btn-primary" style="margin-bottom: 30px;">Agregar nuevo Docente</a>
-      <div class="row">          
-        <table class="table  table-responsive-sm table-responsive-md table-responsive-lg">
+      <a href="{{url('/director/docente/create')}}" class="btn btn-primary" style="margin-bottom: 30px;">
+        Agregar nuevo Docente
+      </a>
+      <div class="table-responsive">          
+        <table class="table">
           <thead>
             <tr>
               <th class="text-center">#</th>
@@ -70,7 +68,7 @@
               <td>{{$docente->apellidoP}}</td>
               <td>{{$docente->apellidoM}}</td>                  
               <td class="text-center">{{$docente->email}}</td>
-              <td class="td-actions text-center">
+              <td style="width: 150px;">
                 <form method="post" action="{{url('/director/docente/'.$docente->id.'/delete')}}">
                   {{csrf_field()}}
                   <a href="{{url('director/docente/'.$docente->id.'/view')}}" rel="tooltip" title="Ver docente" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
@@ -96,9 +94,9 @@
           {{ $docentes->links("pagination::bootstrap-4") }}
         </div>
       </div>
-    </div>                       
+      </div>
+    </div>                                      
   </div>
-</div>
 </div>
 @include('includes.footer')
 @endsection

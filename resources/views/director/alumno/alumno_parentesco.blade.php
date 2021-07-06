@@ -18,7 +18,7 @@
   <div class="profile-content">
     <div class="container">      
       <div class="description ">           
-        <h3 class="title text-center p-4">Asignar parentesco(s) entre el padre de familia y el alumno <b class="text-primary">
+        <h3 class="title text-center p-4">Asignar parentesco(s) para  el alumno <b class="text-primary">
           {{$alumno->name}}</b>
         </h3>    
         <form method="post" action="{{url('director/alumno/'.$alumno->nia.'/familiares')}}">

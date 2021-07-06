@@ -132,25 +132,27 @@
 			padding: 0;
 		}
 	</style>	
-		<?php $puebla = '/img/logo_puebla.png'; ?>	
-		<?php $escuela = '/img/logo_bachiller.png'; ?>			
+	<?php $puebla = '/img/logo_puebla.png'; ?>	
+	<?php $escuela = '/img/logo_bachiller.png'; ?>	
 </head>
 <body>
-	<header class="cabeza">		
+	<header class="cabeza">
 		<div style="float: left; width: 95%;">
 			<img class="izquierda" src="{{ public_path() . $puebla }}"/>
 			<h2 class="escuela">Bachillerato General Profesional Ignacia Islas en San Martín Texmelucan
 				, San Cristobal Tepatlaxco
-			</h2>				
+			</h2>						
 		</div>						
 		<div style="float: right; width: 5%;">
-			<img class="derecha" src="{{ public_path() . $escuela }}"/ style="height:=80px;">
+			<img class="derecha" src="{{ public_path() . $escuela }}"/ style="height: 80px;">
 		</div>
 	</header>		
 	<div class="container">
 		<div class="section">			
 			<div class="text-center">   												
-				<h3 class="title">Respuestas del Padre: {{$entrevista->padres[0]->name}} {{$entrevista->padres[0]->apellidoP}} {{$entrevista->padres[0]->apellidoM}}</h3>						
+				<h3 class="title">Respuestas del Padre: <b class="text-primary">
+						{{$entrevista->padres[0]->nombre_completo}}</b>
+				</h3>				
 			</div>							
 			<h3 class="title text-center">Selecciona si su hijo(a) se relaciona con algunos de estos aspectos y el porcentaje de seguridad que tiene usted sobre ello.</h3>
 			<table class="tabla">

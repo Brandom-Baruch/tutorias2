@@ -17,16 +17,8 @@
 
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
-  <div class="profile-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ml-auto mr-auto">
-          <div class="profile">          
-            <div class="name">
-              <!--<h3 class="title" style="color: white;">Bienvenido {{Auth::user()->name}}</h3>-->
-            </div>
-          </div>
-        </div>
+  <div class="container">
+      <div class="row">        
       </div>
       <div class="description text-center">       
         <h3 class="title">Asignar docentes para la materia <b class="text-primary">{{$materia->name}}</b></h3>         
@@ -80,7 +72,7 @@
                                     action="{{url('/director/materia/'.$materia->id.'/docentes/'.$docente->id.'/delete')}}">
                                 {{csrf_field()}}
 
-                                <a href="{{url('director/docente/'.$docente->id.'/view')}}" rel="tooltip" title="Visualizar Docente" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" target="_blank">
+                                <a href="{{url('director/docente/'.$docente->id.'/view')}}" rel="tooltip" title="Visualizar Docente" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
                                     <i class="fa fa-user"></i>
                                 </a>
                                 
@@ -96,7 +88,6 @@
         </div>
       </div>
     </div>
-  </div>
 </div>
 @include('includes.footer')
 @endsection

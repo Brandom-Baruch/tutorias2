@@ -145,7 +145,7 @@
 			</h2>						
 		</div>						
 		<div style="float: right; width: 5%;">
-			<img class="derecha" src="{{ public_path() . $escuela }}"/ style="height:=80px;">
+			<img class="derecha" src="{{ public_path() . $escuela }}"/ style="height: 80px;">
 		</div>
 	</header>		
 	<div class="container">

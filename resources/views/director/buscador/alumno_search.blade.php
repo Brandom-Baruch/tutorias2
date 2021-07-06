@@ -50,11 +50,11 @@
                   <h4 class="card-title">{{$alumno->name}} {{$alumno->apellidoP}} {{$alumno->apellidoM}}</h4>                         
                   <div class="card-footer justify-content-center">
                     <a href="{{url('/director/alumno/'.$alumno->nia.'/edit')}}"  
-                       title="Editar Alumno" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" target="_blank" style="margin-right: 10px;">
+                       title="Editar Alumno" class="btn btn-success btn-fab btn-fab-mini btn-rect btn-sm" style="margin-right: 10px;">
                       <i class="fa fa-edit"></i>
                     </a>
                     <a href="{{url('director/alumno/'.$alumno->nia.'/show')}}"  
-                       title="Ver Alumno" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" target="_blank">
+                       title="Ver Alumno" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
                       <i class="fa fa-user"></i>
                     </a>
                   </div>                  

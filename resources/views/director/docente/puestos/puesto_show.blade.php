@@ -8,7 +8,7 @@
 @section('opciones_director')    
 
   @include('includes.links_director')
-  <a href="{{url('docente')}}">Panel de control</a>  
+  <a href="{{url('docente')}}" class="dropdown-item">Panel de control</a>  
 
 @endsection
 
@@ -21,16 +21,10 @@
   <div class="profile-content">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 ml-auto mr-auto">
-          <div class="profile">          
-            <div class="name">
-              <!--<h3 class="title" style="color: white;">Bienvenido {{Auth::user()->name}}</h3>-->
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div class="description text-center">       
-        <h3 class="title">Docentes que tienen el puesto <b class="text-primary">{{$puesto->puesto}}</b></h3>         
+        <h3 class="title">Asignar puesto de <b class="text-primary">{{$puesto->puesto}}</b></h3>         
         <form method="post" action="{{url('/director/puesto/'.$puesto->id.'/docentes')}}">
           {{ csrf_field() }}
             <div class="form-group">
@@ -94,8 +88,7 @@
                                 {{csrf_field()}}
 
                                 <a href="{{url('director/docente/'.$docente->id.'/view')}}" rel="tooltip" 
-                                   title="Visualizar Docente" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm" 
-                                   target="_blank">
+                                   title="Visualizar Docente" class="btn btn-info btn-fab btn-fab-mini btn-rect btn-sm">
                                     <i class="fa fa-user"></i>
                                 </a>
                                 
