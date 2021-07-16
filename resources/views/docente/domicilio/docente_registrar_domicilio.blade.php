@@ -107,7 +107,7 @@
                   >
                 </div>
                 <div class="col-md-4">
-                    <span>
+                    <span class="text-danger">
                       Nota: Si no tiene No. Interior/Exterior, coloca un 0
                     </span>
                 </div>                

@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use App\Docente;
 use App\Puesto;
 use App\Materia;
+use App\B_Domicilio;
+use App\Imparte;
+use App\PuestoAsignado;
 use Auth;
 
 class DocenteController extends Controller
@@ -74,7 +77,7 @@ class DocenteController extends Controller
         $docente->remember_token = str_random(100);
         $docente->save();
 
-        $mensaje = 'Se ha agregado un nuevo docente llamado: ' . $docente->name . '¿Quieres registrar otro docente? ';
+        $mensaje = 'Se ha agregado un nuevo docente llamado: ' . $docente->name . ' ¿Quieres registrar otro docente? ';
         return back()->with(compact('mensaje'));
     	//$table->rememberToken();
     }
@@ -137,9 +140,18 @@ class DocenteController extends Controller
 
     public function destroy ($id)
     {
-        $docentes = Docente::find($id);
-        $docentes->delete(); //Eliminamos al docente
-        $eliminado = 'Se ha eliminado el docente '.$docentes->name;
+        $docente = Docente::find($id);        
+        if ($docente->domicilios) {
+            B_Domicilio::where('docente_id',$docente->id)->delete();
+        }
+        if ($docente->puestos()) {
+            PuestoAsignado::where('docente_id',$docente->id)->delete();
+        }
+        if ($docente->materias()) {
+            Imparte::where('docente_id',$docente->id)->delete();
+        }
+        $docente->delete(); //Eliminamos al docente
+        $eliminado = 'Se ha eliminado el docente '.$docente->name;
         return back()->with(compact('eliminado'));
 
     }

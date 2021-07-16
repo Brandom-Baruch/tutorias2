@@ -13,7 +13,7 @@ class Grupo extends Model
 
 	public function getNombreCompletoAttribute()
 	{
-		return "$this->name $this->grado $this->grupo $this->semestre";
+		return "$this->name  $this->grado  $this->grupo  $this->semestre";
 	}
 
 	public function alumnos()

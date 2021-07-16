@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Padre_familia as padre;
 use App\DocumentoPadre;
+use App\B_Domicilio;
+use App\Parentezco;
 
 class PadreFamiliaController extends Controller
 {
@@ -94,7 +96,8 @@ class PadreFamiliaController extends Controller
             $padre->estado_civil = $request->input('estado_civil');
 			$padre->remember_token = str_random(100);
 			$padre->save();
-			$mensaje = 'Se ha agregado un nuevo padre de familia llamado ' .$padre->name. '¿Quieres registrar otro padre? ';
+			$mensaje = 'Se ha agregado un nuevo padre de familia llamado ' .$padre->name. 
+             ' ¿Quieres registrar otro padre? ';
 			return back()->with(compact('mensaje'));
     }	
 
@@ -181,6 +184,12 @@ class PadreFamiliaController extends Controller
     public function destroy($id)
     {
         $padre = Padre::find($id);
+        if ($padre->alumnos()) {
+            Parentezco::where('padre_id',$padre->id)->delete();
+        }
+        if ($padre->domicilios) {
+            B_Domicilio::where('padre_id',$padre->id)->delete();
+        }
         $padre->delete();
         $eliminado = 'Se ha eliminado un padre de familia llamado(a) '.$padre->name;
         return back()->with(compact('eliminado'));

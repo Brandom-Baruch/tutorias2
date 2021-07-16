@@ -54,7 +54,7 @@
             @elseif(Auth::user()->test->test_habito_estudio->where('descripcion','Inicio habito de estudio')->first())
               <a href="{{url('/alumno/test/habitos_estudio')}}" class="btn btn-warning btn-sm">{{Auth::user()->test->test_habito_estudio->descripcion}}</a>
             @elseif(Auth::user()->test->test_habito_estudio->where('descripcion','Finalizo habito de estudio')->first())
-              <button class="btn btn-success btn-sm">{{Auth::user()->test->test_habito_estudio->descripcion}}</button>           
+              <a disabled>{{Auth::user()->test->test_habito_estudio->descripcion}}</a>                        
             @endif
           </li>
           <!--<li><a href="{{url('alumno/test/habitos_estudio')}}">hábitos de estudio</a></li>-->

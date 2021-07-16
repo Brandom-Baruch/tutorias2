@@ -43,7 +43,7 @@ class PuestoController extends Controller
     	$puesto->descripcion = $request->input('descripcion');
     	$puesto->save();
     	$mensaje = 'Se ha creado un nuevo puesto exitosamente';
-    	return redirect('/director/puestos/index')->with(compact('mensaje'));
+    	return back()->with(compact('mensaje'));
     }
 
     public function edit(Request $request,$id)
@@ -78,6 +78,9 @@ class PuestoController extends Controller
     public function destroy($id)
     {
     	$puesto = Puesto::find($id);
+        if ($puesto->docentes()) {
+            PuestoAsignado::where('puesto_id',$puesto->id)->delete();
+        }
     	$puesto->delete();
     	$eliminado = 'Se ha eliminado el puesto ' .$puesto->puesto;
     	return back()->with(compact('eliminado'));

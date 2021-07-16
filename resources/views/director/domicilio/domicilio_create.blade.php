@@ -5,13 +5,11 @@
 @section('opciones_director')    
 
   @include('includes.links_director')
-  <a href="{{url('docente')}}">Panel de control</a>  
+  <a href="{{url('docente')}}" class="dropdown-item">Panel de control</a>  
 
 @endsection
 
-
 @section('content')
-
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('{{asset('img/mexico.png')}} ');"></div>
 <div class="main main-raised">
     <div class="container">             
@@ -110,6 +108,11 @@
                          name="cp"
                          value="{{old('cp')}}"
                   >
+                </div>
+                <div class="form-group col-md-4">
+                    <span class="text-danger">
+                      Nota: Si no tiene No. Interior/Exterior, coloca un 0
+                    </span>
                 </div>
               </div>              
               <div class="col-md-12 text-center">

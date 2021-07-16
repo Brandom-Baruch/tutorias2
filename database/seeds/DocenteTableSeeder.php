@@ -18,7 +18,7 @@ class DocenteTableSeeder extends Seeder
     {
         
 
-         /*Docente::create([                        
+         Docente::create([                        
             'name' => 'Admin',
             'apellidoP' => 'admin',
             'apellidoM' => 'admin',
@@ -29,21 +29,32 @@ class DocenteTableSeeder extends Seeder
             'telefono_cel' => ' ' ,            
             'remember_token' => str_random(100),
         ]);  
-        */
+        
         
 
-       /* Puesto::create([            
+        Puesto::create([            
             'puesto' => 'Director',
             'descripcion' => 'Descripcion del director',
         ]);  
+
+        Puesto::create([            
+            'puesto' => 'Tutor Escolar',
+            'descripcion' => 'Descripcion del tutor escolar',
+        ]); 
 
         PuestoAsignado::create([
 
             'docente_id' => '1',
             'puesto_id' => '1',
         ]); 
-    */
-    	$docentes = factory(Docente::class, 12)->create();
+
+        PuestoAsignado::create([
+
+            'docente_id' => '1',
+            'puesto_id' => '2',
+        ]); 
+    
+    	$docentes = factory(Docente::class, 5)->create();
         //$puesto = factory(Puesto::class,4)->create();
     
     }

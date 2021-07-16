@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Grupo;
 use App\Materia;
 use App\Asignada;
-
 class GrupoController extends Controller
 {
 
@@ -103,7 +102,10 @@ class GrupoController extends Controller
 
     public function destroy($id)
     {
-        $grupo = Grupo::find($id);
+        $grupo = Grupo::find($id);        
+        if ($grupo->materias()) {
+            Asignada::where('grupo_id',$grupo->id)->delete();
+        }
         $grupo->delete();
         $eliminado = 'Se ha eliminado el grupo ' .$grupo->name;
         return back()->with(compact('eliminado'));

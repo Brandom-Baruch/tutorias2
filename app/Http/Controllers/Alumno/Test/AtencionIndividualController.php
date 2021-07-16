@@ -45,43 +45,10 @@ class AtencionIndividualController extends Controller
         $atencion_individual->respuesta18 = $request->input('respuesta18');
         $atencion_individual->respuesta19 = $request->input('respuesta19');
         $atencion_individual->respuesta20 = $request->input('respuesta20');
-        $atencion_individual->respuesta21 = $request->input('respuesta21');  
-        $cantidad = count($request->all());  
-              
-
-        if ($cantidad >= 14) {
-
-            $atencion_individual->save();           
-            $mensaje = 'Has finalizado el test de "Atención indivualizada" exitosamente';
-            return redirect('/alumno/encuestas')->with(compact('mensaje'));            
-        }else{
-            $mensaje = "Debes de colocar por lo menos 10 incisos";
-            return back()
-            ->withInput($request->only(
-                'respuesta1',
-                'respuesta2',
-                'respuesta3',
-                'respuesta4',
-                'respuesta5',
-                'respuesta6',
-                'respuesta7',
-                'respuesta8',
-                'respuesta9',
-                'respuesta10',
-                'respuesta11',
-                'respuesta12',
-                'respuesta13',
-                'respuesta14',
-                'respuesta15',
-                'respuesta16',
-                'respuesta17',
-                'respuesta18',
-                'respuesta19',
-                'respuesta20',
-                'respuesta21'
-                ))
-            ->with(compact('mensaje'));
-        }                      
+        $atencion_individual->respuesta21 = $request->input('respuesta21');          
+        $atencion_individual->save();           
+        $mensaje = 'Has finalizado el test de "Atención indivualizada" exitosamente';
+        return redirect('/alumno/encuestas')->with(compact('mensaje'));                        
     }
 
     public function iniciar(){

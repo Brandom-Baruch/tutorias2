@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Alumno;
 use App\Grupo;
+use App\Parentezco;
+use App\B_Domicilio;
 
 class AlumnoController extends Controller
 {
     public function index(Request $request)
-    {
+    {            
+        $alumno = Alumno::find(16240011);                    
         $request->user()->autorizarPuestos('Director'); 
     	$alumnos = Alumno::orderBy('name')->paginate(10);        
     	return view('director.alumno.alumno_index')->with(compact('alumnos'));
@@ -163,7 +166,16 @@ class AlumnoController extends Controller
 
     public function destroy ($nia)
     {
-        $alumno = Alumno::find($nia);
+        $alumno = Alumno::find($nia);                
+        //elimina parentesco
+        if ($alumno->padres()) {
+            Parentezco::where('alumno_id',$alumno->nia)->delete();
+        }
+        
+        //Elimina domicilio 
+        if ($alumno->domicilios) {
+            B_Domicilio::where('alumno_id',$alumno->nia)->delete();                              
+        }                
         $alumno->delete(); //Eliminamos al docente
         $eliminado = 'Se ha eliminado el Alumno '.$alumno->name . ' nia: ' . $alumno->nia;
         return back()->with(compact('eliminado'));

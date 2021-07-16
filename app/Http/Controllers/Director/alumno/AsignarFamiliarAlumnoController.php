@@ -48,4 +48,5 @@ class AsignarFamiliarAlumnoController extends Controller
     	return back()->with(compact('eliminado'));
     	
     }
+   
 }

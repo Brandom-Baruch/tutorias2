@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Director\materia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Materia;
+use App\Imparte;
+use App\Asignada;
 
 class MateriaController extends Controller
 {   
@@ -26,14 +28,14 @@ class MateriaController extends Controller
     {
     	$rules = [
     		'name' => 'required',  
-            'descripcion' => 'required|max:90', 
+            'descripcion' => 'required',//|max:90', 
             'clave' => 'required|unique:materias', 
     	];
 
     	$message = [
     		'name.required' => 'Debes de colocar un nombre para la materia',    		
     		'descripcion.required' => 'Debes de colocar una descripción',
-            'descripcion.max' => 'Solo puedes colocar un max de 90 caracteres',
+            //'descripcion.max' => 'Solo puedes colocar un max de 90 caracteres',
     		'clave.required' => 'Debes de colocar una clave para la materia',
     		'clave.unique' => 'Esta clave ya esta en uso en una materia',
     	];
@@ -46,7 +48,7 @@ class MateriaController extends Controller
     	$materia->clave = $request->input('clave');
     	$materia->save();
     	$mensaje = 'Se ha agregado la materia ' .$materia->name . ' exitosamente.';
-    	return redirect('director/materias/index')->with(compact('mensaje'));
+    	return back()->with(compact('mensaje'));
     }
 
     public function edit(Request $request,$id)
@@ -84,6 +86,12 @@ class MateriaController extends Controller
     public function destroy ($id)
     {
     	$materia = Materia::find($id);
+        if ($materia->docentes()) {
+            Imparte::where('materia_id',$materia->id)->delete();
+        }
+        if ($materia->grupos()) {
+            Asignada::where('materia_id',$materia->id)->delete();
+        }
     	$materia->delete();
     	$eliminado = 'Se ha eliminado la materia ' .$materia->name;
     	return back()->with(compact('eliminado'));

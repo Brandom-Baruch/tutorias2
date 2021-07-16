@@ -27,8 +27,8 @@ Auth::user()->puestos->where('puesto','Tutor Escolar')->first())
         </div>
       </div>
       <div class="description text-center">
-        <h3 class="title">Reporte de alumnos de bajo rendimiento
-        	del grupo <b class="text-primary">{{$materia_grupo->name}} {{$materia_grupo->semestre}} {{$materia_grupo->grupo}}</b>
+        <h3 class="title">Reporte de reprobados y bajo rendimiento
+        	del grupo <b class="text-primary">{{$materia_grupo->nombre_completo}}</b>
         </h3>
       </div>        
       <div class="text-center">

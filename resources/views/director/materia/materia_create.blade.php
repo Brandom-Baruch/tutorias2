@@ -7,7 +7,7 @@
 @section('opciones_director')    
 
   @include('includes.links_director')
-  <a href="{{url('docente')}}">Panel de control</a>  
+  <a href="{{url('docente')}}" class="dropdown-item">Panel de control</a>  
 
 @endsection
 
@@ -17,7 +17,20 @@
 <div class="main main-raised">
   <div class="container">             
     <div class="section">
-      <h2 class="title text-center" style="color:black;">Registrar nueva Materia</h2>           
+      <h2 class="title text-center" style="color:black;">Registrar nueva Materia</h2>
+      @if (session('mensaje')) <!--Si existe un mensaje, mostrara el contenido del mensaje-->             
+          <div class="alert alert-success text-left">
+              <div class="container-fluid">
+                <div class="alert-icon">
+                  <i class="material-icons">check</i>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                </button>
+                {{ session('mensaje') }}
+              </div>
+          </div>
+      @endif           
       <form method="post" action="/director/materia/create">
         {{ csrf_field() }}
         <div class="row">            
