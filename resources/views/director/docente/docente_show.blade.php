@@ -170,6 +170,10 @@
             <div class="tab-pane text-center gallery" id="materias">
                 @if($docente->materias->isEmpty())
                     <h3 class="text-danger">No tiene ninguna materia asignada</h3>
+                    <a href="{{url('director/docente/'.$docente->id.'/materias')}}" class="btn btn-success">
+                    Agregar materia
+                    </a>
+                    <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>
                 @else
                 <div class="table-responsive">
                     <table class="table table-striped">
@@ -212,6 +216,10 @@
             <div class="tab-pane text-center gallery" id="puestos">
                 @if($docente->puestos->isEmpty())
                     <h3 class="text-danger">No tiene ningún puesto asignado</h3>
+                    <a href="{{url('director/docente/'.$docente->id.'/puestos')}}" class="btn btn-success">
+                        Agregar puesto
+                    </a>
+                    <a href="{{url('director/docentes/index')}}" class="btn btn-danger">Regresar</a>
                 @else
                     <div class="table-responsive" >
                         <table class="table table-striped">

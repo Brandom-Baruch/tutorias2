@@ -242,10 +242,7 @@
           @endif
         </div>
         <div class="tab-pane text-center gallery table-responsive" id="documentos_padre"> 
-          @if($padre->documentos_padre->isEmpty())
-            <h3 class="text-danger">No tiene ningún documento</h3>
-          @else
-            <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>                  
+          <h3>Nota: Los archivos con extensión <b>.doc, .xlsx y .pptx</b> no se pueden visualizar</h3>                  
             <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
@@ -281,9 +278,8 @@
                   @endforeach                
                 </tbody>
               </table>
-              <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                          
-            </div>
-          @endif            
+              <a href="{{url('director/padres_familia/index')}}" class="btn btn-danger">Regresar</a>                        
+            </div>            
         </div>          
       </div>              
     </div>
